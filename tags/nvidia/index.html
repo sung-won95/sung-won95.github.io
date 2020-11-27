@@ -9,7 +9,7 @@
 
     <link rel="icon" href="/images/favicon.png" type="image/png">
 
-    <title>Docker에서 원하는 GPU선택해 컨테이너로 Project실행하기 :: </title>
+    <title>nvidia :: </title>
 
     
     <link href="/css/nucleus.css?1606464829" rel="stylesheet">
@@ -38,7 +38,7 @@
 
 <script data-ad-client="ca-pub-1788337254638181" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
   </head>
-  <body class="" data-url="/devops/docker-gpu-1/">
+  <body class="" data-url="/tags/nvidia/">
     <nav id="sidebar" class="">
 
 
@@ -116,7 +116,7 @@
   
     
     <li data-nav-id="/devops/" title="devops" class="dd-item 
-        parent
+        
         
         
         ">
@@ -178,7 +178,7 @@
  
   
     
-      <li data-nav-id="/devops/docker-gpu-1/" title="Docker에서 원하는 GPU선택해 컨테이너로 Project실행하기" class="dd-item active">
+      <li data-nav-id="/devops/docker-gpu-1/" title="Docker에서 원하는 GPU선택해 컨테이너로 Project실행하기" class="dd-item ">
         <a href="/devops/docker-gpu-1/">
         Docker에서 원하는 GPU선택해 컨테이너로 Project실행하기
         
@@ -256,17 +256,6 @@
               <div>
                 <div id="top-bar">
                 
-                  
-                  
-                  
-                  <div id="top-github-link">
-                    <a class="github-link" title='Edit this page' href="sung-won95.github.iodevops/docker-gpu-1.md" target="blank">
-                      <i class="fas fa-code-branch"></i>
-                      <span id="top-github-link-text">Edit this page</span>
-                    </a>
-                  </div>
-                  
-                
                 
                 <div id="breadcrumbs" itemscope="" itemtype="http://data-vocabulary.org/Breadcrumb">
                     <span id="sidebar-toggle-span">
@@ -291,7 +280,7 @@
             
           
           
-            <a href='/'></a> > <a href='/devops/'>devops</a> > Docker에서 원하는 GPU선택해 컨테이너로 Project실행하기
+            <a href='/'></a> > <a href='/tags/'>Tags</a> > nvidia
           
          
           
@@ -304,21 +293,7 @@
                 
                     <div class="progress">
     <div class="wrapper">
-<nav id="TableOfContents">
-  <ul>
-    <li>
-      <ul>
-        <li><a href="#기본-서버-설정">기본 서버 설정</a></li>
-        <li><a href="#docker-gpu-사용-세팅">Docker GPU 사용 세팅</a></li>
-        <li><a href="#etcdockerdaemonjson">/etc/docker/daemon.json</a></li>
-        <li><a href="#nvidia-smi">nvidia-smi</a></li>
-        <li><a href="#project-tree">Project Tree</a></li>
-        <li><a href="#전체-project-tree">전체 Project Tree</a></li>
-        <li><a href="#docker-tree">docker Tree</a></li>
-      </ul>
-    </li>
-  </ul>
-</nav>
+
     </div>
 </div>
 
@@ -328,23 +303,13 @@
             
         <div id="head-tags">
         
-<div class="tags">
-
-  <a class="tag-link" href="/tags/gpu">GPU</a>
-
-  <a class="tag-link" href="/tags/docker">docker</a>
-
-  <a class="tag-link" href="/tags/docker-compose">docker-compose</a>
-
-</div>
-
         </div>
         
         <div id="body-inner">
           
             <h1>
               
-              Docker에서 원하는 GPU선택해 컨테이너로 Project실행하기
+              nvidia
             </h1>
           
 
@@ -352,91 +317,13 @@
 
 
 
-<nav id="TableOfContents">
-  <ul>
-    <li>
-      <ul>
-        <li><a href="#기본-서버-설정">기본 서버 설정</a></li>
-        <li><a href="#docker-gpu-사용-세팅">Docker GPU 사용 세팅</a></li>
-        <li><a href="#etcdockerdaemonjson">/etc/docker/daemon.json</a></li>
-        <li><a href="#nvidia-smi">nvidia-smi</a></li>
-        <li><a href="#project-tree">Project Tree</a></li>
-        <li><a href="#전체-project-tree">전체 Project Tree</a></li>
-        <li><a href="#docker-tree">docker Tree</a></li>
-      </ul>
-    </li>
-  </ul>
-</nav>
 
-<h3 id="기본-서버-설정">기본 서버 설정</h3>
-<p>OS : Ubuntu 18.04</p>
-<p>Install Package: Nvidia-driver &amp; nvidia-docker 설치</p>
-<h3 id="docker-gpu-사용-세팅">Docker GPU 사용 세팅</h3>
-<p><img src="/devops/docker-gpu-1/Untitled.png" alt="devops/docker-gpu-1/Untitled.png">
-docker 명령어를 사용하면 기본적으로 /usr/bin 경로에 있는 docker 파일이 실행됩니다. 하지만 우리의 목적은 GPU를 사용하는 것 이기 때문에 docker 명령어가 아닌 <em>nvidia-docker</em>를 사용해야 합니다. docker 와 nvidia-docker를 번갈아가면서 사용하게 된다면 헷갈리기도 하고 kubernetes, docker-compose에서는 기본적으로 docker파일을 실행하도록 설정되어 있기 때문에 default runtime을 nvidia-docker로 사용 할 수 있도록 세팅해 줘야 합니다.</p>
-<p>/etc/docker/daemon.json파일 중 첫번째줄에 &ldquo;default-runtime&rdquo;: &ldquo;nvidia&quot;부분을 추가해 주면 세팅은 완료 됩니다.</p>
-<h3 id="etcdockerdaemonjson">/etc/docker/daemon.json</h3>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json">{
-    <span style="color:#f92672">&#34;default-runtime&#34;</span>: <span style="color:#e6db74">&#34;nvidia&#34;</span>,
-    <span style="color:#f92672">&#34;runtimes&#34;</span>: {
-        <span style="color:#f92672">&#34;nvidia&#34;</span>: {
-            <span style="color:#f92672">&#34;path&#34;</span>: <span style="color:#e6db74">&#34;/usr/bin/nvidia-container-runtime&#34;</span>,
-            <span style="color:#f92672">&#34;runtimeArgs&#34;</span>: []
-        }
-    }
-}
-</code></pre></div><p>이 세팅을 완료했으면 이제 nvidia-docker 명령어와 docker 명령어 중 어떤것을 사용하든 nvidia-docker가 실행됩니다. <br>
-이제 어떤 GPU를 사용 할 것인지 우리가 사용할 수 있는 GPU가 뭐가 있는지 확인한 뒤 선택해서 사용하면 됩니다.</p>
-<h3 id="nvidia-smi">nvidia-smi</h3>
-<p><img src="/devops/docker-gpu-1/Untitled1.png" alt="devops/docker-gpu-1/Untitled1.png"></p>
-<p>확인을 해보니 0번 GPU는 2개의 프로세스가 각 7091Mib씩 차지하며 어떠한 작업을 돌리고 있는것이 보이네요!<br>
-그럼 작업에 문제 주지 않게 1번 GPU 사용하는걸로 생각하면서 Project를 만들어 보겠습니다.</p>
-<h3 id="project-tree">Project Tree</h3>
-<p>저는 늘 프로젝트 시작시에 docker, src 폴더를 만들어주고 시작합니다.</p>
-<ul>
-<li>docker : docker-compose.yml파일이 있고 docker image build부터 environment 까지 모두 관리 하는 폴더입니다. 개발환경 세팅하기 편하며 추후에 CI/CD를 세팅할때도 참고하기 편합니다.<br>
-p.s.  docker-compose에서 nfs도 사용 할 수 있습니다! 만약 nfs를 사용하고 싶으시면(<a href="../docker-volumn-nfs">여기</a>) 참고하시면 됩니다!</li>
-<li>src : 실제 실행되는 소스코드를 저장합니다. docker를 실행해 volume mount를 할때는 data, src 등 직관적인 폴더를 추가만 하면 되고 관리도 매우매우 편해졌습니다.</li>
-</ul>
-<h3 id="전체-project-tree">전체 Project Tree</h3>
-<p><img src="/devops/docker-gpu-1/Untitled2.png" alt="devops/docker-gpu-1/Untitled2.png"></p>
-<h3 id="docker-tree">docker Tree</h3>
-<p><img src="/devops/docker-gpu-1/Untitled3.png" alt="devops/docker-gpu-1/Untitled3.png"></p>
-<h5 id="docker-composeyml-세팅">docker-compose.yml 세팅</h5>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml"><span style="color:#f92672">version</span>: <span style="color:#e6db74">&#39;3.1&#39;</span>
 
-<span style="color:#f92672">services</span>:
-  <span style="color:#f92672">Python1</span>:            <span style="color:#75715e">#docker파일 이름</span>
-    <span style="color:#f92672">image</span>: <span style="color:#ae81ff">tensor_ai </span> <span style="color:#75715e">#docker image 이름</span>
-    <span style="color:#f92672">deploy</span>:           <span style="color:#75715e">#docker container 사양 설정</span>
-      <span style="color:#f92672">resources</span>:
-        <span style="color:#f92672">limits</span>:
-          <span style="color:#f92672">cpus</span>: <span style="color:#e6db74">&#39;1&#39;</span>
-    <span style="color:#f92672">build</span>:            <span style="color:#75715e">#docker image build 방법 </span>
-      <span style="color:#f92672">context</span>: <span style="color:#ae81ff">.     </span> <span style="color:#75715e">#build root 경로 이 위치를 dockerfile이 있는 폴더로 지정 한 다음 파일명만 써도 됨 </span>
-      <span style="color:#f92672">dockerfile</span>: <span style="color:#ae81ff">python/Dockerfile  </span> <span style="color:#75715e"># Dockerfile 이름 지정 | Dockerfile이면 지정 안해도 되지만 혹시나 몰라서...</span>
-    <span style="color:#f92672">volumes</span>:
-      - <span style="color:#f92672">../src:/src   #컨테이너와 실제 서버 마운트 | 실제 서버 경로 </span>: <span style="color:#ae81ff">container 경로</span>
-    <span style="color:#f92672">environment</span>:      <span style="color:#75715e">#컨테이너 안에서 사용할 환경변수 </span>
-      - <span style="color:#ae81ff">NVIDIA_VISIBLE_DEVICES=1 </span> <span style="color:#75715e">#어떤 GPU를 사용할건지 입력 | 다중사용을 원하면 0,1 과 같이 &#34;,&#34;로 구분해서 넣으면 됨</span>
-      - <span style="color:#ae81ff">VideoPath=rtsp://admin:admin!@127.0.0.1</span> <span style="color:#75715e"># 여기부터 아래는 실제 소스에서 사용할 env</span>
-      - <span style="color:#ae81ff">CameraId=camera1                       </span> <span style="color:#75715e"># Python에서 os.environ[&#34;CameraId&#34;] 로 사용 </span>
-      - <span style="color:#ae81ff">DISPLAY=unix$DISPLAY                   </span> <span style="color:#75715e"># openCV를 container 안에서 사용하려면 설정을 넣어 줘야함</span>
-      - <span style="color:#ae81ff">model=tensor_model</span>
-    <span style="color:#f92672">command</span>: <span style="color:#ae81ff">python detectvideo.py             </span> <span style="color:#75715e"># 컨테이너가 올라갈때 입력할 명령어</span>
-    <span style="color:#f92672">stdin_open</span>: <span style="color:#66d9ef">true</span>
-    <span style="color:#f92672">tty</span>: <span style="color:#66d9ef">true</span>
-</code></pre></div><p>위와 같이 docker-compose.yml 파일을 만들고 나서 docker compose up 명령어를 치면 docker container 안에서 GPU를 사용할 수 있습니다!</p>
-<p>1번 GPU에 잘 올라 가네요!</p>
-<p><img src="/devops/docker-gpu-1/Untitled4.png" alt="devops/docker-gpu-1/Untitled4.png"></p>
-<p>혹시나 잘못된 정보가 있으면 피드백 해 주세요!</p>
-<p>감사합니다</p>
 
 
 <footer class=" footline" >
 	
 </footer>
-
 
         
             <div id="utterance">    
@@ -513,7 +400,6 @@ p.s.  docker-compose에서 nfs도 사용 할 수 있습니다! 만약 nfs를 사
             
                 
                     
-                    
                 
                 
 
@@ -526,9 +412,6 @@ p.s.  docker-compose에서 nfs도 사용 할 수 있습니다! 만약 nfs를 사
             
             
                 
-                    
-                        
-                        
                     
                 
                 
@@ -561,7 +444,6 @@ p.s.  docker-compose에서 nfs도 사용 할 수 있습니다! 만약 nfs를 사
             
             
                 
-                    
                     
                 
                 
@@ -613,4 +495,3 @@ p.s.  docker-compose에서 nfs도 사용 할 수 있습니다! 만약 nfs를 사
 
   </body>
 </html>
-

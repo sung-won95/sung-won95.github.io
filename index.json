@@ -1,10 +1,17 @@
 [
 {
+	"uri": "/database/",
+	"title": "database",
+	"tags": [],
+	"description": "",
+	"content": "database  postgres replication 하는방법     "
+},
+{
 	"uri": "/devops/",
 	"title": "devops",
 	"tags": [],
 	"description": "",
-	"content": "DevOps  docker-compose에서 NFS 사용하기     Docker에서 원하는 GPU선택해 컨테이너로 Project실행하기     "
+	"content": "DevOps  docker-compose에서 NFS 사용하기     Ubuntu GPU Server NVIDIA Driver 설치 방법     Docker에서 원하는 GPU선택해 컨테이너로 Project실행하기     "
 },
 {
 	"uri": "/",
@@ -42,11 +49,39 @@
 	"content": ""
 },
 {
+	"uri": "/tags/nvidia/",
+	"title": "nvidia",
+	"tags": [],
+	"description": "",
+	"content": ""
+},
+{
+	"uri": "/tags/nvidia-driver/",
+	"title": "nvidia-driver",
+	"tags": [],
+	"description": "",
+	"content": ""
+},
+{
+	"uri": "/tags/nvidia-smi/",
+	"title": "nvidia-smi",
+	"tags": [],
+	"description": "",
+	"content": ""
+},
+{
 	"uri": "/tags/",
 	"title": "Tags",
 	"tags": [],
 	"description": "",
 	"content": ""
+},
+{
+	"uri": "/devops/nvidia-driver-install/",
+	"title": "Ubuntu GPU Server NVIDIA Driver 설치 방법",
+	"tags": ["nvidia", "nvidia-smi", "nvidia-driver"],
+	"description": "",
+	"content": "nvidia driver 설치 전 사전 세팅  OS : ubuntu 18.04  apt-get install -y gcc make #nouveau blacklist 설정 echo \u0026#34;blacklist nouveau\u0026#34; \u0026gt;\u0026gt; /etc/modprobe.d/blacklist.conf echo options nouveau modeset=0 | sudo tee -a /etc/modprobe.d/nouveau-kms.conf update-initramfs -u # options 에서 설정한 값 적용 코드 reboot now # blacklist 적용용 reboot  nvidia driver 검색 후 설치  nvidia.com 에 접속 제품 에 맞는 드라이버 선택 후 검색다운로드 하기(wget 가능)  wget [http://us.download.nvidia.com/XFree86/Linux-x86_64/440.44/NVIDIA-Linux-x86_64-440.44.run](http://us.download.nvidia.com/XFree86/Linux-x86_64/440.44/NVIDIA-Linux-x86_64-440.44.run) chmod +x NVIDIA-Linux-x86_64-440.44.run ./NVIDIA-Linux-x86_64-440.44.run 설치 후 nvidia-smi 로 설치되었는지 확인하시면 됩니다!\n"
 },
 {
 	"uri": "/tags/volume/",
@@ -65,6 +100,27 @@
 {
 	"uri": "/tags/gpu/",
 	"title": "GPU",
+	"tags": [],
+	"description": "",
+	"content": ""
+},
+{
+	"uri": "/tags/postgres/",
+	"title": "postgres",
+	"tags": [],
+	"description": "",
+	"content": ""
+},
+{
+	"uri": "/database/postgres-replication-setting/",
+	"title": "postgres replication 하는방법",
+	"tags": ["replication", "postgres"],
+	"description": "",
+	"content": "master 서버와 slave 서버에 각각 설정하는 방법이 다릅니다\nMASTER 설정   user 생성\n# psql을 Postgres 유저로 접속 후 유저 생성 sudo -u postgres psql CREATE ROLE replication WITH REPLICATION PASSWORD \u0026#39;password\u0026#39; LOGIN;   /etc/postgresql/9.5/main/postgresql.conf 파일 수정\nwal_level = hot_standby max_wal_senders = 2 max_replication_slots = 2   /etc/postgresql/9.5/main/hba.conf 파일 수정\n아래 문구 추가\nhost all all 192.168.0.138/24 trust host replication replication 192.168.0.138/24 md5 host all all ::1/128 trust   postgresql 재시작\n  STANDBY SERVER 세팅   /etc/postgresql/9.5/main/pg_hba.conf 파일 수정 아래문구 추가\nhost all all 192.168.0.0/24 trust   postgres 유저 추가\n# psql을 Postgres 유저로 접속 후 유저 생성 sudo -u postgres psql CREATE ROLE replication WITH REPLICATION PASSWORD \u0026#39;password\u0026#39; LOGIN;   master server backup 진행\n# 백업 진행하기 전 postgresql 종료 systemctl stop postgresql # 백업은 꼭 postgres 유저로 진행해야 됨 (중요) su postgres # /var/lib/postgresql/9.5/main 아래의 데이터는 데이터 베이스가 동작하는 main 디렉토리 # 하위 데이터가 없어야 백업이 정상적으로 실행됨 rm -rf /var/lib/postgresql/9.5/main/* pg_basebackup -h 192.168.0.123 -D /var/lib/postgresql/9.5/main/ -U replication -P -v -X stream   /var/lib/postgresql/9.5/main/recovery 파일 생성\nstandby_mode=\u0026#39;on\u0026#39; primary_conninfo=\u0026#39;host=192.168.0.123 port=5432 user=replication password=password\u0026#39; primary_slot_name=\u0026#39;repl_slot_01\u0026#39; trigger_file=\u0026#39;/var/lib/postgresql/9.5/main/failover_trigger\u0026#39;   postgresql 실행\nsystemctl start postgresql   replication 실행 확인   master 서버에서의 확인\nselect * from pg_stat_replication; 아래처럼 1 row 가 출력되면 1개의 replication이 돌고 있는 것   slave 에서의 확인\n/var/log/postgresql/postgresql-9.5-main.log 로그에서 아래와 같이 recovery 로그가 있으면 성공\n  master / slave 모두 확인\nps -ef | grep post 를 입력했을때 아래와 같이 recovering 이라는 프로세스가 돌고있으면 성공!\n  혹시 틀린부분 있으면 피드백 부탁드립니다!\n"
+},
+{
+	"uri": "/tags/replication/",
+	"title": "replication",
 	"tags": [],
 	"description": "",
 	"content": ""

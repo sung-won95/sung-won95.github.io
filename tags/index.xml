@@ -34,6 +34,33 @@
     </item>
     
     <item>
+      <title>nvidia</title>
+      <link>/tags/nvidia/</link>
+      <pubDate>Tue, 24 Nov 2020 14:02:42 +0900</pubDate>
+      
+      <guid>/tags/nvidia/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>nvidia-driver</title>
+      <link>/tags/nvidia-driver/</link>
+      <pubDate>Tue, 24 Nov 2020 14:02:42 +0900</pubDate>
+      
+      <guid>/tags/nvidia-driver/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>nvidia-smi</title>
+      <link>/tags/nvidia-smi/</link>
+      <pubDate>Tue, 24 Nov 2020 14:02:42 +0900</pubDate>
+      
+      <guid>/tags/nvidia-smi/</guid>
+      <description></description>
+    </item>
+    
+    <item>
       <title>volume</title>
       <link>/tags/volume/</link>
       <pubDate>Tue, 24 Nov 2020 14:02:42 +0900</pubDate>
@@ -48,6 +75,24 @@
       <pubDate>Fri, 20 Nov 2020 16:54:37 +0900</pubDate>
       
       <guid>/tags/gpu/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>postgres</title>
+      <link>/tags/postgres/</link>
+      <pubDate>Fri, 20 Nov 2020 16:54:37 +0900</pubDate>
+      
+      <guid>/tags/postgres/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>replication</title>
+      <link>/tags/replication/</link>
+      <pubDate>Fri, 20 Nov 2020 16:54:37 +0900</pubDate>
+      
+      <guid>/tags/replication/</guid>
       <description></description>
     </item>
     

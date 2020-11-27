@@ -16,6 +16,15 @@
     </item>
     
     <item>
+      <title>Ubuntu GPU Server NVIDIA Driver 설치 방법</title>
+      <link>/devops/nvidia-driver-install/</link>
+      <pubDate>Tue, 24 Nov 2020 14:02:42 +0900</pubDate>
+      
+      <guid>/devops/nvidia-driver-install/</guid>
+      <description>nvidia driver 설치 전 사전 세팅  OS : ubuntu 18.04  apt-get install -y gcc make #nouveau blacklist 설정 echo &amp;#34;blacklist nouveau&amp;#34; &amp;gt;&amp;gt; /etc/modprobe.d/blacklist.conf echo options nouveau modeset=0 | sudo tee -a /etc/modprobe.d/nouveau-kms.conf update-initramfs -u # options 에서 설정한 값 적용 코드 reboot now # blacklist 적용용 reboot  nvidia driver 검색 후 설치  nvidia.com 에 접속 제품 에 맞는 드라이버 선택 후 검색다운로드 하기(wget 가능)  wget [http://us.</description>
+    </item>
+    
+    <item>
       <title>Docker에서 원하는 GPU선택해 컨테이너로 Project실행하기</title>
       <link>/devops/docker-gpu-1/</link>
       <pubDate>Fri, 20 Nov 2020 16:54:37 +0900</pubDate>

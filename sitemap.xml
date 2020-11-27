@@ -3,6 +3,11 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>/database/</loc>
+    <lastmod>2020-02-21T18:58:35+09:00</lastmod>
+  </url>
+  
+  <url>
     <loc>/devops/</loc>
     <lastmod>2020-02-21T18:58:35+09:00</lastmod>
   </url>
@@ -33,7 +38,27 @@
   </url>
   
   <url>
+    <loc>/tags/nvidia/</loc>
+    <lastmod>2020-11-24T14:02:42+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/tags/nvidia-driver/</loc>
+    <lastmod>2020-11-24T14:02:42+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/tags/nvidia-smi/</loc>
+    <lastmod>2020-11-24T14:02:42+09:00</lastmod>
+  </url>
+  
+  <url>
     <loc>/tags/</loc>
+    <lastmod>2020-11-24T14:02:42+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/devops/nvidia-driver-install/</loc>
     <lastmod>2020-11-24T14:02:42+09:00</lastmod>
   </url>
   
@@ -49,6 +74,21 @@
   
   <url>
     <loc>/tags/gpu/</loc>
+    <lastmod>2020-11-20T16:54:37+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/tags/postgres/</loc>
+    <lastmod>2020-11-20T16:54:37+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/database/postgres-replication-setting/</loc>
+    <lastmod>2020-11-20T16:54:37+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/tags/replication/</loc>
     <lastmod>2020-11-20T16:54:37+09:00</lastmod>
   </url>
   
