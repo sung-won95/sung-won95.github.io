@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>docker-compose on </title>
+    <link>/tags/docker-compose/</link>
+    <description>Recent content in docker-compose on </description>
+    <generator>Hugo -- gohugo.io</generator>
+    <lastBuildDate>Tue, 24 Nov 2020 14:02:42 +0900</lastBuildDate><atom:link href="/tags/docker-compose/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>docker-compose에서 NFS 사용하기</title>
+      <link>/devops/docker-volumn-nfs/</link>
+      <pubDate>Tue, 24 Nov 2020 14:02:42 +0900</pubDate>
+      
+      <guid>/devops/docker-volumn-nfs/</guid>
+      <description>Docker-compose Setting version: &amp;#39;3.1&amp;#39; volumes: nfs-data: #nfs volume 이름 지정  driver: local  driver_opts: type: nfs  #nfs 서비스로 지정  device: &amp;#34;:/your/nfs/path&amp;#34; #nfs mount 경로 o: &amp;#34;addr=192.168.2.27,nolock,soft,rw&amp;#34; #nfs서버 세팅 services: AI-blur: image: blur deploy: resources: limits: cpus: &amp;#39;24&amp;#39; memory: 128G build: context: . dockerfile: blur/Dockerfile environment: - NVIDIA_VISIBLE_DEVICES=2,3,4,5  #GPU 설정 env volumes: - nfs-blur:/root/workspace/nfs-data  # [volume명]:[컨테이너 내부 마운트 위치] stdin_open: true tty: true docker-compose에서도 위와같이 nfs를 사용 할 수 있습니다!</description>
+    </item>
+    
+    <item>
+      <title>Docker에서 원하는 GPU선택해 컨테이너로 Project실행하기</title>
+      <link>/devops/docker-gpu-1/</link>
+      <pubDate>Fri, 20 Nov 2020 16:54:37 +0900</pubDate>
+      
+      <guid>/devops/docker-gpu-1/</guid>
+      <description>기본 서버 설정 OS : Ubuntu 18.04
+Install Package: Nvidia-driver &amp;amp; nvidia-docker 설치
+Docker GPU 사용 세팅 docker 명령어를 사용하면 기본적으로 /usr/bin 경로에 있는 docker 파일이 실행됩니다. 하지만 우리의 목적은 GPU를 사용하는 것 이기 때문에 docker 명령어가 아닌 nvidia-docker를 사용해야 합니다. docker 와 nvidia-docker를 번갈아가면서 사용하게 된다면 헷갈리기도 하고 kubernetes, docker-compose에서는 기본적으로 docker파일을 실행하도록 설정되어 있기 때문에 default runtime을 nvidia-docker로 사용 할 수 있도록 세팅해 줘야 합니다.
+/etc/docker/daemon.json파일 중 첫번째줄에 &amp;ldquo;default-runtime&amp;rdquo;: &amp;ldquo;nvidia&amp;quot;부분을 추가해 주면 세팅은 완료 됩니다.</description>
+    </item>
+    
+  </channel>
+</rss>

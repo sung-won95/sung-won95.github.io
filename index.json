@@ -1,0 +1,78 @@
+[
+{
+	"uri": "/devops/",
+	"title": "devops",
+	"tags": [],
+	"description": "",
+	"content": "DevOps  docker-compose에서 NFS 사용하기     Docker에서 원하는 GPU선택해 컨테이너로 Project실행하기     "
+},
+{
+	"uri": "/",
+	"title": "",
+	"tags": [],
+	"description": "",
+	"content": ""
+},
+{
+	"uri": "/tags/docker/",
+	"title": "docker",
+	"tags": [],
+	"description": "",
+	"content": ""
+},
+{
+	"uri": "/tags/docker-compose/",
+	"title": "docker-compose",
+	"tags": [],
+	"description": "",
+	"content": ""
+},
+{
+	"uri": "/devops/docker-volumn-nfs/",
+	"title": "docker-compose에서 NFS 사용하기",
+	"tags": ["nfs", "docker", "docker-compose", "volume"],
+	"description": "",
+	"content": "Docker-compose Setting version: \u0026#39;3.1\u0026#39; volumes: nfs-data: #nfs volume 이름 지정  driver: local  driver_opts: type: nfs  #nfs 서비스로 지정  device: \u0026#34;:/your/nfs/path\u0026#34; #nfs mount 경로 o: \u0026#34;addr=192.168.2.27,nolock,soft,rw\u0026#34; #nfs서버 세팅 services: AI-blur: image: blur deploy: resources: limits: cpus: \u0026#39;24\u0026#39; memory: 128G build: context: . dockerfile: blur/Dockerfile environment: - NVIDIA_VISIBLE_DEVICES=2,3,4,5  #GPU 설정 env volumes: - nfs-blur:/root/workspace/nfs-data  # [volume명]:[컨테이너 내부 마운트 위치] stdin_open: true tty: true docker-compose에서도 위와같이 nfs를 사용 할 수 있습니다!\n추가적으로 궁금하신건 아래 링크 중 volume 부분 참고하시면 됩니다\nDocker-Compose-공식문서\n"
+},
+{
+	"uri": "/tags/nfs/",
+	"title": "nfs",
+	"tags": [],
+	"description": "",
+	"content": ""
+},
+{
+	"uri": "/tags/",
+	"title": "Tags",
+	"tags": [],
+	"description": "",
+	"content": ""
+},
+{
+	"uri": "/tags/volume/",
+	"title": "volume",
+	"tags": [],
+	"description": "",
+	"content": ""
+},
+{
+	"uri": "/devops/docker-gpu-1/",
+	"title": "Docker에서 원하는 GPU선택해 컨테이너로 Project실행하기",
+	"tags": ["GPU", "docker", "docker-compose"],
+	"description": "",
+	"content": "기본 서버 설정 OS : Ubuntu 18.04\nInstall Package: Nvidia-driver \u0026amp; nvidia-docker 설치\nDocker GPU 사용 세팅 docker 명령어를 사용하면 기본적으로 /usr/bin 경로에 있는 docker 파일이 실행됩니다. 하지만 우리의 목적은 GPU를 사용하는 것 이기 때문에 docker 명령어가 아닌 nvidia-docker를 사용해야 합니다. docker 와 nvidia-docker를 번갈아가면서 사용하게 된다면 헷갈리기도 하고 kubernetes, docker-compose에서는 기본적으로 docker파일을 실행하도록 설정되어 있기 때문에 default runtime을 nvidia-docker로 사용 할 수 있도록 세팅해 줘야 합니다.\n/etc/docker/daemon.json파일 중 첫번째줄에 \u0026ldquo;default-runtime\u0026rdquo;: \u0026ldquo;nvidia\u0026quot;부분을 추가해 주면 세팅은 완료 됩니다.\n/etc/docker/daemon.json { \u0026#34;default-runtime\u0026#34;: \u0026#34;nvidia\u0026#34;, \u0026#34;runtimes\u0026#34;: { \u0026#34;nvidia\u0026#34;: { \u0026#34;path\u0026#34;: \u0026#34;/usr/bin/nvidia-container-runtime\u0026#34;, \u0026#34;runtimeArgs\u0026#34;: [] } } } 이 세팅을 완료했으면 이제 nvidia-docker 명령어와 docker 명령어 중 어떤것을 사용하든 nvidia-docker가 실행됩니다. 이제 어떤 GPU를 사용 할 것인지 우리가 사용할 수 있는 GPU가 뭐가 있는지 확인한 뒤 선택해서 사용하면 됩니다.\nnvidia-smi 확인을 해보니 0번 GPU는 2개의 프로세스가 각 7091Mib씩 차지하며 어떠한 작업을 돌리고 있는것이 보이네요!\n그럼 작업에 문제 주지 않게 1번 GPU 사용하는걸로 생각하면서 Project를 만들어 보겠습니다.\nProject Tree 저는 늘 프로젝트 시작시에 docker, src 폴더를 만들어주고 시작합니다.\n docker : docker-compose.yml파일이 있고 docker image build부터 environment 까지 모두 관리 하는 폴더입니다. 개발환경 세팅하기 편하며 추후에 CI/CD를 세팅할때도 참고하기 편합니다.\np.s. docker-compose에서 nfs도 사용 할 수 있습니다! 만약 nfs를 사용하고 싶으시면(여기) 참고하시면 됩니다! src : 실제 실행되는 소스코드를 저장합니다. docker를 실행해 volume mount를 할때는 data, src 등 직관적인 폴더를 추가만 하면 되고 관리도 매우매우 편해졌습니다.  전체 Project Tree docker Tree docker-compose.yml 세팅 version: \u0026#39;3.1\u0026#39; services: Python1: #docker파일 이름 image: tensor_ai  #docker image 이름 deploy: #docker container 사양 설정 resources: limits: cpus: \u0026#39;1\u0026#39; build: #docker image build 방법  context: .  #build root 경로 이 위치를 dockerfile이 있는 폴더로 지정 한 다음 파일명만 써도 됨  dockerfile: python/Dockerfile  # Dockerfile 이름 지정 | Dockerfile이면 지정 안해도 되지만 혹시나 몰라서... volumes: - ../src:/src #컨테이너와 실제 서버 마운트 | 실제 서버 경로 : container 경로 environment: #컨테이너 안에서 사용할 환경변수  - NVIDIA_VISIBLE_DEVICES=1  #어떤 GPU를 사용할건지 입력 | 다중사용을 원하면 0,1 과 같이 \u0026#34;,\u0026#34;로 구분해서 넣으면 됨 - VideoPath=rtsp://admin:admin!@127.0.0.1 # 여기부터 아래는 실제 소스에서 사용할 env - CameraId=camera1  # Python에서 os.environ[\u0026#34;CameraId\u0026#34;] 로 사용  - DISPLAY=unix$DISPLAY  # openCV를 container 안에서 사용하려면 설정을 넣어 줘야함 - model=tensor_model command: python detectvideo.py  # 컨테이너가 올라갈때 입력할 명령어 stdin_open: true tty: true 위와 같이 docker-compose.yml 파일을 만들고 나서 docker compose up 명령어를 치면 docker container 안에서 GPU를 사용할 수 있습니다!\n1번 GPU에 잘 올라 가네요!\n혹시나 잘못된 정보가 있으면 피드백 해 주세요!\n감사합니다\n"
+},
+{
+	"uri": "/tags/gpu/",
+	"title": "GPU",
+	"tags": [],
+	"description": "",
+	"content": ""
+},
+{
+	"uri": "/categories/",
+	"title": "Categories",
+	"tags": [],
+	"description": "",
+	"content": ""
+}]

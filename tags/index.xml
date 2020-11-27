@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Tags on </title>
+    <link>/tags/</link>
+    <description>Recent content in Tags on </description>
+    <generator>Hugo -- gohugo.io</generator>
+    <lastBuildDate>Tue, 24 Nov 2020 14:02:42 +0900</lastBuildDate><atom:link href="/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>docker</title>
+      <link>/tags/docker/</link>
+      <pubDate>Tue, 24 Nov 2020 14:02:42 +0900</pubDate>
+      
+      <guid>/tags/docker/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>docker-compose</title>
+      <link>/tags/docker-compose/</link>
+      <pubDate>Tue, 24 Nov 2020 14:02:42 +0900</pubDate>
+      
+      <guid>/tags/docker-compose/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>nfs</title>
+      <link>/tags/nfs/</link>
+      <pubDate>Tue, 24 Nov 2020 14:02:42 +0900</pubDate>
+      
+      <guid>/tags/nfs/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>volume</title>
+      <link>/tags/volume/</link>
+      <pubDate>Tue, 24 Nov 2020 14:02:42 +0900</pubDate>
+      
+      <guid>/tags/volume/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>GPU</title>
+      <link>/tags/gpu/</link>
+      <pubDate>Fri, 20 Nov 2020 16:54:37 +0900</pubDate>
+      
+      <guid>/tags/gpu/</guid>
+      <description></description>
+    </item>
+    
+  </channel>
+</rss>
