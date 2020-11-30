@@ -12,20 +12,20 @@
     <title>Docker에서 원하는 GPU선택해 컨테이너로 Project실행하기 :: </title>
 
     
-    <link href="/css/nucleus.css?1606703738" rel="stylesheet">
-    <link href="/css/fontawesome-all.min.css?1606703738" rel="stylesheet">
-    <link href="/css/hybrid.css?1606703738" rel="stylesheet">
-    <link href="/css/featherlight.min.css?1606703738" rel="stylesheet">
-    <link href="/css/perfect-scrollbar.min.css?1606703738" rel="stylesheet">
-    <link href="/css/auto-complete.css?1606703738" rel="stylesheet">
-    <link href="/css/atom-one-dark-reasonable.css?1606703738" rel="stylesheet">
-    <link href="/css/theme.css?1606703738" rel="stylesheet">
-    <link href="/css/hugo-theme.css?1606703738" rel="stylesheet">
+    <link href="/css/nucleus.css?1606725163" rel="stylesheet">
+    <link href="/css/fontawesome-all.min.css?1606725163" rel="stylesheet">
+    <link href="/css/hybrid.css?1606725163" rel="stylesheet">
+    <link href="/css/featherlight.min.css?1606725163" rel="stylesheet">
+    <link href="/css/perfect-scrollbar.min.css?1606725163" rel="stylesheet">
+    <link href="/css/auto-complete.css?1606725163" rel="stylesheet">
+    <link href="/css/atom-one-dark-reasonable.css?1606725163" rel="stylesheet">
+    <link href="/css/theme.css?1606725163" rel="stylesheet">
+    <link href="/css/hugo-theme.css?1606725163" rel="stylesheet">
     
-      <link href="/css/theme-mine.css?1606703738" rel="stylesheet">
+      <link href="/css/theme-mine.css?1606725163" rel="stylesheet">
     
 
-    <script src="/js/jquery-3.3.1.min.js?1606703738"></script>
+    <script src="/js/jquery-3.3.1.min.js?1606725163"></script>
 
     <style>
       :root #header + #content > #left > #rlblock_left{
@@ -206,6 +206,57 @@
  
 
           
+          
+
+
+ 
+  
+    
+    <li data-nav-id="/tech/" title="tech" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/tech/">
+          <i class='fas fa-angle-right'></i>&nbsp;tech
+          
+      </a>
+      
+      
+        <ul>
+          
+          
+          
+          
+        
+          
+            
+            
+
+
+ 
+  
+    
+      <li data-nav-id="/tech/rtsp-opencv-yolov4/" title="Opencv를 이용하여 YOLOv4로 CCTV 영상 분석하기" class="dd-item ">
+        <a href="/tech/rtsp-opencv-yolov4/">
+        Opencv를 이용하여 YOLOv4로 CCTV 영상 분석하기
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+        
+        </ul>
+              
+    </li>
+  
+ 
+
+          
          
     </ul>
 
@@ -314,13 +365,15 @@
     <div class="wrapper">
 <nav id="TableOfContents">
   <ul>
-    <li>
+    <li><a href="#기본-서버-설정">기본 서버 설정</a></li>
+    <li><a href="#docker-gpu-사용-세팅">Docker GPU 사용 세팅</a>
       <ul>
-        <li><a href="#기본-서버-설정">기본 서버 설정</a></li>
-        <li><a href="#docker-gpu-사용-세팅">Docker GPU 사용 세팅</a></li>
         <li><a href="#etcdockerdaemonjson">/etc/docker/daemon.json</a></li>
         <li><a href="#nvidia-smi">nvidia-smi</a></li>
-        <li><a href="#project-tree">Project Tree</a></li>
+      </ul>
+    </li>
+    <li><a href="#project-tree">Project Tree</a>
+      <ul>
         <li><a href="#전체-project-tree">전체 Project Tree</a></li>
         <li><a href="#docker-tree">docker Tree</a></li>
       </ul>
@@ -362,13 +415,15 @@
 
 <nav id="TableOfContents">
   <ul>
-    <li>
+    <li><a href="#기본-서버-설정">기본 서버 설정</a></li>
+    <li><a href="#docker-gpu-사용-세팅">Docker GPU 사용 세팅</a>
       <ul>
-        <li><a href="#기본-서버-설정">기본 서버 설정</a></li>
-        <li><a href="#docker-gpu-사용-세팅">Docker GPU 사용 세팅</a></li>
         <li><a href="#etcdockerdaemonjson">/etc/docker/daemon.json</a></li>
         <li><a href="#nvidia-smi">nvidia-smi</a></li>
-        <li><a href="#project-tree">Project Tree</a></li>
+      </ul>
+    </li>
+    <li><a href="#project-tree">Project Tree</a>
+      <ul>
         <li><a href="#전체-project-tree">전체 Project Tree</a></li>
         <li><a href="#docker-tree">docker Tree</a></li>
       </ul>
@@ -376,10 +431,10 @@
   </ul>
 </nav>
 
-<h3 id="기본-서버-설정">기본 서버 설정</h3>
+<h2 id="기본-서버-설정">기본 서버 설정</h2>
 <p>OS : Ubuntu 18.04</p>
 <p>Install Package: Nvidia-driver &amp; nvidia-docker 설치</p>
-<h3 id="docker-gpu-사용-세팅">Docker GPU 사용 세팅</h3>
+<h2 id="docker-gpu-사용-세팅">Docker GPU 사용 세팅</h2>
 <p><img src="/devops/docker-gpu-1/Untitled.png" alt="devops/docker-gpu-1/Untitled.png">
 docker 명령어를 사용하면 기본적으로 /usr/bin 경로에 있는 docker 파일이 실행됩니다. 하지만 우리의 목적은 GPU를 사용하는 것 이기 때문에 docker 명령어가 아닌 <em>nvidia-docker</em>를 사용해야 합니다. docker 와 nvidia-docker를 번갈아가면서 사용하게 된다면 헷갈리기도 하고 kubernetes, docker-compose에서는 기본적으로 docker파일을 실행하도록 설정되어 있기 때문에 default runtime을 nvidia-docker로 사용 할 수 있도록 세팅해 줘야 합니다.</p>
 <p>/etc/docker/daemon.json파일 중 첫번째줄에 &ldquo;default-runtime&rdquo;: &ldquo;nvidia&quot;부분을 추가해 주면 세팅은 완료 됩니다.</p>
@@ -399,7 +454,7 @@ docker 명령어를 사용하면 기본적으로 /usr/bin 경로에 있는 docke
 <p><img src="/devops/docker-gpu-1/Untitled1.png" alt="devops/docker-gpu-1/Untitled1.png"></p>
 <p>확인을 해보니 0번 GPU는 2개의 프로세스가 각 7091Mib씩 차지하며 어떠한 작업을 돌리고 있는것이 보이네요!<br>
 그럼 작업에 문제 주지 않게 1번 GPU 사용하는걸로 생각하면서 Project를 만들어 보겠습니다.</p>
-<h3 id="project-tree">Project Tree</h3>
+<h2 id="project-tree">Project Tree</h2>
 <p>저는 늘 프로젝트 시작시에 docker, src 폴더를 만들어주고 시작합니다.</p>
 <ul>
 <li>docker : docker-compose.yml파일이 있고 docker image build부터 environment 까지 모두 관리 하는 폴더입니다. 개발환경 세팅하기 편하며 추후에 CI/CD를 세팅할때도 참고하기 편합니다.<br>
@@ -410,7 +465,7 @@ p.s.  docker-compose에서 nfs도 사용 할 수 있습니다! 만약 nfs를 사
 <p><img src="/devops/docker-gpu-1/Untitled2.png" alt="devops/docker-gpu-1/Untitled2.png"></p>
 <h3 id="docker-tree">docker Tree</h3>
 <p><img src="/devops/docker-gpu-1/Untitled3.png" alt="devops/docker-gpu-1/Untitled3.png"></p>
-<h5 id="docker-composeyml-세팅">docker-compose.yml 세팅</h5>
+<h4 id="docker-composeyml-세팅">docker-compose.yml 세팅</h4>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml"><span style="color:#f92672">version</span>: <span style="color:#e6db74">&#39;3.1&#39;</span>
 
 <span style="color:#f92672">services</span>:
@@ -585,6 +640,41 @@ p.s.  docker-compose에서 nfs도 사용 할 수 있습니다! 만약 nfs를 사
             
         
                     
+                        
+            
+            
+                
+                    
+                        
+                        
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
             
         
         
@@ -600,19 +690,19 @@ p.s.  docker-compose에서 nfs도 사용 할 수 있습니다! 만약 nfs를 사
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/js/clipboard.min.js?1606703738"></script>
-    <script src="/js/perfect-scrollbar.min.js?1606703738"></script>
-    <script src="/js/perfect-scrollbar.jquery.min.js?1606703738"></script>
-    <script src="/js/jquery.sticky.js?1606703738"></script>
-    <script src="/js/featherlight.min.js?1606703738"></script>
-    <script src="/js/highlight.pack.js?1606703738"></script>
+    <script src="/js/clipboard.min.js?1606725163"></script>
+    <script src="/js/perfect-scrollbar.min.js?1606725163"></script>
+    <script src="/js/perfect-scrollbar.jquery.min.js?1606725163"></script>
+    <script src="/js/jquery.sticky.js?1606725163"></script>
+    <script src="/js/featherlight.min.js?1606725163"></script>
+    <script src="/js/highlight.pack.js?1606725163"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/js/modernizr.custom-3.6.0.js?1606703738"></script>
-    <script src="/js/learn.js?1606703738"></script>
-    <script src="/js/hugo-learn.js?1606703738"></script>
+    <script src="/js/modernizr.custom-3.6.0.js?1606725163"></script>
+    <script src="/js/learn.js?1606725163"></script>
+    <script src="/js/hugo-learn.js?1606725163"></script>
 
-    <link href="/mermaid/mermaid.css?1606703738" rel="stylesheet" />
-    <script src="/mermaid/mermaid.js?1606703738"></script>
+    <link href="/mermaid/mermaid.css?1606725163" rel="stylesheet" />
+    <script src="/mermaid/mermaid.js?1606725163"></script>
     <script>
         mermaid.initialize({ startOnLoad: true });
     </script>

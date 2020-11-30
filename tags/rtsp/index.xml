@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>rtsp on </title>
+    <link>/tags/rtsp/</link>
+    <description>Recent content in rtsp on </description>
+    <generator>Hugo -- gohugo.io</generator>
+    <lastBuildDate>Tue, 24 Nov 2020 14:02:42 +0900</lastBuildDate><atom:link href="/tags/rtsp/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Opencv를 이용하여 YOLOv4로 CCTV 영상 분석하기</title>
+      <link>/tech/rtsp-opencv-yolov4/</link>
+      <pubDate>Tue, 24 Nov 2020 14:02:42 +0900</pubDate>
+      
+      <guid>/tech/rtsp-opencv-yolov4/</guid>
+      <description>프롤로그 안녕하세요 오늘은 OpenCV를 사용하여 CCTV video stream(RTSP)에 YOLO를 돌린 프로젝트 후기를 남겨보려고 합니다. 이 프로젝트는 실시간으로 object detecting 하는 것을 최우선 목표로 진행했습니다. 2K CCTV에서 RTSP 서버를 열어주고 딥러닝(YOLO v4)을 통해 object detecting을 진행 한 뒤 모니터링 서버에서 보여줄때까지 지연시간이 2초 이하로 진행해야 했습니다.
+환경 &amp;amp; 목표  CCTV : 2K RTSP Stream, 16EA Network : 10G GPU : Tesla T4, 8EA AI Model : YOLO v4, 5개 object 구분 목표 : 모니터링 서버에서 2초 이내 detecting object 확인  설계도 RTSP → YOLO v4(분석) | Tesla T4 이용 → View</description>
+    </item>
+    
+  </channel>
+</rss>

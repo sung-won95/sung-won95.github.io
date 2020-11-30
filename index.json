@@ -14,6 +14,13 @@
 	"content": "DevOps  docker-compose에서 NFS 사용하기     Ubuntu GPU Server NVIDIA Driver 설치 방법     Docker에서 원하는 GPU선택해 컨테이너로 Project실행하기     "
 },
 {
+	"uri": "/tech/",
+	"title": "tech",
+	"tags": [],
+	"description": "",
+	"content": "tech  Opencv를 이용하여 YOLOv4로 CCTV 영상 분석하기     "
+},
+{
 	"uri": "/",
 	"title": "",
 	"tags": [],
@@ -70,8 +77,43 @@
 	"content": ""
 },
 {
+	"uri": "/tags/opencv/",
+	"title": "opencv",
+	"tags": [],
+	"description": "",
+	"content": ""
+},
+{
+	"uri": "/tech/rtsp-opencv-yolov4/",
+	"title": "Opencv를 이용하여 YOLOv4로 CCTV 영상 분석하기",
+	"tags": ["python", "tensorflow", "rtsp", "yolo", "opencv"],
+	"description": "",
+	"content": "프롤로그 안녕하세요 오늘은 OpenCV를 사용하여 CCTV video stream(RTSP)에 YOLO를 돌린 프로젝트 후기를 남겨보려고 합니다. 이 프로젝트는 실시간으로 object detecting 하는 것을 최우선 목표로 진행했습니다. 2K CCTV에서 RTSP 서버를 열어주고 딥러닝(YOLO v4)을 통해 object detecting을 진행 한 뒤 모니터링 서버에서 보여줄때까지 지연시간이 2초 이하로 진행해야 했습니다.\n환경 \u0026amp; 목표  CCTV : 2K RTSP Stream, 16EA Network : 10G GPU : Tesla T4, 8EA AI Model : YOLO v4, 5개 object 구분 목표 : 모니터링 서버에서 2초 이내 detecting object 확인  설계도 RTSP → YOLO v4(분석) | Tesla T4 이용 → View\np.s. YOLO v4(학습 class 5개, 총 용량 268M)모델 2개를 Tesla T4 16GB를 사용해 인퍼런스를 진행하면 10FPS 방어가 가능했습니다.\nDocker Setting TensorFlow GPU버전을 사용해야 하기에 tensorflow 공식 이미지중 gpu 태그가 붙은 이미지를 사용했습니다. 또한 docker 내부에서 OpenCV도 사용해야 했기에 ffmpeg을 설치해줬습니다.\ndocker-compose에서 GPU세팅 및 OpenCV 사용 세팅은 (여기)를 참고해 주세요\nDockerfile FROMtensorflow/tensorflow:2.3.0-gpuRUN apt-get updateRUN apt-get install ffmpeg libsm6 libxext6 -yWORKDIR/srcENV PYTHONUNBUFFERED=0 COPY python/requirements.txt ./RUN pip3 install --no-cache-dir -r requirements.txt COPY . /modulerequirements.txt amqp==5.0.1 billiard==3.6.3.0 celery==5.0.0 click==7.1.2 click-didyoumean==0.0.3 click-repl==0.1.6 kombu==5.0.2 prompt-toolkit==3.0.7 pytz==2020.1 vine==5.0.0 wcwidth==0.2.5 opencv-python lxml tqdm absl-py matplotlib easydict pillow docker-compose version: \u0026#39;3.1\u0026#39; services: AirForcePython1: image: tensor_ai deploy: resources: limits: cpus: \u0026#39;1\u0026#39; build: context: . dockerfile: python/Dockerfile volumes: - ../src:/src environment: - VideoPath=rtsp://admin:qazwsx123!@192.168.0.1:554/RTSPSTREAM - CameraId=camera1 - DestIp=192.168.0.1 - DISPLAY=unix$DISPLAY - NVIDIA_VISIBLE_DEVICES=0 - model=yolov4_airforce command: python detectvideo.py stdin_open: true tty: true 삽질의 기록 GPU를 어떻게 나누지\u0026hellip;. 처음 시작하면서 부터 난관에 봉착했습니다. 일단 TensorFlow를 실행해서 YOLO를 돌린것까진 좋았는데\u0026hellip; 프레임당 100ms 이하로 나오는것도 좋았는데 YOLO를 실행하기만 하면 GPU RAM을 모두 다 차지해버립니다. OTL\u0026hellip; 열심히 구글링 해본 결과 config.gpu_options.allow_growth 옵션을 끄지 않으면 TensorFlow가 남은 GPU RAM을 모두 선점해버리는 현상이 있었습니다. 해결 방법으로는 옵션을 False로 바꾸고 초기 RAM을 얼만큼 차지할지 config.gpu_options.per_process_gpu_memory_fraction 옵션에 넣어주면 됩니다!!! 저는 테스트 결과 stream 3개까지도 아슬아슬하게 10 FPS 방어가 됐는데 GPU가 모자라는게 아니니 GPU 1개당 2개 Stream을 할당해줬습니다.\np.s. 각 GPU에 할당하는건 docker-compose 에서 세팅해줬습니다. NVIDIA_VISIBLE_DEVICES 옵션을 잘 세팅하시면 됩니다 ㅎㅅㅎ\nconfig = ConfigProto() config.gpu_options.allow_growth = False config.gpu_options.per_process_gpu_memory_fraction = 0.4 session = InteractiveSession(config=config) Docker가 이유없이 계속 죽는다\u0026hellip;. try catch로 감싸진게 전혀 없는데 log를 아무리 뒤져도 에러코드가 나오지 않고 죽는 현상이 있었습니다. 정말 docker stop 명령어를 쓴 듯 갑자기 docker가 죽어버렸습니다. 이것도 반나절동안 삽질한 결과 OOM(Out Of Memory)라는 결론을 얻었습니다. RTSP Stream에서 가지고 오는 속도에 비해 object detecting 속도가 느려 메모리에 계속 쌓였던게 원인이였습니다. 이 문제를 해결하기 위해 아래처럼 queue를 사용했습니다. queue size를 3으로 해놓으면 버퍼가 체감이 되었으며 그렇다고 사이즈를 1로 해놓으면 프레임 대기시간이 생기는건지 2보다 느린 관계로 queue size는 2로 설정했습니다\nimport queue q = queue.Queue(2) def Receive(): video_path = os.environ[\u0026#34;VideoPath\u0026#34;] vid = cv2.VideoCapture(video_path) while True: return_value, frame = vid.read() if return_value: q.put(cv2.cvtColor(frame, cv2.COLOR_BGR2RGB)) def main(_argv): p1 = threading.Thread(target=Receive) p1.start() while True: try: if q.empty() != True: frame = q.get() # next Code RTSP Stream 재부팅시 자동 연결이 안된다\u0026hellip;. 드디어 마지막 에러사항입니다! 위와 비슷하지만 docker가 죽진 않았으나 더이상 detecting log가 쌓이지 않는 현상이 있었습니다. 바로 RTSP Stream이 죽어도 receive 함수가 죽지 않았던 것입니다. 단순하게 생각해서 RTSP Stream이 재부팅 되어도 URL이 바뀌지도 않고 기존에 Stream을 계속 read하려고 하면 재부팅 된 뒤 read가 될 줄 알았던 제 어리석은 생각때문이였습니다. vid.read()에서 왜 true, false를 반환하겠니\u0026hellip;\u0026hellip; 여튼 그래서 vid.read가 false를 반환할 때 제 쓰레드를 죽인 뒤 다시 쓰레드를 생성해 새로운 stream을 받아오는걸로 코딩을 했습니다. 쓰레드를 생성할 때 setDaemon(True) 설정 안하면 thread가 정상적으로 죽지 않아서 ram 누수가 발생합니다. 그러니 꼭 setDaemon(True) 설정을 해주시고 맨위에 객체 만들었다고 새로운 객체를 만들지 않고 다시 start 함수만 사용하면 에러가 발생합니다. 어차피 기존 쓰레드는 반납되었으니 새로운 쓰레드를 만들어 사용하는게 좋습니다.\ndef Receive(): print(\u0026#34;start Reveive\u0026#34;) video_path = os.environ[\u0026#34;VideoPath\u0026#34;] print(\u0026#34;Video from: \u0026#34;, video_path ) vid = cv2.VideoCapture(video_path) while True: return_value, frame = vid.read() if return_value: q.put(cv2.cvtColor(frame, cv2.COLOR_BGR2RGB)) else: break def main(_argv): p1 = threading.Thread(target=Receive) p1.setDaemon(True) p1.start() while True: if q.empty() != True: frame = q.get() # next Code elif not p1.isAlive(): time.sleep(5) p1 = threading.Thread(target=Receive) p1.setDaemon(True) p1.start() 이렇게 RTSP Stream으로부터 원하는 만큼의 GPU를 사용해 딥러닝을 돌려 확인하는 것 까지 내용을 마쳤습니다. 추후에 이슈사항이 있으면 이 페이지에 추가하겠습니다.\n궁금한점이나 피드백은 환영합니다. 감사합니다.\n"
+},
+{
+	"uri": "/tags/python/",
+	"title": "python",
+	"tags": [],
+	"description": "",
+	"content": ""
+},
+{
+	"uri": "/tags/rtsp/",
+	"title": "rtsp",
+	"tags": [],
+	"description": "",
+	"content": ""
+},
+{
 	"uri": "/tags/",
 	"title": "Tags",
+	"tags": [],
+	"description": "",
+	"content": ""
+},
+{
+	"uri": "/tags/tensorflow/",
+	"title": "tensorflow",
 	"tags": [],
 	"description": "",
 	"content": ""
@@ -86,6 +128,13 @@
 {
 	"uri": "/tags/volume/",
 	"title": "volume",
+	"tags": [],
+	"description": "",
+	"content": ""
+},
+{
+	"uri": "/tags/yolo/",
+	"title": "yolo",
 	"tags": [],
 	"description": "",
 	"content": ""

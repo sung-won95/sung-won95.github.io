@@ -13,6 +13,11 @@
   </url>
   
   <url>
+    <loc>/tech/</loc>
+    <lastmod>2020-02-21T18:58:35+09:00</lastmod>
+  </url>
+  
+  <url>
     <loc>/</loc>
     <lastmod>2020-11-24T14:02:42+09:00</lastmod>
   </url>
@@ -53,7 +58,32 @@
   </url>
   
   <url>
+    <loc>/tags/opencv/</loc>
+    <lastmod>2020-11-24T14:02:42+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/tech/rtsp-opencv-yolov4/</loc>
+    <lastmod>2020-11-24T14:02:42+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/tags/python/</loc>
+    <lastmod>2020-11-24T14:02:42+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/tags/rtsp/</loc>
+    <lastmod>2020-11-24T14:02:42+09:00</lastmod>
+  </url>
+  
+  <url>
     <loc>/tags/</loc>
+    <lastmod>2020-11-24T14:02:42+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/tags/tensorflow/</loc>
     <lastmod>2020-11-24T14:02:42+09:00</lastmod>
   </url>
   
@@ -64,6 +94,11 @@
   
   <url>
     <loc>/tags/volume/</loc>
+    <lastmod>2020-11-24T14:02:42+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/tags/yolo/</loc>
     <lastmod>2020-11-24T14:02:42+09:00</lastmod>
   </url>
   

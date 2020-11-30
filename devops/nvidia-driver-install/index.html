@@ -12,20 +12,20 @@
     <title>Ubuntu GPU Server NVIDIA Driver 설치 방법 :: </title>
 
     
-    <link href="/css/nucleus.css?1606703738" rel="stylesheet">
-    <link href="/css/fontawesome-all.min.css?1606703738" rel="stylesheet">
-    <link href="/css/hybrid.css?1606703738" rel="stylesheet">
-    <link href="/css/featherlight.min.css?1606703738" rel="stylesheet">
-    <link href="/css/perfect-scrollbar.min.css?1606703738" rel="stylesheet">
-    <link href="/css/auto-complete.css?1606703738" rel="stylesheet">
-    <link href="/css/atom-one-dark-reasonable.css?1606703738" rel="stylesheet">
-    <link href="/css/theme.css?1606703738" rel="stylesheet">
-    <link href="/css/hugo-theme.css?1606703738" rel="stylesheet">
+    <link href="/css/nucleus.css?1606725163" rel="stylesheet">
+    <link href="/css/fontawesome-all.min.css?1606725163" rel="stylesheet">
+    <link href="/css/hybrid.css?1606725163" rel="stylesheet">
+    <link href="/css/featherlight.min.css?1606725163" rel="stylesheet">
+    <link href="/css/perfect-scrollbar.min.css?1606725163" rel="stylesheet">
+    <link href="/css/auto-complete.css?1606725163" rel="stylesheet">
+    <link href="/css/atom-one-dark-reasonable.css?1606725163" rel="stylesheet">
+    <link href="/css/theme.css?1606725163" rel="stylesheet">
+    <link href="/css/hugo-theme.css?1606725163" rel="stylesheet">
     
-      <link href="/css/theme-mine.css?1606703738" rel="stylesheet">
+      <link href="/css/theme-mine.css?1606725163" rel="stylesheet">
     
 
-    <script src="/js/jquery-3.3.1.min.js?1606703738"></script>
+    <script src="/js/jquery-3.3.1.min.js?1606725163"></script>
 
     <style>
       :root #header + #content > #left > #rlblock_left{
@@ -206,6 +206,57 @@
  
 
           
+          
+
+
+ 
+  
+    
+    <li data-nav-id="/tech/" title="tech" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/tech/">
+          <i class='fas fa-angle-right'></i>&nbsp;tech
+          
+      </a>
+      
+      
+        <ul>
+          
+          
+          
+          
+        
+          
+            
+            
+
+
+ 
+  
+    
+      <li data-nav-id="/tech/rtsp-opencv-yolov4/" title="Opencv를 이용하여 YOLOv4로 CCTV 영상 분석하기" class="dd-item ">
+        <a href="/tech/rtsp-opencv-yolov4/">
+        Opencv를 이용하여 YOLOv4로 CCTV 영상 분석하기
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+        
+        </ul>
+              
+    </li>
+  
+ 
+
+          
          
     </ul>
 
@@ -314,12 +365,8 @@
     <div class="wrapper">
 <nav id="TableOfContents">
   <ul>
-    <li>
-      <ul>
-        <li><a href="#nvidia-driver-설치-전-사전-세팅">nvidia driver 설치 전 사전 세팅</a></li>
-        <li><a href="#nvidia-driver-검색-후-설치">nvidia driver 검색 후 설치</a></li>
-      </ul>
-    </li>
+    <li><a href="#nvidia-driver-설치-전-사전-세팅">nvidia driver 설치 전 사전 세팅</a></li>
+    <li><a href="#nvidia-driver-검색-후-설치">nvidia driver 검색 후 설치</a></li>
   </ul>
 </nav>
     </div>
@@ -357,16 +404,12 @@
 
 <nav id="TableOfContents">
   <ul>
-    <li>
-      <ul>
-        <li><a href="#nvidia-driver-설치-전-사전-세팅">nvidia driver 설치 전 사전 세팅</a></li>
-        <li><a href="#nvidia-driver-검색-후-설치">nvidia driver 검색 후 설치</a></li>
-      </ul>
-    </li>
+    <li><a href="#nvidia-driver-설치-전-사전-세팅">nvidia driver 설치 전 사전 세팅</a></li>
+    <li><a href="#nvidia-driver-검색-후-설치">nvidia driver 검색 후 설치</a></li>
   </ul>
 </nav>
 
-<h3 id="nvidia-driver-설치-전-사전-세팅">nvidia driver 설치 전 사전 세팅</h3>
+<h2 id="nvidia-driver-설치-전-사전-세팅">nvidia driver 설치 전 사전 세팅</h2>
 <ul>
 <li>OS : ubuntu 18.04</li>
 </ul>
@@ -380,7 +423,7 @@ echo options nouveau modeset<span style="color:#f92672">=</span><span style="col
 update-initramfs -u   <span style="color:#75715e"># options 에서 설정한 값 적용 코드</span>
 
 reboot now   <span style="color:#75715e"># blacklist 적용용 reboot </span>
-</code></pre></div><h3 id="nvidia-driver-검색-후-설치">nvidia driver 검색 후 설치</h3>
+</code></pre></div><h2 id="nvidia-driver-검색-후-설치">nvidia driver 검색 후 설치</h2>
 <ul>
 <li><a href="https://www.nvidia.co.kr/Download/index.aspx?lang=kr">nvidia.com</a> 에 접속</li>
 <li>제품 에 맞는 드라이버 선택 후 검색다운로드 하기(wget 가능)</li>
@@ -540,6 +583,38 @@ chmod +x NVIDIA-Linux-x86_64-440.44.run
             
         
                     
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
             
         
         
@@ -555,19 +630,19 @@ chmod +x NVIDIA-Linux-x86_64-440.44.run
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/js/clipboard.min.js?1606703738"></script>
-    <script src="/js/perfect-scrollbar.min.js?1606703738"></script>
-    <script src="/js/perfect-scrollbar.jquery.min.js?1606703738"></script>
-    <script src="/js/jquery.sticky.js?1606703738"></script>
-    <script src="/js/featherlight.min.js?1606703738"></script>
-    <script src="/js/highlight.pack.js?1606703738"></script>
+    <script src="/js/clipboard.min.js?1606725163"></script>
+    <script src="/js/perfect-scrollbar.min.js?1606725163"></script>
+    <script src="/js/perfect-scrollbar.jquery.min.js?1606725163"></script>
+    <script src="/js/jquery.sticky.js?1606725163"></script>
+    <script src="/js/featherlight.min.js?1606725163"></script>
+    <script src="/js/highlight.pack.js?1606725163"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/js/modernizr.custom-3.6.0.js?1606703738"></script>
-    <script src="/js/learn.js?1606703738"></script>
-    <script src="/js/hugo-learn.js?1606703738"></script>
+    <script src="/js/modernizr.custom-3.6.0.js?1606725163"></script>
+    <script src="/js/learn.js?1606725163"></script>
+    <script src="/js/hugo-learn.js?1606725163"></script>
 
-    <link href="/mermaid/mermaid.css?1606703738" rel="stylesheet" />
-    <script src="/mermaid/mermaid.js?1606703738"></script>
+    <link href="/mermaid/mermaid.css?1606725163" rel="stylesheet" />
+    <script src="/mermaid/mermaid.js?1606725163"></script>
     <script>
         mermaid.initialize({ startOnLoad: true });
     </script>

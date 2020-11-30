@@ -1,0 +1,794 @@
+<!DOCTYPE html>
+<html lang="en" class="js csstransforms3d">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="generator" content="Hugo 0.78.2" />
+    <meta name="description" content="dev_sung">
+<meta name="author" content="sung-won95">
+
+    <link rel="icon" href="/images/favicon.png" type="image/png">
+
+    <title>Opencv를 이용하여 YOLOv4로 CCTV 영상 분석하기 :: </title>
+
+    
+    <link href="/css/nucleus.css?1606725163" rel="stylesheet">
+    <link href="/css/fontawesome-all.min.css?1606725163" rel="stylesheet">
+    <link href="/css/hybrid.css?1606725163" rel="stylesheet">
+    <link href="/css/featherlight.min.css?1606725163" rel="stylesheet">
+    <link href="/css/perfect-scrollbar.min.css?1606725163" rel="stylesheet">
+    <link href="/css/auto-complete.css?1606725163" rel="stylesheet">
+    <link href="/css/atom-one-dark-reasonable.css?1606725163" rel="stylesheet">
+    <link href="/css/theme.css?1606725163" rel="stylesheet">
+    <link href="/css/hugo-theme.css?1606725163" rel="stylesheet">
+    
+      <link href="/css/theme-mine.css?1606725163" rel="stylesheet">
+    
+
+    <script src="/js/jquery-3.3.1.min.js?1606725163"></script>
+
+    <style>
+      :root #header + #content > #left > #rlblock_left{
+          display:none !important;
+      }
+      
+    </style>
+    
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-B4GH8HX0D5"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-B4GH8HX0D5');
+</script>
+<script data-ad-client="ca-pub-1788337254638181" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+
+  </head>
+  <body class="" data-url="/tech/rtsp-opencv-yolov4/">
+    <nav id="sidebar" class="">
+
+
+
+  <div id="header-wrapper">
+    <div id="header">
+      <div >
+<img src="/logo.jpg" style="border-radius: 50%; opacity: 0;"  width="50%" height="50%"/>
+</div>
+<h3 margin="100px"><p style="color: white">Que sera sera</p></h3>
+    </div>
+    
+  </div>
+
+    <div class="highlightable">
+    <ul class="topics">
+
+        
+          
+          
+
+
+ 
+  
+    
+    <li data-nav-id="/database/" title="database" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/database/">
+          <i class='fas fa-angle-right'></i>&nbsp;database
+          
+      </a>
+      
+      
+        <ul>
+          
+          
+          
+          
+        
+          
+            
+            
+
+
+ 
+  
+    
+      <li data-nav-id="/database/postgres-replication-setting/" title="postgres replication 하는방법" class="dd-item ">
+        <a href="/database/postgres-replication-setting/">
+        postgres replication 하는방법
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+        
+        </ul>
+              
+    </li>
+  
+ 
+
+          
+          
+
+
+ 
+  
+    
+    <li data-nav-id="/devops/" title="devops" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/devops/">
+          <i class='fas fa-angle-right'></i>&nbsp;devops
+          
+      </a>
+      
+      
+        <ul>
+          
+          
+          
+          
+        
+          
+            
+            
+
+
+ 
+  
+    
+      <li data-nav-id="/devops/docker-volumn-nfs/" title="docker-compose에서 NFS 사용하기" class="dd-item ">
+        <a href="/devops/docker-volumn-nfs/">
+        docker-compose에서 NFS 사용하기
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+      <li data-nav-id="/devops/nvidia-driver-install/" title="Ubuntu GPU Server NVIDIA Driver 설치 방법" class="dd-item ">
+        <a href="/devops/nvidia-driver-install/">
+        Ubuntu GPU Server NVIDIA Driver 설치 방법
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+      <li data-nav-id="/devops/docker-gpu-1/" title="Docker에서 원하는 GPU선택해 컨테이너로 Project실행하기" class="dd-item ">
+        <a href="/devops/docker-gpu-1/">
+        Docker에서 원하는 GPU선택해 컨테이너로 Project실행하기
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+        
+        </ul>
+              
+    </li>
+  
+ 
+
+          
+          
+
+
+ 
+  
+    
+    <li data-nav-id="/tech/" title="tech" class="dd-item 
+        parent
+        
+        
+        ">
+      <a href="/tech/">
+          <i class='fas fa-angle-right'></i>&nbsp;tech
+          
+      </a>
+      
+      
+        <ul>
+          
+          
+          
+          
+        
+          
+            
+            
+
+
+ 
+  
+    
+      <li data-nav-id="/tech/rtsp-opencv-yolov4/" title="Opencv를 이용하여 YOLOv4로 CCTV 영상 분석하기" class="dd-item active">
+        <a href="/tech/rtsp-opencv-yolov4/">
+        Opencv를 이용하여 YOLOv4로 CCTV 영상 분석하기
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+        
+        </ul>
+              
+    </li>
+  
+ 
+
+          
+         
+    </ul>
+
+    
+    
+      <section id="shortcuts">
+        <h3>More</h3>
+        <ul>
+          
+              <li> 
+                  <a class="padding" href="https://github.com/matcornic/hugo-theme-learn"><i class='fab fa-github'></i> Github repo</a>
+              </li>
+          
+              <li> 
+                  <a class="padding" href="https://gohugo.io/"><i class='fas fa-bookmark'></i> Hugo Documentation</a>
+              </li>
+          
+              <li> 
+                  <a class="padding" href="/tags"><i class='fas fa-tags'></i> Tags</a>
+              </li>
+          
+        </ul>
+      </section>
+    
+
+    
+    <section id="footer">
+      <p>Built with <a href="https://github.com/matcornic/hugo-theme-learn"><i class="fas fa-heart"></i></a> from <a href="https://getgrav.org">Grav</a> and <a href="https://gohugo.io/">Hugo</a></p>
+
+    </section>
+  </div>
+</nav>
+
+
+
+
+<div id="docsToc">
+  <div class="pi-accordion">
+    
+    
+    
+    
+    
+      
+      
+    
+    
+  </div> 
+ <button class="push-menu-close-button" onclick="kub.toggleToc()"></button>
+</div> 
+© 2020 GitHub, Inc.
+        <section id="body">
+        <div id="overlay"></div>
+        <div class="padding highlightable">
+              
+              <div>
+                <div id="top-bar">
+                
+                  
+                  
+                  
+                  <div id="top-github-link">
+                    <a class="github-link" title='Edit this page' href="sung-won95.github.iotech/rtsp-opencv-yolov4.md" target="blank">
+                      <i class="fas fa-code-branch"></i>
+                      <span id="top-github-link-text">Edit this page</span>
+                    </a>
+                  </div>
+                  
+                
+                
+                <div id="breadcrumbs" itemscope="" itemtype="http://data-vocabulary.org/Breadcrumb">
+                    <span id="sidebar-toggle-span">
+                        <a href="#" id="sidebar-toggle" data-sidebar-toggle="">
+                          <i class="fas fa-bars"></i>
+                        </a>
+                    </span>
+                  
+                  <span id="toc-menu"><i class="fas fa-list-alt"></i></span>
+                  
+                  <span class="links">
+                 
+                 
+                    
+          
+          
+            
+            
+          
+          
+            
+            
+          
+          
+            <a href='/'></a> > <a href='/tech/'>tech</a> > Opencv를 이용하여 YOLOv4로 CCTV 영상 분석하기
+          
+         
+          
+         
+          
+        
+                 
+                  </span>
+                </div>
+                
+                    <div class="progress">
+    <div class="wrapper">
+<nav id="TableOfContents">
+  <ul>
+    <li><a href="#프롤로그">프롤로그</a></li>
+    <li><a href="#환경--목표">환경 &amp; 목표</a></li>
+    <li><a href="#설계도">설계도</a></li>
+    <li><a href="#docker-setting">Docker Setting</a>
+      <ul>
+        <li><a href="#dockerfile">Dockerfile</a></li>
+        <li><a href="#requirementstxt">requirements.txt</a></li>
+        <li><a href="#docker-compose">docker-compose</a></li>
+      </ul>
+    </li>
+    <li><a href="#삽질의-기록">삽질의 기록</a>
+      <ul>
+        <li><a href="#gpu를-어떻게-나누지">GPU를 어떻게 나누지&hellip;.</a></li>
+        <li><a href="#docker가-이유없이-계속-죽는다">Docker가 이유없이 계속 죽는다&hellip;.</a></li>
+        <li><a href="#rtsp-stream-재부팅시-자동-연결이-안된다">RTSP Stream 재부팅시 자동 연결이 안된다&hellip;.</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+    </div>
+</div>
+
+                
+              </div>
+            </div>
+            
+        <div id="head-tags">
+        
+<div class="tags">
+
+  <a class="tag-link" href="/tags/python">python</a>
+
+  <a class="tag-link" href="/tags/tensorflow">tensorflow</a>
+
+  <a class="tag-link" href="/tags/rtsp">rtsp</a>
+
+  <a class="tag-link" href="/tags/yolo">yolo</a>
+
+  <a class="tag-link" href="/tags/opencv">opencv</a>
+
+</div>
+
+        </div>
+        
+        <div id="body-inner">
+          
+            <h1>
+              
+              Opencv를 이용하여 YOLOv4로 CCTV 영상 분석하기
+            </h1>
+          
+
+        
+
+
+
+<nav id="TableOfContents">
+  <ul>
+    <li><a href="#프롤로그">프롤로그</a></li>
+    <li><a href="#환경--목표">환경 &amp; 목표</a></li>
+    <li><a href="#설계도">설계도</a></li>
+    <li><a href="#docker-setting">Docker Setting</a>
+      <ul>
+        <li><a href="#dockerfile">Dockerfile</a></li>
+        <li><a href="#requirementstxt">requirements.txt</a></li>
+        <li><a href="#docker-compose">docker-compose</a></li>
+      </ul>
+    </li>
+    <li><a href="#삽질의-기록">삽질의 기록</a>
+      <ul>
+        <li><a href="#gpu를-어떻게-나누지">GPU를 어떻게 나누지&hellip;.</a></li>
+        <li><a href="#docker가-이유없이-계속-죽는다">Docker가 이유없이 계속 죽는다&hellip;.</a></li>
+        <li><a href="#rtsp-stream-재부팅시-자동-연결이-안된다">RTSP Stream 재부팅시 자동 연결이 안된다&hellip;.</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+
+<h2 id="프롤로그">프롤로그</h2>
+<p>안녕하세요 오늘은 OpenCV를 사용하여 CCTV video stream(RTSP)에 YOLO를 돌린 프로젝트 후기를 남겨보려고 합니다. 이  프로젝트는 실시간으로 object detecting 하는 것을 최우선 목표로 진행했습니다. 2K CCTV에서 RTSP 서버를 열어주고 딥러닝(YOLO v4)을 통해 object detecting을 진행 한 뒤 모니터링 서버에서 보여줄때까지 지연시간이 2초 이하로 진행해야 했습니다.</p>
+<h2 id="환경--목표">환경 &amp; 목표</h2>
+<ul>
+<li>CCTV : 2K RTSP Stream, 16EA</li>
+<li>Network : 10G</li>
+<li>GPU : Tesla T4, 8EA</li>
+<li>AI Model : YOLO v4, 5개 object 구분</li>
+<li>목표 : 모니터링 서버에서 <strong>2초</strong> 이내 detecting object 확인</li>
+</ul>
+<h2 id="설계도">설계도</h2>
+<p>RTSP → YOLO v4(분석) | Tesla T4 이용 → View<br>
+p.s. YOLO v4(학습 class 5개, 총 용량 268M)모델 2개를 Tesla T4 16GB를 사용해 인퍼런스를 진행하면 10FPS 방어가 가능했습니다.</p>
+<p><img src="/tech/rtsp-opencv-yolov4/Untitled.png" alt="/tech/rtsp-opencv-yolov4/Untitled.png"></p>
+<h2 id="docker-setting">Docker Setting</h2>
+<p>TensorFlow GPU버전을 사용해야 하기에 tensorflow 공식 이미지중 gpu 태그가 붙은 이미지를 사용했습니다. 또한 docker 내부에서 OpenCV도 사용해야 했기에 ffmpeg을 설치해줬습니다.<br>
+docker-compose에서 GPU세팅 및 OpenCV 사용 세팅은 (<a href="/devops/docker-gpu-1">여기</a>)를 참고해 주세요</p>
+<h3 id="dockerfile">Dockerfile</h3>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-docker" data-lang="docker"><span style="color:#66d9ef">FROM</span><span style="color:#e6db74"> tensorflow/tensorflow:2.3.0-gpu</span><span style="color:#960050;background-color:#1e0010">
+</span><span style="color:#960050;background-color:#1e0010">
+</span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#66d9ef">RUN</span> apt-get update<span style="color:#960050;background-color:#1e0010">
+</span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#66d9ef">RUN</span> apt-get install ffmpeg libsm6 libxext6 -y<span style="color:#960050;background-color:#1e0010">
+</span><span style="color:#960050;background-color:#1e0010">
+</span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#66d9ef">WORKDIR</span><span style="color:#e6db74"> /src</span><span style="color:#960050;background-color:#1e0010">
+</span><span style="color:#960050;background-color:#1e0010">
+</span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#66d9ef">ENV</span> PYTHONUNBUFFERED<span style="color:#f92672">=</span><span style="color:#ae81ff">0</span>
+
+<span style="color:#66d9ef">COPY</span> python/requirements.txt ./<span style="color:#960050;background-color:#1e0010">
+</span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#66d9ef">RUN</span> pip3 install --no-cache-dir -r requirements.txt  <span style="color:#960050;background-color:#1e0010">
+</span><span style="color:#960050;background-color:#1e0010">
+</span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#66d9ef">COPY</span> . /module<span style="color:#960050;background-color:#1e0010">
+</span></code></pre></div><h3 id="requirementstxt">requirements.txt</h3>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">amqp<span style="color:#f92672">==</span>5.0.1
+billiard<span style="color:#f92672">==</span>3.6.3.0
+celery<span style="color:#f92672">==</span>5.0.0
+click<span style="color:#f92672">==</span>7.1.2
+click-didyoumean<span style="color:#f92672">==</span>0.0.3
+click-repl<span style="color:#f92672">==</span>0.1.6
+kombu<span style="color:#f92672">==</span>5.0.2
+prompt-toolkit<span style="color:#f92672">==</span>3.0.7
+pytz<span style="color:#f92672">==</span>2020.1
+vine<span style="color:#f92672">==</span>5.0.0
+wcwidth<span style="color:#f92672">==</span>0.2.5
+opencv-python
+lxml
+tqdm
+absl-py
+matplotlib
+easydict
+pillow
+</code></pre></div><h3 id="docker-compose">docker-compose</h3>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml"><span style="color:#f92672">version</span>: <span style="color:#e6db74">&#39;3.1&#39;</span>
+
+<span style="color:#f92672">services</span>:
+  <span style="color:#f92672">AirForcePython1</span>:
+    <span style="color:#f92672">image</span>: <span style="color:#ae81ff">tensor_ai</span>
+    <span style="color:#f92672">deploy</span>:
+      <span style="color:#f92672">resources</span>:
+        <span style="color:#f92672">limits</span>:
+          <span style="color:#f92672">cpus</span>: <span style="color:#e6db74">&#39;1&#39;</span>
+    <span style="color:#f92672">build</span>:
+      <span style="color:#f92672">context</span>: <span style="color:#ae81ff">.</span>
+      <span style="color:#f92672">dockerfile</span>: <span style="color:#ae81ff">python/Dockerfile</span>
+    <span style="color:#f92672">volumes</span>:
+      - <span style="color:#ae81ff">../src:/src</span>
+    <span style="color:#f92672">environment</span>:
+      - <span style="color:#ae81ff">VideoPath=rtsp://admin:qazwsx123!@192.168.0.1:554/RTSPSTREAM</span>
+      - <span style="color:#ae81ff">CameraId=camera1</span>
+      - <span style="color:#ae81ff">DestIp=192.168.0.1</span>
+      - <span style="color:#ae81ff">DISPLAY=unix$DISPLAY</span>
+      - <span style="color:#ae81ff">NVIDIA_VISIBLE_DEVICES=0</span>
+      - <span style="color:#ae81ff">model=yolov4_airforce</span>
+    <span style="color:#f92672">command</span>: <span style="color:#ae81ff">python detectvideo.py</span>
+    <span style="color:#f92672">stdin_open</span>: <span style="color:#66d9ef">true</span>
+    <span style="color:#f92672">tty</span>: <span style="color:#66d9ef">true</span>
+</code></pre></div><h2 id="삽질의-기록">삽질의 기록</h2>
+<h3 id="gpu를-어떻게-나누지">GPU를 어떻게 나누지&hellip;.</h3>
+<p>처음 시작하면서 부터 난관에 봉착했습니다. 일단 TensorFlow를 실행해서 YOLO를 돌린것까진 좋았는데&hellip; 프레임당 100ms 이하로 나오는것도 좋았는데 YOLO를 실행하기만 하면 GPU RAM을 모두 다 차지해버립니다.  OTL&hellip;
+열심히 구글링 해본 결과 config.gpu_options.allow_growth 옵션을 끄지 않으면 TensorFlow가 남은 GPU RAM을 모두 선점해버리는 현상이 있었습니다. 해결 방법으로는 옵션을 False로 바꾸고 초기 RAM을 얼만큼 차지할지 config.gpu_options.per_process_gpu_memory_fraction 옵션에 넣어주면 됩니다!!! 저는 테스트 결과 stream 3개까지도 아슬아슬하게 10 FPS 방어가 됐는데 GPU가 모자라는게 아니니  GPU 1개당 2개 Stream을 할당해줬습니다.<br>
+p.s. 각 GPU에 할당하는건 docker-compose 에서 세팅해줬습니다. NVIDIA_VISIBLE_DEVICES 옵션을 잘 세팅하시면 됩니다 ㅎㅅㅎ</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">config <span style="color:#f92672">=</span> ConfigProto()
+config<span style="color:#f92672">.</span>gpu_options<span style="color:#f92672">.</span>allow_growth <span style="color:#f92672">=</span> False
+config<span style="color:#f92672">.</span>gpu_options<span style="color:#f92672">.</span>per_process_gpu_memory_fraction <span style="color:#f92672">=</span> <span style="color:#ae81ff">0.4</span>
+session <span style="color:#f92672">=</span> InteractiveSession(config<span style="color:#f92672">=</span>config)
+</code></pre></div><h3 id="docker가-이유없이-계속-죽는다">Docker가 이유없이 계속 죽는다&hellip;.</h3>
+<p>try catch로 감싸진게 전혀 없는데 log를 아무리 뒤져도 에러코드가 나오지 않고 죽는 현상이 있었습니다. 정말 docker stop 명령어를 쓴 듯 갑자기 docker가 죽어버렸습니다. 이것도 반나절동안 삽질한 결과 OOM(Out Of Memory)라는 결론을 얻었습니다. RTSP Stream에서 가지고 오는 속도에 비해 object detecting 속도가 느려 메모리에 계속 쌓였던게 원인이였습니다. 이 문제를 해결하기 위해 아래처럼 queue를 사용했습니다. queue size를 3으로 해놓으면 버퍼가 체감이 되었으며 그렇다고 사이즈를 1로 해놓으면 프레임 대기시간이 생기는건지 2보다 느린 관계로 queue size는 2로 설정했습니다</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">import</span> queue
+q <span style="color:#f92672">=</span> queue<span style="color:#f92672">.</span>Queue(<span style="color:#ae81ff">2</span>)
+
+<span style="color:#66d9ef">def</span> <span style="color:#a6e22e">Receive</span>():
+    video_path <span style="color:#f92672">=</span> os<span style="color:#f92672">.</span>environ[<span style="color:#e6db74">&#34;VideoPath&#34;</span>]
+
+    vid <span style="color:#f92672">=</span> cv2<span style="color:#f92672">.</span>VideoCapture(video_path)
+    <span style="color:#66d9ef">while</span> True:
+        return_value, frame <span style="color:#f92672">=</span> vid<span style="color:#f92672">.</span>read()
+        <span style="color:#66d9ef">if</span> return_value:
+            q<span style="color:#f92672">.</span>put(cv2<span style="color:#f92672">.</span>cvtColor(frame, cv2<span style="color:#f92672">.</span>COLOR_BGR2RGB))
+
+<span style="color:#66d9ef">def</span> <span style="color:#a6e22e">main</span>(_argv):
+    p1 <span style="color:#f92672">=</span> threading<span style="color:#f92672">.</span>Thread(target<span style="color:#f92672">=</span>Receive)
+    p1<span style="color:#f92672">.</span>start()
+    <span style="color:#66d9ef">while</span> True:
+        <span style="color:#66d9ef">try</span>:
+            <span style="color:#66d9ef">if</span> q<span style="color:#f92672">.</span>empty() <span style="color:#f92672">!=</span> True:
+                frame <span style="color:#f92672">=</span> q<span style="color:#f92672">.</span>get()
+            <span style="color:#75715e"># next Code</span>
+</code></pre></div><h3 id="rtsp-stream-재부팅시-자동-연결이-안된다">RTSP Stream 재부팅시 자동 연결이 안된다&hellip;.</h3>
+<p>드디어 마지막 에러사항입니다! 위와 비슷하지만 docker가 죽진 않았으나 더이상 detecting log가 쌓이지 않는 현상이 있었습니다. 바로 RTSP Stream이 죽어도 receive 함수가 죽지 않았던 것입니다. 단순하게 생각해서 RTSP Stream이 재부팅 되어도 URL이 바뀌지도 않고 기존에 Stream을 계속 read하려고 하면 재부팅 된 뒤 read가 될 줄 알았던 제 어리석은 생각때문이였습니다. vid.read()에서 왜 true, false를 반환하겠니&hellip;&hellip; 여튼 그래서 vid.read가 false를 반환할 때 제 쓰레드를 죽인 뒤 다시 쓰레드를 생성해 새로운 stream을 받아오는걸로 코딩을 했습니다. 쓰레드를 생성할 때  setDaemon(True) 설정 안하면 thread가 정상적으로 죽지 않아서  ram 누수가 발생합니다. 그러니 꼭 setDaemon(True) 설정을 해주시고 맨위에 객체 만들었다고 새로운 객체를 만들지 않고 다시 start 함수만 사용하면 에러가 발생합니다. 어차피 기존 쓰레드는 반납되었으니 새로운 쓰레드를 만들어 사용하는게 좋습니다.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">Receive</span>():
+    <span style="color:#66d9ef">print</span>(<span style="color:#e6db74">&#34;start Reveive&#34;</span>)
+    video_path <span style="color:#f92672">=</span> os<span style="color:#f92672">.</span>environ[<span style="color:#e6db74">&#34;VideoPath&#34;</span>]
+
+    <span style="color:#66d9ef">print</span>(<span style="color:#e6db74">&#34;Video from: &#34;</span>, video_path )
+    vid <span style="color:#f92672">=</span> cv2<span style="color:#f92672">.</span>VideoCapture(video_path)
+    <span style="color:#66d9ef">while</span> True:
+        return_value, frame <span style="color:#f92672">=</span> vid<span style="color:#f92672">.</span>read()
+        <span style="color:#66d9ef">if</span> return_value:
+            q<span style="color:#f92672">.</span>put(cv2<span style="color:#f92672">.</span>cvtColor(frame, cv2<span style="color:#f92672">.</span>COLOR_BGR2RGB))
+        <span style="color:#66d9ef">else</span>:
+            <span style="color:#66d9ef">break</span>
+
+<span style="color:#66d9ef">def</span> <span style="color:#a6e22e">main</span>(_argv):
+    p1 <span style="color:#f92672">=</span> threading<span style="color:#f92672">.</span>Thread(target<span style="color:#f92672">=</span>Receive)
+    p1<span style="color:#f92672">.</span>setDaemon(True)
+    p1<span style="color:#f92672">.</span>start()
+    <span style="color:#66d9ef">while</span> True:
+        <span style="color:#66d9ef">if</span> q<span style="color:#f92672">.</span>empty() <span style="color:#f92672">!=</span> True:
+            frame <span style="color:#f92672">=</span> q<span style="color:#f92672">.</span>get()
+            <span style="color:#75715e"># next Code</span>
+        <span style="color:#66d9ef">elif</span> <span style="color:#f92672">not</span> p1<span style="color:#f92672">.</span>isAlive():
+            time<span style="color:#f92672">.</span>sleep(<span style="color:#ae81ff">5</span>)
+            p1 <span style="color:#f92672">=</span> threading<span style="color:#f92672">.</span>Thread(target<span style="color:#f92672">=</span>Receive)
+            p1<span style="color:#f92672">.</span>setDaemon(True)
+            p1<span style="color:#f92672">.</span>start()
+</code></pre></div><p>이렇게 RTSP Stream으로부터 원하는 만큼의 GPU를 사용해 딥러닝을 돌려 확인하는 것 까지 내용을 마쳤습니다. 추후에 이슈사항이 있으면 이 페이지에 추가하겠습니다.</p>
+<p>궁금한점이나 피드백은 환영합니다.
+감사합니다.</p>
+
+
+<footer class=" footline" >
+	
+</footer>
+
+
+        
+            <div id="utterance">    
+    <script src="https://utteranc.es/client.js"
+            repo="sung-won95/sung-won95-comment"
+            issue-term="pathname"
+            label="comments"
+            theme="github-light"
+            crossorigin="anonymous"
+            async>
+    </script>
+</div>
+        
+        </div> 
+      </div>
+
+    <div id="navigation">
+        
+        
+        
+        
+            
+            
+                
+                    
+                    
+                
+                
+
+                    
+                    
+                        
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                        
+                        
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+            
+        
+        
+        
+
+
+	 
+	 
+    </div>
+
+    </section>
+    
+    <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
+      <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
+    </div>
+    <script src="/js/clipboard.min.js?1606725163"></script>
+    <script src="/js/perfect-scrollbar.min.js?1606725163"></script>
+    <script src="/js/perfect-scrollbar.jquery.min.js?1606725163"></script>
+    <script src="/js/jquery.sticky.js?1606725163"></script>
+    <script src="/js/featherlight.min.js?1606725163"></script>
+    <script src="/js/highlight.pack.js?1606725163"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+    <script src="/js/modernizr.custom-3.6.0.js?1606725163"></script>
+    <script src="/js/learn.js?1606725163"></script>
+    <script src="/js/hugo-learn.js?1606725163"></script>
+
+    <link href="/mermaid/mermaid.css?1606725163" rel="stylesheet" />
+    <script src="/mermaid/mermaid.js?1606725163"></script>
+    <script>
+        mermaid.initialize({ startOnLoad: true });
+    </script>
+    
+    
+
+  </body>
+</html>
+
