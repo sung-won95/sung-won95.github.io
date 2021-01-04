@@ -12,20 +12,20 @@
     <title>Opencv를 이용하여 YOLOv4로 CCTV 영상 분석하기 :: </title>
 
     
-    <link href="/css/nucleus.css?1606725163" rel="stylesheet">
-    <link href="/css/fontawesome-all.min.css?1606725163" rel="stylesheet">
-    <link href="/css/hybrid.css?1606725163" rel="stylesheet">
-    <link href="/css/featherlight.min.css?1606725163" rel="stylesheet">
-    <link href="/css/perfect-scrollbar.min.css?1606725163" rel="stylesheet">
-    <link href="/css/auto-complete.css?1606725163" rel="stylesheet">
-    <link href="/css/atom-one-dark-reasonable.css?1606725163" rel="stylesheet">
-    <link href="/css/theme.css?1606725163" rel="stylesheet">
-    <link href="/css/hugo-theme.css?1606725163" rel="stylesheet">
+    <link href="/css/nucleus.css?1609728293" rel="stylesheet">
+    <link href="/css/fontawesome-all.min.css?1609728293" rel="stylesheet">
+    <link href="/css/hybrid.css?1609728293" rel="stylesheet">
+    <link href="/css/featherlight.min.css?1609728293" rel="stylesheet">
+    <link href="/css/perfect-scrollbar.min.css?1609728293" rel="stylesheet">
+    <link href="/css/auto-complete.css?1609728293" rel="stylesheet">
+    <link href="/css/atom-one-dark-reasonable.css?1609728293" rel="stylesheet">
+    <link href="/css/theme.css?1609728293" rel="stylesheet">
+    <link href="/css/hugo-theme.css?1609728293" rel="stylesheet">
     
-      <link href="/css/theme-mine.css?1606725163" rel="stylesheet">
+      <link href="/css/theme-mine.css?1609728293" rel="stylesheet">
     
 
-    <script src="/js/jquery-3.3.1.min.js?1606725163"></script>
+    <script src="/js/jquery-3.3.1.min.js?1609728293"></script>
 
     <style>
       :root #header + #content > #left > #rlblock_left{
@@ -65,6 +65,57 @@
     <ul class="topics">
 
         
+          
+          
+
+
+ 
+  
+    
+    <li data-nav-id="/idea/" title="idea" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/idea/">
+          <i class='fas fa-angle-right'></i>&nbsp;idea
+          
+      </a>
+      
+      
+        <ul>
+          
+          
+          
+          
+        
+          
+            
+            
+
+
+ 
+  
+    
+      <li data-nav-id="/idea/newsbotreport/" title="뉴스 기사 크롤링을 통한 키워드 추출 및 실시간 트렌드 제공 서비스 [Trendak]" class="dd-item ">
+        <a href="/idea/newsbotreport/">
+        뉴스 기사 크롤링을 통한 키워드 추출 및 실시간 트렌드 제공 서비스 [Trendak]
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+        
+        </ul>
+              
+    </li>
+  
+ 
+
           
           
 
@@ -380,6 +431,7 @@
         <li><a href="#gpu를-어떻게-나누지">GPU를 어떻게 나누지&hellip;.</a></li>
         <li><a href="#docker가-이유없이-계속-죽는다">Docker가 이유없이 계속 죽는다&hellip;.</a></li>
         <li><a href="#rtsp-stream-재부팅시-자동-연결이-안된다">RTSP Stream 재부팅시 자동 연결이 안된다&hellip;.</a></li>
+        <li><a href="#모든-서버에서-실시간성이-보장되지-않는다-2020-12-28">모든 서버에서 실시간성이 보장되지 않는다. 2020-12-28</a></li>
       </ul>
     </li>
   </ul>
@@ -438,6 +490,7 @@
         <li><a href="#gpu를-어떻게-나누지">GPU를 어떻게 나누지&hellip;.</a></li>
         <li><a href="#docker가-이유없이-계속-죽는다">Docker가 이유없이 계속 죽는다&hellip;.</a></li>
         <li><a href="#rtsp-stream-재부팅시-자동-연결이-안된다">RTSP Stream 재부팅시 자동 연결이 안된다&hellip;.</a></li>
+        <li><a href="#모든-서버에서-실시간성이-보장되지-않는다-2020-12-28">모든 서버에서 실시간성이 보장되지 않는다. 2020-12-28</a></li>
       </ul>
     </li>
   </ul>
@@ -446,6 +499,7 @@
 <h2 id="프롤로그">프롤로그</h2>
 <p>안녕하세요 오늘은 OpenCV를 사용하여 CCTV video stream(RTSP)에 YOLO를 돌린 프로젝트 후기를 남겨보려고 합니다. 이  프로젝트는 실시간으로 object detecting 하는 것을 최우선 목표로 진행했습니다. 2K CCTV에서 RTSP 서버를 열어주고 딥러닝(YOLO v4)을 통해 object detecting을 진행 한 뒤 모니터링 서버에서 보여줄때까지 지연시간이 2초 이하로 진행해야 했습니다.</p>
 <h2 id="환경--목표">환경 &amp; 목표</h2>
+<p>w</p>
 <ul>
 <li>CCTV : 2K RTSP Stream, 16EA</li>
 <li>Network : 10G</li>
@@ -550,7 +604,7 @@ q <span style="color:#f92672">=</span> queue<span style="color:#f92672">.</span>
                 frame <span style="color:#f92672">=</span> q<span style="color:#f92672">.</span>get()
             <span style="color:#75715e"># next Code</span>
 </code></pre></div><h3 id="rtsp-stream-재부팅시-자동-연결이-안된다">RTSP Stream 재부팅시 자동 연결이 안된다&hellip;.</h3>
-<p>드디어 마지막 에러사항입니다! 위와 비슷하지만 docker가 죽진 않았으나 더이상 detecting log가 쌓이지 않는 현상이 있었습니다. 바로 RTSP Stream이 죽어도 receive 함수가 죽지 않았던 것입니다. 단순하게 생각해서 RTSP Stream이 재부팅 되어도 URL이 바뀌지도 않고 기존에 Stream을 계속 read하려고 하면 재부팅 된 뒤 read가 될 줄 알았던 제 어리석은 생각때문이였습니다. vid.read()에서 왜 true, false를 반환하겠니&hellip;&hellip; 여튼 그래서 vid.read가 false를 반환할 때 제 쓰레드를 죽인 뒤 다시 쓰레드를 생성해 새로운 stream을 받아오는걸로 코딩을 했습니다. 쓰레드를 생성할 때  setDaemon(True) 설정 안하면 thread가 정상적으로 죽지 않아서  ram 누수가 발생합니다. 그러니 꼭 setDaemon(True) 설정을 해주시고 맨위에 객체 만들었다고 새로운 객체를 만들지 않고 다시 start 함수만 사용하면 에러가 발생합니다. 어차피 기존 쓰레드는 반납되었으니 새로운 쓰레드를 만들어 사용하는게 좋습니다.</p>
+<p>위와 비슷하지만 docker가 죽진 않았으나 더이상 detecting log가 쌓이지 않는 현상이 있었습니다. 바로 RTSP Stream이 죽어도 receive 함수가 죽지 않았던 것입니다. 단순하게 생각해서 RTSP Stream이 재부팅 되어도 URL이 바뀌지도 않고 기존에 Stream을 계속 read하려고 하면 재부팅 된 뒤 read가 될 줄 알았던 제 어리석은 생각때문이였습니다. vid.read()에서 왜 true, false를 반환하겠니&hellip;&hellip; 여튼 그래서 vid.read가 false를 반환할 때 제 쓰레드를 죽인 뒤 다시 쓰레드를 생성해 새로운 stream을 받아오는걸로 코딩을 했습니다. 쓰레드를 생성할 때  setDaemon(True) 설정 안하면 thread가 정상적으로 죽지 않아서  ram 누수가 발생합니다. 그러니 꼭 setDaemon(True) 설정을 해주시고 맨위에 객체 만들었다고 새로운 객체를 만들지 않고 다시 start 함수만 사용하면 에러가 발생합니다. 어차피 기존 쓰레드는 반납되었으니 새로운 쓰레드를 만들어 사용하는게 좋습니다.</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">Receive</span>():
     <span style="color:#66d9ef">print</span>(<span style="color:#e6db74">&#34;start Reveive&#34;</span>)
     video_path <span style="color:#f92672">=</span> os<span style="color:#f92672">.</span>environ[<span style="color:#e6db74">&#34;VideoPath&#34;</span>]
@@ -578,7 +632,29 @@ q <span style="color:#f92672">=</span> queue<span style="color:#f92672">.</span>
             p1<span style="color:#f92672">.</span>setDaemon(True)
             p1<span style="color:#f92672">.</span>start()
 </code></pre></div><p>이렇게 RTSP Stream으로부터 원하는 만큼의 GPU를 사용해 딥러닝을 돌려 확인하는 것 까지 내용을 마쳤습니다. 추후에 이슈사항이 있으면 이 페이지에 추가하겠습니다.</p>
-<p>궁금한점이나 피드백은 환영합니다.
+<h3 id="모든-서버에서-실시간성이-보장되지-않는다-2020-12-28">모든 서버에서 실시간성이 보장되지 않는다. 2020-12-28</h3>
+<p>여러개의 서버에서 동일한 실시간성이 보장되어야 하는 프로젝트였으나 사양이 더 좋은 서버에서 실시간성이 보장 안되는 이슈가 있었습니다. 이 이슈는 아래 pipe를 생성해서 사용하는것으로 해결했습니다.<br>
+제 생각이지만 cv2.videoCapture를 사용하면 ffmpeg에 버퍼를 먼저 채운 뒤 프레임을 읽어와 제공을 해주는 것 같습니다. 또한 cv2 자체에서도 특정 조건을 만족했을 때 딜레이가 발생하는데 정확한 원인을 모르겠습니다. 혹시 아시는분이 계시다면 댓글 남겨주세요</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">import</span> cv2
+<span style="color:#f92672">import</span> subprocess <span style="color:#f92672">as</span> sp
+<span style="color:#f92672">import</span> numpy
+command <span style="color:#f92672">=</span> [<span style="color:#e6db74">&#39;ffmpeg&#39;</span>,
+           <span style="color:#e6db74">&#39;-i&#39;</span>, <span style="color:#e6db74">&#39;rtsp://78.10.34.92/axis-media/media.amp&#39;</span>,
+           <span style="color:#e6db74">&#39;-f&#39;</span>, <span style="color:#e6db74">&#39;image2pipe&#39;</span>,
+           <span style="color:#e6db74">&#39;-pix_fmt&#39;</span>, <span style="color:#e6db74">&#39;bgr24&#39;</span>,
+           <span style="color:#e6db74">&#39;-vcodec&#39;</span>, <span style="color:#e6db74">&#39;rawvideo&#39;</span>, <span style="color:#e6db74">&#39;-&#39;</span>]
+pipe <span style="color:#f92672">=</span> sp<span style="color:#f92672">.</span>Popen(command, stdout<span style="color:#f92672">=</span>sp<span style="color:#f92672">.</span>PIPE, bufsize<span style="color:#f92672">=</span><span style="color:#ae81ff">1280</span> <span style="color:#f92672">*</span> <span style="color:#ae81ff">800</span> <span style="color:#f92672">*</span> <span style="color:#ae81ff">3</span>)
+<span style="color:#66d9ef">while</span> pipe<span style="color:#f92672">.</span>poll() <span style="color:#f92672">is</span> None:
+    <span style="color:#66d9ef">if</span> cv2<span style="color:#f92672">.</span>waitKey(<span style="color:#ae81ff">1</span>) <span style="color:#f92672">&amp;</span> <span style="color:#ae81ff">0xFF</span> <span style="color:#f92672">==</span> ord(<span style="color:#e6db74">&#39;q&#39;</span>):
+        <span style="color:#66d9ef">break</span>
+    raw_image <span style="color:#f92672">=</span> pipe<span style="color:#f92672">.</span>stdout<span style="color:#f92672">.</span>read(<span style="color:#ae81ff">1280</span> <span style="color:#f92672">*</span> <span style="color:#ae81ff">800</span> <span style="color:#f92672">*</span> <span style="color:#ae81ff">3</span>)
+    image1 <span style="color:#f92672">=</span> numpy<span style="color:#f92672">.</span>frombuffer(raw_image, dtype<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;uint8&#39;</span>)
+    image2 <span style="color:#f92672">=</span> image1<span style="color:#f92672">.</span>reshape((<span style="color:#ae81ff">800</span>, <span style="color:#ae81ff">1280</span>, <span style="color:#ae81ff">3</span>))
+    cv2<span style="color:#f92672">.</span>imshow(<span style="color:#e6db74">&#39;Video&#39;</span>, image2)
+    pipe<span style="color:#f92672">.</span>stdout<span style="color:#f92672">.</span>flush()
+pipe<span style="color:#f92672">.</span>terminate()
+cv2<span style="color:#f92672">.</span>destroyAllWindows()
+</code></pre></div><p>궁금한점이나 피드백은 환영합니다.
 감사합니다.</p>
 
 
@@ -629,6 +705,38 @@ q <span style="color:#f92672">=</span> queue<span style="color:#f92672">.</span>
                     
                         
                         
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+                        
+            
+            
+                
                     
                 
                 
@@ -770,19 +878,19 @@ q <span style="color:#f92672">=</span> queue<span style="color:#f92672">.</span>
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/js/clipboard.min.js?1606725163"></script>
-    <script src="/js/perfect-scrollbar.min.js?1606725163"></script>
-    <script src="/js/perfect-scrollbar.jquery.min.js?1606725163"></script>
-    <script src="/js/jquery.sticky.js?1606725163"></script>
-    <script src="/js/featherlight.min.js?1606725163"></script>
-    <script src="/js/highlight.pack.js?1606725163"></script>
+    <script src="/js/clipboard.min.js?1609728293"></script>
+    <script src="/js/perfect-scrollbar.min.js?1609728293"></script>
+    <script src="/js/perfect-scrollbar.jquery.min.js?1609728293"></script>
+    <script src="/js/jquery.sticky.js?1609728293"></script>
+    <script src="/js/featherlight.min.js?1609728293"></script>
+    <script src="/js/highlight.pack.js?1609728293"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/js/modernizr.custom-3.6.0.js?1606725163"></script>
-    <script src="/js/learn.js?1606725163"></script>
-    <script src="/js/hugo-learn.js?1606725163"></script>
+    <script src="/js/modernizr.custom-3.6.0.js?1609728293"></script>
+    <script src="/js/learn.js?1609728293"></script>
+    <script src="/js/hugo-learn.js?1609728293"></script>
 
-    <link href="/mermaid/mermaid.css?1606725163" rel="stylesheet" />
-    <script src="/mermaid/mermaid.js?1606725163"></script>
+    <link href="/mermaid/mermaid.css?1609728293" rel="stylesheet" />
+    <script src="/mermaid/mermaid.js?1609728293"></script>
     <script>
         mermaid.initialize({ startOnLoad: true });
     </script>

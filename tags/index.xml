@@ -5,7 +5,34 @@
     <link>/tags/</link>
     <description>Recent content in Tags on </description>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Tue, 24 Nov 2020 14:02:42 +0900</lastBuildDate><atom:link href="/tags/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 04 Jan 2021 08:58:32 +0900</lastBuildDate><atom:link href="/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>idea</title>
+      <link>/tags/idea/</link>
+      <pubDate>Mon, 04 Jan 2021 08:58:32 +0900</pubDate>
+      
+      <guid>/tags/idea/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>news bot</title>
+      <link>/tags/news-bot/</link>
+      <pubDate>Mon, 04 Jan 2021 08:58:32 +0900</pubDate>
+      
+      <guid>/tags/news-bot/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>사업계획서</title>
+      <link>/tags/%EC%82%AC%EC%97%85%EA%B3%84%ED%9A%8D%EC%84%9C/</link>
+      <pubDate>Mon, 04 Jan 2021 08:58:32 +0900</pubDate>
+      
+      <guid>/tags/%EC%82%AC%EC%97%85%EA%B3%84%ED%9A%8D%EC%84%9C/</guid>
+      <description></description>
+    </item>
+    
     <item>
       <title>docker</title>
       <link>/tags/docker/</link>
