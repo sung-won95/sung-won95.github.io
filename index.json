@@ -29,10 +29,10 @@
 },
 {
 	"uri": "/",
-	"title": "",
+	"title": "슬럽의 블로그",
 	"tags": [],
 	"description": "",
-	"content": ""
+	"content": "슬럽의 블로그 이 블로그는 제가 직접 겪은 에러사항들을 정리하고 공유하려는 목적으로 개설했습니다.\n틀린 정보가 있으면 편하게 댓글 남겨주시면 감사하겠습니다.\n idea    뉴스 기사 크롤링을 통한 키워드 추출 및 실시간 트렌드 제공 서비스 [Trendak]      database    postgres replication 하는방법      devops    docker-compose에서 NFS 사용하기     Ubuntu GPU Server NVIDIA Driver 설치 방법     Docker에서 원하는 GPU선택해 컨테이너로 Project실행하기      tech    Opencv를 이용하여 YOLOv4로 CCTV 영상 분석하기      "
 },
 {
 	"uri": "/tags/idea/",
@@ -158,7 +158,7 @@
 	"title": "Ubuntu GPU Server NVIDIA Driver 설치 방법",
 	"tags": ["nvidia", "nvidia-smi", "nvidia-driver"],
 	"description": "",
-	"content": "nvidia driver 설치 전 사전 세팅  OS : ubuntu 18.04  apt-get install -y gcc make #nouveau blacklist 설정 echo \u0026#34;blacklist nouveau\u0026#34; \u0026gt;\u0026gt; /etc/modprobe.d/blacklist.conf echo options nouveau modeset=0 | sudo tee -a /etc/modprobe.d/nouveau-kms.conf update-initramfs -u # options 에서 설정한 값 적용 코드 reboot now # blacklist 적용용 reboot  nvidia driver 검색 후 설치  nvidia.com 에 접속 제품 에 맞는 드라이버 선택 후 검색다운로드 하기(wget 가능)  wget [http://us.download.nvidia.com/XFree86/Linux-x86_64/440.44/NVIDIA-Linux-x86_64-440.44.run](http://us.download.nvidia.com/XFree86/Linux-x86_64/440.44/NVIDIA-Linux-x86_64-440.44.run) chmod +x NVIDIA-Linux-x86_64-440.44.run ./NVIDIA-Linux-x86_64-440.44.run 설치 후 nvidia-smi 로 설치되었는지 확인하시면 됩니다!\n"
+	"content": "nvidia driver 설치 전 사전 세팅  OS : ubuntu 18.04  먼저 Ubuntu는 gcc와 make가 설치되어있지 않습니다. 그렇기에 apt-get으로 gcc와 make를 설치해 줍니다.\napt-get install -y gcc make 설치가 완료되었으면 nouveau를 비활성화 해줍니다. nouveau는 기본 onboard 그래픽 드라이버로 이 모듈이 활성화 되어있으면 GPU를 선점해 nvidia-driver가 정상적으로 설치되지가 않습니다. 이 모듈을 비활성화 하는 방법으로는 다양한 방법이 있는데 저는 아래와 같이 blacklist로 지정해서 reboot 하는 방식으로 했습니다. 아시는 방법이 있다면 본인이 편하신 방법대로 모듈을 비활성화 해주시면 됩니다.\n#nouveau blacklist 설정 echo \u0026#34;blacklist nouveau\u0026#34; \u0026gt;\u0026gt; /etc/modprobe.d/blacklist.conf echo options nouveau modeset=0 | sudo tee -a /etc/modprobe.d/nouveau-kms.conf update-initramfs -u # options 에서 설정한 값 적용 코드 reboot now # blacklist 적용용 reboot  비활성화가 정상적으로 되었는지는 아래 명령어를 입력했을때 아무것도 출력되지 않으면 됩니다!\nlsmod | grep nouveau nvidia driver 검색 후 설치  nvidia.com 에 접속 제품 에 맞는 드라이버 선택 후 검색다운로드 하기(wget 가능)  wget [http://us.download.nvidia.com/XFree86/Linux-x86_64/440.44/NVIDIA-Linux-x86_64-440.44.run](http://us.download.nvidia.com/XFree86/Linux-x86_64/440.44/NVIDIA-Linux-x86_64-440.44.run) chmod +x NVIDIA-Linux-x86_64-440.44.run ./NVIDIA-Linux-x86_64-440.44.run 설치 후 nvidia-smi 로 설치되었는지 확인하시면 됩니다!\n"
 },
 {
 	"uri": "/tags/volume/",

@@ -12,20 +12,20 @@
     <title>Ubuntu GPU Server NVIDIA Driver 설치 방법 :: </title>
 
     
-    <link href="/css/nucleus.css?1609728293" rel="stylesheet">
-    <link href="/css/fontawesome-all.min.css?1609728293" rel="stylesheet">
-    <link href="/css/hybrid.css?1609728293" rel="stylesheet">
-    <link href="/css/featherlight.min.css?1609728293" rel="stylesheet">
-    <link href="/css/perfect-scrollbar.min.css?1609728293" rel="stylesheet">
-    <link href="/css/auto-complete.css?1609728293" rel="stylesheet">
-    <link href="/css/atom-one-dark-reasonable.css?1609728293" rel="stylesheet">
-    <link href="/css/theme.css?1609728293" rel="stylesheet">
-    <link href="/css/hugo-theme.css?1609728293" rel="stylesheet">
+    <link href="/css/nucleus.css?1609836365" rel="stylesheet">
+    <link href="/css/fontawesome-all.min.css?1609836365" rel="stylesheet">
+    <link href="/css/hybrid.css?1609836365" rel="stylesheet">
+    <link href="/css/featherlight.min.css?1609836365" rel="stylesheet">
+    <link href="/css/perfect-scrollbar.min.css?1609836365" rel="stylesheet">
+    <link href="/css/auto-complete.css?1609836365" rel="stylesheet">
+    <link href="/css/atom-one-dark-reasonable.css?1609836365" rel="stylesheet">
+    <link href="/css/theme.css?1609836365" rel="stylesheet">
+    <link href="/css/hugo-theme.css?1609836365" rel="stylesheet">
     
-      <link href="/css/theme-mine.css?1609728293" rel="stylesheet">
+      <link href="/css/theme-mine.css?1609836365" rel="stylesheet">
     
 
-    <script src="/js/jquery-3.3.1.min.js?1609728293"></script>
+    <script src="/js/jquery-3.3.1.min.js?1609836365"></script>
 
     <style>
       :root #header + #content > #left > #rlblock_left{
@@ -401,7 +401,7 @@
             
           
           
-            <a href='/'></a> > <a href='/devops/'>devops</a> > Ubuntu GPU Server NVIDIA Driver 설치 방법
+            <a href='/'>슬럽의 블로그</a> > <a href='/devops/'>devops</a> > Ubuntu GPU Server NVIDIA Driver 설치 방법
           
          
           
@@ -464,8 +464,10 @@
 <ul>
 <li>OS : ubuntu 18.04</li>
 </ul>
+<p>먼저 Ubuntu는 gcc와 make가 설치되어있지 않습니다. 그렇기에 apt-get으로 gcc와 make를 설치해 줍니다.</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">apt-get install -y gcc make
-<span style="color:#75715e">#nouveau blacklist 설정</span>
+</code></pre></div><p>설치가 완료되었으면 nouveau를 비활성화 해줍니다. nouveau는 기본 onboard 그래픽 드라이버로 이 모듈이 활성화 되어있으면 GPU를 선점해 nvidia-driver가 정상적으로 설치되지가 않습니다. 이 모듈을 비활성화 하는 방법으로는 다양한 방법이 있는데 저는 아래와 같이 blacklist로 지정해서 reboot 하는 방식으로 했습니다. 아시는 방법이 있다면 본인이 편하신 방법대로 모듈을 비활성화 해주시면 됩니다.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#75715e">#nouveau blacklist 설정</span>
 
 echo <span style="color:#e6db74">&#34;blacklist nouveau&#34;</span> &gt;&gt; /etc/modprobe.d/blacklist.conf
 
@@ -474,6 +476,8 @@ echo options nouveau modeset<span style="color:#f92672">=</span><span style="col
 update-initramfs -u   <span style="color:#75715e"># options 에서 설정한 값 적용 코드</span>
 
 reboot now   <span style="color:#75715e"># blacklist 적용용 reboot </span>
+</code></pre></div><p>비활성화가 정상적으로 되었는지는 아래 명령어를 입력했을때 아무것도 출력되지 않으면 됩니다!</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">lsmod | grep nouveau
 </code></pre></div><h2 id="nvidia-driver-검색-후-설치">nvidia driver 검색 후 설치</h2>
 <ul>
 <li><a href="https://www.nvidia.co.kr/Download/index.aspx?lang=kr">nvidia.com</a> 에 접속</li>
@@ -713,19 +717,19 @@ chmod +x NVIDIA-Linux-x86_64-440.44.run
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/js/clipboard.min.js?1609728293"></script>
-    <script src="/js/perfect-scrollbar.min.js?1609728293"></script>
-    <script src="/js/perfect-scrollbar.jquery.min.js?1609728293"></script>
-    <script src="/js/jquery.sticky.js?1609728293"></script>
-    <script src="/js/featherlight.min.js?1609728293"></script>
-    <script src="/js/highlight.pack.js?1609728293"></script>
+    <script src="/js/clipboard.min.js?1609836365"></script>
+    <script src="/js/perfect-scrollbar.min.js?1609836365"></script>
+    <script src="/js/perfect-scrollbar.jquery.min.js?1609836365"></script>
+    <script src="/js/jquery.sticky.js?1609836365"></script>
+    <script src="/js/featherlight.min.js?1609836365"></script>
+    <script src="/js/highlight.pack.js?1609836365"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/js/modernizr.custom-3.6.0.js?1609728293"></script>
-    <script src="/js/learn.js?1609728293"></script>
-    <script src="/js/hugo-learn.js?1609728293"></script>
+    <script src="/js/modernizr.custom-3.6.0.js?1609836365"></script>
+    <script src="/js/learn.js?1609836365"></script>
+    <script src="/js/hugo-learn.js?1609836365"></script>
 
-    <link href="/mermaid/mermaid.css?1609728293" rel="stylesheet" />
-    <script src="/mermaid/mermaid.js?1609728293"></script>
+    <link href="/mermaid/mermaid.css?1609836365" rel="stylesheet" />
+    <script src="/mermaid/mermaid.js?1609836365"></script>
     <script>
         mermaid.initialize({ startOnLoad: true });
     </script>

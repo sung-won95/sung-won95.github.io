@@ -21,7 +21,8 @@
       <pubDate>Tue, 24 Nov 2020 14:02:42 +0900</pubDate>
       
       <guid>/devops/nvidia-driver-install/</guid>
-      <description>nvidia driver 설치 전 사전 세팅  OS : ubuntu 18.04  apt-get install -y gcc make #nouveau blacklist 설정 echo &amp;#34;blacklist nouveau&amp;#34; &amp;gt;&amp;gt; /etc/modprobe.d/blacklist.conf echo options nouveau modeset=0 | sudo tee -a /etc/modprobe.d/nouveau-kms.conf update-initramfs -u # options 에서 설정한 값 적용 코드 reboot now # blacklist 적용용 reboot  nvidia driver 검색 후 설치  nvidia.com 에 접속 제품 에 맞는 드라이버 선택 후 검색다운로드 하기(wget 가능)  wget [http://us.</description>
+      <description>nvidia driver 설치 전 사전 세팅  OS : ubuntu 18.04  먼저 Ubuntu는 gcc와 make가 설치되어있지 않습니다. 그렇기에 apt-get으로 gcc와 make를 설치해 줍니다.
+apt-get install -y gcc make 설치가 완료되었으면 nouveau를 비활성화 해줍니다. nouveau는 기본 onboard 그래픽 드라이버로 이 모듈이 활성화 되어있으면 GPU를 선점해 nvidia-driver가 정상적으로 설치되지가 않습니다. 이 모듈을 비활성화 하는 방법으로는 다양한 방법이 있는데 저는 아래와 같이 blacklist로 지정해서 reboot 하는 방식으로 했습니다. 아시는 방법이 있다면 본인이 편하신 방법대로 모듈을 비활성화 해주시면 됩니다.</description>
     </item>
     
     <item>
