@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Jpas on </title>
+    <link>/jpa/</link>
+    <description>Recent content in Jpas on </description>
+    <generator>Hugo -- gohugo.io</generator>
+    <lastBuildDate>Fri, 26 Feb 2021 16:05:57 +0900</lastBuildDate><atom:link href="/jpa/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>JPA 양방향 로딩시 무한루프 해결방법</title>
+      <link>/jpa/infiniterecursionerror/</link>
+      <pubDate>Fri, 26 Feb 2021 16:05:57 +0900</pubDate>
+      
+      <guid>/jpa/infiniterecursionerror/</guid>
+      <description>JPA 양방향 로딩시 무한루프 JPA를 이용해 RestAPI 서버를 개발하는 쌩 도메인을 그대로 ResponseEntity로 패키징해 return 하려고 했었다. 문제는 도메인이 양방향 매핑 설정을 해놔서 [A → B → A → &amp;hellip; ]가 끊임없이 이어지는 무한루프에 빠지게 되는 버그와 만나게 되었다. 찾아보니 ResponseEntity에서 property를 매핑하는 과정에서 JsonSerializer메소드에서 toString()을 호출한다고 한다. toString()에서 무한루프에 빠지게 되는건데 해결 방법으로는 @JsonManagedReference와 @JsonBackReference를 사용하는 방법과 @JsonIgnore를 사용하는 방법이 있다. 전자의 경우에는 부모,자식관계를 설정해 무한루프를 피하는 방식이고 후자의 경우에는 자식 관계의 도메인에 null 값을 설정하는 방식이다.</description>
+    </item>
+    
+  </channel>
+</rss>

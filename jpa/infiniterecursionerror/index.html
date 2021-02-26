@@ -9,7 +9,7 @@
 
     <link rel="icon" href="/images/favicon.png" type="image/png">
 
-    <title>nvidia-driver :: </title>
+    <title>JPA 양방향 로딩시 무한루프 해결방법 :: </title>
 
     
     <link href="/css/nucleus.css?1614323413" rel="stylesheet">
@@ -46,7 +46,7 @@
 <script data-ad-client="ca-pub-1788337254638181" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
 
   </head>
-  <body class="" data-url="/tags/nvidia-driver/">
+  <body class="" data-url="/jpa/infiniterecursionerror/">
     <nav id="sidebar" class="">
 
 
@@ -366,8 +366,8 @@
   
     
     <li data-nav-id="/jpa/" title="Jpas" class="dd-item 
+        parent
         
-        active
         
         ">
       <a href="/jpa/">
@@ -390,7 +390,7 @@
  
   
     
-      <li data-nav-id="/jpa/infiniterecursionerror/" title="JPA 양방향 로딩시 무한루프 해결방법" class="dd-item ">
+      <li data-nav-id="/jpa/infiniterecursionerror/" title="JPA 양방향 로딩시 무한루프 해결방법" class="dd-item active">
         <a href="/jpa/infiniterecursionerror/">
         JPA 양방향 로딩시 무한루프 해결방법
         
@@ -468,6 +468,17 @@
               <div>
                 <div id="top-bar">
                 
+                  
+                  
+                  
+                  <div id="top-github-link">
+                    <a class="github-link" title='Edit this page' href="sung-won95.github.iojpa/InfiniteRecursionError.md" target="blank">
+                      <i class="fas fa-code-branch"></i>
+                      <span id="top-github-link-text">Edit this page</span>
+                    </a>
+                  </div>
+                  
+                
                 
                 <div id="breadcrumbs" itemscope="" itemtype="http://data-vocabulary.org/Breadcrumb">
                     <span id="sidebar-toggle-span">
@@ -492,7 +503,7 @@
             
           
           
-            <a href='/'>슬럽의 블로그</a> > <a href='/tags/'>Tags</a> > nvidia-driver
+            <a href='/'>슬럽의 블로그</a> > <a href='/jpa/'>Jpas</a> > JPA 양방향 로딩시 무한루프 해결방법
           
          
           
@@ -505,7 +516,7 @@
                 
                     <div class="progress">
     <div class="wrapper">
-
+<nav id="TableOfContents"></nav>
     </div>
 </div>
 
@@ -521,7 +532,7 @@
           
             <h1>
               
-              nvidia-driver
+              JPA 양방향 로딩시 무한루프 해결방법
             </h1>
           
 
@@ -529,13 +540,53 @@
 
 
 
+<nav id="TableOfContents"></nav>
 
+<h1 id="jpa-양방향-로딩시-무한루프">JPA 양방향 로딩시 무한루프</h1>
+<p>JPA를 이용해 RestAPI 서버를 개발하는 쌩 도메인을 그대로 ResponseEntity로 패키징해 return 하려고 했었다. 문제는 도메인이 양방향 매핑 설정을 해놔서 [A → B → A → &hellip; ]가 끊임없이 이어지는 무한루프에 빠지게 되는 버그와 만나게 되었다. 찾아보니 ResponseEntity에서 property를 매핑하는 과정에서 JsonSerializer메소드에서 toString()을 호출한다고 한다. toString()에서 무한루프에 빠지게 되는건데 해결 방법으로는 @JsonManagedReference와 @JsonBackReference를 사용하는 방법과 @JsonIgnore를 사용하는 방법이 있다. 전자의 경우에는 부모,자식관계를 설정해 무한루프를 피하는 방식이고 후자의 경우에는 자식 관계의 도메인에 null 값을 설정하는 방식이다. JPA에서 Infinite recursion Error를 대응하고자 만든 annotation은 @JsonManagedReference와 @JsonBackReference이기 때문에 사용했다. 자세한 사항은 아래 stackoverflow를 참고하면 더 쉽게 알 수 있다.</p>
+<p>StackOverFlow URL : <a href="https://stackoverflow.com/questions/37392733/difference-between-jsonignore-and-jsonbackreference-jsonmanagedreference">Difference between @JsonIgnore and @JsonBackReference, @JsonManagedReference</a></p>
+<p>Example source</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#66d9ef">public</span> ResponseEntity<span style="color:#f92672">&lt;</span>Dataset<span style="color:#f92672">&gt;</span> <span style="color:#a6e22e">getDataset</span><span style="color:#f92672">()</span> <span style="color:#66d9ef">throws</span> UserNotFoundException <span style="color:#f92672">{</span>
+    <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">new</span> ResponseEntity<span style="color:#f92672">&lt;&gt;(</span>datasetService<span style="color:#f92672">.</span><span style="color:#a6e22e">getDatasetById</span><span style="color:#f92672">(</span>datasetId<span style="color:#f92672">)),</span> HttpStatus<span style="color:#f92672">.</span><span style="color:#a6e22e">OK</span><span style="color:#f92672">);</span>
+<span style="color:#f92672">}</span>
+</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#a6e22e">@NoArgsConstructor</span>
+<span style="color:#a6e22e">@Entity</span>
+<span style="color:#a6e22e">@Getter</span>
+<span style="color:#a6e22e">@Setter</span>
+<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Dataset</span> <span style="color:#f92672">{</span>
+    <span style="color:#a6e22e">@Id</span>
+    <span style="color:#a6e22e">@GeneratedValue</span><span style="color:#f92672">(</span>strategy <span style="color:#f92672">=</span> GenerationType<span style="color:#f92672">.</span><span style="color:#a6e22e">IDENTITY</span><span style="color:#f92672">)</span>
+    <span style="color:#66d9ef">private</span> Long datasetId<span style="color:#f92672">;</span>
 
+    <span style="color:#f92672">**</span><span style="color:#a6e22e">@JsonManagedReference</span><span style="color:#f92672">**</span>
+    <span style="color:#a6e22e">@OneToMany</span><span style="color:#f92672">(</span>mappedBy <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;dataset&#34;</span><span style="color:#f92672">,</span>cascade <span style="color:#f92672">=</span> CascadeType<span style="color:#f92672">.</span><span style="color:#a6e22e">ALL</span><span style="color:#f92672">,</span> fetch <span style="color:#f92672">=</span> FetchType<span style="color:#f92672">.</span><span style="color:#a6e22e">LAZY</span><span style="color:#f92672">)</span>
+    <span style="color:#66d9ef">private</span> List<span style="color:#f92672">&lt;</span>FileData<span style="color:#f92672">&gt;</span> fileDataList <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> ArrayList<span style="color:#f92672">&lt;&gt;();</span>
 
+    <span style="color:#75715e">// other property
+</span><span style="color:#75715e"></span><span style="color:#f92672">}</span>
+
+<span style="color:#a6e22e">@Entity</span>
+<span style="color:#a6e22e">@Getter</span>
+<span style="color:#a6e22e">@Setter</span>
+<span style="color:#a6e22e">@EqualsAndHashCode</span>
+<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">FileData</span> <span style="color:#f92672">{</span>
+    <span style="color:#a6e22e">@Id</span>
+    <span style="color:#a6e22e">@GeneratedValue</span><span style="color:#f92672">(</span>strategy <span style="color:#f92672">=</span> GenerationType<span style="color:#f92672">.</span><span style="color:#a6e22e">IDENTITY</span><span style="color:#f92672">)</span>
+    <span style="color:#66d9ef">private</span> Long fileDataId<span style="color:#f92672">;</span>
+
+    <span style="color:#a6e22e">@ManyToOne</span>
+    <span style="color:#f92672">**</span><span style="color:#a6e22e">@JsonBackReference</span><span style="color:#f92672">**</span>
+    <span style="color:#a6e22e">@JoinColumn</span><span style="color:#f92672">(</span>name<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;datasetDatasetId&#34;</span><span style="color:#f92672">)</span>
+    <span style="color:#66d9ef">private</span> Dataset dataset<span style="color:#f92672">;</span>
+
+   <span style="color:#75715e">//other property
+</span><span style="color:#75715e"></span><span style="color:#f92672">}</span>
+</code></pre></div>
 
 <footer class=" footline" >
 	
 </footer>
+
 
         
             <div id="utterance">    
@@ -772,6 +823,7 @@
             
                 
                     
+                    
                 
                 
 
@@ -784,6 +836,7 @@
             
             
                 
+                    
                     
                 
                 
@@ -835,3 +888,4 @@
 
   </body>
 </html>
+

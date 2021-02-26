@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>ClubHouse on </title>
+    <link>/tags/clubhouse/</link>
+    <description>Recent content in ClubHouse on </description>
+    <generator>Hugo -- gohugo.io</generator>
+    <lastBuildDate>Mon, 08 Feb 2021 09:08:57 +0900</lastBuildDate><atom:link href="/tags/clubhouse/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>ClubHouse</title>
+      <link>/smalltalk/clubhouse/</link>
+      <pubDate>Mon, 08 Feb 2021 09:08:57 +0900</pubDate>
+      
+      <guid>/smalltalk/clubhouse/</guid>
+      <description>클럽하우스 클럽하우스는 2020년 3월 폴 데이비슨(Paul Davison)과 로언 세스(RohanSeth)에 의해 만들어졌다. 이들은 각자 여러 서비스(사업)를 내놨었으나 공동으로 시작한것은 처음이다. 그리고 약 1년만에 유니콘 기업으로 성장했다! 초기 클럽하우스는 토크쇼 기반의 앱이였다고 한다. 즉 유명인이 팟캐스트를 생방송 라디오처럼 진행하는 컨셉이였는데 이는 유튜브, 라디오와 큰 차별성이 없었고 몇번의 피드백 이후 청취자, 게스트 기능을 넣어서 지금의 클럽하우스로 탄생하게 되었다. 새로운 SNS의 등장 SNS라고 하면 Twitter, FaceBook, Instagram 등 여러 플랫폼들이 떠오르는데 이를 시대순으로 나열해보면 텍스트기반 SNS에서 영상기반 SNS로 발전해나갔고 현재 인기 있는 SNS는 영상 기반SNS라고 생각한다.</description>
+    </item>
+    
+  </channel>
+</rss>

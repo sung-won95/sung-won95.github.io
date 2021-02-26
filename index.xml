@@ -5,7 +5,25 @@
     <link>/</link>
     <description>Recent content in 슬럽의 블로그 on </description>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Fri, 21 Feb 2020 18:58:35 +0900</lastBuildDate><atom:link href="/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 05 Jan 2021 19:58:35 +0900</lastBuildDate><atom:link href="/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>JPA 양방향 로딩시 무한루프 해결방법</title>
+      <link>/jpa/infiniterecursionerror/</link>
+      <pubDate>Fri, 26 Feb 2021 16:05:57 +0900</pubDate>
+      
+      <guid>/jpa/infiniterecursionerror/</guid>
+      <description>JPA 양방향 로딩시 무한루프 JPA를 이용해 RestAPI 서버를 개발하는 쌩 도메인을 그대로 ResponseEntity로 패키징해 return 하려고 했었다. 문제는 도메인이 양방향 매핑 설정을 해놔서 [A → B → A → &amp;hellip; ]가 끊임없이 이어지는 무한루프에 빠지게 되는 버그와 만나게 되었다. 찾아보니 ResponseEntity에서 property를 매핑하는 과정에서 JsonSerializer메소드에서 toString()을 호출한다고 한다. toString()에서 무한루프에 빠지게 되는건데 해결 방법으로는 @JsonManagedReference와 @JsonBackReference를 사용하는 방법과 @JsonIgnore를 사용하는 방법이 있다. 전자의 경우에는 부모,자식관계를 설정해 무한루프를 피하는 방식이고 후자의 경우에는 자식 관계의 도메인에 null 값을 설정하는 방식이다.</description>
+    </item>
+    
+    <item>
+      <title>ClubHouse</title>
+      <link>/smalltalk/clubhouse/</link>
+      <pubDate>Mon, 08 Feb 2021 09:08:57 +0900</pubDate>
+      
+      <guid>/smalltalk/clubhouse/</guid>
+      <description>클럽하우스 클럽하우스는 2020년 3월 폴 데이비슨(Paul Davison)과 로언 세스(RohanSeth)에 의해 만들어졌다. 이들은 각자 여러 서비스(사업)를 내놨었으나 공동으로 시작한것은 처음이다. 그리고 약 1년만에 유니콘 기업으로 성장했다! 초기 클럽하우스는 토크쇼 기반의 앱이였다고 한다. 즉 유명인이 팟캐스트를 생방송 라디오처럼 진행하는 컨셉이였는데 이는 유튜브, 라디오와 큰 차별성이 없었고 몇번의 피드백 이후 청취자, 게스트 기능을 넣어서 지금의 클럽하우스로 탄생하게 되었다. 새로운 SNS의 등장 SNS라고 하면 Twitter, FaceBook, Instagram 등 여러 플랫폼들이 떠오르는데 이를 시대순으로 나열해보면 텍스트기반 SNS에서 영상기반 SNS로 발전해나갔고 현재 인기 있는 SNS는 영상 기반SNS라고 생각한다.</description>
+    </item>
+    
     <item>
       <title>뉴스 기사 크롤링을 통한 키워드 추출 및 실시간 트렌드 제공 서비스 [Trendak]</title>
       <link>/idea/newsbotreport/</link>
