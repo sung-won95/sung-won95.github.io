@@ -1,17 +1,20 @@
 <!DOCTYPE html>
 <html lang="euc-kr">
     <head><meta charset='utf-8'>
-<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content='함수를 만드는 규칙 1. 작게 만들어라!  작아지면 코드가 단순 명료해지기에 이해하기 쉬워진다 어떻게 작게 만드나? 단순히 짧게 만들면 되는 것인가? → 아래의 내용에서 추가됨.  2. 한가지 기능만 해라  기능의 단위를 통해 작게 만들면 된다. 그렇다면 그 기능의 단위를 어디까지 볼것인가?  추상화 수준으로 구분하면 된다.   추가로 단순히 다른 표현이 아니라 의미 있는 이름으로 다른 함수를 추출할 수 있다면 그 함수는 여러 작업을 하는 것으로 판단할 수 있다.'><title>2장 함수</title>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content='함수 함수는 굉장히 작게 만들어야한다. 함수가 커지면 커질수록 한번에 읽고 파악해야하는 코드의 양이 커져 이해하기 어렵다. 그렇기 때문에 함수는 아주 작은 기능 한개만 하는것을 만들고 작은 함수들이 모여 하나의 기능을 실행하게 만들어야한다. 이번장은 함수를 만들때 몇가지 규칙을 알려준다. 이 규칙을 다 지킬수는 없겠지만 지키려는 노력을 하다보면 내 코드가 조금씩 더 나아지며 뿌듯해질것이다!
+함수를 만드는 규칙 작게 만들어라!  작아지면 코드가 단순 명료해지기에 이해하기 쉬워진다 어떻게 작게 만드나? 단순히 짧게 만들면 되는 것인가?'><title>2장 함수</title>
 
 <link rel='canonical' href='https://sung-won95.github.io/p/2%EC%9E%A5-%ED%95%A8%EC%88%98/'>
 
 <link rel="stylesheet" href="/scss/style.min.775dbd4fd34fda61c5273b4bc3415f7c9666414fb6c40aab164a7ded4397da98.css"><meta property='og:title' content='2장 함수'>
-<meta property='og:description' content='함수를 만드는 규칙 1. 작게 만들어라!  작아지면 코드가 단순 명료해지기에 이해하기 쉬워진다 어떻게 작게 만드나? 단순히 짧게 만들면 되는 것인가? → 아래의 내용에서 추가됨.  2. 한가지 기능만 해라  기능의 단위를 통해 작게 만들면 된다. 그렇다면 그 기능의 단위를 어디까지 볼것인가?  추상화 수준으로 구분하면 된다.   추가로 단순히 다른 표현이 아니라 의미 있는 이름으로 다른 함수를 추출할 수 있다면 그 함수는 여러 작업을 하는 것으로 판단할 수 있다.'>
+<meta property='og:description' content='함수 함수는 굉장히 작게 만들어야한다. 함수가 커지면 커질수록 한번에 읽고 파악해야하는 코드의 양이 커져 이해하기 어렵다. 그렇기 때문에 함수는 아주 작은 기능 한개만 하는것을 만들고 작은 함수들이 모여 하나의 기능을 실행하게 만들어야한다. 이번장은 함수를 만들때 몇가지 규칙을 알려준다. 이 규칙을 다 지킬수는 없겠지만 지키려는 노력을 하다보면 내 코드가 조금씩 더 나아지며 뿌듯해질것이다!
+함수를 만드는 규칙 작게 만들어라!  작아지면 코드가 단순 명료해지기에 이해하기 쉬워진다 어떻게 작게 만드나? 단순히 짧게 만들면 되는 것인가?'>
 <meta property='og:url' content='https://sung-won95.github.io/p/2%EC%9E%A5-%ED%95%A8%EC%88%98/'>
 <meta property='og:site_name' content='성원의 개발 블로그'>
 <meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:tag' content='클린코드' /><meta property='article:tag' content='함수' /><meta property='article:published_time' content='2022-01-19T09:24:37&#43;09:00'/><meta property='article:modified_time' content='2022-01-19T09:24:37&#43;09:00'/>
 <meta name="twitter:title" content="2장 함수">
-<meta name="twitter:description" content="함수를 만드는 규칙 1. 작게 만들어라!  작아지면 코드가 단순 명료해지기에 이해하기 쉬워진다 어떻게 작게 만드나? 단순히 짧게 만들면 되는 것인가? → 아래의 내용에서 추가됨.  2. 한가지 기능만 해라  기능의 단위를 통해 작게 만들면 된다. 그렇다면 그 기능의 단위를 어디까지 볼것인가?  추상화 수준으로 구분하면 된다.   추가로 단순히 다른 표현이 아니라 의미 있는 이름으로 다른 함수를 추출할 수 있다면 그 함수는 여러 작업을 하는 것으로 판단할 수 있다.">
+<meta name="twitter:description" content="함수 함수는 굉장히 작게 만들어야한다. 함수가 커지면 커질수록 한번에 읽고 파악해야하는 코드의 양이 커져 이해하기 어렵다. 그렇기 때문에 함수는 아주 작은 기능 한개만 하는것을 만들고 작은 함수들이 모여 하나의 기능을 실행하게 만들어야한다. 이번장은 함수를 만들때 몇가지 규칙을 알려준다. 이 규칙을 다 지킬수는 없겠지만 지키려는 노력을 하다보면 내 코드가 조금씩 더 나아지며 뿌듯해질것이다!
+함수를 만드는 규칙 작게 만들어라!  작아지면 코드가 단순 명료해지기에 이해하기 쉬워진다 어떻게 작게 만드나? 단순히 짧게 만들면 되는 것인가?">
     <link rel="shortcut icon" href="/profile.png" />
 
     </head>
@@ -108,7 +111,7 @@
 
 
                 <time class="article-time--reading">
-                    8 분 정도
+                    7 분 정도
                 </time>
             </div>
         
@@ -118,33 +121,27 @@
 </header>
 
     <section class="article-content">
-    <h2 id="함수를-만드는-규칙">함수를 만드는 규칙</h2>
-<h3 id="1-작게-만들어라">1. 작게 만들어라!</h3>
+    <h2 id="함수">함수</h2>
+<p>함수는 굉장히 작게 만들어야한다. 함수가 커지면 커질수록 한번에 읽고 파악해야하는 코드의 양이 커져 이해하기 어렵다.
+그렇기 때문에 함수는 아주 작은 기능 한개만 하는것을 만들고 작은 함수들이 모여 하나의 기능을 실행하게 만들어야한다. 이번장은 함수를 만들때 몇가지 규칙을 알려준다.
+이 규칙을 다 지킬수는 없겠지만 지키려는 노력을 하다보면 내 코드가 조금씩 더 나아지며 뿌듯해질것이다!</p>
+<h2 id="함수를-만드는-규칙">함수를 만드는 규칙</h2>
+<h3 id="작게-만들어라">작게 만들어라!</h3>
 <ul>
 <li>작아지면 코드가 단순 명료해지기에 이해하기 쉬워진다</li>
 <li>어떻게 작게 만드나? 단순히 짧게 만들면 되는 것인가? → 아래의 내용에서 추가됨.</li>
 </ul>
-<h3 id="2-한가지-기능만-해라">2. 한가지 기능만 해라</h3>
+<h3 id="한가지-기능만-해라">한가지 기능만 해라</h3>
 <ul>
-<li>기능의 단위를 통해 작게 만들면 된다.</li>
+<li>함수의 기능 자체를 단순화 시킨다! 즉 기능의 단위를 작게 만들면 된다.</li>
 <li>그렇다면 그 기능의 단위를 어디까지 볼것인가?
 <ul>
-<li>추상화 수준으로 구분하면 된다.</li>
+<li>추가로 단순히 다른 표현이 아니라 의미 있는 이름으로 다른 함수를 추출할 수 있다면 그 함수는 여러 작업을 하는 것으로 판단할 수 있다.</li>
+<li>기능의 단위는 추상화 수준으로 생각하면 조금 감이 잡힌다</li>
 </ul>
 </li>
-<li>추가로 단순히 다른 표현이 아니라 의미 있는 이름으로 다른 함수를 추출할 수 있다면 그 함수는 여러 작업을 하는 것으로 판단할 수 있다.</li>
 </ul>
-<h3 id="추상화란">추상화란?</h3>
-<p>함수의 기능 자체를 단순화 시킨다</p>
-<p>세부적인 기능이 아닌 중복되는 기능을 제거한다</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="n">예를</span> <span class="n">들어봅시다</span>
-<span class="n">핸드폰을</span> <span class="n">사용하여</span> <span class="n">다른</span> <span class="n">사람에게</span> <span class="n">전화하는</span> <span class="n">함수</span><span class="o">.</span>
-<span class="n">def</span> <span class="nf">call_other</span><span class="o">(</span><span class="n">by_name</span> <span class="o">:</span> <span class="n">str</span><span class="o">)</span>
-	<span class="n">연락처</span> <span class="nf">찾기</span> <span class="o">(</span> <span class="n">by_name</span><span class="o">)</span>
-	<span class="n">찾은</span> <span class="n">연락처로</span> <span class="n">전화하기</span><span class="o">.</span>
-<span class="n">이렇게</span> <span class="n">두가지</span> <span class="n">기능으로</span> <span class="n">나눌</span> <span class="n">수</span> <span class="n">있다</span><span class="o">.</span>
-<span class="n">연락처를</span> <span class="n">찾는</span> <span class="n">방법은</span> <span class="n">연락처</span> <span class="n">리스트에서</span> <span class="n">by_name과</span> <span class="n">같은</span> <span class="n">사람을</span> <span class="n">찾아야함</span><span class="o">.</span>
-</code></pre></div><h3 id="3-함수-당-추상화-수준은-하나로">3. 함수 당 추상화 수준은 하나로!</h3>
+<h3 id="함수-당-추상화-수준은-하나로">함수 당 추상화 수준은 하나로!</h3>
 <ul>
 <li>함수가 한가지 기능만 하려면 함수 내 모든 문장의 추상화 수준이 동일해야한다.</li>
 <li>위에서 아래로 코드 읽기 : 내려가기 규칙
@@ -156,163 +153,132 @@
 </ul>
 </li>
 </ul>
-<h3 id="4-switch-문--ifelse도-마찬가지">4. Switch 문 ( if/else도 마찬가지)</h3>
-<p>저차원 클래스에 숨기고 절대로 반복하지 않는 방법을 사용.</p>
-<p>다형성을 이용한다.</p>
+<h3 id="switch-문--ifelse도-마찬가지">Switch 문 ( if/else도 마찬가지)</h3>
 <ul>
-<li>다형성 : 클래스는 상속을 통해 확장될 수는 있어도 축소될 수는 없으므로, 자식 클래스에서 사용할 수 있는 멤버의 개수가 언제나 부모 클래스와 같거나 많게 됩니다.</li>
+<li>저차원 클래스에 숨기고 절대로 반복하지 않는 방법을 사용.</li>
+<li>추상 팩토리에 넣어서 파생 클래스의 인스턴스를 생성한다.</li>
+<li>다형성을 이용한다.
+<ul>
+<li>다형성 : 클래스는 상속을 통해 확장될 수는 있어도 축소될 수는 없으므로, 자식 클래스에서 사용할 수 있는 멤버의 개수가 언제나 부모 클래스와 같거나 많게 된다.</li>
 <li>따라서 자식 클래스에 부모 클래스를 값으로 넣으면 안된다.</li>
 </ul>
-<p>추상 팩토리에 넣어서 파생 클래스의 인스턴스를 생성한다.</p>
-<h3 id="5-서술적인-이름을-사용하라">5. 서술적인 이름을 사용하라</h3>
-<p>함수가 하는 일을 명확하게 설명 가능한 이름을 지정해야한다.</p>
-<p>함수가 작으면 작을수록 서술적인 이름을 고르기 쉬워진다.</p>
-<p>이름이 길어도 괜찮다.</p>
-<p>길고 서술적인 이름은</p>
-<ul>
-<li>짧고 어려운 이름보다 좋다</li>
-<li>길고 서술적인 주석보다 좋다</li>
-</ul>
-<p>함수 이름 정하는 방법</p>
-<ul>
-<li>
-<p>여러 단어가 쉽게 읽히는 명명법을 사용</p>
 </li>
-<li>
-<p>여러 단어를 사용해 함수 기능을 잘 표현하는 이름을 선택</p>
-</li>
-<li>
-<p>일관성이 있어야 한다.</p>
-<ul>
-<li>모듈 내에서 함수 이름은 같은 문구,명사, 동사를 사용함.</li>
 </ul>
+<h3 id="서술적인-이름을-사용하라">서술적인 이름을 사용하라</h3>
+<ul>
+<li>함수가 하는 일을 명확하게 설명 가능한 이름을 지정해야한다. 또 위에서 말한 것 처럼 함수가 하는 일이 작으면 작을수록 서술적인 이름을 고르기가 쉬워진다.</li>
+<li>이름이 길어도 괜찮다. 길고 서술적인 이름은 짧고 어려운 이름보다 좋고 길고 서술적인 주석보다 좋다!</li>
+<li>함수 이름 정하는 방법
+<ul>
+<li>여러 단어가 쉽게 읽히는 명명법을 사용</li>
+<li>여러 단어를 사용해 함수 기능을 잘 표현하는 이름을 선택</li>
+<li>일관성이 있어야 한다.
+<ul>
+<li>
+<p>모듈 내에서 함수 이름은 같은 문구,명사, 동사를 사용함.</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="n">include</span><span class="s">&#34;Setup&#34;</span><span class="n">And</span><span class="s">&#34;Teardown&#34;</span><span class="n">Pages</span>
 <span class="n">include</span><span class="s">&#34;Setup&#34;</span><span class="n">Pages</span>
 <span class="n">includeSuite</span><span class="s">&#34;Setup&#34;</span><span class="n">Page</span> 
-<span class="c1">//includeSuite&#34;Teardown&#34;Page 당연히 있을거
-</span><span class="c1"></span><span class="n">등이</span> <span class="n">좋은</span> <span class="n">예</span><span class="o">.</span>
-<span class="n">이러면</span> <span class="n">당연히</span>
-<span class="n">include</span><span class="s">&#34;Teardown&#34;</span><span class="n">Pages</span>
+</code></pre></div><p>위에 코드와 같이 이름을 선정했다면 아래와 같은 함수가 없어도 예측이 가능하기 때문에 코드 파악하기가 쉬워진다</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="n">include</span><span class="s">&#34;Teardown&#34;</span><span class="n">Pages</span>
 <span class="n">includeSuite</span><span class="s">&#34;Teardown&#34;</span><span class="n">Page</span>
-<span class="n">이</span> <span class="n">함수들도</span> <span class="n">있다고</span> <span class="n">예측이</span> <span class="n">가능하기때문에</span><span class="o">.</span>
 </code></pre></div></li>
 </ul>
-<h3 id="6-함수-인수">6. 함수 인수</h3>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="함수-인수">함수 인수</h3>
+<ul>
+<li>
 <p>이상적인 인수 개수 : 0개 → 1개(단항) → 2개(이항)</p>
-<p>하지만 3개 이상부터는 가능한 피하는 편이 좋다.</p>
-<p>4개는 특별한 이유가 있어도 쓰면 안된다</p>
-<p>인수를 넣게 되면 인수가 없는 코드보다 이해하기 어렵다.</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java">
-<span class="n">StringBuffer</span> <span class="n">newPageContent</span> <span class="o">=</span> <span class="k">new</span> <span class="n">StringBuffer</span><span class="o">();</span>
-
+</li>
+<li>
+<p>3개 이상부터는 가능한 피하는 편이 좋으며 4개는 특별한 이유가 있어도 쓰면 안된다<br>
+인수를 넣게 되면 인수가 없는 코드보다 이해하기 어렵다.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="n">StringBuffer</span> <span class="n">newPageContent</span> <span class="o">=</span> <span class="k">new</span> <span class="n">StringBuffer</span><span class="o">();</span>
 <span class="n">includeSetupPageInto</span><span class="o">(</span><span class="k">new</span> <span class="n">PageContent</span><span class="o">)</span> 
-
-<span class="o">---------------------------------------------------------------</span>
-<span class="n">includeSetupPage</span><span class="o">()</span>
-
-<span class="n">1</span><span class="o">)</span> <span class="n">함수이름과</span> <span class="n">인수</span> <span class="n">사이에</span> <span class="n">추상화</span> <span class="n">수준이</span> <span class="n">다르다</span><span class="o">.</span>
-<span class="n">2</span><span class="o">)</span> <span class="n">코드를</span> <span class="n">읽는</span> <span class="n">사람이</span> <span class="n">현</span> <span class="n">시점에서</span> <span class="n">별로</span> <span class="n">중요하지</span> <span class="n">않은</span> <span class="n">세부사항</span> <span class="n">즉</span><span class="o">,</span> <span class="n">stringBuffer를</span> <span class="n">알아야한다</span><span class="o">.</span>
-
-</code></pre></div><p>인수를 많이 넣을수록 테스트 관점에서도 어렵다.</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="n">인수가</span> <span class="n">없는</span> <span class="n">테스트</span> <span class="n">케이스와</span>
-
-<span class="n">인수가</span> <span class="n">4개인</span> <span class="n">테스트</span> <span class="n">케이스에</span> <span class="n">값을</span> <span class="n">넣고</span> <span class="n">결과를</span> <span class="n">확인한다면</span><span class="o">?</span>
-
-<span class="n">인수가</span> <span class="n">4개인</span> <span class="n">테스트</span> <span class="n">케이스는</span> <span class="n">훨씬</span> <span class="n">다양한</span> <span class="n">경우의</span> <span class="n">수가</span> <span class="n">발생된다</span><span class="o">.</span>
-</code></pre></div><p>자주 사용하는 단항 인수 ( 총 2가지 )</p>
+</code></pre></div><p>함수이름과 인수 사이에 추상화 수준이 다르다.<br>
+코드를 읽는 사람이 현 시점에서 별로 중요하지 않은 세부사항 <em>stringBuffer</em>를 알아야한다.
+위 코드는 아래 코드와 같이 단순하게 표현한다면 더더욱 좋다</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java">  <span class="n">includeSetupPage</span><span class="o">()</span>
+</code></pre></div></li>
+<li>
+<p>인수를 많이 넣을수록 테스트 관점에서도 어렵다.</p>
+<p>인수가 없는 테스트 케이스와 인수가 4개인 테스트 케이스에 값을 넣고 결과를 확인한다면?<br>
+인수가 4개인 테스트 케이스는 훨씬 다양한 경우의 수가 발생된다.</p>
+</li>
+</ul>
+<h3 id="자주-사용하는-단항-인수">자주 사용하는 단항 인수</h3>
 <ol>
-<li>인수에 질문을 던지는 경우</li>
-</ol>
+<li>
+<p>인수에 질문을 던지는 경우</p>
 <ul>
 <li>boolean fileExists(&ldquo;MyFile&rdquo;)</li>
-<li>MyFile이라는 파일의 존재 여부를 물어보는 경우임.</li>
+<li>MyFile이라는 파일의 존재 여부를 물어보는 경우</li>
 </ul>
-<ol start="2">
-<li>인수를 뭔가로 변환해 결과를 반환하는 경우</li>
-</ol>
+</li>
+<li>
+<p>인수를 뭔가로 변환해 결과를 반환하는 경우</p>
 <ul>
 <li>InputStream fileOpen(&ldquo;MyFile&rdquo;)</li>
 <li>string 형의 이름의 파일을 읽어와서 InputStream 형식으로 변환시켜주는 역할</li>
 <li>자바에서는 InputStream에서 read_buffer를 통해 지정된 buffer의 크기만큼의 string을 가져올 수 있음</li>
 </ul>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="n">다른</span> <span class="n">예시</span>
-<span class="kt">int</span> <span class="nf">oneToNumberSum</span><span class="o">(</span><span class="kt">int</span> <span class="n">number</span><span class="o">)</span> 
-<span class="n">number을</span> <span class="n">입력받아</span> <span class="n">1부터</span> <span class="n">number까지</span> <span class="n">더하고</span> <span class="n">더한</span> <span class="n">값을</span> <span class="n">int형으로</span> <span class="n">반환시켜주는</span> <span class="n">형식</span>
-<span class="n">이</span> <span class="n">형태는</span> <span class="n">좋은</span> <span class="n">형태</span> 
-<span class="n">이유</span> <span class="o">:</span> <span class="n">하나의</span> <span class="n">입력에</span> <span class="n">하나의</span> <span class="n">출력이</span> <span class="n">있기</span> <span class="n">때문에</span><span class="o">.</span>
-
-<span class="n">값을</span> <span class="n">변환시키지</span> <span class="n">않고</span> <span class="n">입력</span> <span class="n">함수를</span> <span class="n">그대로</span> <span class="n">돌려주는</span> <span class="n">함수라</span> <span class="n">할지라도</span> 
-<span class="n">변환</span> <span class="n">함수</span> <span class="n">형식을</span> <span class="n">따르는</span> <span class="n">편이</span> <span class="n">좋다</span><span class="o">.</span>
-<span class="n">적어도</span> <span class="n">변환</span> <span class="n">형태가</span> <span class="n">유지되기</span> <span class="n">때문에</span><span class="o">.</span>
-
-<span class="n">but</span>
-<span class="kt">void</span> <span class="nf">oneToNumberSum</span><span class="o">(</span><span class="kt">int</span> <span class="n">number</span><span class="o">)</span>
-<span class="n">number을</span> <span class="n">입력받아</span> <span class="n">1부터</span> <span class="n">number까지</span> <span class="n">더하고</span> <span class="n">더한</span> <span class="n">값을</span> <span class="n">number</span> <span class="n">값을</span> <span class="n">변경하여</span> <span class="n">반환함</span><span class="o">.</span>
-<span class="n">안</span> <span class="n">좋은</span> <span class="n">형태</span>
-<span class="n">변환</span> <span class="n">함수에서</span> <span class="n">출력</span> <span class="n">인수를</span> <span class="n">사용하면</span> <span class="n">혼란을</span> <span class="n">일으킬</span> <span class="n">수</span> <span class="n">있기때문에</span><span class="o">.</span>
-</code></pre></div><h3 id="플래그-인수">플래그 인수</h3>
+</li>
+</ol>
+<h3 id="플래그-인수">플래그 인수</h3>
 <p>추하다.</p>
-<p>함수로 부울 값을 넘기는 관례는 정말로 끔찍하다</p>
-<p>→ 함수가 한꺼번에 여러 가지를 처리한다는 의미이기 때문에.</p>
-<p>→ 플래그가 참이면 이런 기능을 처리하고, 거짓이면 다른 기능을 처리한다는 의미.</p>
+<p>함수로 부울 값을 넘기는 관례는 정말로 끔찍하다
+함수가 한꺼번에 여러 가지를 처리한다는 의미이기 때문에 매우 매우 추하다.</p>
 <h3 id="이항-함수--인자가-2개인-함수">이항 함수 ( 인자가 2개인 함수)</h3>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="n">writeField</span><span class="o">(</span><span class="n">name</span><span class="o">)</span> <span class="n">vs</span> <span class="nf">writeField</span><span class="o">(</span><span class="n">outputStream</span><span class="o">,</span> <span class="n">name</span><span class="o">)</span>
-<span class="n">둘</span> <span class="n">다</span> <span class="n">의미가</span> <span class="n">명백하지만</span><span class="o">,</span>
-<span class="n">인자가</span> <span class="n">1개인</span> <span class="n">함수가</span> <span class="n">인자가</span> <span class="n">2개인</span> <span class="n">함수보다</span> <span class="n">더</span> <span class="n">읽히기</span> <span class="n">쉽고</span> <span class="n">빨리</span> <span class="n">이해된다</span><span class="o">.</span>
-<span class="n">인자가</span> <span class="n">2개인</span> <span class="n">함수는</span> <span class="n">결국</span> <span class="n">첫번째</span> <span class="n">인자</span> <span class="n">outputStream을</span> <span class="n">무시해야한다는</span> <span class="n">사실을</span> <span class="n">깨닫는다</span><span class="o">.</span>
-<span class="n">하지만</span> <span class="n">그렇게</span> <span class="n">무시를</span> <span class="n">하다보면</span> <span class="n">결국</span> <span class="n">큰</span> <span class="n">문제가</span> <span class="n">생기게</span> <span class="n">된다</span><span class="o">.</span>
-</code></pre></div><p>이항 함수가 적절한 경우 (좋은 예)</p>
-<ul>
-<li>포인터
+</code></pre></div><p>둘 다 의미가 명백하지만 인자가 1개인 함수가 인자가 2개인 함수보다 더 읽히기 쉽고 빨리 이해된다.
+인자가 2개인 함수는 결국 첫번째 인자 outputStream을 무시해야한다는 사실을 깨닫는다.
+하지만 그렇게 무시를 하다보면 결국 큰 문제가 생기게 된다.</p>
+<h3 id="이항-함수가-적절한-경우">이항 함수가 적절한 경우</h3>
+<p>ex) 포인터</p>
 <ul>
 <li>Point p = new Point(0, 0)</li>
 <li>두 인수는 1개의 값을 표현하는 두 요소이고, 자연적인 순서도 있다.</li>
 </ul>
-</li>
-</ul>
-<p>하지만 위의 outputStream과 name 간에는 한 값을 표현하지도, 자연적인 순서가 있지도 않다.</p>
-<p>이항함수를 불가피하게 쓸 수도 있지만 가능하다면 단항 함수로 바꿔야한다.</p>
+<p>하지만 위의 outputStream과 name 간에는 한 값을 표현하지도, 자연적인 순서가 있지도 않다.
+이항함수를 불가피하게 쓸 수도 있지만 가능하다면 단항 함수로 바꿔야한다. 위 Point의 값들도 좌표를 뜻하는 class를 넘기는게 좋아보인다.</p>
 <h3 id="삼항함수">삼항함수</h3>
-<p>인자가 3개인 함수는 2개인 함수보다 훨씬 위험하다.</p>
-<p>이항 함수보다 고려해야할 상황들이 더 많기 때문이다.</p>
-<p>함수의 인자 순서나 인자의 무시 등으로 일어나는 상황들.</p>
-<p>Circle makeCircle(double x, double y, double radius)</p>
-<p>→ Circle makeCircle(Point center, double radius)</p>
-<p>이런식으로 3개를 2개로 변경할 때 변수 명도 명확하게 변경할 수 있다.</p>
-<p>최대한 사용하지 않게 해야한다.</p>
+<p>인자가 3개인 함수는 2개인 함수보다 훨씬 위험하다. 이항 함수보다 고려해야할 상황들이 더 많기 때문이다.
+함수의 인자 순서나 인자의 무시 등으로 일어나는 상황들.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java">    <span class="n">Circle</span> <span class="nf">makeCircle</span><span class="o">(</span><span class="kt">double</span> <span class="n">x</span><span class="o">,</span> <span class="kt">double</span> <span class="n">y</span><span class="o">,</span> <span class="kt">double</span> <span class="n">radius</span><span class="o">)</span>
+</code></pre></div><p>위 코드는 3개의 데이터를 받아 원을 그리는 함수이다.
+이런식으로 3개를 2개로 변경할 때 변수 명도 명확하게 변경할 수 있다.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java">   <span class="n">Circle</span> <span class="nf">makeCircle</span><span class="o">(</span><span class="n">Point</span> <span class="n">center</span><span class="o">,</span> <span class="kt">double</span> <span class="n">radius</span><span class="o">)</span>
+</code></pre></div><p><strong>최대한 사용하지 않게 해야한다.</strong></p>
 <h3 id="인수-목록">인수 목록</h3>
-<p>인수의 개수가 가변적인 함수도 마찬가지이다.</p>
-<p>예를들어 가변 인수를 전부 동등하게 취급하면 List형 인수 1개로 취급할 수도 있다.</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="n">String</span><span class="o">.</span><span class="na">format</span><span class="o">(</span><span class="s">&#34;name = %s, age = %d&#34;</span><span class="o">,</span><span class="n">name</span><span class="o">,</span> <span class="n">age</span><span class="o">)</span> 
-<span class="c1">// 이 함수는 이항 함수이다.
-</span><span class="c1"></span>
-<span class="n">String</span><span class="o">.</span><span class="na">format</span><span class="o">(</span><span class="s">&#34;name = %s, age = %d&#34;</span><span class="o">,</span> <span class="n">person1</span><span class="o">.</span><span class="na">makeStringFormat</span><span class="o">())</span>
-
-<span class="n">why</span><span class="o">?</span>
-<span class="n">String</span><span class="o">.</span><span class="na">format</span> <span class="n">함수</span> <span class="n">선언부에</span> <span class="n">보면</span>
-<span class="kd">public</span> <span class="n">String</span> <span class="nf">format</span><span class="o">(</span><span class="n">String</span> <span class="n">format</span><span class="o">,</span> <span class="n">Object</span><span class="o">...</span> <span class="n">args</span><span class="o">)</span>
-<span class="n">이런식으로</span> <span class="n">되어있는데</span> <span class="n">앞에는</span> <span class="n">string이고</span> <span class="n">뒤에는</span> <span class="n">변수들이다</span><span class="o">.</span>
-<span class="n">변수들에는</span> <span class="n">다양한</span> <span class="n">변수들이</span> <span class="n">여러개</span> <span class="n">들어갈</span> <span class="n">수</span> <span class="n">있지만</span> <span class="n">동등하게</span> <span class="n">취급되기에</span> <span class="n">이항</span> <span class="n">함수이다</span><span class="o">.</span>
+<p>인수의 개수가 가변적인 함수도 마찬가지이다.<br>
+예를들어 가변 인수를 전부 동등하게 취급하면 List형 인수 1개로 취급할 수도 있다.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="n">String</span><span class="o">.</span><span class="na">format</span><span class="o">(</span><span class="s">&#34;name = %s, age = %d&#34;</span><span class="o">,</span><span class="n">name</span><span class="o">,</span> <span class="n">age</span><span class="o">)</span>
+</code></pre></div><p>우리가 보는 위 함수는 분명 인수가 3개인데 클린코드에서는 이항 함수라고한다.<br>
+앞에 string형 변수 1개 뒤에는 리스트 처리 된 변수들이다.
+변수들에는 다양한 변수들이 여러개 들어갈 수 있지만 동등하게 취급되기에 이항 함수이다.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="kd">public</span> <span class="n">String</span> <span class="nf">format</span><span class="o">(</span><span class="n">String</span> <span class="n">format</span><span class="o">,</span> <span class="n">Object</span><span class="o">...</span> <span class="n">args</span><span class="o">)</span>
 </code></pre></div><h3 id="동사와-키워드">동사와 키워드</h3>
-<p>함수의 의도나 인수의 순서와 의도를 제대로 표현하려면 좋은 함수 이름이 필수.</p>
-<p>단항 함수는 함수와 인수가 동사/명사 쌍을 이뤄야 한다.</p>
-<p>write(name)은 누구나 다 이해 가능</p>
-<p>name이 무엇이든 쓴다는 의미이다.</p>
-<p>더 나은 이름은 writeField(name)이다.</p>
-<p>그러면 name이 필드 명이라는 사실이 드러난다.</p>
-<p>키워드 예제</p>
-<p>assertEquals(expected, actual) : 예측값과 결과값을 비교하여 테스트 결과값을 확인하는 함수.</p>
-<p>expected라는 변수와 actual이라는 변수의 순서를 항상 외워둬야함</p>
-<p>두개가 바뀐다면 다른 값이 출력되기때문에.</p>
-<p>따라서 키워드를 사용해서 함수 명을 바꿔줄 수 있다.</p>
-<p>assertExpectedEqualsActual(expected, actual) 이렇게 바꾼다면 함수 명만 보고 호출할 시에 인수를 헷갈리지 않고 사용할 수 있다.</p>
-<h3 id="7-부수효과를-일으키지-마라">7. 부수효과를 일으키지 마라</h3>
-<p>부수효과란? → 거짓말을 의미.</p>
-<p>함수에서 한 작업을 하겠다고 이름으로 약속하고선 남몰래 다른 것도 하는거라서.!</p>
+<p>함수의 의도나 인수의 순서와 의도를 제대로 표현하려면 좋은 함수 이름이 필수다.
+단항 함수는 함수와 인수가 동사/명사 쌍을 이뤄야 한다.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java">    <span class="n">write</span><span class="o">(</span><span class="n">name</span><span class="o">)</span>
+</code></pre></div><p>name이 무엇이든 쓴다는 의미이다.
+그리고 위 코드보다 더 좋은 코드는 아래 코드이다.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java">    <span class="n">writeField</span><span class="o">(</span><span class="n">name</span><span class="o">)</span>
+</code></pre></div><p>그러면 name이 필드 명이라는 사실이 드러난다.<br>
+그럼 다른 예시로 두개의 인수를 받아 서로 비교해 같은지 다른지 테스트하는 함수를 만든다고 가정해보자.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java">    <span class="n">assertEquals</span><span class="o">(</span><span class="n">expected</span><span class="o">,</span> <span class="n">actual</span><span class="o">)</span>
+</code></pre></div><p>위 코드는 아주 잘 한 코드 아닌가?<br>
+두개의 인수를 받아 서로 비교한다는 뜻이 잘 드러나고 이해도 잘 간다.
+하지만 클린코드는 이 함수 또한 만족하지 못했다. expected라는 변수와 actual이라는 변수의 순서를 항상 외워둬야하기 때문이다<br>
+아래와 같이 바꾼다면 함수 명만 보고 호출할 시에 인수를 헷갈리지 않고 사용할 수 있다.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java">    <span class="n">assertExpectedEqualsActual</span><span class="o">(</span><span class="n">expected</span><span class="o">,</span> <span class="n">actual</span><span class="o">)</span>
+</code></pre></div><h3 id="부수효과를-일으키지-마라">부수효과를 일으키지 마라</h3>
+<p>여기서 말하는 부수효과란 함수명으로 의미를 전달한 이외의 작업이다. 저자는 교활하고 해로운 거짓말이라고 표현했고 조금 쎈 표현이긴 한데 읽어보니 동감한다.</p>
 <ul>
-<li>예상치 못하게 클래스 변수를 수정하거나</li>
-<li>함수로 넘어온 인수나 시스템 전역 변수를 수정하는 짓들의 총칭</li>
-<li>저자는 교활하고 해로운 거짓말이라고 표현함.</li>
+<li>함수로 넘어온 인수나 시스템 전역 변수를 수정하는 것</li>
 <li>이런 부수효과가 많다면 시간적인 결합이나 순서 종속성을 초래
 <ul>
 <li>시간적인 결합</li>
@@ -320,34 +286,6 @@
 </ul>
 </li>
 </ul>
-<p>&lt;시간적인 결합과 순서 종속성에 관한 예제&gt;</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="n">시간적인</span> <span class="n">결합은</span> <span class="n">2가지</span> <span class="n">개념이</span> <span class="n">존재한다</span><span class="o">.</span>
-<span class="n">동시성과</span> <span class="n">순서적인</span> <span class="n">개념</span><span class="o">.</span>
-
-<span class="n">1</span><span class="o">)</span> <span class="n">동시성</span> <span class="o">:</span> <span class="n">같은</span> <span class="n">시간에</span> <span class="n">일어나도</span> <span class="n">되는</span> <span class="n">일</span><span class="o">.</span>
-
-<span class="n">2</span><span class="o">)</span> <span class="n">순서적인</span> <span class="n">개념</span> <span class="o">:</span> <span class="n">항상</span> <span class="n">A매서드</span> <span class="n">이후에</span> <span class="n">B매서드가</span> <span class="n">실행되어야</span> <span class="n">한다</span><span class="o">.</span>
-
-<span class="n">예를</span> <span class="n">들어서</span> 
-
-<span class="n">실제</span> <span class="n">노트에</span> <span class="n">적었던</span> <span class="n">내용들을</span> <span class="n">노션에</span> <span class="n">옮겨</span> <span class="n">적으려고</span> <span class="n">하는</span> <span class="n">행동을</span> <span class="n">설계한다면</span>
-
-<span class="n">1</span><span class="o">.</span> <span class="n">실제</span> <span class="n">노트를</span> <span class="n">열어서</span> <span class="n">옮길</span> <span class="n">내용을</span> <span class="n">찾는다</span>
-
-<span class="n">2</span><span class="o">.</span> <span class="n">컴퓨터를</span> <span class="n">켜서</span> <span class="n">노션을</span> <span class="n">킨다</span><span class="o">.</span>
-
-<span class="n">3</span><span class="o">.</span> <span class="n">옮길</span> <span class="n">내용을</span> <span class="n">노션에</span> <span class="n">작성한다</span><span class="o">.</span>
-
-<span class="n">이러한</span> <span class="n">프로그램이</span> <span class="n">있다면</span>
-
-<span class="n">동시에</span> <span class="n">진행될</span> <span class="n">수</span> <span class="n">있는</span> <span class="n">작업은</span> <span class="n">1번과</span> <span class="n">2번이다</span><span class="o">.</span>
-
-<span class="n">1</span><span class="o">,</span><span class="n">2는</span> <span class="n">동시성이</span> <span class="n">충족된다</span>
-<span class="o">:</span> <span class="n">동시에</span> <span class="n">동작</span> <span class="n">가능</span>
-
-<span class="n">3번은</span> <span class="n">항상</span> <span class="n">1</span><span class="o">,</span><span class="n">2가</span> <span class="n">실행된</span> <span class="n">후에</span> <span class="n">실행되어야</span> <span class="n">한다</span><span class="o">.</span>
-<span class="o">:</span> <span class="n">순서</span> <span class="n">종속성</span>
-</code></pre></div><p>&lt;부수효과 예제&gt;</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="kd">public</span> <span class="kd">class</span> <span class="nc">UserValidator</span> <span class="o">{</span>
 	<span class="kd">private</span> <span class="n">Cryptographer</span> <span class="n">cryptographer</span><span class="o">;</span>
 
@@ -365,68 +303,31 @@
         <span class="k">return</span> <span class="n">Fasle</span><span class="o">;</span>
     <span class="o">}</span>
 <span class="o">}</span>
-</code></pre></div><p>위의 예제는 겉으로는 무난해 보이는 함수이다</p>
-<p>userName과 password를 확인하는 함수이다</p>
-<p>하지만 이 함수는 부수 효과를 일으킨다.</p>
-<p>부수 효과의 위치는 ? Session.initialize() 호출이다&hellip;!!!!!</p>
-<p>위의 함수는 함수 명이 checkPassword 인데 불구하고 password가 맞으면 세션을 초기화 시키고 true를 반환한다.</p>
-<p>이름만 봐서는 세션을 초기화 시키는 기능은 전혀 생각할 수 없다.</p>
-<p>이런 부수 효과가 시간적인 결합을 초래함.</p>
-<p>즉, checkPassword 함수는 특정 상황(세션이 초기화 되도 괜찮은 상황)에서만 호출이 가능하다.</p>
-<p>의도치 않게 호출한다면 세션 정보가 날라감.</p>
-<p>이러한 시간적인 결합이 필요하다면 반드시 함수 이름에 표기해야함.</p>
-<p>checkPasswordAndInitializeSession()이라는 이름이 훨씬 좋다.</p>
-<p>→ 근데 한가지 기능만 한다는 규칙을 위반한다</p>
-<h3 id="출력-인수">출력 인수</h3>
-<p>인수 : 함수의 입력을 의미함.</p>
-<p>인수를 출력으로 사용하면 어색하다.</p>
-<p>&lt;예제&gt;</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="n">appendFooter</span><span class="o">(</span><span class="n">s</span><span class="o">);</span>
-<span class="n">이</span> <span class="n">함수는</span> <span class="n">s를</span> <span class="n">무언가에</span> <span class="n">추가한다는</span> <span class="n">의미인가</span><span class="o">?</span> <span class="n">s에</span> <span class="n">바닥글을</span> <span class="n">첨부할까</span><span class="o">?</span>
-
-<span class="n">선언을</span> <span class="n">봐야</span> <span class="n">확실해진다</span><span class="o">.</span>
-<span class="kd">public</span> <span class="kt">void</span> <span class="nf">appendFooter</span><span class="o">(</span><span class="n">StringBuffer</span> <span class="n">report</span><span class="o">)</span>
-<span class="n">이</span> <span class="n">선언을</span> <span class="n">본다면</span><span class="o">?</span>
-<span class="n">인수</span> <span class="n">s가</span> <span class="n">출력인수라는</span> <span class="n">사실이</span> <span class="n">나온다</span><span class="o">.</span>
-<span class="n">이</span> <span class="n">선언을</span> <span class="n">보는</span> <span class="n">행위</span> <span class="n">자체가</span> <span class="n">함수를</span> <span class="n">보고</span> <span class="n">주춤하는</span> <span class="n">것과</span> <span class="n">같은</span> <span class="n">급으로</span> <span class="n">취급한다</span><span class="o">.</span>
-<span class="n">인지적으로</span> <span class="n">거슬린다는</span> <span class="n">뜻이므로</span> <span class="n">피해야한다</span><span class="o">.</span>
-
-<span class="n">거슬리지</span> <span class="n">않게</span> <span class="n">바꾸면</span><span class="o">?</span>
-<span class="n">함수에서</span> <span class="n">상태를</span> <span class="n">변경하려고</span> <span class="n">한다면</span> <span class="n">함수가</span> <span class="n">속한</span> <span class="n">객체</span> <span class="n">상태를</span> <span class="n">변경하는</span> <span class="n">방식을</span> <span class="n">택해야한다</span><span class="o">.</span>
-<span class="n">report</span><span class="o">.</span><span class="na">appendFooter</span><span class="o">()</span>
-</code></pre></div><h3 id="8-명령과-조회를-분리하라">8. 명령과 조회를 분리하라</h3>
-<p>함수는 1가지 기능만 해야해서</p>
-<p>명령을 수행하거나</p>
-<p>뭔가에 답하거나  둘중 한개만 해야함</p>
-<p>객체 상태를 변경하거나, 아니면 객체 정보를 반환하거나 둘 중 하나다.</p>
-<p>&lt;예제&gt;</p>
+</code></pre></div><p>위의 예제는 userName과 password를 확인하는 무난해 보이는 함수이다
+하지만 이 함수는 <strong>Session.initialize()</strong> 부분에서 부수 효과를 일으킨다.
+위의 함수는 함수 명이 checkPassword 인데 불구하고 password가 맞으면 세션을 초기화 시키고 true를 반환한다.
+이름만 봐서는 세션을 초기화 시키는 기능은 전혀 생각할 수 없다.
+이런 부수 효과가 시간적인 결합을 초래하고 더 나아가 세션 정보에 중요한 값이 있다면 시스템 전체 에러를 발생시킬 수 있다.</p>
+<p>만약 세션을 무조건 초기화 시켜야 하는 함수라면 checkPasswordAndInitializeSession()이라는 이름이 훨씬 좋다.</p>
+<p><del>근데 이러면 한가지 기능만 한다는 규칙을 위반하는거 아닌가&hellip;</del></p>
+<h3 id="명령과-조회를-분리하라">명령과 조회를 분리하라</h3>
+<p>함수는 1가지 기능만 해야해서 명령을 수행하거나 뭔가에 답하거나 둘 중 한개만 해야한다.
+객체 상태를 변경하거나, 아니면 객체 정보를 반환하거나 둘 중 하나만 해야한다는 의미다.</p>
+<p>아래 함수는 attribute인 속성을 찾아 값을 value로 설정한 후 성공하면 true를 반환하고 실패하면 false를 반환한다.</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="kd">public</span> <span class="kt">boolean</span> <span class="nf">set</span><span class="o">(</span><span class="n">String</span> <span class="n">attribute</span><span class="o">,</span> <span class="n">String</span> <span class="n">value</span><span class="o">);</span>
-<span class="n">이</span> <span class="n">함수는</span> <span class="n">attribute인</span> <span class="n">속성을</span> <span class="n">찾아</span> <span class="n">값을</span> <span class="n">value로</span> <span class="n">설정한</span> <span class="n">후</span> <span class="n">성공하면</span> <span class="n">true를</span> <span class="n">반환하고</span>
-<span class="n">실패하면</span> <span class="n">false를</span> <span class="n">반환한다</span><span class="o">.</span>
-
-<span class="nf">if</span> <span class="o">(</span><span class="n">set</span><span class="o">(</span><span class="s">&#34;username&#34;</span><span class="o">,</span> <span class="s">&#34;unclebob&#34;</span><span class="o">))...</span>
-<span class="n">이와</span> <span class="n">같이</span> <span class="n">괴상한</span> <span class="n">코드가</span> <span class="n">나온다</span><span class="o">.</span>
-
-<span class="n">위</span> <span class="n">set</span> <span class="n">함수는</span> <span class="n">의미가</span> <span class="n">모호하다</span><span class="o">.</span>
-<span class="n">이</span> <span class="n">set이라는</span> <span class="n">단어가</span> <span class="n">동사인지</span> <span class="n">형용사인지</span> <span class="n">구분하기</span> <span class="n">어렵다</span><span class="o">.</span>
-<span class="n">이</span> <span class="n">함수를</span> <span class="n">구현한</span> <span class="n">사람은</span> <span class="n">동사로</span> <span class="n">구현했지만</span><span class="o">,</span>
-<span class="n">if문에</span> <span class="n">넣고</span> <span class="n">보면</span> <span class="s">&#34;username&#34;</span> <span class="n">속성이</span> <span class="n">unclebob으로</span> <span class="n">설정되어</span> <span class="n">있다면으로</span> <span class="n">읽히는지</span><span class="o">?</span>
-
-<span class="n">원래</span> <span class="n">의도한대로</span> <span class="s">&#34;username&#34;</span> <span class="n">속성을</span> <span class="n">unclebob으로</span> <span class="n">설정하는데</span> <span class="n">성공했다면으로</span> <span class="n">읽히는지</span><span class="o">?</span>
-<span class="n">이럴</span> <span class="n">때</span> <span class="n">조회와</span> <span class="n">명령을</span> <span class="n">구분해</span> <span class="n">혼란을</span> <span class="n">해결하는게</span> <span class="n">중요하다</span><span class="o">.</span>
-
-<span class="nf">if</span><span class="o">(</span> <span class="n">attributeExists</span><span class="o">(</span><span class="s">&#34;username&#34;</span><span class="o">){</span>
+</code></pre></div><p>위 함수를 사용하려면</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="k">if</span> <span class="o">(</span><span class="n">set</span><span class="o">(</span><span class="s">&#34;username&#34;</span><span class="o">,</span> <span class="s">&#34;unclebob&#34;</span><span class="o">))...</span>
+</code></pre></div><p>이와 같이 괴상한 코드가 나온다.</p>
+<p>위 set 함수는 의미가 모호하다. 이 set이라는 단어가 동사인지 형용사인지 구분하기 어렵기 때문이다. 이 함수를 구현한 사람은 동사로 구현했지만 막상 if문에 넣고 보면 &ldquo;username 속성이 unclebob으로 설정되어 있다면?&rdquo; 으로 읽히기 때문이다.<br>
+원래 의도한대로 &ldquo;username 속성을 unclebob으로 설정하는데 성공했다면?&ldquo;으로 읽히려면 아래처럼 코드를 변경하면 된다.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="k">if</span><span class="o">(</span> <span class="n">attributeExists</span><span class="o">(</span><span class="s">&#34;username&#34;</span><span class="o">){</span>
 	<span class="n">setAttribute</span><span class="o">(</span><span class="s">&#34;username&#34;</span><span class="o">,</span> <span class="s">&#34;unclebob&#34;</span><span class="o">);</span>
 <span class="o">}</span>
-</code></pre></div><h3 id="9-오류-코드보단-예외를-사용하라">9. 오류 코드보단 예외를 사용하라.</h3>
-<p>오류 코드 사용 방식은 명령/조회 분리 규칙을 미묘하게 위반한다.</p>
-<p>why? :</p>
-<p>자칫하면 if문에서 명령을 표현식으로 사용하기 쉬운 탓이다.</p>
-<p>if (deletePage(page) == E_OK)</p>
-<p>이런식으로 사용될때 위반된다.</p>
-<p>따라서 이러한 오류 코드보단 예외를 사용하여 처리하는게 좋다.</p>
-<p>자바에서는 try / catch문이다.</p>
-<p>&lt;오류코드 예제&gt;</p>
+</code></pre></div><h3 id="오류-코드보단-예외를-사용하라">오류 코드보단 예외를 사용하라.</h3>
+<p>오류 코드 사용 방식은 if문에서 명령을 표현식으로 사용하기 쉽기 때문에 명령/조회 분리 규칙을 미묘하게 위반한다.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="k">if</span> <span class="o">(</span><span class="n">deletePage</span><span class="o">(</span><span class="n">page</span><span class="o">)</span> <span class="o">==</span> <span class="n">E_OK</span><span class="o">)</span>
+</code></pre></div><p>따라서 이러한 오류 코드보단 예외를 사용하여 처리하는게 좋다.
+자바에서는 try / catch문이다.</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="k">if</span> <span class="o">(</span><span class="n">deletePage</span><span class="o">(</span><span class="n">page</span><span class="o">)</span> <span class="o">==</span> <span class="n">E_OK</span><span class="o">)</span> <span class="o">{</span>
     <span class="k">if</span><span class="o">(</span> <span class="n">registry</span><span class="o">.</span><span class="na">deleteReference</span><span class="o">(</span><span class="n">page</span><span class="o">.</span><span class="na">name</span><span class="o">)</span> <span class="o">==</span> <span class="n">E_OK</span><span class="o">){</span>
         <span class="k">if</span> <span class="o">(</span><span class="n">configKeys</span><span class="o">.</span><span class="na">deleteKey</span><span class="o">(</span><span class="n">page</span><span class="o">.</span><span class="na">name</span><span class="o">.</span><span class="na">makeKey</span><span class="o">()</span> <span class="o">==</span> <span class="n">E_OK</span><span class="o">){</span>
@@ -444,7 +345,7 @@
     <span class="n">logger</span><span class="o">.</span><span class="na">log</span><span class="o">(</span><span class="s">&#34;delete filed&#34;</span><span class="o">);</span>
     <span class="k">return</span> <span class="n">E_ERROR</span><span class="o">;</span>
 <span class="o">}</span>
-</code></pre></div><p>&lt;try catch로 변경&gt;</p>
+</code></pre></div><p>위와같이 에러 체크하는 더러운 코드들을 try / catch문으로 묶어 버리면 아래와 같이 깔끔하게 정리가 가능해진다.</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="k">try</span> <span class="o">{</span>
 	<span class="n">deletePage</span><span class="o">(</span><span class="n">page</span><span class="o">);</span>
 	<span class="n">registry</span><span class="o">.</span><span class="na">deleteReference</span><span class="o">(</span><span class="n">page</span><span class="o">.</span><span class="na">name</span><span class="o">);</span>
@@ -453,8 +354,8 @@
 <span class="k">catch</span> <span class="o">(</span><span class="n">Exception</span> <span class="n">e</span><span class="o">){</span>
 	<span class="n">logger</span><span class="o">.</span><span class="na">log</span><span class="o">(</span><span class="n">e</span><span class="o">.</span><span class="na">getMessage</span><span class="o">());</span>
 <span class="o">}</span>
-</code></pre></div><p>이런 try / catch문은 원래 추하다고 표현한다.</p>
-<p>그래서 try구문자체를 하나의 함수로 묶어서 표현하는 방식이 제일 좋다.</p>
+</code></pre></div><p>분명 처음 코드보단 깔끔해졌는데 클린코드에서는 이 try / catch 도 추하다고 표현한다.
+try구문자체를 하나의 함수로 묶어서 밖에서 표현 하라고 한다.</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="kd">public</span> <span class="kt">void</span> <span class="nf">delete</span><span class="o">(</span><span class="n">Page</span> <span class="n">page</span><span class="o">){</span>
 	<span class="k">try</span> <span class="o">{</span>
 		<span class="n">deletePageAndAllReferences</span><span class="o">(</span><span class="n">page</span><span class="o">);</span>
@@ -473,23 +374,16 @@
 <span class="kd">private</span> <span class="kt">void</span> <span class="nf">logError</span><span class="o">(</span><span class="n">Exception</span> <span class="n">e</span><span class="o">){</span>
 	<span class="n">logger</span><span class="o">.</span><span class="na">log</span><span class="o">(</span><span class="n">e</span><span class="o">.</span><span class="na">getMessage</span><span class="o">());</span>
 <span class="o">}</span>
-</code></pre></div><p>오류 처리도 한가지 작업이다!!!!!</p>
-<p>의존성 자석 : 1개의 클래스가 변한다면 그 클래스를 사용하는 다른 소스들에서도 컴파일이 진행되어야 하는 개념.</p>
-<p>오류 코드를 반환한다는 말은 클래스든 열거형 변수든 어디선가 오류코드를 정의한다는 뜻이다.</p>
-<p>오류 코드를 변환한다면?? 오류코드를 사용하는 모든 클래스를 전부 다시 컴파일 하고 재배치가 필요하다.</p>
-<p>그래서 새로운 오류코드를 만들어내기 보단 기존에 사용하던 오류코드를 쓰는경우가 많아지고 그러면 명확한 오류코드 자체의 존재 이유가 흐려질 수 있다</p>
-<p>Exception을 사용하자!</p>
-<h3 id="10-구조적-프로그래밍">10. 구조적 프로그래밍</h3>
-<p>에츠허르 데이크스트라의 구조적 프로그래밍 원칙을 따른다.</p>
-<p>모든 함수와 함수 내 모든 블록에 입구와 출구가 하나만 존재해야한다.</p>
-<p>루프 안에서 continue나 break문을 사용해서는 안되며 goto는 절대 금지한다.</p>
-<p>저자는 목표와 규율은 공감하지만 우리가 원하는 것 처럼 함수가 작다면 이익이 없다.</p>
+</code></pre></div><h3 id="10-구조적-프로그래밍">10. 구조적 프로그래밍</h3>
+<p>에츠허르 데이크스트라의 구조적 프로그래밍 원칙을 따른다.
+모든 함수와 함수 내 모든 블록에 입구와 출구가 하나만 존재해야한다.
+루프 안에서 continue나 break문을 사용해서는 안되며 goto는 절대 금지한다.
+저자는 목표와 규율은 공감하지만 우리가 원하는 것 처럼 함수가 작다면 이익이 없다.</p>
 <h3 id="12-함수를-어떻게-짜죠">12. 함수를 어떻게 짜죠?</h3>
-<p>처음에는 길고 복잡하게 짤수도 있지만 그런 서투른 코드들을 모두 단위 테스트 한 후 코들를 다듬고 함수를 만들고 이름을 바꾸고 중복을 제거한다. 메서드를 줄이고 순서를 바꾼다.  이런 와중에도 항상 단위 테스트는 성공해야한다.</p>
-<p>처음부터 완벽하게 짜려고 하지말고 일단 짜놓고 리펙터링 하는 방향으로 발전해 나가는게 좋을 것 같다.</p>
-<h2 id="결론-">결론 :</h2>
+<p>처음에는 길고 복잡하게 짤수도 있지만 그런 서투른 코드들을 모두 단위 테스트 한 후 코들를 다듬고 함수를 만들고 이름을 바꾸고 중복을 제거한다. 메서드를 줄이고 순서를 바꾼다.  이런 와중에도 항상 단위 테스트는 성공해야한다.
+처음부터 완벽하게 짜려고 하지말고 일단 짜놓고 리펙터링 하는 방향으로 발전해 나가는게 좋다.</p>
+<h2 id="결론">결론</h2>
 <h3 id="함수의-길이가-짧고-이름이-좋고-체계가-잡힌-함수를-만들자">함수의 길이가 짧고, 이름이 좋고, 체계가 잡힌 함수를 만들자.</h3>
-<h3 id="함수가-분명하고-정확한-언어로-깔끔하게-맞아떨어져야-전체-이야기를-풀어나가기가-쉬워진다">함수가 분명하고 정확한 언어로 깔끔하게 맞아떨어져야 전체 이야기를 풀어나가기가 쉬워진다!</h3>
 
 </section>
 
@@ -723,32 +617,32 @@
                 <div class="widget--toc">
                     <nav id="TableOfContents">
   <ol>
+    <li><a href="#함수">함수</a></li>
     <li><a href="#함수를-만드는-규칙">함수를 만드는 규칙</a>
       <ol>
-        <li><a href="#1-작게-만들어라">1. 작게 만들어라!</a></li>
-        <li><a href="#2-한가지-기능만-해라">2. 한가지 기능만 해라</a></li>
-        <li><a href="#추상화란">추상화란?</a></li>
-        <li><a href="#3-함수-당-추상화-수준은-하나로">3. 함수 당 추상화 수준은 하나로!</a></li>
-        <li><a href="#4-switch-문--ifelse도-마찬가지">4. Switch 문 ( if/else도 마찬가지)</a></li>
-        <li><a href="#5-서술적인-이름을-사용하라">5. 서술적인 이름을 사용하라</a></li>
-        <li><a href="#6-함수-인수">6. 함수 인수</a></li>
+        <li><a href="#작게-만들어라">작게 만들어라!</a></li>
+        <li><a href="#한가지-기능만-해라">한가지 기능만 해라</a></li>
+        <li><a href="#함수-당-추상화-수준은-하나로">함수 당 추상화 수준은 하나로!</a></li>
+        <li><a href="#switch-문--ifelse도-마찬가지">Switch 문 ( if/else도 마찬가지)</a></li>
+        <li><a href="#서술적인-이름을-사용하라">서술적인 이름을 사용하라</a></li>
+        <li><a href="#함수-인수">함수 인수</a></li>
+        <li><a href="#자주-사용하는-단항-인수">자주 사용하는 단항 인수</a></li>
         <li><a href="#플래그-인수">플래그 인수</a></li>
         <li><a href="#이항-함수--인자가-2개인-함수">이항 함수 ( 인자가 2개인 함수)</a></li>
+        <li><a href="#이항-함수가-적절한-경우">이항 함수가 적절한 경우</a></li>
         <li><a href="#삼항함수">삼항함수</a></li>
         <li><a href="#인수-목록">인수 목록</a></li>
         <li><a href="#동사와-키워드">동사와 키워드</a></li>
-        <li><a href="#7-부수효과를-일으키지-마라">7. 부수효과를 일으키지 마라</a></li>
-        <li><a href="#출력-인수">출력 인수</a></li>
-        <li><a href="#8-명령과-조회를-분리하라">8. 명령과 조회를 분리하라</a></li>
-        <li><a href="#9-오류-코드보단-예외를-사용하라">9. 오류 코드보단 예외를 사용하라.</a></li>
+        <li><a href="#부수효과를-일으키지-마라">부수효과를 일으키지 마라</a></li>
+        <li><a href="#명령과-조회를-분리하라">명령과 조회를 분리하라</a></li>
+        <li><a href="#오류-코드보단-예외를-사용하라">오류 코드보단 예외를 사용하라.</a></li>
         <li><a href="#10-구조적-프로그래밍">10. 구조적 프로그래밍</a></li>
         <li><a href="#12-함수를-어떻게-짜죠">12. 함수를 어떻게 짜죠?</a></li>
       </ol>
     </li>
-    <li><a href="#결론-">결론 :</a>
+    <li><a href="#결론">결론</a>
       <ol>
         <li><a href="#함수의-길이가-짧고-이름이-좋고-체계가-잡힌-함수를-만들자">함수의 길이가 짧고, 이름이 좋고, 체계가 잡힌 함수를 만들자.</a></li>
-        <li><a href="#함수가-분명하고-정확한-언어로-깔끔하게-맞아떨어져야-전체-이야기를-풀어나가기가-쉬워진다">함수가 분명하고 정확한 언어로 깔끔하게 맞아떨어져야 전체 이야기를 풀어나가기가 쉬워진다!</a></li>
       </ol>
     </li>
   </ol>

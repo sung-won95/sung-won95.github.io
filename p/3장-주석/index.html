@@ -1,38 +1,17 @@
 <!DOCTYPE html>
 <html lang="euc-kr">
     <head><meta charset='utf-8'>
-<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content='주석의 개념  코드로 직접 실행되지 않지만 코드를 설명하는 문장이나 글  저자가 바라보는 주석이란? 잘달린 주석은 그 어떤 정보보다 유용하다
-나쁜 주석은 코드를 이해하기 어렵게 만든다.
-오래되고 조잡한 주석은 거짓과 잘못된 정보를 퍼뜨려 해악을 미친다.
-저자의 표현으로는 사실상 주석은 기껏해야 필요악이라고 한다.
-코드로 의도를 표현하지 못해 실패를 만회하기 위해 주석을 사용한다.
-코드는 변화하고 진화한다.
-하지만 주석은 그 코드를 언제나 따라가진 않는다.
-그렇게 주석이 코드에서 분리되어 점점 더 부정확한 고아로 변하는 사례가 흔하다고 한다.'><title>3장 주석</title>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content='주석의 개념  코드로 직접 실행되지 않지만 코드를 설명하는 문장이나 글  저자가 바라보는 주석이란? 잘 달린 주석은 그 어떤 정보보다 유용하다. 다만 보통 주석은 오래되고 조잡하며 거짓과 잘못된 정보를 줘 코드를 이해하기 어렵게 만든다. 저자의 표현으로는 사실상 주석은 기껏해야 필요악이라고 한다. 코드로 본인의 의도를 잘 표현하지 못해 주석을 쓴 것이고 본인의 실패를 만회하기위해 사용한다고 한다. 코드는 지속적인 리팩토링으로 점점 진화하면서 완벽해진다. 하지만 주석은 언제나 코드를 따라 변하지 못한다. 그렇게 주석이 코드에서 분리되어 점점 더 부정확해지고 마침내 고아로 변하는 사례가 흔하다고 한다.'><title>3장 주석</title>
 
 <link rel='canonical' href='https://sung-won95.github.io/p/3%EC%9E%A5-%EC%A3%BC%EC%84%9D/'>
 
 <link rel="stylesheet" href="/scss/style.min.775dbd4fd34fda61c5273b4bc3415f7c9666414fb6c40aab164a7ded4397da98.css"><meta property='og:title' content='3장 주석'>
-<meta property='og:description' content='주석의 개념  코드로 직접 실행되지 않지만 코드를 설명하는 문장이나 글  저자가 바라보는 주석이란? 잘달린 주석은 그 어떤 정보보다 유용하다
-나쁜 주석은 코드를 이해하기 어렵게 만든다.
-오래되고 조잡한 주석은 거짓과 잘못된 정보를 퍼뜨려 해악을 미친다.
-저자의 표현으로는 사실상 주석은 기껏해야 필요악이라고 한다.
-코드로 의도를 표현하지 못해 실패를 만회하기 위해 주석을 사용한다.
-코드는 변화하고 진화한다.
-하지만 주석은 그 코드를 언제나 따라가진 않는다.
-그렇게 주석이 코드에서 분리되어 점점 더 부정확한 고아로 변하는 사례가 흔하다고 한다.'>
+<meta property='og:description' content='주석의 개념  코드로 직접 실행되지 않지만 코드를 설명하는 문장이나 글  저자가 바라보는 주석이란? 잘 달린 주석은 그 어떤 정보보다 유용하다. 다만 보통 주석은 오래되고 조잡하며 거짓과 잘못된 정보를 줘 코드를 이해하기 어렵게 만든다. 저자의 표현으로는 사실상 주석은 기껏해야 필요악이라고 한다. 코드로 본인의 의도를 잘 표현하지 못해 주석을 쓴 것이고 본인의 실패를 만회하기위해 사용한다고 한다. 코드는 지속적인 리팩토링으로 점점 진화하면서 완벽해진다. 하지만 주석은 언제나 코드를 따라 변하지 못한다. 그렇게 주석이 코드에서 분리되어 점점 더 부정확해지고 마침내 고아로 변하는 사례가 흔하다고 한다.'>
 <meta property='og:url' content='https://sung-won95.github.io/p/3%EC%9E%A5-%EC%A3%BC%EC%84%9D/'>
 <meta property='og:site_name' content='성원의 개발 블로그'>
 <meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:tag' content='클린코드' /><meta property='article:tag' content='주석' /><meta property='article:published_time' content='2022-01-19T09:24:37&#43;09:00'/><meta property='article:modified_time' content='2022-01-19T09:24:37&#43;09:00'/>
 <meta name="twitter:title" content="3장 주석">
-<meta name="twitter:description" content="주석의 개념  코드로 직접 실행되지 않지만 코드를 설명하는 문장이나 글  저자가 바라보는 주석이란? 잘달린 주석은 그 어떤 정보보다 유용하다
-나쁜 주석은 코드를 이해하기 어렵게 만든다.
-오래되고 조잡한 주석은 거짓과 잘못된 정보를 퍼뜨려 해악을 미친다.
-저자의 표현으로는 사실상 주석은 기껏해야 필요악이라고 한다.
-코드로 의도를 표현하지 못해 실패를 만회하기 위해 주석을 사용한다.
-코드는 변화하고 진화한다.
-하지만 주석은 그 코드를 언제나 따라가진 않는다.
-그렇게 주석이 코드에서 분리되어 점점 더 부정확한 고아로 변하는 사례가 흔하다고 한다.">
+<meta name="twitter:description" content="주석의 개념  코드로 직접 실행되지 않지만 코드를 설명하는 문장이나 글  저자가 바라보는 주석이란? 잘 달린 주석은 그 어떤 정보보다 유용하다. 다만 보통 주석은 오래되고 조잡하며 거짓과 잘못된 정보를 줘 코드를 이해하기 어렵게 만든다. 저자의 표현으로는 사실상 주석은 기껏해야 필요악이라고 한다. 코드로 본인의 의도를 잘 표현하지 못해 주석을 쓴 것이고 본인의 실패를 만회하기위해 사용한다고 한다. 코드는 지속적인 리팩토링으로 점점 진화하면서 완벽해진다. 하지만 주석은 언제나 코드를 따라 변하지 못한다. 그렇게 주석이 코드에서 분리되어 점점 더 부정확해지고 마침내 고아로 변하는 사례가 흔하다고 한다.">
     <link rel="shortcut icon" href="/profile.png" />
 
     </head>
@@ -139,46 +118,40 @@
 </header>
 
     <section class="article-content">
-    <h3 id="주석의-개념">주석의 개념</h3>
+    <h2 id="주석의-개념">주석의 개념</h2>
 <ul>
 <li>코드로 직접 실행되지 않지만 코드를 설명하는 문장이나 글</li>
 </ul>
 <h3 id="저자가-바라보는-주석이란">저자가 바라보는 주석이란?</h3>
-<p>잘달린 주석은 그 어떤 정보보다 유용하다</p>
-<p>나쁜 주석은 코드를 이해하기 어렵게 만든다.</p>
-<p>오래되고 조잡한 주석은 거짓과 잘못된 정보를 퍼뜨려 해악을 미친다.</p>
-<p>저자의 표현으로는 사실상 주석은 기껏해야 필요악이라고 한다.</p>
-<p>코드로 의도를 표현하지 못해 실패를 만회하기 위해 주석을 사용한다.</p>
-<p>코드는 변화하고 진화한다.</p>
-<p>하지만 주석은 그 코드를 언제나 따라가진 않는다.</p>
-<p>그렇게 주석이 코드에서 분리되어 점점 더 부정확한 고아로 변하는 사례가 흔하다고 한다.</p>
+<p>잘 달린 주석은 그 어떤 정보보다 유용하다. 다만 보통 주석은 오래되고 조잡하며 거짓과 잘못된 정보를 줘 코드를 이해하기 어렵게 만든다.
+저자의 표현으로는 사실상 주석은 기껏해야 필요악이라고 한다.
+코드로 본인의 의도를 잘 표현하지 못해 주석을 쓴 것이고 본인의 실패를 만회하기위해 사용한다고 한다.
+코드는 지속적인 리팩토링으로 점점 진화하면서 완벽해진다. 하지만 주석은 언제나 코드를 따라 변하지 못한다.
+그렇게 주석이 코드에서 분리되어 점점 더 부정확해지고 마침내 고아로 변하는 사례가 흔하다고 한다.</p>
 <p>프로그래머들이 주석을 엄격하게 관리해야하고 복구성과 관련성, 정확성이 언제나 높아야한다고 주장하는 사람도 있지만 그 노력을 코드를 깔끔하게 하는데 사용해서 주석이 필요 없는 코드를 짜는게 더 낫다고 한다.</p>
 <h3 id="주석은-나쁜-코드를-보완하지못한다">주석은 나쁜 코드를 보완하지못한다.</h3>
-<p>코드에 주석을 추가하는 일반적인 이유는 코드의 품질이 나쁘기 때문이다.</p>
-<p>코드의 품질이 나쁘다는 얘기는 복잡하고 어수선한 코드이다.</p>
-<p>주석을 달아야겠다가 아니라 코드를 정리해야겠다로 생각을 바꿔야한다.</p>
+<p>코드에 주석을 추가하는 일반적인 이유는 코드의 품질이 나쁘기 때문이다.
+코드의 품질이 나쁘다는 얘기는 복잡하고 어수선한 코드이다.
+&ldquo;<em>주석을 달아야겠다</em> &ldquo;가 아니라 &ldquo;<strong>코드를 정리해야겠다</strong>&ldquo;로 생각을 바꿔야한다.</p>
+<hr>
 <h3 id="코드로-의도를-표현하라">코드로 의도를 표현하라</h3>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="o">//</span> <span class="n">직원에게</span> <span class="n">복지</span> <span class="n">혜택을</span> <span class="n">받을</span> <span class="n">자격이</span> <span class="n">있는지</span> <span class="n">검사한다</span><span class="o">.</span>
-<span class="k">if</span> <span class="p">((</span><span class="n">employee</span><span class="o">.</span><span class="n">flags</span> <span class="o">&amp;</span> <span class="n">HOURLY_FLAG</span><span class="p">)</span> <span class="o">&amp;&amp;</span> <span class="n">employee</span><span class="o">.</span><span class="n">age</span> <span class="o">&gt;</span> <span class="mi">65</span><span class="p">)</span>
-
-<span class="n">vs</span>
-
-<span class="k">if</span> <span class="p">(</span><span class="n">employee</span><span class="o">.</span><span class="n">isEligibleForFullBenefits</span><span class="p">())</span>
-<span class="c1"># Eligible : 가질수 있는</span>
-<span class="c1"># FullBenefits : 완전한 혜택?</span>
-</code></pre></div><h3 id="좋은-주석">좋은 주석</h3>
-<ol>
-<li>법적인 주석
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="o">//</span><span class="n">여러가지</span> <span class="n">나누어져</span> <span class="n">있는</span> <span class="n">혜택중에</span> <span class="n">모든</span> <span class="n">혜택을</span> <span class="n">받을</span> <span class="n">수</span> <span class="n">있는지</span> <span class="n">확인하는</span> <span class="n">코드</span>
+<span class="k">if</span> <span class="p">((</span><span class="n">employee</span><span class="o">.</span><span class="n">flags</span> <span class="o">==</span> <span class="n">HOURLY_FLAG</span><span class="p">)</span> <span class="o">&amp;&amp;</span> <span class="n">employee</span><span class="o">.</span><span class="n">age</span> <span class="o">&gt;</span> <span class="mi">65</span><span class="p">)</span>
+</code></pre></div><p>위 코드를 보면 해석을 해야한다. employee.flags가 HOURLY_FLAG인지 또 employee의 나이가 65세 이상인 사람을 구하는 코드라고 말이다.
+우리는 employee의 flags에 어떠한 값들이 있는지 궁금할거고 왜 65세 이상인지도 궁금할 수 있다. 그리고 코드 작성자는 이와같은 문제점들을 알기 때문에 위와 같이 주석을 달게 된 것이다!
+이 궁금점들은 코드를 이해하는데 큰 도움을 주는 코드가 아니기 때문에 아래와 같이 바꿀 수 있다.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="k">if</span> <span class="p">(</span><span class="n">employee</span><span class="o">.</span><span class="n">isEligibleForFullBenefits</span><span class="p">())</span>
+</code></pre></div><p><em>Eligible : 가질수 있는</em> , <em>FullBenefits : 완전한 혜택</em></p>
+<p>함수화 하나 했을 뿐인데 위 주석이 필요 없어졌다! 단순히 if문 하나 읽으면 바로 이해가 되면서 부가 설명이 필요 없다!</p>
+<h2 id="좋은-주석">좋은 주석</h2>
+<h3 id="법적인-주석">법적인 주석</h3>
 <ul>
-<li>각 소스파일 첫머리에 주석으로 들어가는 저작권 정보와 소유권 정보의 주석을 의미.</li>
+<li>각 소스파일 첫머리에 주석으로 들어가는 저작권 정보와 소유권 정보의 주석을 의미한다.</li>
 </ul>
-</li>
-<li>정보를 제공하는 주석
+<h3 id="정보를-제공하는-주석">정보를 제공하는 주석</h3>
 <ul>
 <li>기본적인 정보를 주석으로 제공하면 편리하다.</li>
 </ul>
-</li>
-</ol>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="o">//</span> <span class="n">테스트</span> <span class="n">중인</span> <span class="n">Responder</span> <span class="n">인스턴스를</span> <span class="n">반환한다</span><span class="o">.</span>
 <span class="n">protected</span> <span class="n">abstract</span> <span class="n">Responder</span> <span class="n">responderInstance</span><span class="p">();</span>
 
@@ -187,24 +160,18 @@
 <li>결론 : 코드를 깔끔하게 한다면 정보를 제공하는 주석은 필요 없을 가능성이 높다.</li>
 <li>하지만 때에 따라 특수한 경우가 있기 때문에 때때로 필요할 수도 있다.</li>
 </ul>
-<ol>
-<li>
-<p>의도를 설명하는 주석</p>
+<h3 id="의도를-설명하는-주석">의도를 설명하는 주석</h3>
 <ul>
 <li>함수의 기능을 이해하게 도와주는 선을 넘어 결정에 깔린 의도까지 설명하는 주석.</li>
 <li>코드 작성자의 의도가 분명하게 드러나기 때문에 간혹 필요한 경우가 생길 수 있다.</li>
 </ul>
-</li>
-<li>
-<p>의미를 명료하게 밝히는 주석</p>
+<h3 id="의미를-명료하게-밝히는-주석">의미를 명료하게 밝히는 주석</h3>
 <ul>
 <li>인수나 반환값의 의미를 읽기 좋게 표현하는 주석.</li>
 <li>일반적으로는 인수나 반환값 자체를 명확하게 만들면 좋겠지만 표준 라이브러리나 변경하지 못하는 코드에 속한다면 의미를 명료하게 밝혀주는 것이 좋다.</li>
 <li>잘못된 주석이나 검증되지 않은 주석을 검증하기란 쉽지 않기 때문에 주석은 위험하다.</li>
 </ul>
-</li>
-<li>
-<p>결과를 경고하는 주석</p>
+<h3 id="결과를-경고하는-주석">결과를 경고하는 주석</h3>
 <ul>
 <li>테스트 케이스에서 특정 테스트 케이스를 꺼야하는 이유를 설명하는 주석
 <ul>
@@ -212,63 +179,51 @@
 </ul>
 </li>
 </ul>
-</li>
-<li>
-<p>TO DO 주석</p>
+<h3 id="to-do-주석">TO DO 주석</h3>
 <ul>
 <li>앞으로의 할일을 //TODO 주석으로 남겨두면 편하다.</li>
 <li>필요하지만 당장 구현하기 어려운 업무를 기술함</li>
 <li>하지만 어떤 용도든 시스템에 나쁜 코드를 남겨놓는 핑계가 되어서는 안된다.</li>
 <li>TO DO 주석을 주기적으로 점검해 없애도 괜찮은 주석을 없애면서 관리해야한다.</li>
 </ul>
-</li>
-<li>
-<p>중요성을 강조하는 주석</p>
+<h3 id="중요성을-강조하는-주석">중요성을 강조하는 주석</h3>
 <ul>
-<li>사소하게 넘어갈 부분의 중요성을 강조하기 위해서도 주석을 사용함.</li>
-</ul>
-</li>
-</ol>
+<li>
+<p>사소하게 넘어갈 부분의 중요성을 강조하기 위해서도 주석을 사용함.</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="n">String</span> <span class="n">listItemContent</span> <span class="o">=</span> <span class="n">match</span><span class="o">.</span><span class="n">group</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span><span class="o">.</span><span class="n">trim</span><span class="p">();</span>
 <span class="o">//</span> <span class="n">여기서</span> <span class="n">trim은</span> <span class="n">정말</span> <span class="n">중요하다</span><span class="o">.</span> <span class="n">trim</span> <span class="n">함수는</span> <span class="n">문자열에서</span> <span class="n">시작</span> <span class="n">공백을</span> <span class="n">제거한다</span><span class="o">.</span>
 <span class="o">//</span> <span class="n">문자열에</span> <span class="n">시작</span> <span class="n">공백이</span> <span class="n">있으면</span> <span class="n">다른</span> <span class="n">문자열로</span> <span class="n">인식되기</span> <span class="n">때문이다</span><span class="o">.</span>
-</code></pre></div><h3 id="나쁜-주석">나쁜 주석</h3>
+</code></pre></div></li>
+</ul>
+<h2 id="나쁜-주석">나쁜 주석</h2>
 <p>대다수의 주석이 이 범주에 속함 따라서 큰 특징이 아닌 자잘한 특징은 사소하게 집고 넘어감.</p>
-<ol>
-<li>주절거리는 주석
+<h3 id="주절거리는-주석">주절거리는 주석</h3>
 <ul>
 <li>어쩔 수 없이 비워두기 뭐해서 작성한 주석.</li>
 <li>기왕 작성할 주석이라면 충분한 시간을 들여 최고의 주석을 달도록 노력하자.!!</li>
 </ul>
-</li>
-<li>같은 이야기를 반복하는 주석.</li>
-</ol>
+<h3 id="같은-이야기를-반복하는-주석">같은 이야기를 반복하는 주석.</h3>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="c1"># 간략하게 적음</span>
 <span class="o">//</span> <span class="n">이</span> <span class="n">컴포넌트의</span> <span class="n">프로세서</span> <span class="n">지연값</span>
 <span class="n">protected</span> <span class="nb">int</span> <span class="n">backgroundProcessorDelay</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span><span class="p">;</span>
 
 <span class="o">//</span> <span class="n">이</span> <span class="n">컴포넌트를</span> <span class="n">지원하기</span> <span class="n">위한</span> <span class="n">생명주기</span> <span class="n">이벤트</span>
 <span class="n">protected</span> <span class="n">LifecycleSupport</span> <span class="n">lifecycle</span> <span class="o">=</span> <span class="n">new</span> <span class="n">LifecycleSupport</span><span class="p">(</span><span class="n">this</span><span class="p">);</span>
-</code></pre></div><ol>
-<li>오해의 여지가 있는 주석
+</code></pre></div><h3 id="오해의-여지가-있는-주석">오해의 여지가 있는 주석</h3>
 <ul>
 <li>주석에 담긴 살짝 잘못된 정보로 인해 다른 프로그래머들이 삽질할 수도 있다.!!</li>
 </ul>
-</li>
-<li>의무적으로 다는 주석 *(1),(2)과 비슷한 내용</li>
-<li>이력을 기록하는 주석
+<h3 id="의무적으로-다는-주석-12과-비슷한-내용">의무적으로 다는 주석 *(1),(2)과 비슷한 내용</h3>
+<h3 id="이력을-기록하는-주석">이력을 기록하는 주석</h3>
 <ul>
 <li>현재는 소스 코드 관리 시스템 예를 들어 git의 커밋 내용을 통해 관리 할 수 있는데 굳이 주석으로 달지 않아도 된다!!!!!!!!</li>
 <li>없는 예전이나 이렇게 했다&hellip;!!</li>
 </ul>
-</li>
-<li>있으나 마나 한 주석 * (2)번과 비슷한 내용
+<h3 id="있으나-마나-한-주석--2번과-비슷한-내용">있으나 마나 한 주석 * (2)번과 비슷한 내용</h3>
 <ul>
 <li>코드만 봐도 당연히 아는 내용들을 설명한 주석</li>
 </ul>
-</li>
-<li>무서운 잡음</li>
-</ol>
+<h3 id="무서운-잡음">무서운 잡음</h3>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="o">//</span> <span class="n">The</span> <span class="n">name</span>
 <span class="n">private</span> <span class="n">String</span> <span class="n">name</span><span class="p">;</span>
 
@@ -280,9 +235,7 @@
 
 <span class="o">//</span> <span class="n">The</span> <span class="n">version</span>
 <span class="n">private</span> <span class="n">String</span> <span class="n">info</span><span class="p">;</span>
-</code></pre></div><ol>
-<li>함수나 변수로 표현할 수 있다면 주석을 달지 마라</li>
-</ol>
+</code></pre></div><h3 id="함수나-변수로-표현할-수-있다면-주석을-달지-마라">함수나 변수로 표현할 수 있다면 주석을 달지 마라</h3>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="o">//</span> <span class="n">전역</span> <span class="n">목록</span> <span class="o">&lt;</span><span class="n">smodule</span><span class="o">&gt;</span><span class="n">에</span> <span class="n">속하는</span> <span class="n">모듈이</span> <span class="n">우리가</span> <span class="n">속한</span> <span class="n">하위</span> <span class="n">시스템에</span> <span class="n">의존하는가</span><span class="err">?</span>
 <span class="k">if</span> <span class="p">(</span><span class="n">smodule</span><span class="o">.</span><span class="n">getDependSubsystems</span><span class="p">()</span><span class="o">.</span><span class="n">contains</span><span class="p">(</span><span class="n">subSysMod</span><span class="o">.</span><span class="n">getSubSystem</span><span class="p">()))</span>
 
@@ -291,83 +244,57 @@
 <span class="n">ArrayList</span> <span class="n">moudleDependees</span> <span class="o">=</span> <span class="n">smodul</span><span class="o">.</span><span class="n">getDependSubsystems</span><span class="p">();</span>
 <span class="n">String</span> <span class="n">ourSubSystem</span> <span class="o">=</span> <span class="n">subSysMod</span><span class="o">.</span><span class="n">getSubSystem</span><span class="p">();</span>
 <span class="k">if</span> <span class="p">(</span><span class="n">moduleDependees</span><span class="o">.</span><span class="n">contains</span><span class="p">(</span><span class="n">ourSubSystem</span><span class="p">))</span>
-</code></pre></div><ol>
-<li>위치를 표시하는 주석
+</code></pre></div><h3 id="위치를-표시하는-주석">위치를 표시하는 주석</h3>
 <ul>
 <li>// Actions /////////////////////////////////</li>
 <li>모든 곳에 이런식으로 배너가 달려있는 경우 가독성을 낮추기 때문에 제거시키자!</li>
 <li>어쩌다 한번씩 사용하는 배너는 눈에 띄기 때문에 아주 드물게 사용하는 것이 좋다.</li>
 </ul>
-</li>
-<li>닫는 괄호에 다는 주석
+<h3 id="닫는-괄호에-다는-주석">닫는 괄호에 다는 주석</h3>
 <ul>
-<li>함수의 내용이 길면 길수록 필요한 주석.</li>
-<li>하지만 우리는 작고 캡슐화된 함수를 사용하기 때문에 이 주석은 잡음일 뿐이다!!</li>
-</ul>
+<li>
+<p>함수의 내용이 길면 길수록 필요한 주석.</p>
 </li>
-</ol>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python">	<span class="k">if</span><span class="p">(</span><span class="n">i</span> <span class="o">==</span> <span class="mi">1</span><span class="p">)</span>
-	<span class="p">{</span>
-		<span class="p">{</span>
-		<span class="o">//.......</span>
-		<span class="o">//.......</span>
-		<span class="o">//.......</span>
-		<span class="o">//.......</span>
-		<span class="o">//.......</span>
-		<span class="p">}</span> <span class="o">//</span><span class="n">for문</span>
-	<span class="p">}</span><span class="o">//</span><span class="n">if문</span> 
-
-</code></pre></div><ol>
-<li>공로를 돌리거나 저자를 표시하는 주석
+<li>
+<p>하지만 우리는 작고 캡슐화된 함수를 사용하기 때문에 이 주석은 잡음일 뿐이다!!</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java">    <span class="k">if</span><span class="o">(</span><span class="n">i</span> <span class="o">==</span> <span class="n">1</span><span class="o">)</span>
+    <span class="o">{</span>
+        <span class="k">for</span><span class="o">{</span>
+        <span class="c1">//.......
+</span><span class="c1"></span>        <span class="c1">//.......
+</span><span class="c1"></span>        <span class="c1">//.......
+</span><span class="c1"></span>        <span class="c1">//.......
+</span><span class="c1"></span>        <span class="c1">//.......
+</span><span class="c1"></span>        <span class="o">}</span> <span class="c1">//for문
+</span><span class="c1"></span>    <span class="o">}</span><span class="c1">//if문 
+</span></code></pre></div></li>
+</ul>
+<h3 id="공로를-돌리거나-저자를-표시하는-주석">공로를 돌리거나 저자를 표시하는 주석</h3>
 <ul>
 <li>이것두 소스 코드 관리 시스템에서 잘 관리 되니 필요 없음.</li>
 </ul>
-</li>
-<li>주석으로 처리한 코드
+<h3 id="주석으로-처리한-코드">주석으로 처리한 코드</h3>
 <ul>
 <li>절대 주석으로 처리한 코드는 만들지 말자.</li>
 <li>대안으로는 해당 코드에 대한 새로운 소스 파일이나 클래스를 테스트용으로 만들어 놓는 것.</li>
 </ul>
-</li>
-<li>HTML 주석</li>
-<li>전역 정보
+<h3 id="html-주석">HTML 주석</h3>
+<h3 id="전역-정보">전역 정보</h3>
 <ul>
 <li>코드의 일부에 주석을 달면서 시스템의 전반적인 정보를 기술하지 말자</li>
 </ul>
-</li>
-</ol>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python">
-<span class="n">public</span> <span class="n">void</span> <span class="n">setFitnessePort</span><span class="p">(</span><span class="nb">int</span> <span class="n">fitnessePort</span><span class="p">)</span>
-<span class="p">{</span>
-	<span class="n">this</span><span class="o">.</span><span class="n">fitnessePort</span> <span class="o">=</span> <span class="n">fitnessePort</span><span class="p">;</span>
-<span class="p">}</span>
-</code></pre></div><ol>
-<li>너무 많은 정보
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java">
+<span class="kd">public</span> <span class="kt">void</span> <span class="nf">setFitnessePort</span><span class="o">(</span><span class="kt">int</span> <span class="n">fitnessePort</span><span class="o">)</span>
+<span class="o">{</span>
+	<span class="k">this</span><span class="o">.</span><span class="na">fitnessePort</span> <span class="o">=</span> <span class="n">fitnessePort</span><span class="o">;</span>
+<span class="o">}</span>
+</code></pre></div><h3 id="너무-많은-정보">너무 많은 정보</h3>
 <ul>
 <li>해당 기술의 역사나 관련 없는 정보를 장황하게 늘어놓는 주석</li>
 </ul>
-</li>
-<li>모호한 관계
-<ul>
-<li>주석과 주석이 설명하는 코드의 관계는 명확해야한다.</li>
-</ul>
-</li>
-</ol>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="o">//</span> <span class="n">모든</span> <span class="n">픽셀을</span> <span class="n">담을</span> <span class="n">만큼</span> <span class="n">충분한</span> <span class="n">배열로</span> <span class="n">시작한다</span> <span class="p">(</span> <span class="n">여기에</span> <span class="n">필터</span> <span class="n">바이트를</span> <span class="n">더한다</span> <span class="p">)</span>
-<span class="o">//</span> <span class="n">그리고</span> <span class="n">헤더</span> <span class="n">정보를</span> <span class="n">위해</span> <span class="mi">200</span><span class="n">바이트를</span> <span class="n">더한다</span><span class="o">.</span>
-<span class="n">this</span><span class="o">.</span><span class="n">pngBytes</span> <span class="o">=</span> <span class="n">new</span> <span class="n">byte</span><span class="p">[((</span><span class="n">this</span><span class="o">.</span><span class="n">width</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span> <span class="o">*</span> <span class="n">this</span><span class="o">.</span><span class="n">height</span> <span class="o">*</span> <span class="mi">3</span> <span class="o">+</span> <span class="n">header</span><span class="p">];</span>
-
-<span class="c1"># 여기서 필터 바이트가 무엇인지 명확히 알 수 없기 때문에 위의 주석은 필요없다. </span>
-</code></pre></div><ul>
-<li>주석 자체가 코드에 대한 설명인데 주석에 대한 설명을 다시 요구해야하는 상황이 발생됨.</li>
-</ul>
-<ol>
-<li>함수 헤더</li>
-</ol>
-<h3 id="결론">결론</h3>
+<h2 id="결론">결론</h2>
 <h3 id="주석은-쓸데없다">주석은 쓸데없다.</h3>
-<h3 id="주석을-달-시간에-코드를-더-간결하고-명확하게-작성해야한다">주석을 달 시간에 코드를 더 간결하고 명확하게 작성해야한다.</h3>
-<h3 id="만약-어쩔-수-없이-주석을-달려면-코드에-대한-고민을-완료한-후에-달-주석-또한-최대한-고민을-하면서-작성해야만-한다">만약 어쩔 수 없이 주석을 달려면 코드에 대한 고민을 완료한 후에 달 주석 또한 최대한 고민을 하면서 작성해야만 한다.</h3>
+<p>주석을 달 시간에 코드를 더 간결하고 명확하게 작성해야한다. 만약 어쩔 수 없이 주석을 달려면 코드에 대한 고민을 완료한 후에 달 주석 또한 최대한 고민을 하면서 작성해야만 한다.</p>
 
 </section>
 
@@ -601,18 +528,46 @@
                 <div class="widget--toc">
                     <nav id="TableOfContents">
   <ol>
-    <li>
+    <li><a href="#주석의-개념">주석의 개념</a>
       <ol>
-        <li><a href="#주석의-개념">주석의 개념</a></li>
         <li><a href="#저자가-바라보는-주석이란">저자가 바라보는 주석이란?</a></li>
         <li><a href="#주석은-나쁜-코드를-보완하지못한다">주석은 나쁜 코드를 보완하지못한다.</a></li>
         <li><a href="#코드로-의도를-표현하라">코드로 의도를 표현하라</a></li>
-        <li><a href="#좋은-주석">좋은 주석</a></li>
-        <li><a href="#나쁜-주석">나쁜 주석</a></li>
-        <li><a href="#결론">결론</a></li>
+      </ol>
+    </li>
+    <li><a href="#좋은-주석">좋은 주석</a>
+      <ol>
+        <li><a href="#법적인-주석">법적인 주석</a></li>
+        <li><a href="#정보를-제공하는-주석">정보를 제공하는 주석</a></li>
+        <li><a href="#의도를-설명하는-주석">의도를 설명하는 주석</a></li>
+        <li><a href="#의미를-명료하게-밝히는-주석">의미를 명료하게 밝히는 주석</a></li>
+        <li><a href="#결과를-경고하는-주석">결과를 경고하는 주석</a></li>
+        <li><a href="#to-do-주석">TO DO 주석</a></li>
+        <li><a href="#중요성을-강조하는-주석">중요성을 강조하는 주석</a></li>
+      </ol>
+    </li>
+    <li><a href="#나쁜-주석">나쁜 주석</a>
+      <ol>
+        <li><a href="#주절거리는-주석">주절거리는 주석</a></li>
+        <li><a href="#같은-이야기를-반복하는-주석">같은 이야기를 반복하는 주석.</a></li>
+        <li><a href="#오해의-여지가-있는-주석">오해의 여지가 있는 주석</a></li>
+        <li><a href="#의무적으로-다는-주석-12과-비슷한-내용">의무적으로 다는 주석 *(1),(2)과 비슷한 내용</a></li>
+        <li><a href="#이력을-기록하는-주석">이력을 기록하는 주석</a></li>
+        <li><a href="#있으나-마나-한-주석--2번과-비슷한-내용">있으나 마나 한 주석 * (2)번과 비슷한 내용</a></li>
+        <li><a href="#무서운-잡음">무서운 잡음</a></li>
+        <li><a href="#함수나-변수로-표현할-수-있다면-주석을-달지-마라">함수나 변수로 표현할 수 있다면 주석을 달지 마라</a></li>
+        <li><a href="#위치를-표시하는-주석">위치를 표시하는 주석</a></li>
+        <li><a href="#닫는-괄호에-다는-주석">닫는 괄호에 다는 주석</a></li>
+        <li><a href="#공로를-돌리거나-저자를-표시하는-주석">공로를 돌리거나 저자를 표시하는 주석</a></li>
+        <li><a href="#주석으로-처리한-코드">주석으로 처리한 코드</a></li>
+        <li><a href="#html-주석">HTML 주석</a></li>
+        <li><a href="#전역-정보">전역 정보</a></li>
+        <li><a href="#너무-많은-정보">너무 많은 정보</a></li>
+      </ol>
+    </li>
+    <li><a href="#결론">결론</a>
+      <ol>
         <li><a href="#주석은-쓸데없다">주석은 쓸데없다.</a></li>
-        <li><a href="#주석을-달-시간에-코드를-더-간결하고-명확하게-작성해야한다">주석을 달 시간에 코드를 더 간결하고 명확하게 작성해야한다.</a></li>
-        <li><a href="#만약-어쩔-수-없이-주석을-달려면-코드에-대한-고민을-완료한-후에-달-주석-또한-최대한-고민을-하면서-작성해야만-한다">만약 어쩔 수 없이 주석을 달려면 코드에 대한 고민을 완료한 후에 달 주석 또한 최대한 고민을 하면서 작성해야만 한다.</a></li>
       </ol>
     </li>
   </ol>
