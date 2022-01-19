@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>함수 on 성원의 개발 블로그</title>
+    <link>https://sung-won95.github.io/tags/%ED%95%A8%EC%88%98/</link>
+    <description>Recent content in 함수 on 성원의 개발 블로그</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>euc-kr</language>
+    <lastBuildDate>Wed, 19 Jan 2022 09:24:37 +0900</lastBuildDate><atom:link href="https://sung-won95.github.io/tags/%ED%95%A8%EC%88%98/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>2장 함수</title>
+      <link>https://sung-won95.github.io/p/2%EC%9E%A5-%ED%95%A8%EC%88%98/</link>
+      <pubDate>Wed, 19 Jan 2022 09:24:37 +0900</pubDate>
+      
+      <guid>https://sung-won95.github.io/p/2%EC%9E%A5-%ED%95%A8%EC%88%98/</guid>
+      <description>함수를 만드는 규칙 1. 작게 만들어라!  작아지면 코드가 단순 명료해지기에 이해하기 쉬워진다 어떻게 작게 만드나? 단순히 짧게 만들면 되는 것인가? → 아래의 내용에서 추가됨.  2. 한가지 기능만 해라  기능의 단위를 통해 작게 만들면 된다. 그렇다면 그 기능의 단위를 어디까지 볼것인가?  추상화 수준으로 구분하면 된다.   추가로 단순히 다른 표현이 아니라 의미 있는 이름으로 다른 함수를 추출할 수 있다면 그 함수는 여러 작업을 하는 것으로 판단할 수 있다.</description>
+    </item>
+    
+  </channel>
+</rss>

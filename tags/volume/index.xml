@@ -1,18 +1,21 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>volume on </title>
-    <link>/tags/volume/</link>
-    <description>Recent content in volume on </description>
+    <title>volume on 성원의 개발 블로그</title>
+    <link>https://sung-won95.github.io/tags/volume/</link>
+    <description>Recent content in volume on 성원의 개발 블로그</description>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Tue, 24 Nov 2020 14:02:42 +0900</lastBuildDate><atom:link href="/tags/volume/index.xml" rel="self" type="application/rss+xml" />
+    <language>euc-kr</language>
+    <lastBuildDate>Tue, 24 Nov 2020 14:02:42 +0900</lastBuildDate><atom:link href="https://sung-won95.github.io/tags/volume/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>docker-compose에서 NFS 사용하기</title>
-      <link>/devops/docker-volumn-nfs/</link>
+      <link>https://sung-won95.github.io/devops/docker-volumn-nfs/</link>
       <pubDate>Tue, 24 Nov 2020 14:02:42 +0900</pubDate>
       
-      <guid>/devops/docker-volumn-nfs/</guid>
-      <description>Docker-compose Setting version: &amp;#39;3.1&amp;#39; volumes: nfs-data: #nfs volume 이름 지정  driver: local  driver_opts: type: nfs  #nfs 서비스로 지정  device: &amp;#34;:/your/nfs/path&amp;#34; #nfs mount 경로 o: &amp;#34;addr=192.168.2.27,nolock,soft,rw&amp;#34; #nfs서버 세팅 services: AI-blur: image: blur deploy: resources: limits: cpus: &amp;#39;24&amp;#39; memory: 128G build: context: . dockerfile: blur/Dockerfile environment: - NVIDIA_VISIBLE_DEVICES=2,3,4,5  #GPU 설정 env volumes: - nfs-blur:/root/workspace/nfs-data  # [volume명]:[컨테이너 내부 마운트 위치] stdin_open: true tty: true docker-compose에서도 위와같이 nfs를 사용 할 수 있습니다!</description>
+      <guid>https://sung-won95.github.io/devops/docker-volumn-nfs/</guid>
+      <description>Docker-compose Setting version:&amp;#39;3.1&amp;#39;volumes:nfs-data:#nfs volume 이름 지정 driver:local driver_opts:type:nfs #nfs 서비스로 지정 device:&amp;#34;:/your/nfs/path&amp;#34;#nfs mount 경로o:&amp;#34;addr=192.168.2.27,nolock,soft,rw&amp;#34;#nfs서버 세팅services:AI-blur:image:blurdeploy:resources:limits:cpus:&amp;#39;24&amp;#39;memory:128Gbuild:context:.dockerfile:blur/Dockerfileenvironment:- NVIDIA_VISIBLE_DEVICES=2,3,4,5 #GPU 설정 envvolumes:- nfs-blur:/root/workspace/nfs-data # [volume명]:[컨테이너 내부 마운트 위치]stdin_open:truetty:truedocker-compose에서도 위와같이 nfs를 사용 할 수 있습니다!
+추가적으로 궁금하신건 아래 링크 중 volume 부분 참고하시면 됩니다
+Docker-Compose-공식문서</description>
     </item>
     
   </channel>

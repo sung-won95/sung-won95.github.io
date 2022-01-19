@@ -1,17 +1,18 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>replication on </title>
-    <link>/tags/replication/</link>
-    <description>Recent content in replication on </description>
+    <title>replication on 성원의 개발 블로그</title>
+    <link>https://sung-won95.github.io/tags/replication/</link>
+    <description>Recent content in replication on 성원의 개발 블로그</description>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Fri, 20 Nov 2020 16:54:37 +0900</lastBuildDate><atom:link href="/tags/replication/index.xml" rel="self" type="application/rss+xml" />
+    <language>euc-kr</language>
+    <lastBuildDate>Fri, 20 Nov 2020 16:54:37 +0900</lastBuildDate><atom:link href="https://sung-won95.github.io/tags/replication/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>postgres replication 하는방법</title>
-      <link>/database/postgres-replication-setting/</link>
+      <link>https://sung-won95.github.io/p/postgres-replication-%ED%95%98%EB%8A%94%EB%B0%A9%EB%B2%95/</link>
       <pubDate>Fri, 20 Nov 2020 16:54:37 +0900</pubDate>
       
-      <guid>/database/postgres-replication-setting/</guid>
+      <guid>https://sung-won95.github.io/p/postgres-replication-%ED%95%98%EB%8A%94%EB%B0%A9%EB%B2%95/</guid>
       <description>master 서버와 slave 서버에 각각 설정하는 방법이 다릅니다
 MASTER 설정   user 생성
 # psql을 Postgres 유저로 접속 후 유저 생성 sudo -u postgres psql CREATE ROLE replication WITH REPLICATION PASSWORD &amp;#39;password&amp;#39; LOGIN;   /etc/postgresql/9.5/main/postgresql.conf 파일 수정

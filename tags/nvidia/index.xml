@@ -1,17 +1,18 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>nvidia on </title>
-    <link>/tags/nvidia/</link>
-    <description>Recent content in nvidia on </description>
+    <title>nvidia on 성원의 개발 블로그</title>
+    <link>https://sung-won95.github.io/tags/nvidia/</link>
+    <description>Recent content in nvidia on 성원의 개발 블로그</description>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Tue, 24 Nov 2020 14:02:42 +0900</lastBuildDate><atom:link href="/tags/nvidia/index.xml" rel="self" type="application/rss+xml" />
+    <language>euc-kr</language>
+    <lastBuildDate>Tue, 24 Nov 2020 14:02:42 +0900</lastBuildDate><atom:link href="https://sung-won95.github.io/tags/nvidia/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Ubuntu GPU Server NVIDIA Driver 설치 방법</title>
-      <link>/devops/nvidia-driver-install/</link>
+      <link>https://sung-won95.github.io/devops/nvidia-driver-install/</link>
       <pubDate>Tue, 24 Nov 2020 14:02:42 +0900</pubDate>
       
-      <guid>/devops/nvidia-driver-install/</guid>
+      <guid>https://sung-won95.github.io/devops/nvidia-driver-install/</guid>
       <description>nvidia driver 설치 전 사전 세팅  OS : ubuntu 18.04  먼저 Ubuntu는 gcc와 make가 설치되어있지 않습니다. 그렇기에 apt-get으로 gcc와 make를 설치해 줍니다.
 apt-get install -y gcc make 설치가 완료되었으면 nouveau를 비활성화 해줍니다. nouveau는 기본 onboard 그래픽 드라이버로 이 모듈이 활성화 되어있으면 GPU를 선점해 nvidia-driver가 정상적으로 설치되지가 않습니다. 이 모듈을 비활성화 하는 방법으로는 다양한 방법이 있는데 저는 아래와 같이 blacklist로 지정해서 reboot 하는 방식으로 했습니다. 아시는 방법이 있다면 본인이 편하신 방법대로 모듈을 비활성화 해주시면 됩니다.</description>
     </item>

@@ -1,9 +1,20 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Categories on </title>
-    <link>/categories/</link>
-    <description>Recent content in Categories on </description>
-    <generator>Hugo -- gohugo.io</generator><atom:link href="/categories/index.xml" rel="self" type="application/rss+xml" />
+    <title>Categories on 성원의 개발 블로그</title>
+    <link>https://sung-won95.github.io/categories/</link>
+    <description>Recent content in Categories on 성원의 개발 블로그</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>euc-kr</language>
+    <lastBuildDate>Wed, 19 Jan 2022 10:24:37 +0900</lastBuildDate><atom:link href="https://sung-won95.github.io/categories/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>클린코드</title>
+      <link>https://sung-won95.github.io/categories/%ED%81%B4%EB%A6%B0%EC%BD%94%EB%93%9C/</link>
+      <pubDate>Wed, 19 Jan 2022 10:24:37 +0900</pubDate>
+      
+      <guid>https://sung-won95.github.io/categories/%ED%81%B4%EB%A6%B0%EC%BD%94%EB%93%9C/</guid>
+      <description></description>
+    </item>
+    
   </channel>
 </rss>

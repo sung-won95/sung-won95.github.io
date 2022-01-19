@@ -1,907 +1,378 @@
 <!DOCTYPE html>
-<html lang="en" class="js csstransforms3d">
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="generator" content="Hugo 0.78.2" />
-    <meta name="description" content="dev_sung">
-<meta name="author" content="sung-won95">
+<html lang="euc-kr">
+    <head><meta charset='utf-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content='nvidia driver 설치 전 사전 세팅  OS : ubuntu 18.04  먼저 Ubuntu는 gcc와 make가 설치되어있지 않습니다. 그렇기에 apt-get으로 gcc와 make를 설치해 줍니다.
+apt-get install -y gcc make 설치가 완료되었으면 nouveau를 비활성화 해줍니다. nouveau는 기본 onboard 그래픽 드라이버로 이 모듈이 활성화 되어있으면 GPU를 선점해 nvidia-driver가 정상적으로 설치되지가 않습니다. 이 모듈을 비활성화 하는 방법으로는 다양한 방법이 있는데 저는 아래와 같이 blacklist로 지정해서 reboot 하는 방식으로 했습니다. 아시는 방법이 있다면 본인이 편하신 방법대로 모듈을 비활성화 해주시면 됩니다.'><title>Ubuntu GPU Server NVIDIA Driver 설치 방법</title>
 
-    <link rel="icon" href="/images/favicon.png" type="image/png">
+<link rel='canonical' href='https://sung-won95.github.io/devops/nvidia-driver-install/'>
 
-    <title>Ubuntu GPU Server NVIDIA Driver 설치 방법 :: </title>
+<link rel="stylesheet" href="/scss/style.min.775dbd4fd34fda61c5273b4bc3415f7c9666414fb6c40aab164a7ded4397da98.css"><meta property='og:title' content='Ubuntu GPU Server NVIDIA Driver 설치 방법'>
+<meta property='og:description' content='nvidia driver 설치 전 사전 세팅  OS : ubuntu 18.04  먼저 Ubuntu는 gcc와 make가 설치되어있지 않습니다. 그렇기에 apt-get으로 gcc와 make를 설치해 줍니다.
+apt-get install -y gcc make 설치가 완료되었으면 nouveau를 비활성화 해줍니다. nouveau는 기본 onboard 그래픽 드라이버로 이 모듈이 활성화 되어있으면 GPU를 선점해 nvidia-driver가 정상적으로 설치되지가 않습니다. 이 모듈을 비활성화 하는 방법으로는 다양한 방법이 있는데 저는 아래와 같이 blacklist로 지정해서 reboot 하는 방식으로 했습니다. 아시는 방법이 있다면 본인이 편하신 방법대로 모듈을 비활성화 해주시면 됩니다.'>
+<meta property='og:url' content='https://sung-won95.github.io/devops/nvidia-driver-install/'>
+<meta property='og:site_name' content='성원의 개발 블로그'>
+<meta property='og:type' content='article'><meta property='article:section' content='Devops' /><meta property='article:tag' content='nvidia' /><meta property='article:tag' content='nvidia-smi' /><meta property='article:tag' content='nvidia-driver' /><meta property='article:published_time' content='2020-11-24T14:02:42&#43;09:00'/><meta property='article:modified_time' content='2020-11-24T14:02:42&#43;09:00'/>
+<meta name="twitter:title" content="Ubuntu GPU Server NVIDIA Driver 설치 방법">
+<meta name="twitter:description" content="nvidia driver 설치 전 사전 세팅  OS : ubuntu 18.04  먼저 Ubuntu는 gcc와 make가 설치되어있지 않습니다. 그렇기에 apt-get으로 gcc와 make를 설치해 줍니다.
+apt-get install -y gcc make 설치가 완료되었으면 nouveau를 비활성화 해줍니다. nouveau는 기본 onboard 그래픽 드라이버로 이 모듈이 활성화 되어있으면 GPU를 선점해 nvidia-driver가 정상적으로 설치되지가 않습니다. 이 모듈을 비활성화 하는 방법으로는 다양한 방법이 있는데 저는 아래와 같이 blacklist로 지정해서 reboot 하는 방식으로 했습니다. 아시는 방법이 있다면 본인이 편하신 방법대로 모듈을 비활성화 해주시면 됩니다.">
+    <link rel="shortcut icon" href="/profile.png" />
 
-    
-    <link href="/css/nucleus.css?1614323413" rel="stylesheet">
-    <link href="/css/fontawesome-all.min.css?1614323413" rel="stylesheet">
-    <link href="/css/hybrid.css?1614323413" rel="stylesheet">
-    <link href="/css/featherlight.min.css?1614323413" rel="stylesheet">
-    <link href="/css/perfect-scrollbar.min.css?1614323413" rel="stylesheet">
-    <link href="/css/auto-complete.css?1614323413" rel="stylesheet">
-    <link href="/css/atom-one-dark-reasonable.css?1614323413" rel="stylesheet">
-    <link href="/css/theme.css?1614323413" rel="stylesheet">
-    <link href="/css/hugo-theme.css?1614323413" rel="stylesheet">
-    
-      <link href="/css/theme-mine.css?1614323413" rel="stylesheet">
-    
+    </head>
+    <body class="
+    article-page has-toc
+">
+    <script>
+        (function() {
+            const colorSchemeKey = 'StackColorScheme';
+            if(!localStorage.getItem(colorSchemeKey)){
+                localStorage.setItem(colorSchemeKey, "auto");
+            }
+        })();
+    </script><script>
+    (function() {
+        const colorSchemeKey = 'StackColorScheme';
+        const colorSchemeItem = localStorage.getItem(colorSchemeKey);
+        const supportDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches === true;
 
-    <script src="/js/jquery-3.3.1.min.js?1614323413"></script>
+        if (colorSchemeItem == 'dark' || colorSchemeItem === 'auto' && supportDarkMode) {
+            
 
-    <style>
-      :root #header + #content > #left > #rlblock_left{
-          display:none !important;
-      }
-      
-    </style>
-    
-
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-B4GH8HX0D5"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'G-B4GH8HX0D5');
+            document.documentElement.dataset.scheme = 'dark';
+        } else {
+            document.documentElement.dataset.scheme = 'light';
+        }
+    })();
 </script>
-<script data-ad-client="ca-pub-1788337254638181" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-
-  </head>
-  <body class="" data-url="/devops/nvidia-driver-install/">
-    <nav id="sidebar" class="">
-
-
-
-  <div id="header-wrapper">
-    <div id="header">
-      <div >
-<img src="/logo.jpg" style="border-radius: 50%; opacity: 0;"  width="50%" height="50%"/>
-</div>
-<h3 margin="100px"><p style="color: white">Que sera sera</p></h3>
-    </div>
+<div class="container main-container flex 
     
-  </div>
-
-    <div class="highlightable">
-    <ul class="topics">
-
-        
-          
-          
-
-
- 
-  
+        extended
     
-    <li data-nav-id="/idea/" title="idea" class="dd-item 
-        
-        
-        
-        ">
-      <a href="/idea/">
-          <i class='fas fa-angle-right'></i>&nbsp;idea
-          
-      </a>
-      
-      
-        <ul>
-          
-          
-          
-          
-        
-          
-            
-            
-
-
- 
-  
+">
     
-      <li data-nav-id="/idea/newsbotreport/" title="뉴스 기사 크롤링을 통한 키워드 추출 및 실시간 트렌드 제공 서비스 [Trendak]" class="dd-item ">
-        <a href="/idea/newsbotreport/">
-        뉴스 기사 크롤링을 통한 키워드 추출 및 실시간 트렌드 제공 서비스 [Trendak]
-        
-        </a>
-    </li>
-     
-  
- 
-
-            
-          
-        
-        </ul>
-              
-    </li>
-  
- 
-
-          
-          
-
-
- 
-  
-    
-    <li data-nav-id="/smalltalk/" title="smallTalk" class="dd-item 
-        
-        
-        
-        ">
-      <a href="/smalltalk/">
-          <i class='fas fa-angle-right'></i>&nbsp;smallTalk
-          
-      </a>
-      
-      
-        <ul>
-          
-          
-          
-          
-        
-          
-            
-            
-
-
- 
-  
-    
-      <li data-nav-id="/smalltalk/clubhouse/" title="ClubHouse" class="dd-item ">
-        <a href="/smalltalk/clubhouse/">
-        ClubHouse
-        
-        </a>
-    </li>
-     
-  
- 
-
-            
-          
-        
-        </ul>
-              
-    </li>
-  
- 
-
-          
-          
-
-
- 
-  
-    
-    <li data-nav-id="/database/" title="database" class="dd-item 
-        
-        
-        
-        ">
-      <a href="/database/">
-          <i class='fas fa-angle-right'></i>&nbsp;database
-          
-      </a>
-      
-      
-        <ul>
-          
-          
-          
-          
-        
-          
-            
-            
-
-
- 
-  
-    
-      <li data-nav-id="/database/postgres-replication-setting/" title="postgres replication 하는방법" class="dd-item ">
-        <a href="/database/postgres-replication-setting/">
-        postgres replication 하는방법
-        
-        </a>
-    </li>
-     
-  
- 
-
-            
-          
-        
-        </ul>
-              
-    </li>
-  
- 
-
-          
-          
-
-
- 
-  
-    
-    <li data-nav-id="/devops/" title="devops" class="dd-item 
-        parent
-        
-        
-        ">
-      <a href="/devops/">
-          <i class='fas fa-angle-right'></i>&nbsp;devops
-          
-      </a>
-      
-      
-        <ul>
-          
-          
-          
-          
-        
-          
-            
-            
-
-
- 
-  
-    
-      <li data-nav-id="/devops/docker-volumn-nfs/" title="docker-compose에서 NFS 사용하기" class="dd-item ">
-        <a href="/devops/docker-volumn-nfs/">
-        docker-compose에서 NFS 사용하기
-        
-        </a>
-    </li>
-     
-  
- 
-
-            
-          
-            
-            
-
-
- 
-  
-    
-      <li data-nav-id="/devops/nvidia-driver-install/" title="Ubuntu GPU Server NVIDIA Driver 설치 방법" class="dd-item active">
-        <a href="/devops/nvidia-driver-install/">
-        Ubuntu GPU Server NVIDIA Driver 설치 방법
-        
-        </a>
-    </li>
-     
-  
- 
-
-            
-          
-            
-            
-
-
- 
-  
-    
-      <li data-nav-id="/devops/docker-gpu-1/" title="Docker에서 원하는 GPU선택해 컨테이너로 Project실행하기" class="dd-item ">
-        <a href="/devops/docker-gpu-1/">
-        Docker에서 원하는 GPU선택해 컨테이너로 Project실행하기
-        
-        </a>
-    </li>
-     
-  
- 
-
-            
-          
-        
-        </ul>
-              
-    </li>
-  
- 
-
-          
-          
-
-
- 
-  
-    
-    <li data-nav-id="/tech/" title="tech" class="dd-item 
-        
-        
-        
-        ">
-      <a href="/tech/">
-          <i class='fas fa-angle-right'></i>&nbsp;tech
-          
-      </a>
-      
-      
-        <ul>
-          
-          
-          
-          
-        
-          
-            
-            
-
-
- 
-  
-    
-      <li data-nav-id="/tech/rtsp-opencv-yolov4/" title="Opencv를 이용하여 YOLOv4로 CCTV 영상 분석하기" class="dd-item ">
-        <a href="/tech/rtsp-opencv-yolov4/">
-        Opencv를 이용하여 YOLOv4로 CCTV 영상 분석하기
-        
-        </a>
-    </li>
-     
-  
- 
-
-            
-          
-        
-        </ul>
-              
-    </li>
-  
- 
-
-          
-          
-
-
- 
-  
-    
-    <li data-nav-id="/jpa/" title="Jpas" class="dd-item 
-        
-        
-        
-        ">
-      <a href="/jpa/">
-          Jpas
-          
-      </a>
-      
-      
-        <ul>
-          
-          
-          
-          
-        
-          
-            
-            
-
-
- 
-  
-    
-      <li data-nav-id="/jpa/infiniterecursionerror/" title="JPA 양방향 로딩시 무한루프 해결방법" class="dd-item ">
-        <a href="/jpa/infiniterecursionerror/">
-        JPA 양방향 로딩시 무한루프 해결방법
-        
-        </a>
-    </li>
-     
-  
- 
-
-            
-          
-        
-        </ul>
-              
-    </li>
-  
- 
-
-          
-         
-    </ul>
-
-    
-    
-      <section id="shortcuts">
-        <h3>More</h3>
-        <ul>
-          
-              <li> 
-                  <a class="padding" href="https://github.com/matcornic/hugo-theme-learn"><i class='fab fa-github'></i> Github repo</a>
-              </li>
-          
-              <li> 
-                  <a class="padding" href="https://gohugo.io/"><i class='fas fa-bookmark'></i> Hugo Documentation</a>
-              </li>
-          
-              <li> 
-                  <a class="padding" href="/tags"><i class='fas fa-tags'></i> Tags</a>
-              </li>
-          
-        </ul>
-      </section>
-    
-
-    
-    <section id="footer">
-      <p>Built with <a href="https://github.com/matcornic/hugo-theme-learn"><i class="fas fa-heart"></i></a> from <a href="https://getgrav.org">Grav</a> and <a href="https://gohugo.io/">Hugo</a></p>
-
-    </section>
-  </div>
-</nav>
+        <div id="article-toolbar">
+            <a href="/" class="back-home">
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-chevron-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <polyline points="15 6 9 12 15 18" />
+</svg>
 
 
 
-
-<div id="docsToc">
-  <div class="pi-accordion">
-    
-    
-    
-    
-    
-      
-      
-    
-    
-  </div> 
- <button class="push-menu-close-button" onclick="kub.toggleToc()"></button>
-</div> 
-© 2020 GitHub, Inc.
-        <section id="body">
-        <div id="overlay"></div>
-        <div class="padding highlightable">
-              
-              <div>
-                <div id="top-bar">
-                
-                  
-                  
-                  
-                  <div id="top-github-link">
-                    <a class="github-link" title='Edit this page' href="sung-won95.github.iodevops/nvidia-driver-install.md" target="blank">
-                      <i class="fas fa-code-branch"></i>
-                      <span id="top-github-link-text">Edit this page</span>
-                    </a>
-                  </div>
-                  
-                
-                
-                <div id="breadcrumbs" itemscope="" itemtype="http://data-vocabulary.org/Breadcrumb">
-                    <span id="sidebar-toggle-span">
-                        <a href="#" id="sidebar-toggle" data-sidebar-toggle="">
-                          <i class="fas fa-bars"></i>
-                        </a>
-                    </span>
-                  
-                  <span id="toc-menu"><i class="fas fa-list-alt"></i></span>
-                  
-                  <span class="links">
-                 
-                 
-                    
-          
-          
-            
-            
-          
-          
-            
-            
-          
-          
-            <a href='/'>슬럽의 블로그</a> > <a href='/devops/'>devops</a> > Ubuntu GPU Server NVIDIA Driver 설치 방법
-          
-         
-          
-         
-          
-        
-                 
-                  </span>
-                </div>
-                
-                    <div class="progress">
-    <div class="wrapper">
-<nav id="TableOfContents">
-  <ul>
-    <li><a href="#nvidia-driver-설치-전-사전-세팅">nvidia driver 설치 전 사전 세팅</a></li>
-    <li><a href="#nvidia-driver-검색-후-설치">nvidia driver 검색 후 설치</a></li>
-  </ul>
-</nav>
-    </div>
-</div>
-
-                
-              </div>
-            </div>
-            
-        <div id="head-tags">
-        
-<div class="tags">
-
-  <a class="tag-link" href="/tags/nvidia">nvidia</a>
-
-  <a class="tag-link" href="/tags/nvidia-smi">nvidia-smi</a>
-
-  <a class="tag-link" href="/tags/nvidia-driver">nvidia-driver</a>
-
-</div>
-
+                <span>뒤로가기</span>
+            </a>
         </div>
+    
+<main class="main full-width">
+    <article class="main-article">
+    <header class="article-header">
+
+    <div class="article-details">
+    
+
+    <h2 class="article-title">
+        <a href="/devops/nvidia-driver-install/">Ubuntu GPU Server NVIDIA Driver 설치 방법</a>
+    </h2>
+
+    
+
+    
+    <footer class="article-time">
         
-        <div id="body-inner">
-          
-            <h1>
-              
-              Ubuntu GPU Server NVIDIA Driver 설치 방법
-            </h1>
-          
-
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-calendar-time" width="56" height="56" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M11.795 21h-6.795a2 2 0 0 1 -2 -2v-12a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v4" />
+  <circle cx="18" cy="18" r="4" />
+  <path d="M15 3v4" />
+  <path d="M7 3v4" />
+  <path d="M3 11h16" />
+  <path d="M18 16.496v1.504l1 1" />
+</svg>
+                <time class="article-time--published">Nov 24, 2020</time>
+            </div>
         
 
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <polyline points="12 7 12 12 15 15" />
+</svg>
 
 
-<nav id="TableOfContents">
-  <ul>
-    <li><a href="#nvidia-driver-설치-전-사전-세팅">nvidia driver 설치 전 사전 세팅</a></li>
-    <li><a href="#nvidia-driver-검색-후-설치">nvidia driver 검색 후 설치</a></li>
-  </ul>
-</nav>
 
-<h2 id="nvidia-driver-설치-전-사전-세팅">nvidia driver 설치 전 사전 세팅</h2>
+                <time class="article-time--reading">
+                    1 분 정도
+                </time>
+            </div>
+        
+    </footer>
+    
+</div>
+</header>
+
+    <section class="article-content">
+    <h2 id="nvidia-driver-설치-전-사전-세팅">nvidia driver 설치 전 사전 세팅</h2>
 <ul>
 <li>OS : ubuntu 18.04</li>
 </ul>
 <p>먼저 Ubuntu는 gcc와 make가 설치되어있지 않습니다. 그렇기에 apt-get으로 gcc와 make를 설치해 줍니다.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">apt-get install -y gcc make
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">apt-get install -y gcc make
 </code></pre></div><p>설치가 완료되었으면 nouveau를 비활성화 해줍니다. nouveau는 기본 onboard 그래픽 드라이버로 이 모듈이 활성화 되어있으면 GPU를 선점해 nvidia-driver가 정상적으로 설치되지가 않습니다. 이 모듈을 비활성화 하는 방법으로는 다양한 방법이 있는데 저는 아래와 같이 blacklist로 지정해서 reboot 하는 방식으로 했습니다. 아시는 방법이 있다면 본인이 편하신 방법대로 모듈을 비활성화 해주시면 됩니다.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#75715e">#nouveau blacklist 설정</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="c1">#nouveau blacklist 설정</span>
 
-echo <span style="color:#e6db74">&#34;blacklist nouveau&#34;</span> &gt;&gt; /etc/modprobe.d/blacklist.conf
+<span class="nb">echo</span> <span class="s2">&#34;blacklist nouveau&#34;</span> &gt;&gt; /etc/modprobe.d/blacklist.conf
 
-echo options nouveau modeset<span style="color:#f92672">=</span><span style="color:#ae81ff">0</span> | sudo tee -a /etc/modprobe.d/nouveau-kms.conf
+<span class="nb">echo</span> options nouveau <span class="nv">modeset</span><span class="o">=</span><span class="m">0</span> <span class="p">|</span> sudo tee -a /etc/modprobe.d/nouveau-kms.conf
 
-update-initramfs -u   <span style="color:#75715e"># options 에서 설정한 값 적용 코드</span>
+update-initramfs -u   <span class="c1"># options 에서 설정한 값 적용 코드</span>
 
-reboot now   <span style="color:#75715e"># blacklist 적용용 reboot </span>
+reboot now   <span class="c1"># blacklist 적용용 reboot </span>
 </code></pre></div><p>비활성화가 정상적으로 되었는지는 아래 명령어를 입력했을때 아무것도 출력되지 않으면 됩니다!</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">lsmod | grep nouveau
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">lsmod <span class="p">|</span> grep nouveau
 </code></pre></div><h2 id="nvidia-driver-검색-후-설치">nvidia driver 검색 후 설치</h2>
 <ul>
-<li><a href="https://www.nvidia.co.kr/Download/index.aspx?lang=kr">nvidia.com</a> 에 접속</li>
+<li><a class="link" href="https://www.nvidia.co.kr/Download/index.aspx?lang=kr"  target="_blank" rel="noopener"
+    >nvidia.com</a> 에 접속</li>
 <li>제품 에 맞는 드라이버 선택 후 검색다운로드 하기(wget 가능)</li>
 </ul>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">wget <span style="color:#f92672">[</span>http://us.download.nvidia.com/XFree86/Linux-x86_64/440.44/NVIDIA-Linux-x86_64-440.44.run<span style="color:#f92672">](</span>http://us.download.nvidia.com/XFree86/Linux-x86_64/440.44/NVIDIA-Linux-x86_64-440.44.run<span style="color:#f92672">)</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">wget <span class="o">[</span>http://us.download.nvidia.com/XFree86/Linux-x86_64/440.44/NVIDIA-Linux-x86_64-440.44.run<span class="o">](</span>http://us.download.nvidia.com/XFree86/Linux-x86_64/440.44/NVIDIA-Linux-x86_64-440.44.run<span class="o">)</span>
 
 chmod +x NVIDIA-Linux-x86_64-440.44.run
 
 ./NVIDIA-Linux-x86_64-440.44.run
 </code></pre></div><p>설치 후 nvidia-smi 로 설치되었는지 확인하시면 됩니다!</p>
 
+</section>
 
-<footer class=" footline" >
-	
+
+    <footer class="article-footer">
+    
+    <section class="article-tags">
+        
+            <a href="/tags/nvidia/">nvidia</a>
+        
+            <a href="/tags/nvidia-smi/">nvidia-smi</a>
+        
+            <a href="/tags/nvidia-driver/">nvidia-driver</a>
+        
+    </section>
+
+
+    
+    <section class="article-copyright">
+        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-copyright" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <path d="M14.5 9a3.5 4 0 1 0 0 6" />
+</svg>
+
+
+
+        <span>Licensed under CC BY-NC-SA 4.0</span>
+    </section>
+    </footer>
+
+
+    
+</article>
+
+    
+
+    <aside class="related-contents--wrapper">
+    
+    
+</aside>
+
+     
+    
+        
+    <div class="disqus-container">
+    <div id="disqus_thread"></div>
+<script type="application/javascript">
+    var disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "잊어버리는 하찮은 내 뇌를 위한 블로그" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+</div>
+
+<style>
+    .disqus-container {
+        background-color: var(--card-background);
+        border-radius: var(--card-border-radius);
+        box-shadow: var(--shadow-l1);
+        padding: var(--card-padding);
+    }
+</style>
+
+<script>
+    window.addEventListener('onColorSchemeChange', (e) => {
+        if (DISQUS) {
+            DISQUS.reset({
+                reload: true
+            });
+        }
+    })
+</script>
+
+    
+
+    <footer class="site-footer">
+    <section class="copyright">
+        &copy; 
+        
+            2020 - 
+        
+        2022 성원의 개발 블로그
+    </section>
+    
+    <section class="powerby">
+        <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a>로 만듦 <br />
+        <a href="https://jimmycai.com" target="_blank" rel="noopener">Jimmy</a>의 <b><a href="https://github.com/CaiJimmy/hugo-theme-stack" target="_blank" rel="noopener" data-version="3.6.0">Stack</a></b> 테마 사용 중
+    </section>
 </footer>
 
 
+    
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    
+    <div class="pswp__bg"></div>
+
+    
+    <div class="pswp__scroll-wrap">
+
         
-            <div id="utterance">    
-    <script src="https://utteranc.es/client.js"
-            repo="sung-won95/sung-won95-comment"
-            issue-term="pathname"
-            label="comments"
-            theme="github-light"
-            crossorigin="anonymous"
-            async>
-    </script>
-</div>
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
         
-        </div> 
-      </div>
+        <div class="pswp__ui pswp__ui--hidden">
 
-    <div id="navigation">
-        
-        
-        
-        
-            
-            
-                
-                    
-                    
-                
+            <div class="pswp__top-bar">
+
                 
 
-                    
-                    
-                        
-                    
-                    
+                <div class="pswp__counter"></div>
 
-                    
-                        
-            
-            
-                
-                    
-                        
-                        
-                    
-                
-                
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
 
-                    
-                    
-                    
+                <button class="pswp__button pswp__button--share" title="Share"></button>
 
-                    
-                        
-            
-            
-                
-                    
-                
-                
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
 
-                    
-                    
-                    
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
 
-                    
-            
-        
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
                 
                 
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
 
-                    
-                    
-                    
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
 
-                    
-                        
-            
-            
-                
-                    
-                
-                
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
 
-                    
-                    
-                    
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
 
-                    
-            
-        
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
 
-                    
-                    
-                    
+        </div>
 
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-                        
-            
-            
-                
-                    
-                        
-                        
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                        
-                        
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-            
-        
-                    
-            
-        
-        
-        
-
-
-	 
-	 
     </div>
 
-    </section>
-    
-    <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
-      <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
-    </div>
-    <script src="/js/clipboard.min.js?1614323413"></script>
-    <script src="/js/perfect-scrollbar.min.js?1614323413"></script>
-    <script src="/js/perfect-scrollbar.jquery.min.js?1614323413"></script>
-    <script src="/js/jquery.sticky.js?1614323413"></script>
-    <script src="/js/featherlight.min.js?1614323413"></script>
-    <script src="/js/highlight.pack.js?1614323413"></script>
-    <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/js/modernizr.custom-3.6.0.js?1614323413"></script>
-    <script src="/js/learn.js?1614323413"></script>
-    <script src="/js/hugo-learn.js?1614323413"></script>
+</div><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js"integrity="sha256-ePwmChbbvXbsO02lbM3HoHbSHTHFAeChekF1xKJdleo="crossorigin="anonymous"
+                defer="true"
+                >
+            </script><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js"integrity="sha256-UKkzOn/w1mBxRmLLGrSeyB4e1xbrp4xylgAWb3M42pU="crossorigin="anonymous"
+                defer="true"
+                >
+            </script><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.css"integrity="sha256-c0uckgykQ9v5k&#43;IqViZOZKc47Jn7KQil4/MP3ySA3F8="crossorigin="anonymous"
+            ><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.css"integrity="sha256-SBLU4vv6CA6lHsZ1XyTdhyjJxCjPif/TRkjnsyGAGnE="crossorigin="anonymous"
+            >
 
-    <link href="/mermaid/mermaid.css?1614323413" rel="stylesheet" />
-    <script src="/mermaid/mermaid.js?1614323413"></script>
-    <script>
-        mermaid.initialize({ startOnLoad: true });
-    </script>
+            </main>
     
+        <aside class="sidebar right-sidebar sticky">
+            <section class="widget archives">
+                <div class="widget-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-hash" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <line x1="5" y1="9" x2="19" y2="9" />
+  <line x1="5" y1="15" x2="19" y2="15" />
+  <line x1="11" y1="4" x2="7" y2="20" />
+  <line x1="17" y1="4" x2="13" y2="20" />
+</svg>
+
+
+
+                </div>
+                <h2 class="widget-title section-title">목차</h2>
+                
+                <div class="widget--toc">
+                    <nav id="TableOfContents">
+  <ol>
+    <li><a href="#nvidia-driver-설치-전-사전-세팅">nvidia driver 설치 전 사전 세팅</a></li>
+    <li><a href="#nvidia-driver-검색-후-설치">nvidia driver 검색 후 설치</a></li>
+  </ol>
+</nav>
+                </div>
+            </section>
+        </aside>
     
 
-  </body>
+        </div>
+        <script 
+                src="https://cdn.jsdelivr.net/npm/node-vibrant@3.1.5/dist/vibrant.min.js"integrity="sha256-5NovOZc4iwiAWTYIFiIM7DxKUXKWvpVEuMEPLzcm5/g="crossorigin="anonymous"
+                defer="false"
+                >
+            </script><script type="text/javascript" src="/ts/main.js" defer></script>
+<script>
+    (function () {
+        const customFont = document.createElement('link');
+        customFont.href = "https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap";
+
+        customFont.type = "text/css";
+        customFont.rel = "stylesheet";
+
+        document.head.appendChild(customFont);
+    }());
+</script>
+
+    </body>
 </html>
-

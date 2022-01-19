@@ -1,0 +1,582 @@
+<!DOCTYPE html>
+<html lang="euc-kr">
+    <head><meta charset='utf-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content='1장 - 깨끗한 코드 나쁜코드는 생산성을 떨어트린다 (개발방향을 산정하지 않은코드는 생산성을 떨어트린다)
+C&#43;&#43; 창시자 나는 우아하고 효율적인 코드를 좋아한다. 논리가 간단해야 버그가 없기 때문이다. 의존성을 줄여야 유지보수가 쉬워진다. 깨끗한 코드는 한가지를 제대로 한다. 깨끗한 코드는 단순하고 직접적이다. 깨끗한 코드는 잘 쓴 문장처럼 잘 읽히고 설계자의 의도를 바로 알 수 있다. 오히려 명쾌한 추상화와 단순한 제어문으로 가득하다 코드는 추측이아니라 사실에 기반해야한다. 반드시 필요한 내용만 담아야하며 단호하게 끝내야한다. 이클립스 창시자 깨끗한 코드는 작성자가 아닌 사람도 읽기쉽고 고치기 쉽다.'><title>1장 클린코드</title>
+
+<link rel='canonical' href='https://sung-won95.github.io/p/1%EC%9E%A5-%ED%81%B4%EB%A6%B0%EC%BD%94%EB%93%9C/'>
+
+<link rel="stylesheet" href="/scss/style.min.775dbd4fd34fda61c5273b4bc3415f7c9666414fb6c40aab164a7ded4397da98.css"><meta property='og:title' content='1장 클린코드'>
+<meta property='og:description' content='1장 - 깨끗한 코드 나쁜코드는 생산성을 떨어트린다 (개발방향을 산정하지 않은코드는 생산성을 떨어트린다)
+C&#43;&#43; 창시자 나는 우아하고 효율적인 코드를 좋아한다. 논리가 간단해야 버그가 없기 때문이다. 의존성을 줄여야 유지보수가 쉬워진다. 깨끗한 코드는 한가지를 제대로 한다. 깨끗한 코드는 단순하고 직접적이다. 깨끗한 코드는 잘 쓴 문장처럼 잘 읽히고 설계자의 의도를 바로 알 수 있다. 오히려 명쾌한 추상화와 단순한 제어문으로 가득하다 코드는 추측이아니라 사실에 기반해야한다. 반드시 필요한 내용만 담아야하며 단호하게 끝내야한다. 이클립스 창시자 깨끗한 코드는 작성자가 아닌 사람도 읽기쉽고 고치기 쉽다.'>
+<meta property='og:url' content='https://sung-won95.github.io/p/1%EC%9E%A5-%ED%81%B4%EB%A6%B0%EC%BD%94%EB%93%9C/'>
+<meta property='og:site_name' content='성원의 개발 블로그'>
+<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:tag' content='클린코드' /><meta property='article:published_time' content='2022-01-19T10:24:37&#43;09:00'/><meta property='article:modified_time' content='2022-01-19T10:24:37&#43;09:00'/>
+<meta name="twitter:title" content="1장 클린코드">
+<meta name="twitter:description" content="1장 - 깨끗한 코드 나쁜코드는 생산성을 떨어트린다 (개발방향을 산정하지 않은코드는 생산성을 떨어트린다)
+C&#43;&#43; 창시자 나는 우아하고 효율적인 코드를 좋아한다. 논리가 간단해야 버그가 없기 때문이다. 의존성을 줄여야 유지보수가 쉬워진다. 깨끗한 코드는 한가지를 제대로 한다. 깨끗한 코드는 단순하고 직접적이다. 깨끗한 코드는 잘 쓴 문장처럼 잘 읽히고 설계자의 의도를 바로 알 수 있다. 오히려 명쾌한 추상화와 단순한 제어문으로 가득하다 코드는 추측이아니라 사실에 기반해야한다. 반드시 필요한 내용만 담아야하며 단호하게 끝내야한다. 이클립스 창시자 깨끗한 코드는 작성자가 아닌 사람도 읽기쉽고 고치기 쉽다.">
+    <link rel="shortcut icon" href="/profile.png" />
+
+    </head>
+    <body class="
+    article-page has-toc
+">
+    <script>
+        (function() {
+            const colorSchemeKey = 'StackColorScheme';
+            if(!localStorage.getItem(colorSchemeKey)){
+                localStorage.setItem(colorSchemeKey, "auto");
+            }
+        })();
+    </script><script>
+    (function() {
+        const colorSchemeKey = 'StackColorScheme';
+        const colorSchemeItem = localStorage.getItem(colorSchemeKey);
+        const supportDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches === true;
+
+        if (colorSchemeItem == 'dark' || colorSchemeItem === 'auto' && supportDarkMode) {
+            
+
+            document.documentElement.dataset.scheme = 'dark';
+        } else {
+            document.documentElement.dataset.scheme = 'light';
+        }
+    })();
+</script>
+<div class="container main-container flex 
+    
+        extended
+    
+">
+    
+        <div id="article-toolbar">
+            <a href="/" class="back-home">
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-chevron-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <polyline points="15 6 9 12 15 18" />
+</svg>
+
+
+
+                <span>뒤로가기</span>
+            </a>
+        </div>
+    
+<main class="main full-width">
+    <article class="main-article">
+    <header class="article-header">
+
+    <div class="article-details">
+    
+    <header class="article-category">
+        
+            <a href="/categories/%ED%81%B4%EB%A6%B0%EC%BD%94%EB%93%9C/" >
+                클린코드
+            </a>
+        
+    </header>
+    
+
+    <h2 class="article-title">
+        <a href="/p/1%EC%9E%A5-%ED%81%B4%EB%A6%B0%EC%BD%94%EB%93%9C/">1장 클린코드</a>
+    </h2>
+
+    
+
+    
+    <footer class="article-time">
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-calendar-time" width="56" height="56" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M11.795 21h-6.795a2 2 0 0 1 -2 -2v-12a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v4" />
+  <circle cx="18" cy="18" r="4" />
+  <path d="M15 3v4" />
+  <path d="M7 3v4" />
+  <path d="M3 11h16" />
+  <path d="M18 16.496v1.504l1 1" />
+</svg>
+                <time class="article-time--published">Jan 19, 2022</time>
+            </div>
+        
+
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <polyline points="12 7 12 12 15 15" />
+</svg>
+
+
+
+                <time class="article-time--reading">
+                    4 분 정도
+                </time>
+            </div>
+        
+    </footer>
+    
+</div>
+</header>
+
+    <section class="article-content">
+    <h2 id="1장---깨끗한-코드">1장 - 깨끗한 코드</h2>
+<p>나쁜코드는 생산성을 떨어트린다 (개발방향을 산정하지 않은코드는 생산성을 떨어트린다)</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-jsx" data-lang="jsx"><span class="nx">C</span><span class="o">++</span> <span class="nx">창시자</span>
+<span class="nx">나는</span> <span class="nx">우아하고</span> <span class="nx">효율적인</span> <span class="nx">코드를</span> <span class="nx">좋아한다</span><span class="p">.</span> <span class="nx">논리가</span> <span class="nx">간단해야</span> <span class="nx">버그가</span> <span class="nx">없기</span> <span class="nx">때문이다</span><span class="p">.</span>
+<span class="nx">의존성을</span> <span class="nx">줄여야</span> <span class="nx">유지보수가</span> <span class="nx">쉬워진다</span><span class="p">.</span> <span class="nx">깨끗한</span> <span class="nx">코드는</span> <span class="nx">한가지를</span> <span class="nx">제대로</span> <span class="nx">한다</span><span class="p">.</span>
+</code></pre></div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-jsx" data-lang="jsx"><span class="nx">깨끗한</span> <span class="nx">코드는</span> <span class="nx">단순하고</span> <span class="nx">직접적이다</span><span class="p">.</span> 
+<span class="nx">깨끗한</span> <span class="nx">코드는</span> <span class="nx">잘</span> <span class="nx">쓴</span> <span class="nx">문장처럼</span> <span class="nx">잘</span> <span class="nx">읽히고</span> <span class="nx">설계자의</span> <span class="nx">의도를</span> <span class="nx">바로</span> <span class="nx">알</span> <span class="nx">수</span> <span class="nx">있다</span><span class="p">.</span> 
+<span class="nx">오히려</span> <span class="nx">명쾌한</span> <span class="nx">추상화와</span> <span class="nx">단순한</span> <span class="nx">제어문으로</span> <span class="nx">가득하다</span>
+
+<span class="nx">코드는</span> <span class="nx">추측이아니라</span> <span class="nx">사실에</span> <span class="nx">기반해야한다</span><span class="p">.</span>
+<span class="nx">반드시</span> <span class="nx">필요한</span> <span class="nx">내용만</span> <span class="nx">담아야하며</span> <span class="nx">단호하게</span> <span class="nx">끝내야한다</span><span class="p">.</span>
+</code></pre></div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-jsx" data-lang="jsx"><span class="nx">이클립스</span> <span class="nx">창시자</span>
+
+<span class="nx">깨끗한</span> <span class="nx">코드는</span> <span class="nx">작성자가</span> <span class="nx">아닌</span> <span class="nx">사람도</span> <span class="nx">읽기쉽고</span> <span class="nx">고치기</span> <span class="nx">쉽다</span><span class="p">.</span>
+<span class="nx">깨끗한코드는</span> <span class="nx">의미있는</span> <span class="nx">이름이</span> <span class="nx">붙는다</span><span class="p">.</span>
+<span class="nx">의존성은</span> <span class="nx">최소이며</span> <span class="nx">각</span> <span class="nx">의존성을</span> <span class="nx">명확히</span> <span class="nx">정의한다</span><span class="p">.</span>
+<span class="nx">API는</span> <span class="nx">명확하며</span> <span class="nx">최소로</span> <span class="nx">줄였다</span><span class="p">.</span>
+<span class="nx">언어에따라</span> <span class="nx">필요한</span> <span class="nx">모든</span> <span class="nx">정보는</span> <span class="nx">코드로</span> <span class="nx">나올</span> <span class="nx">수</span> <span class="nx">없기</span> <span class="nx">때문에</span> 
+<span class="nx">코드는</span> <span class="nx">문학적으로</span> <span class="nx">표현해야한다</span><span class="p">.</span> 
+
+<span class="nx">요점은</span> <span class="nx">인간이</span> <span class="nx">읽기</span> <span class="nx">좋은</span> <span class="nx">코드를</span> <span class="nx">작성하라는</span> <span class="nx">말입니다</span><span class="p">.</span>
+</code></pre></div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-jsx" data-lang="jsx"><span class="nx">깨끗한</span> <span class="nx">코드는</span> <span class="nx">언제나</span> <span class="nx">누군가</span> <span class="nx">주의</span> <span class="nx">깊게</span> <span class="nx">짰다는</span> <span class="nx">느낌을</span> <span class="nx">준다</span><span class="p">.</span>
+<span class="nx">고치려고</span> <span class="nx">살펴봐도</span> <span class="nx">딱히</span> <span class="nx">손</span> <span class="nx">댈</span> <span class="nx">곳이</span> <span class="nx">없다</span><span class="p">.</span>
+<span class="nx">작성자가</span> <span class="nx">이미</span> <span class="nx">모든</span> <span class="nx">사항을</span> <span class="nx">고려했으므로</span> <span class="nx">고칠</span> <span class="nx">궁리를</span> <span class="nx">하다보면</span> <span class="nx">언제나</span> <span class="nx">제자리로</span> <span class="nx">돌아온다</span><span class="p">.</span>
+</code></pre></div><h2 id="2-의미있는-이름">2. 의미있는 이름</h2>
+<p>의도가 분명하게 이름을 지어야 합니다.</p>
+<p>변수나 함수 클래스의 이름은 존재이유, 수행기능, 사용방법 을 모두 포함해야합니다.</p>
+<h3 id="냄새나는-코드">냄새나는 코드</h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-jsx" data-lang="jsx"><span class="kr">int</span> <span class="nx">d</span><span class="p">;</span> <span class="c1">// 경과시간 (단위 : 날짜) 
+</span></code></pre></div><h3 id="클린코드">클린코드</h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-jsx" data-lang="jsx"><span class="kr">int</span> <span class="nx">timeInDays</span><span class="p">;</span>
+<span class="kr">int</span> <span class="nx">daysSinceCreation</span><span class="p">;</span>
+</code></pre></div><p>또한 의미가 없는 메소드를 만들면 다른사람이 이해하기 어렵다.</p>
+<p>복잡한 문장을 사용한게 아니라 의도자체를 파악하기 어렵기 때문이다.</p>
+<p>즉 코드의 맥락과 목적이 명시적으로 들어나지 않는다.</p>
+<p>우리가 지뢰찾기를 만든다고 가정하고 아래 코드들을 읽어보자</p>
+<h3 id="냄새나는코드">냄새나는코드</h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-jsx" data-lang="jsx"><span class="kr">public</span> <span class="nx">List</span><span class="p">&lt;</span><span class="nt">int</span><span class="err">[]</span><span class="p">&gt;</span> <span class="nx">getThem</span><span class="p">(){</span> 
+<span class="nx">List</span><span class="p">&lt;</span><span class="nt">int</span><span class="err">[]</span><span class="p">&gt;</span> <span class="nx">list1</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">ArrayList</span><span class="p">&lt;</span><span class="nt">int</span><span class="err">[]</span><span class="p">&gt;();</span>
+<span class="k">for</span> <span class="p">(</span><span class="kr">int</span><span class="p">[]</span> <span class="nx">x</span><span class="o">:</span> <span class="nx">theList</span><span class="p">)</span>
+  <span class="k">if</span> <span class="p">(</span><span class="nx">x</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="mi">4</span><span class="p">)</span>
+     <span class="nx">list1</span><span class="p">.</span><span class="nx">add</span><span class="p">(</span><span class="nx">x</span><span class="p">);</span>
+<span class="k">return</span> <span class="nx">list1</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div><p>단순히 이름만 고쳤을뿐인데!</p>
+<ol>
+<li>theList에 무엇이 들었는가</li>
+<li>theList에서 0번째값이 무엇인가</li>
+<li>값4는 무슨 의미인가</li>
+<li>함수가 반환하는 list1이 무엇인가</li>
+</ol>
+<p>위 4가지의 의미를 파악할 수 있게되었다!!!</p>
+<h3 id="클린코드-1">클린코드</h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-jsx" data-lang="jsx"><span class="kr">public</span> <span class="nx">List</span><span class="p">&lt;</span><span class="nt">int</span><span class="err">[]</span><span class="p">&gt;</span> <span class="nx">getFlaggedCells</span><span class="p">(</span><span class="nx">Gameboard</span> <span class="nx">gameboard</span><span class="p">){</span>
+<span class="nx">List</span><span class="p">&lt;</span><span class="nt">int</span><span class="err">[]</span><span class="p">&gt;</span> <span class="nx">flaggedCells</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">ArrayList</span><span class="p">&lt;</span><span class="nt">int</span><span class="err">[]</span><span class="p">&gt;();</span>
+<span class="nx">List</span><span class="p">&lt;</span><span class="nt">int</span><span class="p">&gt;</span> <span class="nx">intList</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">ArrayList</span><span class="p">&lt;</span><span class="nt">int</span><span class="p">&gt;();</span>
+<span class="k">for</span> <span class="p">(</span><span class="kr">int</span><span class="p">[]</span> <span class="nx">cell</span> <span class="o">:</span> <span class="nx">gameboard</span><span class="p">)</span>
+  <span class="k">if</span> <span class="p">(</span><span class="nx">cells</span><span class="p">[</span><span class="nx">STATUS_VALUE</span><span class="p">]</span> <span class="o">==</span> <span class="nx">FLAGGED</span><span class="p">)</span>
+    <span class="nx">flaggedCells</span><span class="p">.</span><span class="nx">add</span><span class="p">(</span><span class="nx">cell</span><span class="p">);</span>
+<span class="k">return</span> <span class="nx">flaggedCells</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div><h3 id="int-배열까지-클래스화-시킨-코드">int 배열까지 클래스화 시킨 코드</h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-jsx" data-lang="jsx"><span class="kr">public</span> <span class="nx">List</span><span class="p">&lt;</span><span class="nt">Cell</span><span class="p">&gt;</span> <span class="nx">getFlaggedCells</span><span class="p">(){</span>
+<span class="nx">List</span><span class="p">&lt;</span><span class="nt">Cell</span><span class="p">&gt;</span> <span class="nx">flaggedCells</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">ArrayList</span><span class="p">&lt;</span><span class="nt">Cell</span><span class="p">&gt;();</span>
+<span class="k">for</span> <span class="p">(</span><span class="nx">Cell</span> <span class="nx">cell</span> <span class="o">:</span> <span class="nx">gameoard</span><span class="p">)</span>
+  <span class="k">if</span> <span class="p">(</span><span class="nx">cells</span><span class="p">[</span><span class="nx">STATUS_VALUE</span><span class="p">]</span> <span class="o">==</span> <span class="nx">FLAGGED</span><span class="p">)</span>
+    <span class="nx">flaggedCells</span><span class="p">.</span><span class="nx">add</span><span class="p">(</span><span class="nx">cell</span><span class="p">);</span>
+<span class="k">return</span> <span class="nx">flaggedCells</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div><p>그릇된 정보도 피해야한다. 그릇된 정보와 단서는 코드의 의미를 흐리기 때문이다</p>
+<p>예를들어 직각삼각형의 빗변(hypotenuse)를 변수화한다고 hp를 쓰면 안된다.</p>
+<p>우리에게 hp는 피통, hp 회사 등 여러가지로 생각 할 수 있기 때문이다.</p>
+<p>더불어서 O (영어 o) 0 (숫자0) l(소문자 L) I(대문자 i) 등도 쓰면 안된다 ex) 0ooOOllIIlI</p>
+<p>발음하기 쉬운 이름을 사용해라</p>
+<p>개발도 커뮤니케이션이다. &ldquo;흠&hellip; 여기 int bcr3cntfsgqueue가 있군요&rdquo; 라고 하는건 비효율이다.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-jsx" data-lang="jsx"><span class="kr">private</span> <span class="nb">Date</span> <span class="nx">genymdhms</span><span class="p">;</span>
+<span class="kr">private</span> <span class="nb">Date</span> <span class="nx">modymdhms</span><span class="p">;</span>
+
+<span class="kr">private</span> <span class="nb">Date</span> <span class="nx">generationTimestamp</span><span class="p">;</span>
+<span class="kr">private</span> <span class="nb">Date</span> <span class="nx">modificationTimestamp</span><span class="p">;</span> 
+</code></pre></div><p>위 코드는 누가봐도 아래 코드가 더 잘 짰다고 할것이다</p>
+<p>검색하기 쉬우면서 일기 쉬운 코드를 작성해라</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-jsx" data-lang="jsx"><span class="k">for</span><span class="p">(</span><span class="kr">int</span> <span class="nx">j</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span> <span class="nx">j</span><span class="p">&lt;</span><span class="nt">34</span><span class="err">;</span> <span class="na">j</span><span class="err">++)</span><span class="p">{</span>
+ <span class="na">s</span> <span class="err">+=</span> <span class="err">(</span><span class="na">t</span><span class="err">[</span><span class="na">j</span><span class="err">]*</span><span class="na">4</span><span class="err">)/</span><span class="na">5</span><span class="err">;</span>
+<span class="p">}</span>
+</code></pre></div><p>위의 코드와 아래코드는 동일하게 동작한다.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-jsx" data-lang="jsx"><span class="kr">int</span> <span class="nx">realDaysPerIdealDay</span> <span class="o">=</span> <span class="mi">4</span><span class="p">;</span>
+<span class="kr">const</span> <span class="kr">int</span> <span class="nx">WORK_DAYS_PER_WEEK</span> <span class="o">=</span> <span class="mi">5</span><span class="p">;</span>
+<span class="kr">int</span> <span class="nx">sum</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+<span class="k">for</span><span class="p">(</span><span class="kr">int</span> <span class="nx">j</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span> <span class="nx">j</span> <span class="o">&lt;</span> <span class="nx">NUMBER_OF_TASKS</span><span class="p">;</span> <span class="nx">j</span><span class="o">++</span><span class="p">){</span>
+  <span class="kr">int</span> <span class="nx">realTaskDays</span> <span class="o">=</span> <span class="nx">taskEstimate</span><span class="p">[</span><span class="nx">j</span><span class="p">]</span> <span class="o">*</span> <span class="nx">realDaysPerIdealDay</span><span class="p">;</span>
+  <span class="kr">int</span> <span class="nx">realTaskWeeks</span> <span class="o">=</span> <span class="p">(</span><span class="nx">realTaskDays</span> <span class="o">/</span> <span class="nx">WORK_DAYS_PER_WEEK</span><span class="p">);</span> 
+  <span class="nx">sum</span> <span class="o">+=</span> <span class="nx">realTaskWeeks</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div><p>뭘 하는지도 읽으면서 확실히 와 닿으며 검색하기도 쉽다!</p>
+<p>만약 위에 코드를 검색해 변경하려면 &ldquo;5&quot;를 검색해서 내 코드중 5가 들어간 몇백개의 라인을 봐야하는반면</p>
+<p>아래코드는 WORK_DAYS_PER_WEEK를 검색하면 된다는거다!</p>
+<p>클래스나 객체 이름은 명사나 명사구가 적합하다.</p>
+<p>Customer, WikiPage, Account 등이 좋은것이며</p>
+<p>Manager, Processor, Data는 피하고 동사는 사용하지 않는다</p>
+<p>메서드 이름은 동사나 동사구가 적합하다.</p>
+<p>postPayment, deletePage, save등이 좋은예다</p>
+<p>javabean 표준은 get set is 등을 붙이는거다.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-jsx" data-lang="jsx"><span class="nx">string</span> <span class="nx">name</span> <span class="o">=</span> <span class="nx">employee</span><span class="p">.</span><span class="nx">getName</span><span class="p">();</span>
+<span class="nx">customer</span><span class="p">.</span><span class="nx">setName</span><span class="p">(</span><span class="s2">&#34;Mike&#34;</span><span class="p">);</span>
+<span class="k">if</span><span class="p">(</span><span class="nx">paycheck</span><span class="p">.</span><span class="nx">isPosted</span><span class="p">())...</span>
+</code></pre></div><p>의미있는 맥락을 추가해라</p>
+<p>스스로 의미가 분명한 이름이 없지는 않다. 하지만 대다수는 의미가 부족하다.</p>
+<p>그래서 클래스, 함수, 이름에 맥락을 부여해야한다. 이마저도 안된다면 마지막 수단으로 접두어를 붙인다.</p>
+<p>ex) firstName, lastName, street, houseNumber, city, state, zipCode</p>
+<p>위 변수를 훑어보면 주소라는 사실을 알 수있다. 하지만 저 중 city 한개만 사용한다면 주소까지 생각하는건 어렵다</p>
+<p>ex) addrFirstName, addrLastName, addrCity</p>
+<p>위처럼 앞에 addr을 붙여주면 주소라는 사실을 어디서든 알 수 있다!</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-jsx" data-lang="jsx"><span class="nx">Class</span> <span class="nx">Address</span><span class="p">(){</span>
+<span class="nb">String</span> <span class="nx">firstName</span><span class="p">;</span>
+<span class="nb">String</span> <span class="nx">lastName</span><span class="p">;</span> 
+<span class="p">...</span>
+<span class="p">}</span>
+</code></pre></div><p>그렇지만 가장 좋은것은 Addr 클래스를 만드는것이다 :)</p>
+<p>아래예제 중 함수 이름은 맥락 일부만 제공하며 알고리즘이 나머지 맥락을 제공한다.</p>
+<p>함수를 끝까지 읽어보고 나서야 number, verb, pluralModifier라는 변수가 통계로 사용된다는 사실을 안다.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-jsx" data-lang="jsx"><span class="kr">private</span> <span class="k">void</span> <span class="nx">printGuessStatistics</span><span class="p">(</span><span class="kr">char</span> <span class="nx">candidate</span><span class="p">,</span> <span class="kr">int</span> <span class="nx">count</span><span class="p">){</span>
+<span class="nb">String</span> <span class="nx">number</span><span class="p">;</span>
+<span class="nb">String</span> <span class="nx">verb</span><span class="p">;</span>
+<span class="nb">String</span> <span class="nx">pluralModifier</span><span class="p">;</span>
+<span class="k">if</span><span class="p">(</span><span class="nx">count</span> <span class="o">==</span><span class="mi">0</span><span class="p">){</span>
+  <span class="nx">number</span> <span class="o">=</span> <span class="s2">&#34;no&#34;</span><span class="p">;</span>
+  <span class="nx">verb</span> <span class="o">=</span> <span class="s2">&#34;are&#34;</span><span class="p">;</span>
+  <span class="nx">pluralModifier</span> <span class="o">=</span> <span class="s2">&#34;s&#34;</span><span class="p">;</span>
+<span class="p">}</span> <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="nx">count</span> <span class="o">==</span> <span class="mi">1</span> <span class="p">){</span>
+  <span class="nx">number</span> <span class="o">=</span> <span class="s2">&#34;1&#34;</span><span class="p">;</span>
+  <span class="nx">verb</span> <span class="o">=</span> <span class="s2">&#34;is&#34;</span><span class="p">;</span>
+  <span class="nx">pluralModifier</span> <span class="o">=</span> <span class="s2">&#34;&#34;</span><span class="p">;</span>
+<span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+  <span class="nx">number</span> <span class="o">=</span> <span class="nx">Integer</span><span class="p">.</span><span class="nx">toString</span><span class="p">(</span><span class="nx">count</span><span class="p">);</span>
+  <span class="nx">verb</span> <span class="o">=</span> <span class="s2">&#34;are&#34;</span><span class="p">;</span>
+  <span class="nx">pluralModifier</span> <span class="o">=</span> <span class="s2">&#34;s&#34;</span><span class="p">;</span>
+<span class="p">}</span> 
+<span class="nb">String</span> <span class="nx">guessMessage</span> <span class="o">=</span> <span class="nb">String</span><span class="p">.</span><span class="nx">format</span><span class="p">(</span>
+ <span class="s2">&#34;There %s %s %s%s&#34;</span><span class="p">,</span> <span class="nx">verb</span><span class="p">,</span> <span class="nx">number</span><span class="p">,</span> <span class="nx">candidate</span><span class="p">,</span> <span class="nx">plurModifier</span>
+<span class="p">);</span>
+<span class="nx">print</span><span class="p">(</span><span class="nx">guessMessage</span><span class="p">);</span>
+</code></pre></div><p>이 함수는 클래스를 만든 후 같은 변수를 쓰는것 만으로 알고리즘도 명확해지고 맥락도 명확해진다</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-jsx" data-lang="jsx"><span class="kr">public</span> <span class="kr">class</span> <span class="nx">GuessStatisticsMessage</span><span class="p">{</span>
+ <span class="kr">private</span> <span class="nb">String</span> <span class="nx">number</span><span class="p">;</span>
+ <span class="kr">private</span> <span class="nb">String</span> <span class="nx">verb</span><span class="p">;</span>
+ <span class="kr">private</span> <span class="nb">String</span> <span class="nx">pluralModifier</span><span class="p">;</span>
+
+<span class="kr">public</span> <span class="nb">String</span> <span class="nx">make</span><span class="p">(</span><span class="kr">char</span> <span class="nx">candidate</span><span class="p">,</span> <span class="kr">int</span> <span class="nx">count</span><span class="p">){</span>
+  <span class="nx">createPluralDependentMessageParts</span><span class="p">(</span><span class="nx">count</span><span class="p">);</span>
+  <span class="k">return</span> <span class="nb">String</span><span class="p">.</span><span class="nx">format</span><span class="p">(</span>
+    <span class="s2">&#34;There %s %s %s%s&#34;</span><span class="p">,</span> <span class="nx">verb</span><span class="p">,</span> <span class="nx">number</span><span class="p">,</span> <span class="nx">candidate</span><span class="p">,</span> <span class="nx">plurModifier</span>
+    <span class="p">);</span>
+<span class="p">}</span>
+
+<span class="kr">private</span> <span class="nx">createPluralDependentMessageParts</span><span class="p">(</span><span class="kr">int</span> <span class="nx">count</span><span class="p">){</span>
+  <span class="k">if</span><span class="p">(</span><span class="nx">count</span> <span class="o">==</span> <span class="mi">0</span><span class="p">){</span>
+    <span class="k">this</span><span class="p">.</span><span class="nx">thereAreNoLetters</span><span class="p">();</span>
+  <span class="p">}</span> <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="nx">count</span> <span class="o">==</span> <span class="mi">1</span><span class="p">){</span>
+    <span class="k">this</span><span class="p">.</span><span class="nx">thereIsOneLetter</span><span class="p">();</span>
+  <span class="p">}</span> <span class="k">else</span><span class="p">{</span>
+    <span class="k">this</span><span class="p">.</span><span class="nx">thereAreManyLetter</span><span class="p">(</span><span class="nx">count</span><span class="p">);</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="kr">private</span> <span class="nx">thereAreNoLetters</span><span class="p">(){</span>
+  <span class="k">this</span><span class="p">.</span><span class="nx">number</span> <span class="o">=</span> <span class="s2">&#34;no&#34;</span><span class="p">;</span>
+  <span class="k">this</span><span class="p">.</span><span class="nx">verb</span> <span class="o">=</span> <span class="s2">&#34;are&#34;</span><span class="p">;</span>
+  <span class="k">this</span><span class="p">.</span><span class="nx">pluralModifier</span> <span class="o">=</span> <span class="s2">&#34;s&#34;</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="kr">private</span> <span class="nx">thereIsOneLetter</span><span class="p">(){</span>
+  <span class="k">this</span><span class="p">.</span><span class="nx">number</span> <span class="o">=</span> <span class="s2">&#34;1&#34;</span><span class="p">;</span>
+  <span class="k">this</span><span class="p">.</span><span class="nx">verb</span> <span class="o">=</span> <span class="s2">&#34;is&#34;</span><span class="p">;</span>
+  <span class="k">this</span><span class="p">.</span><span class="nx">pluralModifier</span> <span class="o">=</span> <span class="s2">&#34;&#34;</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="kr">private</span> <span class="nx">thereAreManyLetter</span><span class="p">(</span><span class="kr">int</span> <span class="nx">count</span><span class="p">){</span>
+  <span class="k">this</span><span class="p">.</span><span class="nx">number</span> <span class="o">=</span> <span class="nx">Integer</span><span class="p">.</span><span class="nx">toString</span><span class="p">(</span><span class="nx">count</span><span class="p">);</span>
+  <span class="k">this</span><span class="p">.</span><span class="nx">verb</span> <span class="o">=</span> <span class="s2">&#34;are&#34;</span><span class="p">;</span>
+  <span class="k">this</span><span class="p">.</span><span class="nx">pluralModifier</span> <span class="o">=</span> <span class="s2">&#34;s&#34;</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-jsx" data-lang="jsx"><span class="kr">private</span> <span class="k">void</span> <span class="nx">printGuessStatistics</span><span class="p">(</span><span class="kr">char</span> <span class="nx">candidate</span><span class="p">,</span> <span class="kr">int</span> <span class="nx">count</span><span class="p">){</span>
+<span class="nx">GuessStatisticsMessage</span> <span class="nx">guessStatisticsMessage</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">GuessStatisticsMessage</span><span class="p">()</span>
+
+<span class="nx">guessStatisticsMessage</span><span class="p">.</span><span class="nx">make</span><span class="p">(</span><span class="nx">candidate</span><span class="p">,</span> <span class="nx">count</span><span class="p">)</span>
+</code></pre></div><p>좋은 이름을 선택하려면 설명능력이 뛰어나야하고 문화적인 배경이 같아야한다. 이것이 제일 어렵다.</p>
+<p>네이밍 자체는 그때그때 더 좋은게 생각나면 바꿔야한다.</p>
+<p>다른사람이 짠 코드를 볼때는 리팩터링 도구를 사용해 이름을 개선하라</p>
+<p>단기적인 효과는 물론 장기적인 이익도 보장한다.</p>
+
+</section>
+
+
+    <footer class="article-footer">
+    
+    <section class="article-tags">
+        
+            <a href="/tags/%ED%81%B4%EB%A6%B0%EC%BD%94%EB%93%9C/">클린코드</a>
+        
+    </section>
+
+
+    
+    <section class="article-copyright">
+        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-copyright" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <path d="M14.5 9a3.5 4 0 1 0 0 6" />
+</svg>
+
+
+
+        <span>Licensed under CC BY-NC-SA 4.0</span>
+    </section>
+    </footer>
+
+
+    
+</article>
+
+    
+
+    <aside class="related-contents--wrapper">
+    
+    
+        <h2 class="section-title">관련 글</h2>
+        <div class="related-contents">
+            <div class="flex article-list--tile">
+                
+                    
+<article class="">
+    <a href="/p/2%EC%9E%A5-%ED%95%A8%EC%88%98/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">2장 함수</h2>
+        </div>
+    </a>
+</article>
+                
+                    
+<article class="">
+    <a href="/p/3%EC%9E%A5-%EC%A3%BC%EC%84%9D/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">3장 주석</h2>
+        </div>
+    </a>
+</article>
+                
+            </div>
+        </div>
+    
+</aside>
+
+     
+    
+        
+    <div class="disqus-container">
+    <div id="disqus_thread"></div>
+<script type="application/javascript">
+    var disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "잊어버리는 하찮은 내 뇌를 위한 블로그" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+</div>
+
+<style>
+    .disqus-container {
+        background-color: var(--card-background);
+        border-radius: var(--card-border-radius);
+        box-shadow: var(--shadow-l1);
+        padding: var(--card-padding);
+    }
+</style>
+
+<script>
+    window.addEventListener('onColorSchemeChange', (e) => {
+        if (DISQUS) {
+            DISQUS.reset({
+                reload: true
+            });
+        }
+    })
+</script>
+
+    
+
+    <footer class="site-footer">
+    <section class="copyright">
+        &copy; 
+        
+            2020 - 
+        
+        2022 성원의 개발 블로그
+    </section>
+    
+    <section class="powerby">
+        <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a>로 만듦 <br />
+        <a href="https://jimmycai.com" target="_blank" rel="noopener">Jimmy</a>의 <b><a href="https://github.com/CaiJimmy/hugo-theme-stack" target="_blank" rel="noopener" data-version="3.6.0">Stack</a></b> 테마 사용 중
+    </section>
+</footer>
+
+
+    
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    
+    <div class="pswp__bg"></div>
+
+    
+    <div class="pswp__scroll-wrap">
+
+        
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                
+                
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js"integrity="sha256-ePwmChbbvXbsO02lbM3HoHbSHTHFAeChekF1xKJdleo="crossorigin="anonymous"
+                defer="true"
+                >
+            </script><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js"integrity="sha256-UKkzOn/w1mBxRmLLGrSeyB4e1xbrp4xylgAWb3M42pU="crossorigin="anonymous"
+                defer="true"
+                >
+            </script><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.css"integrity="sha256-c0uckgykQ9v5k&#43;IqViZOZKc47Jn7KQil4/MP3ySA3F8="crossorigin="anonymous"
+            ><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.css"integrity="sha256-SBLU4vv6CA6lHsZ1XyTdhyjJxCjPif/TRkjnsyGAGnE="crossorigin="anonymous"
+            >
+
+            </main>
+    
+        <aside class="sidebar right-sidebar sticky">
+            <section class="widget archives">
+                <div class="widget-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-hash" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <line x1="5" y1="9" x2="19" y2="9" />
+  <line x1="5" y1="15" x2="19" y2="15" />
+  <line x1="11" y1="4" x2="7" y2="20" />
+  <line x1="17" y1="4" x2="13" y2="20" />
+</svg>
+
+
+
+                </div>
+                <h2 class="widget-title section-title">목차</h2>
+                
+                <div class="widget--toc">
+                    <nav id="TableOfContents">
+  <ol>
+    <li><a href="#1장---깨끗한-코드">1장 - 깨끗한 코드</a></li>
+    <li><a href="#2-의미있는-이름">2. 의미있는 이름</a>
+      <ol>
+        <li><a href="#냄새나는-코드">냄새나는 코드</a></li>
+        <li><a href="#클린코드">클린코드</a></li>
+        <li><a href="#냄새나는코드">냄새나는코드</a></li>
+        <li><a href="#클린코드-1">클린코드</a></li>
+        <li><a href="#int-배열까지-클래스화-시킨-코드">int 배열까지 클래스화 시킨 코드</a></li>
+      </ol>
+    </li>
+  </ol>
+</nav>
+                </div>
+            </section>
+        </aside>
+    
+
+        </div>
+        <script 
+                src="https://cdn.jsdelivr.net/npm/node-vibrant@3.1.5/dist/vibrant.min.js"integrity="sha256-5NovOZc4iwiAWTYIFiIM7DxKUXKWvpVEuMEPLzcm5/g="crossorigin="anonymous"
+                defer="false"
+                >
+            </script><script type="text/javascript" src="/ts/main.js" defer></script>
+<script>
+    (function () {
+        const customFont = document.createElement('link');
+        customFont.href = "https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap";
+
+        customFont.type = "text/css";
+        customFont.rel = "stylesheet";
+
+        document.head.appendChild(customFont);
+    }());
+</script>
+
+    </body>
+</html>

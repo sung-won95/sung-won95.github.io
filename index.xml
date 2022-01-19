@@ -1,94 +1,1458 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-    <title>슬럽의 블로그 on </title>
-    <link>/</link>
-    <description>Recent content in 슬럽의 블로그 on </description>
-    <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Tue, 05 Jan 2021 19:58:35 +0900</lastBuildDate><atom:link href="/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>JPA 양방향 로딩시 무한루프 해결방법</title>
-      <link>/jpa/infiniterecursionerror/</link>
-      <pubDate>Fri, 26 Feb 2021 16:05:57 +0900</pubDate>
-      
-      <guid>/jpa/infiniterecursionerror/</guid>
-      <description>JPA 양방향 로딩시 무한루프 JPA를 이용해 RestAPI 서버를 개발하는 쌩 도메인을 그대로 ResponseEntity로 패키징해 return 하려고 했었다. 문제는 도메인이 양방향 매핑 설정을 해놔서 [A → B → A → &amp;hellip; ]가 끊임없이 이어지는 무한루프에 빠지게 되는 버그와 만나게 되었다. 찾아보니 ResponseEntity에서 property를 매핑하는 과정에서 JsonSerializer메소드에서 toString()을 호출한다고 한다. toString()에서 무한루프에 빠지게 되는건데 해결 방법으로는 @JsonManagedReference와 @JsonBackReference를 사용하는 방법과 @JsonIgnore를 사용하는 방법이 있다. 전자의 경우에는 부모,자식관계를 설정해 무한루프를 피하는 방식이고 후자의 경우에는 자식 관계의 도메인에 null 값을 설정하는 방식이다.</description>
-    </item>
-    
-    <item>
-      <title>ClubHouse</title>
-      <link>/smalltalk/clubhouse/</link>
-      <pubDate>Mon, 08 Feb 2021 09:08:57 +0900</pubDate>
-      
-      <guid>/smalltalk/clubhouse/</guid>
-      <description>클럽하우스 클럽하우스는 2020년 3월 폴 데이비슨(Paul Davison)과 로언 세스(RohanSeth)에 의해 만들어졌다. 이들은 각자 여러 서비스(사업)를 내놨었으나 공동으로 시작한것은 처음이다. 그리고 약 1년만에 유니콘 기업으로 성장했다! 초기 클럽하우스는 토크쇼 기반의 앱이였다고 한다. 즉 유명인이 팟캐스트를 생방송 라디오처럼 진행하는 컨셉이였는데 이는 유튜브, 라디오와 큰 차별성이 없었고 몇번의 피드백 이후 청취자, 게스트 기능을 넣어서 지금의 클럽하우스로 탄생하게 되었다. 새로운 SNS의 등장 SNS라고 하면 Twitter, FaceBook, Instagram 등 여러 플랫폼들이 떠오르는데 이를 시대순으로 나열해보면 텍스트기반 SNS에서 영상기반 SNS로 발전해나갔고 현재 인기 있는 SNS는 영상 기반SNS라고 생각한다.</description>
-    </item>
-    
-    <item>
-      <title>뉴스 기사 크롤링을 통한 키워드 추출 및 실시간 트렌드 제공 서비스 [Trendak]</title>
-      <link>/idea/newsbotreport/</link>
-      <pubDate>Mon, 04 Jan 2021 08:58:32 +0900</pubDate>
-      
-      <guid>/idea/newsbotreport/</guid>
-      <description>안녕하세요 오늘은 사업계획서를 공유해보려고 합니다. 이 글은 작년 10월 모 창업 경진대회에 제출한 문서를 거의 그대로 옮겼습니다. 해당 대회에서 본선에는 들었지만 발표평가에서 떨어진 문서입니다. 사업계획서를 쓰시는 분들께 도움이 되었으면 합니다. 더불어서 피드백은 언제나 환영입니다!
-1-1. 제품의 차별성 실시간성  1분단위의 실시간 모니터링을 통해 누구보다 빠른 정보전달 가능 기존 어플리케이션들의 서비스 제공 시간폭은 유료 기준 30분 - 1시간 소요  능동적 정보제공  굳이 찾아보지 않아도 알아서 방대한 양의 정보를 정리하여 제공해줌 바쁜 현대인들에게 스스로 시의성 있는 정보와 트렌드를 전달함  제목 기반 키워드 제공  자동 요약 시스템을 통해 부담 없이 손쉽게 트렌드 파악 가능 기사 전체가 아닌 이미 요약되어 있는 제목만을 크롤링 함으로써 더 빠르고 적은 데이터로 서비스 구축 가능  접근성  별도의 앱 설치 없이 카카오톡 챗봇을 이용하여 누구나 쉽게 사용 가능  안드로이드&amp;amp;IOS 이용자 모두 이용가능   앱 알람이 아닌 다수가 사용하는 카카오톡 메시지 알람으로 다른 앱 이용보다 번거로움이 적음  확장성   내용을 집약하여 제목을 작성하는 다른 데이터에 동일한 메커니즘 적용 가능</description>
-    </item>
-    
-    <item>
-      <title>docker-compose에서 NFS 사용하기</title>
-      <link>/devops/docker-volumn-nfs/</link>
-      <pubDate>Tue, 24 Nov 2020 14:02:42 +0900</pubDate>
-      
-      <guid>/devops/docker-volumn-nfs/</guid>
-      <description>Docker-compose Setting version: &amp;#39;3.1&amp;#39; volumes: nfs-data: #nfs volume 이름 지정  driver: local  driver_opts: type: nfs  #nfs 서비스로 지정  device: &amp;#34;:/your/nfs/path&amp;#34; #nfs mount 경로 o: &amp;#34;addr=192.168.2.27,nolock,soft,rw&amp;#34; #nfs서버 세팅 services: AI-blur: image: blur deploy: resources: limits: cpus: &amp;#39;24&amp;#39; memory: 128G build: context: . dockerfile: blur/Dockerfile environment: - NVIDIA_VISIBLE_DEVICES=2,3,4,5  #GPU 설정 env volumes: - nfs-blur:/root/workspace/nfs-data  # [volume명]:[컨테이너 내부 마운트 위치] stdin_open: true tty: true docker-compose에서도 위와같이 nfs를 사용 할 수 있습니다!</description>
-    </item>
-    
-    <item>
-      <title>Opencv를 이용하여 YOLOv4로 CCTV 영상 분석하기</title>
-      <link>/tech/rtsp-opencv-yolov4/</link>
-      <pubDate>Tue, 24 Nov 2020 14:02:42 +0900</pubDate>
-      
-      <guid>/tech/rtsp-opencv-yolov4/</guid>
-      <description>프롤로그 안녕하세요 오늘은 OpenCV를 사용하여 CCTV video stream(RTSP)에 YOLO를 돌린 프로젝트 후기를 남겨보려고 합니다. 이 프로젝트는 실시간으로 object detecting 하는 것을 최우선 목표로 진행했습니다. 2K CCTV에서 RTSP 서버를 열어주고 딥러닝(YOLO v4)을 통해 object detecting을 진행 한 뒤 모니터링 서버에서 보여줄때까지 지연시간이 2초 이하로 진행해야 했습니다.
-환경 &amp;amp; 목표 w
- CCTV : 2K RTSP Stream, 16EA Network : 10G GPU : Tesla T4, 8EA AI Model : YOLO v4, 5개 object 구분 목표 : 모니터링 서버에서 2초 이내 detecting object 확인  설계도 RTSP → YOLO v4(분석) | Tesla T4 이용 → View</description>
-    </item>
-    
-    <item>
-      <title>Ubuntu GPU Server NVIDIA Driver 설치 방법</title>
-      <link>/devops/nvidia-driver-install/</link>
-      <pubDate>Tue, 24 Nov 2020 14:02:42 +0900</pubDate>
-      
-      <guid>/devops/nvidia-driver-install/</guid>
-      <description>nvidia driver 설치 전 사전 세팅  OS : ubuntu 18.04  먼저 Ubuntu는 gcc와 make가 설치되어있지 않습니다. 그렇기에 apt-get으로 gcc와 make를 설치해 줍니다.
-apt-get install -y gcc make 설치가 완료되었으면 nouveau를 비활성화 해줍니다. nouveau는 기본 onboard 그래픽 드라이버로 이 모듈이 활성화 되어있으면 GPU를 선점해 nvidia-driver가 정상적으로 설치되지가 않습니다. 이 모듈을 비활성화 하는 방법으로는 다양한 방법이 있는데 저는 아래와 같이 blacklist로 지정해서 reboot 하는 방식으로 했습니다. 아시는 방법이 있다면 본인이 편하신 방법대로 모듈을 비활성화 해주시면 됩니다.</description>
-    </item>
-    
-    <item>
-      <title>Docker에서 원하는 GPU선택해 컨테이너로 Project실행하기</title>
-      <link>/devops/docker-gpu-1/</link>
-      <pubDate>Fri, 20 Nov 2020 16:54:37 +0900</pubDate>
-      
-      <guid>/devops/docker-gpu-1/</guid>
-      <description>기본 서버 설정 OS : Ubuntu 18.04
-Install Package: Nvidia-driver &amp;amp; nvidia-docker 설치
-Docker GPU 사용 세팅 docker 명령어를 사용하면 기본적으로 /usr/bin 경로에 있는 docker 파일이 실행됩니다. 하지만 우리의 목적은 GPU를 사용하는 것 이기 때문에 docker 명령어가 아닌 nvidia-docker를 사용해야 합니다. docker 와 nvidia-docker를 번갈아가면서 사용하게 된다면 헷갈리기도 하고 kubernetes, docker-compose에서는 기본적으로 docker파일을 실행하도록 설정되어 있기 때문에 default runtime을 nvidia-docker로 사용 할 수 있도록 세팅해 줘야 합니다.
-/etc/docker/daemon.json파일 중 첫번째줄에 &amp;ldquo;default-runtime&amp;rdquo;: &amp;ldquo;nvidia&amp;quot;부분을 추가해 주면 세팅은 완료 됩니다.</description>
-    </item>
-    
-    <item>
-      <title>postgres replication 하는방법</title>
-      <link>/database/postgres-replication-setting/</link>
-      <pubDate>Fri, 20 Nov 2020 16:54:37 +0900</pubDate>
-      
-      <guid>/database/postgres-replication-setting/</guid>
-      <description>master 서버와 slave 서버에 각각 설정하는 방법이 다릅니다
-MASTER 설정   user 생성
-# psql을 Postgres 유저로 접속 후 유저 생성 sudo -u postgres psql CREATE ROLE replication WITH REPLICATION PASSWORD &amp;#39;password&amp;#39; LOGIN;   /etc/postgresql/9.5/main/postgresql.conf 파일 수정
-wal_level = hot_standby max_wal_senders = 2 max_replication_slots = 2   /etc/postgresql/9.5/main/hba.conf 파일 수정
-아래 문구 추가
-host all all 192.168.0.138/24 trust host replication replication 192.168.0.138/24 md5 host all all ::1/128 trust   postgresql 재시작</description>
-    </item>
-    
-  </channel>
+    <channel>
+        <title>성원의 개발 블로그</title>
+        <link>https://sung-won95.github.io/</link>
+        <description>Recent content on 성원의 개발 블로그</description>
+        <generator>Hugo -- gohugo.io</generator>
+        <language>euc-kr</language>
+        <lastBuildDate>Wed, 19 Jan 2022 10:24:37 +0900</lastBuildDate><atom:link href="https://sung-won95.github.io/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>1장 클린코드</title>
+        <link>https://sung-won95.github.io/p/1%EC%9E%A5-%ED%81%B4%EB%A6%B0%EC%BD%94%EB%93%9C/</link>
+        <pubDate>Wed, 19 Jan 2022 10:24:37 +0900</pubDate>
+        
+        <guid>https://sung-won95.github.io/p/1%EC%9E%A5-%ED%81%B4%EB%A6%B0%EC%BD%94%EB%93%9C/</guid>
+        <description>&lt;h2 id=&#34;1장---깨끗한-코드&#34;&gt;1장 - 깨끗한 코드&lt;/h2&gt;
+&lt;p&gt;나쁜코드는 생산성을 떨어트린다 (개발방향을 산정하지 않은코드는 생산성을 떨어트린다)&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-jsx&#34; data-lang=&#34;jsx&#34;&gt;&lt;span class=&#34;nx&#34;&gt;C&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;++&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;창시자&lt;/span&gt;
+&lt;span class=&#34;nx&#34;&gt;나는&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;우아하고&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;효율적인&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;코드를&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;좋아한다&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;논리가&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;간단해야&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;버그가&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;없기&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;때문이다&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;
+&lt;span class=&#34;nx&#34;&gt;의존성을&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;줄여야&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;유지보수가&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;쉬워진다&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;깨끗한&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;코드는&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;한가지를&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;제대로&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;한다&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-jsx&#34; data-lang=&#34;jsx&#34;&gt;&lt;span class=&#34;nx&#34;&gt;깨끗한&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;코드는&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;단순하고&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;직접적이다&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt; 
+&lt;span class=&#34;nx&#34;&gt;깨끗한&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;코드는&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;잘&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;쓴&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;문장처럼&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;잘&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;읽히고&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;설계자의&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;의도를&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;바로&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;알&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;수&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;있다&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt; 
+&lt;span class=&#34;nx&#34;&gt;오히려&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;명쾌한&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;추상화와&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;단순한&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;제어문으로&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;가득하다&lt;/span&gt;
+
+&lt;span class=&#34;nx&#34;&gt;코드는&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;추측이아니라&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;사실에&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;기반해야한다&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;
+&lt;span class=&#34;nx&#34;&gt;반드시&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;필요한&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;내용만&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;담아야하며&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;단호하게&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;끝내야한다&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-jsx&#34; data-lang=&#34;jsx&#34;&gt;&lt;span class=&#34;nx&#34;&gt;이클립스&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;창시자&lt;/span&gt;
+
+&lt;span class=&#34;nx&#34;&gt;깨끗한&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;코드는&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;작성자가&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;아닌&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;사람도&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;읽기쉽고&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;고치기&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;쉽다&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;
+&lt;span class=&#34;nx&#34;&gt;깨끗한코드는&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;의미있는&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;이름이&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;붙는다&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;
+&lt;span class=&#34;nx&#34;&gt;의존성은&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;최소이며&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;각&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;의존성을&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;명확히&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;정의한다&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;
+&lt;span class=&#34;nx&#34;&gt;API는&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;명확하며&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;최소로&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;줄였다&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;
+&lt;span class=&#34;nx&#34;&gt;언어에따라&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;필요한&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;모든&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;정보는&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;코드로&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;나올&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;수&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;없기&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;때문에&lt;/span&gt; 
+&lt;span class=&#34;nx&#34;&gt;코드는&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;문학적으로&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;표현해야한다&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt; 
+
+&lt;span class=&#34;nx&#34;&gt;요점은&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;인간이&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;읽기&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;좋은&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;코드를&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;작성하라는&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;말입니다&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-jsx&#34; data-lang=&#34;jsx&#34;&gt;&lt;span class=&#34;nx&#34;&gt;깨끗한&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;코드는&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;언제나&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;누군가&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;주의&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;깊게&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;짰다는&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;느낌을&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;준다&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;
+&lt;span class=&#34;nx&#34;&gt;고치려고&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;살펴봐도&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;딱히&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;손&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;댈&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;곳이&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;없다&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;
+&lt;span class=&#34;nx&#34;&gt;작성자가&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;이미&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;모든&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;사항을&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;고려했으므로&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;고칠&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;궁리를&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;하다보면&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;언제나&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;제자리로&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;돌아온다&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;2-의미있는-이름&#34;&gt;2. 의미있는 이름&lt;/h2&gt;
+&lt;p&gt;의도가 분명하게 이름을 지어야 합니다.&lt;/p&gt;
+&lt;p&gt;변수나 함수 클래스의 이름은 존재이유, 수행기능, 사용방법 을 모두 포함해야합니다.&lt;/p&gt;
+&lt;h3 id=&#34;냄새나는-코드&#34;&gt;냄새나는 코드&lt;/h3&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-jsx&#34; data-lang=&#34;jsx&#34;&gt;&lt;span class=&#34;kr&#34;&gt;int&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;d&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt; &lt;span class=&#34;c1&#34;&gt;// 경과시간 (단위 : 날짜) 
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;클린코드&#34;&gt;클린코드&lt;/h3&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-jsx&#34; data-lang=&#34;jsx&#34;&gt;&lt;span class=&#34;kr&#34;&gt;int&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;timeInDays&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
+&lt;span class=&#34;kr&#34;&gt;int&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;daysSinceCreation&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;또한 의미가 없는 메소드를 만들면 다른사람이 이해하기 어렵다.&lt;/p&gt;
+&lt;p&gt;복잡한 문장을 사용한게 아니라 의도자체를 파악하기 어렵기 때문이다.&lt;/p&gt;
+&lt;p&gt;즉 코드의 맥락과 목적이 명시적으로 들어나지 않는다.&lt;/p&gt;
+&lt;p&gt;우리가 지뢰찾기를 만든다고 가정하고 아래 코드들을 읽어보자&lt;/p&gt;
+&lt;h3 id=&#34;냄새나는코드&#34;&gt;냄새나는코드&lt;/h3&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-jsx&#34; data-lang=&#34;jsx&#34;&gt;&lt;span class=&#34;kr&#34;&gt;public&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;List&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;int&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;[]&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;getThem&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(){&lt;/span&gt; 
+&lt;span class=&#34;nx&#34;&gt;List&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;int&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;[]&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;list1&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;new&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;ArrayList&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;int&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;[]&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;&amp;gt;();&lt;/span&gt;
+&lt;span class=&#34;k&#34;&gt;for&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;kr&#34;&gt;int&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;[]&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;x&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;theList&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+  &lt;span class=&#34;k&#34;&gt;if&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;x&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;[&lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;0&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;]&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;==&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;4&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+     &lt;span class=&#34;nx&#34;&gt;list1&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;add&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;x&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;);&lt;/span&gt;
+&lt;span class=&#34;k&#34;&gt;return&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;list1&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
+&lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;단순히 이름만 고쳤을뿐인데!&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;theList에 무엇이 들었는가&lt;/li&gt;
+&lt;li&gt;theList에서 0번째값이 무엇인가&lt;/li&gt;
+&lt;li&gt;값4는 무슨 의미인가&lt;/li&gt;
+&lt;li&gt;함수가 반환하는 list1이 무엇인가&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;위 4가지의 의미를 파악할 수 있게되었다!!!&lt;/p&gt;
+&lt;h3 id=&#34;클린코드-1&#34;&gt;클린코드&lt;/h3&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-jsx&#34; data-lang=&#34;jsx&#34;&gt;&lt;span class=&#34;kr&#34;&gt;public&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;List&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;int&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;[]&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;getFlaggedCells&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;Gameboard&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;gameboard&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;){&lt;/span&gt;
+&lt;span class=&#34;nx&#34;&gt;List&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;int&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;[]&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;flaggedCells&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;new&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;ArrayList&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;int&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;[]&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;&amp;gt;();&lt;/span&gt;
+&lt;span class=&#34;nx&#34;&gt;List&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;int&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;intList&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;new&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;ArrayList&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;int&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;&amp;gt;();&lt;/span&gt;
+&lt;span class=&#34;k&#34;&gt;for&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;kr&#34;&gt;int&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;[]&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;cell&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;gameboard&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+  &lt;span class=&#34;k&#34;&gt;if&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;cells&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;[&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;STATUS_VALUE&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;]&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;==&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;FLAGGED&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+    &lt;span class=&#34;nx&#34;&gt;flaggedCells&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;add&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;cell&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;);&lt;/span&gt;
+&lt;span class=&#34;k&#34;&gt;return&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;flaggedCells&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
+&lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;int-배열까지-클래스화-시킨-코드&#34;&gt;int 배열까지 클래스화 시킨 코드&lt;/h3&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-jsx&#34; data-lang=&#34;jsx&#34;&gt;&lt;span class=&#34;kr&#34;&gt;public&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;List&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;Cell&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;getFlaggedCells&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(){&lt;/span&gt;
+&lt;span class=&#34;nx&#34;&gt;List&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;Cell&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;flaggedCells&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;new&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;ArrayList&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;Cell&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;&amp;gt;();&lt;/span&gt;
+&lt;span class=&#34;k&#34;&gt;for&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;Cell&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;cell&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;gameoard&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+  &lt;span class=&#34;k&#34;&gt;if&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;cells&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;[&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;STATUS_VALUE&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;]&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;==&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;FLAGGED&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+    &lt;span class=&#34;nx&#34;&gt;flaggedCells&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;add&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;cell&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;);&lt;/span&gt;
+&lt;span class=&#34;k&#34;&gt;return&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;flaggedCells&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
+&lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;그릇된 정보도 피해야한다. 그릇된 정보와 단서는 코드의 의미를 흐리기 때문이다&lt;/p&gt;
+&lt;p&gt;예를들어 직각삼각형의 빗변(hypotenuse)를 변수화한다고 hp를 쓰면 안된다.&lt;/p&gt;
+&lt;p&gt;우리에게 hp는 피통, hp 회사 등 여러가지로 생각 할 수 있기 때문이다.&lt;/p&gt;
+&lt;p&gt;더불어서 O (영어 o) 0 (숫자0) l(소문자 L) I(대문자 i) 등도 쓰면 안된다 ex) 0ooOOllIIlI&lt;/p&gt;
+&lt;p&gt;발음하기 쉬운 이름을 사용해라&lt;/p&gt;
+&lt;p&gt;개발도 커뮤니케이션이다. &amp;ldquo;흠&amp;hellip; 여기 int bcr3cntfsgqueue가 있군요&amp;rdquo; 라고 하는건 비효율이다.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-jsx&#34; data-lang=&#34;jsx&#34;&gt;&lt;span class=&#34;kr&#34;&gt;private&lt;/span&gt; &lt;span class=&#34;nb&#34;&gt;Date&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;genymdhms&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
+&lt;span class=&#34;kr&#34;&gt;private&lt;/span&gt; &lt;span class=&#34;nb&#34;&gt;Date&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;modymdhms&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
+
+&lt;span class=&#34;kr&#34;&gt;private&lt;/span&gt; &lt;span class=&#34;nb&#34;&gt;Date&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;generationTimestamp&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
+&lt;span class=&#34;kr&#34;&gt;private&lt;/span&gt; &lt;span class=&#34;nb&#34;&gt;Date&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;modificationTimestamp&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt; 
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;위 코드는 누가봐도 아래 코드가 더 잘 짰다고 할것이다&lt;/p&gt;
+&lt;p&gt;검색하기 쉬우면서 일기 쉬운 코드를 작성해라&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-jsx&#34; data-lang=&#34;jsx&#34;&gt;&lt;span class=&#34;k&#34;&gt;for&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;kr&#34;&gt;int&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;j&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;0&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;j&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;34&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;;&lt;/span&gt; &lt;span class=&#34;na&#34;&gt;j&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;++)&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;
+ &lt;span class=&#34;na&#34;&gt;s&lt;/span&gt; &lt;span class=&#34;err&#34;&gt;+=&lt;/span&gt; &lt;span class=&#34;err&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;t&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;[&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;j&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;]*&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;4&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;)/&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;5&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;;&lt;/span&gt;
+&lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;위의 코드와 아래코드는 동일하게 동작한다.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-jsx&#34; data-lang=&#34;jsx&#34;&gt;&lt;span class=&#34;kr&#34;&gt;int&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;realDaysPerIdealDay&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;4&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
+&lt;span class=&#34;kr&#34;&gt;const&lt;/span&gt; &lt;span class=&#34;kr&#34;&gt;int&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;WORK_DAYS_PER_WEEK&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;5&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
+&lt;span class=&#34;kr&#34;&gt;int&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;sum&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;0&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
+&lt;span class=&#34;k&#34;&gt;for&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;kr&#34;&gt;int&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;j&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;0&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;j&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;lt;&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;NUMBER_OF_TASKS&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;j&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;++&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;){&lt;/span&gt;
+  &lt;span class=&#34;kr&#34;&gt;int&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;realTaskDays&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;taskEstimate&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;[&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;j&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;]&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;*&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;realDaysPerIdealDay&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
+  &lt;span class=&#34;kr&#34;&gt;int&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;realTaskWeeks&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;realTaskDays&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;/&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;WORK_DAYS_PER_WEEK&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;);&lt;/span&gt; 
+  &lt;span class=&#34;nx&#34;&gt;sum&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;+=&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;realTaskWeeks&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
+&lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;뭘 하는지도 읽으면서 확실히 와 닿으며 검색하기도 쉽다!&lt;/p&gt;
+&lt;p&gt;만약 위에 코드를 검색해 변경하려면 &amp;ldquo;5&amp;quot;를 검색해서 내 코드중 5가 들어간 몇백개의 라인을 봐야하는반면&lt;/p&gt;
+&lt;p&gt;아래코드는 WORK_DAYS_PER_WEEK를 검색하면 된다는거다!&lt;/p&gt;
+&lt;p&gt;클래스나 객체 이름은 명사나 명사구가 적합하다.&lt;/p&gt;
+&lt;p&gt;Customer, WikiPage, Account 등이 좋은것이며&lt;/p&gt;
+&lt;p&gt;Manager, Processor, Data는 피하고 동사는 사용하지 않는다&lt;/p&gt;
+&lt;p&gt;메서드 이름은 동사나 동사구가 적합하다.&lt;/p&gt;
+&lt;p&gt;postPayment, deletePage, save등이 좋은예다&lt;/p&gt;
+&lt;p&gt;javabean 표준은 get set is 등을 붙이는거다.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-jsx&#34; data-lang=&#34;jsx&#34;&gt;&lt;span class=&#34;nx&#34;&gt;string&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;name&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;employee&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;getName&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;();&lt;/span&gt;
+&lt;span class=&#34;nx&#34;&gt;customer&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;setName&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;Mike&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;);&lt;/span&gt;
+&lt;span class=&#34;k&#34;&gt;if&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;paycheck&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;isPosted&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;())...&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;의미있는 맥락을 추가해라&lt;/p&gt;
+&lt;p&gt;스스로 의미가 분명한 이름이 없지는 않다. 하지만 대다수는 의미가 부족하다.&lt;/p&gt;
+&lt;p&gt;그래서 클래스, 함수, 이름에 맥락을 부여해야한다. 이마저도 안된다면 마지막 수단으로 접두어를 붙인다.&lt;/p&gt;
+&lt;p&gt;ex) firstName, lastName, street, houseNumber, city, state, zipCode&lt;/p&gt;
+&lt;p&gt;위 변수를 훑어보면 주소라는 사실을 알 수있다. 하지만 저 중 city 한개만 사용한다면 주소까지 생각하는건 어렵다&lt;/p&gt;
+&lt;p&gt;ex) addrFirstName, addrLastName, addrCity&lt;/p&gt;
+&lt;p&gt;위처럼 앞에 addr을 붙여주면 주소라는 사실을 어디서든 알 수 있다!&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-jsx&#34; data-lang=&#34;jsx&#34;&gt;&lt;span class=&#34;nx&#34;&gt;Class&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;Address&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(){&lt;/span&gt;
+&lt;span class=&#34;nb&#34;&gt;String&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;firstName&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
+&lt;span class=&#34;nb&#34;&gt;String&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;lastName&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt; 
+&lt;span class=&#34;p&#34;&gt;...&lt;/span&gt;
+&lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;그렇지만 가장 좋은것은 Addr 클래스를 만드는것이다 :)&lt;/p&gt;
+&lt;p&gt;아래예제 중 함수 이름은 맥락 일부만 제공하며 알고리즘이 나머지 맥락을 제공한다.&lt;/p&gt;
+&lt;p&gt;함수를 끝까지 읽어보고 나서야 number, verb, pluralModifier라는 변수가 통계로 사용된다는 사실을 안다.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-jsx&#34; data-lang=&#34;jsx&#34;&gt;&lt;span class=&#34;kr&#34;&gt;private&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;void&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;printGuessStatistics&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;kr&#34;&gt;char&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;candidate&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;kr&#34;&gt;int&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;count&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;){&lt;/span&gt;
+&lt;span class=&#34;nb&#34;&gt;String&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;number&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
+&lt;span class=&#34;nb&#34;&gt;String&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;verb&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
+&lt;span class=&#34;nb&#34;&gt;String&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;pluralModifier&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
+&lt;span class=&#34;k&#34;&gt;if&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;count&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;==&lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;0&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;){&lt;/span&gt;
+  &lt;span class=&#34;nx&#34;&gt;number&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;s2&#34;&gt;&amp;#34;no&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
+  &lt;span class=&#34;nx&#34;&gt;verb&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;s2&#34;&gt;&amp;#34;are&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
+  &lt;span class=&#34;nx&#34;&gt;pluralModifier&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;s2&#34;&gt;&amp;#34;s&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
+&lt;span class=&#34;p&#34;&gt;}&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;else&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;if&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;count&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;==&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;1&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;){&lt;/span&gt;
+  &lt;span class=&#34;nx&#34;&gt;number&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;s2&#34;&gt;&amp;#34;1&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
+  &lt;span class=&#34;nx&#34;&gt;verb&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;s2&#34;&gt;&amp;#34;is&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
+  &lt;span class=&#34;nx&#34;&gt;pluralModifier&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;s2&#34;&gt;&amp;#34;&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
+&lt;span class=&#34;p&#34;&gt;}&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;else&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;
+  &lt;span class=&#34;nx&#34;&gt;number&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;Integer&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;toString&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;count&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;);&lt;/span&gt;
+  &lt;span class=&#34;nx&#34;&gt;verb&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;s2&#34;&gt;&amp;#34;are&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
+  &lt;span class=&#34;nx&#34;&gt;pluralModifier&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;s2&#34;&gt;&amp;#34;s&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
+&lt;span class=&#34;p&#34;&gt;}&lt;/span&gt; 
+&lt;span class=&#34;nb&#34;&gt;String&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;guessMessage&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;nb&#34;&gt;String&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;format&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;
+ &lt;span class=&#34;s2&#34;&gt;&amp;#34;There %s %s %s%s&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;verb&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;number&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;candidate&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;plurModifier&lt;/span&gt;
+&lt;span class=&#34;p&#34;&gt;);&lt;/span&gt;
+&lt;span class=&#34;nx&#34;&gt;print&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;guessMessage&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;);&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;이 함수는 클래스를 만든 후 같은 변수를 쓰는것 만으로 알고리즘도 명확해지고 맥락도 명확해진다&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-jsx&#34; data-lang=&#34;jsx&#34;&gt;&lt;span class=&#34;kr&#34;&gt;public&lt;/span&gt; &lt;span class=&#34;kr&#34;&gt;class&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;GuessStatisticsMessage&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;
+ &lt;span class=&#34;kr&#34;&gt;private&lt;/span&gt; &lt;span class=&#34;nb&#34;&gt;String&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;number&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
+ &lt;span class=&#34;kr&#34;&gt;private&lt;/span&gt; &lt;span class=&#34;nb&#34;&gt;String&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;verb&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
+ &lt;span class=&#34;kr&#34;&gt;private&lt;/span&gt; &lt;span class=&#34;nb&#34;&gt;String&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;pluralModifier&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
+
+&lt;span class=&#34;kr&#34;&gt;public&lt;/span&gt; &lt;span class=&#34;nb&#34;&gt;String&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;make&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;kr&#34;&gt;char&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;candidate&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;kr&#34;&gt;int&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;count&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;){&lt;/span&gt;
+  &lt;span class=&#34;nx&#34;&gt;createPluralDependentMessageParts&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;count&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;);&lt;/span&gt;
+  &lt;span class=&#34;k&#34;&gt;return&lt;/span&gt; &lt;span class=&#34;nb&#34;&gt;String&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;format&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;
+    &lt;span class=&#34;s2&#34;&gt;&amp;#34;There %s %s %s%s&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;verb&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;number&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;candidate&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;plurModifier&lt;/span&gt;
+    &lt;span class=&#34;p&#34;&gt;);&lt;/span&gt;
+&lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
+
+&lt;span class=&#34;kr&#34;&gt;private&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;createPluralDependentMessageParts&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;kr&#34;&gt;int&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;count&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;){&lt;/span&gt;
+  &lt;span class=&#34;k&#34;&gt;if&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;count&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;==&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;0&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;){&lt;/span&gt;
+    &lt;span class=&#34;k&#34;&gt;this&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;thereAreNoLetters&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;();&lt;/span&gt;
+  &lt;span class=&#34;p&#34;&gt;}&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;else&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;if&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;count&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;==&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;){&lt;/span&gt;
+    &lt;span class=&#34;k&#34;&gt;this&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;thereIsOneLetter&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;();&lt;/span&gt;
+  &lt;span class=&#34;p&#34;&gt;}&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;else&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;
+    &lt;span class=&#34;k&#34;&gt;this&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;thereAreManyLetter&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;count&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;);&lt;/span&gt;
+  &lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
+&lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
+
+&lt;span class=&#34;kr&#34;&gt;private&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;thereAreNoLetters&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(){&lt;/span&gt;
+  &lt;span class=&#34;k&#34;&gt;this&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;number&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;s2&#34;&gt;&amp;#34;no&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
+  &lt;span class=&#34;k&#34;&gt;this&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;verb&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;s2&#34;&gt;&amp;#34;are&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
+  &lt;span class=&#34;k&#34;&gt;this&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;pluralModifier&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;s2&#34;&gt;&amp;#34;s&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
+&lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
+
+&lt;span class=&#34;kr&#34;&gt;private&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;thereIsOneLetter&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(){&lt;/span&gt;
+  &lt;span class=&#34;k&#34;&gt;this&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;number&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;s2&#34;&gt;&amp;#34;1&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
+  &lt;span class=&#34;k&#34;&gt;this&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;verb&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;s2&#34;&gt;&amp;#34;is&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
+  &lt;span class=&#34;k&#34;&gt;this&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;pluralModifier&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;s2&#34;&gt;&amp;#34;&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
+&lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
+
+&lt;span class=&#34;kr&#34;&gt;private&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;thereAreManyLetter&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;kr&#34;&gt;int&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;count&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;){&lt;/span&gt;
+  &lt;span class=&#34;k&#34;&gt;this&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;number&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;Integer&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;toString&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;count&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;);&lt;/span&gt;
+  &lt;span class=&#34;k&#34;&gt;this&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;verb&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;s2&#34;&gt;&amp;#34;are&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
+  &lt;span class=&#34;k&#34;&gt;this&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;pluralModifier&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;s2&#34;&gt;&amp;#34;s&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
+&lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
+&lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-jsx&#34; data-lang=&#34;jsx&#34;&gt;&lt;span class=&#34;kr&#34;&gt;private&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;void&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;printGuessStatistics&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;kr&#34;&gt;char&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;candidate&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;kr&#34;&gt;int&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;count&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;){&lt;/span&gt;
+&lt;span class=&#34;nx&#34;&gt;GuessStatisticsMessage&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;guessStatisticsMessage&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;new&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;GuessStatisticsMessage&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;()&lt;/span&gt;
+
+&lt;span class=&#34;nx&#34;&gt;guessStatisticsMessage&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;make&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;candidate&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;nx&#34;&gt;count&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;좋은 이름을 선택하려면 설명능력이 뛰어나야하고 문화적인 배경이 같아야한다. 이것이 제일 어렵다.&lt;/p&gt;
+&lt;p&gt;네이밍 자체는 그때그때 더 좋은게 생각나면 바꿔야한다.&lt;/p&gt;
+&lt;p&gt;다른사람이 짠 코드를 볼때는 리팩터링 도구를 사용해 이름을 개선하라&lt;/p&gt;
+&lt;p&gt;단기적인 효과는 물론 장기적인 이익도 보장한다.&lt;/p&gt;
+</description>
+        </item>
+        <item>
+        <title>2장 함수</title>
+        <link>https://sung-won95.github.io/p/2%EC%9E%A5-%ED%95%A8%EC%88%98/</link>
+        <pubDate>Wed, 19 Jan 2022 09:24:37 +0900</pubDate>
+        
+        <guid>https://sung-won95.github.io/p/2%EC%9E%A5-%ED%95%A8%EC%88%98/</guid>
+        <description>&lt;h2 id=&#34;함수를-만드는-규칙&#34;&gt;함수를 만드는 규칙&lt;/h2&gt;
+&lt;h3 id=&#34;1-작게-만들어라&#34;&gt;1. 작게 만들어라!&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;작아지면 코드가 단순 명료해지기에 이해하기 쉬워진다&lt;/li&gt;
+&lt;li&gt;어떻게 작게 만드나? 단순히 짧게 만들면 되는 것인가? → 아래의 내용에서 추가됨.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;2-한가지-기능만-해라&#34;&gt;2. 한가지 기능만 해라&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;기능의 단위를 통해 작게 만들면 된다.&lt;/li&gt;
+&lt;li&gt;그렇다면 그 기능의 단위를 어디까지 볼것인가?
+&lt;ul&gt;
+&lt;li&gt;추상화 수준으로 구분하면 된다.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;추가로 단순히 다른 표현이 아니라 의미 있는 이름으로 다른 함수를 추출할 수 있다면 그 함수는 여러 작업을 하는 것으로 판단할 수 있다.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;추상화란&#34;&gt;추상화란?&lt;/h3&gt;
+&lt;p&gt;함수의 기능 자체를 단순화 시킨다&lt;/p&gt;
+&lt;p&gt;세부적인 기능이 아닌 중복되는 기능을 제거한다&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-java&#34; data-lang=&#34;java&#34;&gt;&lt;span class=&#34;n&#34;&gt;예를&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;들어봅시다&lt;/span&gt;
+&lt;span class=&#34;n&#34;&gt;핸드폰을&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;사용하여&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;다른&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;사람에게&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;전화하는&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;함수&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;
+&lt;span class=&#34;n&#34;&gt;def&lt;/span&gt; &lt;span class=&#34;nf&#34;&gt;call_other&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;by_name&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;str&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;)&lt;/span&gt;
+	&lt;span class=&#34;n&#34;&gt;연락처&lt;/span&gt; &lt;span class=&#34;nf&#34;&gt;찾기&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;(&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;by_name&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;)&lt;/span&gt;
+	&lt;span class=&#34;n&#34;&gt;찾은&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;연락처로&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;전화하기&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;
+&lt;span class=&#34;n&#34;&gt;이렇게&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;두가지&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;기능으로&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;나눌&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;수&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;있다&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;
+&lt;span class=&#34;n&#34;&gt;연락처를&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;찾는&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;방법은&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;연락처&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;리스트에서&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;by_name과&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;같은&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;사람을&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;찾아야함&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;3-함수-당-추상화-수준은-하나로&#34;&gt;3. 함수 당 추상화 수준은 하나로!&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;함수가 한가지 기능만 하려면 함수 내 모든 문장의 추상화 수준이 동일해야한다.&lt;/li&gt;
+&lt;li&gt;위에서 아래로 코드 읽기 : 내려가기 규칙
+&lt;ul&gt;
+&lt;li&gt;코드 위에서 아래로 이야기처럼 읽혀야 좋다.&lt;/li&gt;
+&lt;li&gt;한 함수 다음에는 추상화 수준이 한 단계 낮은 함수가 온다.&lt;/li&gt;
+&lt;li&gt;즉, 위에서 아래로 프로그램을 읽으면 함수 추상화 수준이 한번에 한단계씩 낮아진다.&lt;/li&gt;
+&lt;li&gt;TO 문단을 읽듯이 프로그램이 읽혀야 한다는 의미.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;4-switch-문--ifelse도-마찬가지&#34;&gt;4. Switch 문 ( if/else도 마찬가지)&lt;/h3&gt;
+&lt;p&gt;저차원 클래스에 숨기고 절대로 반복하지 않는 방법을 사용.&lt;/p&gt;
+&lt;p&gt;다형성을 이용한다.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;다형성 : 클래스는 상속을 통해 확장될 수는 있어도 축소될 수는 없으므로, 자식 클래스에서 사용할 수 있는 멤버의 개수가 언제나 부모 클래스와 같거나 많게 됩니다.&lt;/li&gt;
+&lt;li&gt;따라서 자식 클래스에 부모 클래스를 값으로 넣으면 안된다.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;추상 팩토리에 넣어서 파생 클래스의 인스턴스를 생성한다.&lt;/p&gt;
+&lt;h3 id=&#34;5-서술적인-이름을-사용하라&#34;&gt;5. 서술적인 이름을 사용하라&lt;/h3&gt;
+&lt;p&gt;함수가 하는 일을 명확하게 설명 가능한 이름을 지정해야한다.&lt;/p&gt;
+&lt;p&gt;함수가 작으면 작을수록 서술적인 이름을 고르기 쉬워진다.&lt;/p&gt;
+&lt;p&gt;이름이 길어도 괜찮다.&lt;/p&gt;
+&lt;p&gt;길고 서술적인 이름은&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;짧고 어려운 이름보다 좋다&lt;/li&gt;
+&lt;li&gt;길고 서술적인 주석보다 좋다&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;함수 이름 정하는 방법&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;여러 단어가 쉽게 읽히는 명명법을 사용&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;여러 단어를 사용해 함수 기능을 잘 표현하는 이름을 선택&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;일관성이 있어야 한다.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;모듈 내에서 함수 이름은 같은 문구,명사, 동사를 사용함.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-java&#34; data-lang=&#34;java&#34;&gt;&lt;span class=&#34;n&#34;&gt;include&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;Setup&amp;#34;&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;And&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;Teardown&amp;#34;&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;Pages&lt;/span&gt;
+&lt;span class=&#34;n&#34;&gt;include&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;Setup&amp;#34;&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;Pages&lt;/span&gt;
+&lt;span class=&#34;n&#34;&gt;includeSuite&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;Setup&amp;#34;&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;Page&lt;/span&gt; 
+&lt;span class=&#34;c1&#34;&gt;//includeSuite&amp;#34;Teardown&amp;#34;Page 당연히 있을거
+&lt;/span&gt;&lt;span class=&#34;c1&#34;&gt;&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;등이&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;좋은&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;예&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;
+&lt;span class=&#34;n&#34;&gt;이러면&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;당연히&lt;/span&gt;
+&lt;span class=&#34;n&#34;&gt;include&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;Teardown&amp;#34;&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;Pages&lt;/span&gt;
+&lt;span class=&#34;n&#34;&gt;includeSuite&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;Teardown&amp;#34;&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;Page&lt;/span&gt;
+&lt;span class=&#34;n&#34;&gt;이&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;함수들도&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;있다고&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;예측이&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;가능하기때문에&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;6-함수-인수&#34;&gt;6. 함수 인수&lt;/h3&gt;
+&lt;p&gt;이상적인 인수 개수 : 0개 → 1개(단항) → 2개(이항)&lt;/p&gt;
+&lt;p&gt;하지만 3개 이상부터는 가능한 피하는 편이 좋다.&lt;/p&gt;
+&lt;p&gt;4개는 특별한 이유가 있어도 쓰면 안된다&lt;/p&gt;
+&lt;p&gt;인수를 넣게 되면 인수가 없는 코드보다 이해하기 어렵다.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-java&#34; data-lang=&#34;java&#34;&gt;
+&lt;span class=&#34;n&#34;&gt;StringBuffer&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;newPageContent&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;new&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;StringBuffer&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;();&lt;/span&gt;
+
+&lt;span class=&#34;n&#34;&gt;includeSetupPageInto&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;k&#34;&gt;new&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;PageContent&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;)&lt;/span&gt; 
+
+&lt;span class=&#34;o&#34;&gt;---------------------------------------------------------------&lt;/span&gt;
+&lt;span class=&#34;n&#34;&gt;includeSetupPage&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;()&lt;/span&gt;
+
+&lt;span class=&#34;n&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;함수이름과&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;인수&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;사이에&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;추상화&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;수준이&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;다르다&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;
+&lt;span class=&#34;n&#34;&gt;2&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;코드를&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;읽는&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;사람이&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;현&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;시점에서&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;별로&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;중요하지&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;않은&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;세부사항&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;즉&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;stringBuffer를&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;알아야한다&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;
+
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;인수를 많이 넣을수록 테스트 관점에서도 어렵다.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-java&#34; data-lang=&#34;java&#34;&gt;&lt;span class=&#34;n&#34;&gt;인수가&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;없는&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;테스트&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;케이스와&lt;/span&gt;
+
+&lt;span class=&#34;n&#34;&gt;인수가&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;4개인&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;테스트&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;케이스에&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;값을&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;넣고&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;결과를&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;확인한다면&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;?&lt;/span&gt;
+
+&lt;span class=&#34;n&#34;&gt;인수가&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;4개인&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;테스트&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;케이스는&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;훨씬&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;다양한&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;경우의&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;수가&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;발생된다&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;자주 사용하는 단항 인수 ( 총 2가지 )&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;인수에 질문을 던지는 경우&lt;/li&gt;
+&lt;/ol&gt;
+&lt;ul&gt;
+&lt;li&gt;boolean fileExists(&amp;ldquo;MyFile&amp;rdquo;)&lt;/li&gt;
+&lt;li&gt;MyFile이라는 파일의 존재 여부를 물어보는 경우임.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;ol start=&#34;2&#34;&gt;
+&lt;li&gt;인수를 뭔가로 변환해 결과를 반환하는 경우&lt;/li&gt;
+&lt;/ol&gt;
+&lt;ul&gt;
+&lt;li&gt;InputStream fileOpen(&amp;ldquo;MyFile&amp;rdquo;)&lt;/li&gt;
+&lt;li&gt;string 형의 이름의 파일을 읽어와서 InputStream 형식으로 변환시켜주는 역할&lt;/li&gt;
+&lt;li&gt;자바에서는 InputStream에서 read_buffer를 통해 지정된 buffer의 크기만큼의 string을 가져올 수 있음&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-java&#34; data-lang=&#34;java&#34;&gt;&lt;span class=&#34;n&#34;&gt;다른&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;예시&lt;/span&gt;
+&lt;span class=&#34;kt&#34;&gt;int&lt;/span&gt; &lt;span class=&#34;nf&#34;&gt;oneToNumberSum&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;kt&#34;&gt;int&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;number&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;)&lt;/span&gt; 
+&lt;span class=&#34;n&#34;&gt;number을&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;입력받아&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;1부터&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;number까지&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;더하고&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;더한&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;값을&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;int형으로&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;반환시켜주는&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;형식&lt;/span&gt;
+&lt;span class=&#34;n&#34;&gt;이&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;형태는&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;좋은&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;형태&lt;/span&gt; 
+&lt;span class=&#34;n&#34;&gt;이유&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;하나의&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;입력에&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;하나의&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;출력이&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;있기&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;때문에&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;
+
+&lt;span class=&#34;n&#34;&gt;값을&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;변환시키지&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;않고&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;입력&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;함수를&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;그대로&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;돌려주는&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;함수라&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;할지라도&lt;/span&gt; 
+&lt;span class=&#34;n&#34;&gt;변환&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;함수&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;형식을&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;따르는&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;편이&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;좋다&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;
+&lt;span class=&#34;n&#34;&gt;적어도&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;변환&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;형태가&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;유지되기&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;때문에&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;
+
+&lt;span class=&#34;n&#34;&gt;but&lt;/span&gt;
+&lt;span class=&#34;kt&#34;&gt;void&lt;/span&gt; &lt;span class=&#34;nf&#34;&gt;oneToNumberSum&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;kt&#34;&gt;int&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;number&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;)&lt;/span&gt;
+&lt;span class=&#34;n&#34;&gt;number을&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;입력받아&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;1부터&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;number까지&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;더하고&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;더한&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;값을&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;number&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;값을&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;변경하여&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;반환함&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;
+&lt;span class=&#34;n&#34;&gt;안&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;좋은&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;형태&lt;/span&gt;
+&lt;span class=&#34;n&#34;&gt;변환&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;함수에서&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;출력&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;인수를&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;사용하면&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;혼란을&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;일으킬&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;수&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;있기때문에&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;플래그-인수&#34;&gt;플래그 인수&lt;/h3&gt;
+&lt;p&gt;추하다.&lt;/p&gt;
+&lt;p&gt;함수로 부울 값을 넘기는 관례는 정말로 끔찍하다&lt;/p&gt;
+&lt;p&gt;→ 함수가 한꺼번에 여러 가지를 처리한다는 의미이기 때문에.&lt;/p&gt;
+&lt;p&gt;→ 플래그가 참이면 이런 기능을 처리하고, 거짓이면 다른 기능을 처리한다는 의미.&lt;/p&gt;
+&lt;h3 id=&#34;이항-함수--인자가-2개인-함수&#34;&gt;이항 함수 ( 인자가 2개인 함수)&lt;/h3&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-java&#34; data-lang=&#34;java&#34;&gt;&lt;span class=&#34;n&#34;&gt;writeField&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;name&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;vs&lt;/span&gt; &lt;span class=&#34;nf&#34;&gt;writeField&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;outputStream&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;name&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;)&lt;/span&gt;
+&lt;span class=&#34;n&#34;&gt;둘&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;다&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;의미가&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;명백하지만&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;,&lt;/span&gt;
+&lt;span class=&#34;n&#34;&gt;인자가&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;1개인&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;함수가&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;인자가&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;2개인&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;함수보다&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;더&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;읽히기&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;쉽고&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;빨리&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;이해된다&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;
+&lt;span class=&#34;n&#34;&gt;인자가&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;2개인&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;함수는&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;결국&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;첫번째&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;인자&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;outputStream을&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;무시해야한다는&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;사실을&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;깨닫는다&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;
+&lt;span class=&#34;n&#34;&gt;하지만&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;그렇게&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;무시를&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;하다보면&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;결국&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;큰&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;문제가&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;생기게&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;된다&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;이항 함수가 적절한 경우 (좋은 예)&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;포인터
+&lt;ul&gt;
+&lt;li&gt;Point p = new Point(0, 0)&lt;/li&gt;
+&lt;li&gt;두 인수는 1개의 값을 표현하는 두 요소이고, 자연적인 순서도 있다.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;하지만 위의 outputStream과 name 간에는 한 값을 표현하지도, 자연적인 순서가 있지도 않다.&lt;/p&gt;
+&lt;p&gt;이항함수를 불가피하게 쓸 수도 있지만 가능하다면 단항 함수로 바꿔야한다.&lt;/p&gt;
+&lt;h3 id=&#34;삼항함수&#34;&gt;삼항함수&lt;/h3&gt;
+&lt;p&gt;인자가 3개인 함수는 2개인 함수보다 훨씬 위험하다.&lt;/p&gt;
+&lt;p&gt;이항 함수보다 고려해야할 상황들이 더 많기 때문이다.&lt;/p&gt;
+&lt;p&gt;함수의 인자 순서나 인자의 무시 등으로 일어나는 상황들.&lt;/p&gt;
+&lt;p&gt;Circle makeCircle(double x, double y, double radius)&lt;/p&gt;
+&lt;p&gt;→ Circle makeCircle(Point center, double radius)&lt;/p&gt;
+&lt;p&gt;이런식으로 3개를 2개로 변경할 때 변수 명도 명확하게 변경할 수 있다.&lt;/p&gt;
+&lt;p&gt;최대한 사용하지 않게 해야한다.&lt;/p&gt;
+&lt;h3 id=&#34;인수-목록&#34;&gt;인수 목록&lt;/h3&gt;
+&lt;p&gt;인수의 개수가 가변적인 함수도 마찬가지이다.&lt;/p&gt;
+&lt;p&gt;예를들어 가변 인수를 전부 동등하게 취급하면 List형 인수 1개로 취급할 수도 있다.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-java&#34; data-lang=&#34;java&#34;&gt;&lt;span class=&#34;n&#34;&gt;String&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;format&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;name = %s, age = %d&amp;#34;&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;,&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;name&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;age&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;)&lt;/span&gt; 
+&lt;span class=&#34;c1&#34;&gt;// 이 함수는 이항 함수이다.
+&lt;/span&gt;&lt;span class=&#34;c1&#34;&gt;&lt;/span&gt;
+&lt;span class=&#34;n&#34;&gt;String&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;format&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;name = %s, age = %d&amp;#34;&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;person1&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;makeStringFormat&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;())&lt;/span&gt;
+
+&lt;span class=&#34;n&#34;&gt;why&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;?&lt;/span&gt;
+&lt;span class=&#34;n&#34;&gt;String&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;format&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;함수&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;선언부에&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;보면&lt;/span&gt;
+&lt;span class=&#34;kd&#34;&gt;public&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;String&lt;/span&gt; &lt;span class=&#34;nf&#34;&gt;format&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;String&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;format&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;Object&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;...&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;args&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;)&lt;/span&gt;
+&lt;span class=&#34;n&#34;&gt;이런식으로&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;되어있는데&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;앞에는&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;string이고&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;뒤에는&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;변수들이다&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;
+&lt;span class=&#34;n&#34;&gt;변수들에는&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;다양한&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;변수들이&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;여러개&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;들어갈&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;수&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;있지만&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;동등하게&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;취급되기에&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;이항&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;함수이다&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;동사와-키워드&#34;&gt;동사와 키워드&lt;/h3&gt;
+&lt;p&gt;함수의 의도나 인수의 순서와 의도를 제대로 표현하려면 좋은 함수 이름이 필수.&lt;/p&gt;
+&lt;p&gt;단항 함수는 함수와 인수가 동사/명사 쌍을 이뤄야 한다.&lt;/p&gt;
+&lt;p&gt;write(name)은 누구나 다 이해 가능&lt;/p&gt;
+&lt;p&gt;name이 무엇이든 쓴다는 의미이다.&lt;/p&gt;
+&lt;p&gt;더 나은 이름은 writeField(name)이다.&lt;/p&gt;
+&lt;p&gt;그러면 name이 필드 명이라는 사실이 드러난다.&lt;/p&gt;
+&lt;p&gt;키워드 예제&lt;/p&gt;
+&lt;p&gt;assertEquals(expected, actual) : 예측값과 결과값을 비교하여 테스트 결과값을 확인하는 함수.&lt;/p&gt;
+&lt;p&gt;expected라는 변수와 actual이라는 변수의 순서를 항상 외워둬야함&lt;/p&gt;
+&lt;p&gt;두개가 바뀐다면 다른 값이 출력되기때문에.&lt;/p&gt;
+&lt;p&gt;따라서 키워드를 사용해서 함수 명을 바꿔줄 수 있다.&lt;/p&gt;
+&lt;p&gt;assertExpectedEqualsActual(expected, actual) 이렇게 바꾼다면 함수 명만 보고 호출할 시에 인수를 헷갈리지 않고 사용할 수 있다.&lt;/p&gt;
+&lt;h3 id=&#34;7-부수효과를-일으키지-마라&#34;&gt;7. 부수효과를 일으키지 마라&lt;/h3&gt;
+&lt;p&gt;부수효과란? → 거짓말을 의미.&lt;/p&gt;
+&lt;p&gt;함수에서 한 작업을 하겠다고 이름으로 약속하고선 남몰래 다른 것도 하는거라서.!&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;예상치 못하게 클래스 변수를 수정하거나&lt;/li&gt;
+&lt;li&gt;함수로 넘어온 인수나 시스템 전역 변수를 수정하는 짓들의 총칭&lt;/li&gt;
+&lt;li&gt;저자는 교활하고 해로운 거짓말이라고 표현함.&lt;/li&gt;
+&lt;li&gt;이런 부수효과가 많다면 시간적인 결합이나 순서 종속성을 초래
+&lt;ul&gt;
+&lt;li&gt;시간적인 결합&lt;/li&gt;
+&lt;li&gt;순서 종속성&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&amp;lt;시간적인 결합과 순서 종속성에 관한 예제&amp;gt;&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-java&#34; data-lang=&#34;java&#34;&gt;&lt;span class=&#34;n&#34;&gt;시간적인&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;결합은&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;2가지&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;개념이&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;존재한다&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;
+&lt;span class=&#34;n&#34;&gt;동시성과&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;순서적인&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;개념&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;
+
+&lt;span class=&#34;n&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;동시성&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;같은&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;시간에&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;일어나도&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;되는&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;일&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;
+
+&lt;span class=&#34;n&#34;&gt;2&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;순서적인&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;개념&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;항상&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;A매서드&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;이후에&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;B매서드가&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;실행되어야&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;한다&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;
+
+&lt;span class=&#34;n&#34;&gt;예를&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;들어서&lt;/span&gt; 
+
+&lt;span class=&#34;n&#34;&gt;실제&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;노트에&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;적었던&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;내용들을&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;노션에&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;옮겨&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;적으려고&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;하는&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;행동을&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;설계한다면&lt;/span&gt;
+
+&lt;span class=&#34;n&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;실제&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;노트를&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;열어서&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;옮길&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;내용을&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;찾는다&lt;/span&gt;
+
+&lt;span class=&#34;n&#34;&gt;2&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;컴퓨터를&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;켜서&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;노션을&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;킨다&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;
+
+&lt;span class=&#34;n&#34;&gt;3&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;옮길&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;내용을&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;노션에&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;작성한다&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;
+
+&lt;span class=&#34;n&#34;&gt;이러한&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;프로그램이&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;있다면&lt;/span&gt;
+
+&lt;span class=&#34;n&#34;&gt;동시에&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;진행될&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;수&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;있는&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;작업은&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;1번과&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;2번이다&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;
+
+&lt;span class=&#34;n&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;,&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;2는&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;동시성이&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;충족된다&lt;/span&gt;
+&lt;span class=&#34;o&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;동시에&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;동작&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;가능&lt;/span&gt;
+
+&lt;span class=&#34;n&#34;&gt;3번은&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;항상&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;,&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;2가&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;실행된&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;후에&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;실행되어야&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;한다&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;
+&lt;span class=&#34;o&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;순서&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;종속성&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;&amp;lt;부수효과 예제&amp;gt;&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-java&#34; data-lang=&#34;java&#34;&gt;&lt;span class=&#34;kd&#34;&gt;public&lt;/span&gt; &lt;span class=&#34;kd&#34;&gt;class&lt;/span&gt; &lt;span class=&#34;nc&#34;&gt;UserValidator&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;{&lt;/span&gt;
+	&lt;span class=&#34;kd&#34;&gt;private&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;Cryptographer&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;cryptographer&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;;&lt;/span&gt;
+
+	&lt;span class=&#34;kd&#34;&gt;public&lt;/span&gt; &lt;span class=&#34;kt&#34;&gt;boolean&lt;/span&gt; &lt;span class=&#34;nf&#34;&gt;checkPassword&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;String&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;userName&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;String&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;password&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;{&lt;/span&gt;
+        &lt;span class=&#34;n&#34;&gt;User&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;user&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;-&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;UserGateway&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;findByName&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;userName&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;);&lt;/span&gt;
+        &lt;span class=&#34;k&#34;&gt;if&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;user&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;!=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;User&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;NULL&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;)&lt;/span&gt;
+        &lt;span class=&#34;o&#34;&gt;{&lt;/span&gt;
+            &lt;span class=&#34;n&#34;&gt;String&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;codedPhrase&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;user&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;getPhraseEncodeByPassword&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;();&lt;/span&gt;
+            &lt;span class=&#34;n&#34;&gt;String&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;Pharse&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;cryptographer&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;decrypt&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;codePhrase&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;password&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;);&lt;/span&gt;
+            &lt;span class=&#34;k&#34;&gt;if&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;Valid Password&amp;#34;&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;equals&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;phrase&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;)){&lt;/span&gt;
+                &lt;span class=&#34;n&#34;&gt;Session&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;initialize&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;();&lt;/span&gt;
+                &lt;span class=&#34;k&#34;&gt;return&lt;/span&gt; &lt;span class=&#34;kc&#34;&gt;true&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;;&lt;/span&gt;
+            &lt;span class=&#34;o&#34;&gt;}&lt;/span&gt;
+        &lt;span class=&#34;o&#34;&gt;}&lt;/span&gt;
+        &lt;span class=&#34;k&#34;&gt;return&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;Fasle&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;;&lt;/span&gt;
+    &lt;span class=&#34;o&#34;&gt;}&lt;/span&gt;
+&lt;span class=&#34;o&#34;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;위의 예제는 겉으로는 무난해 보이는 함수이다&lt;/p&gt;
+&lt;p&gt;userName과 password를 확인하는 함수이다&lt;/p&gt;
+&lt;p&gt;하지만 이 함수는 부수 효과를 일으킨다.&lt;/p&gt;
+&lt;p&gt;부수 효과의 위치는 ? Session.initialize() 호출이다&amp;hellip;!!!!!&lt;/p&gt;
+&lt;p&gt;위의 함수는 함수 명이 checkPassword 인데 불구하고 password가 맞으면 세션을 초기화 시키고 true를 반환한다.&lt;/p&gt;
+&lt;p&gt;이름만 봐서는 세션을 초기화 시키는 기능은 전혀 생각할 수 없다.&lt;/p&gt;
+&lt;p&gt;이런 부수 효과가 시간적인 결합을 초래함.&lt;/p&gt;
+&lt;p&gt;즉, checkPassword 함수는 특정 상황(세션이 초기화 되도 괜찮은 상황)에서만 호출이 가능하다.&lt;/p&gt;
+&lt;p&gt;의도치 않게 호출한다면 세션 정보가 날라감.&lt;/p&gt;
+&lt;p&gt;이러한 시간적인 결합이 필요하다면 반드시 함수 이름에 표기해야함.&lt;/p&gt;
+&lt;p&gt;checkPasswordAndInitializeSession()이라는 이름이 훨씬 좋다.&lt;/p&gt;
+&lt;p&gt;→ 근데 한가지 기능만 한다는 규칙을 위반한다&lt;/p&gt;
+&lt;h3 id=&#34;출력-인수&#34;&gt;출력 인수&lt;/h3&gt;
+&lt;p&gt;인수 : 함수의 입력을 의미함.&lt;/p&gt;
+&lt;p&gt;인수를 출력으로 사용하면 어색하다.&lt;/p&gt;
+&lt;p&gt;&amp;lt;예제&amp;gt;&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-java&#34; data-lang=&#34;java&#34;&gt;&lt;span class=&#34;n&#34;&gt;appendFooter&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;s&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;);&lt;/span&gt;
+&lt;span class=&#34;n&#34;&gt;이&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;함수는&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;s를&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;무언가에&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;추가한다는&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;의미인가&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;?&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;s에&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;바닥글을&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;첨부할까&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;?&lt;/span&gt;
+
+&lt;span class=&#34;n&#34;&gt;선언을&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;봐야&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;확실해진다&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;
+&lt;span class=&#34;kd&#34;&gt;public&lt;/span&gt; &lt;span class=&#34;kt&#34;&gt;void&lt;/span&gt; &lt;span class=&#34;nf&#34;&gt;appendFooter&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;StringBuffer&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;report&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;)&lt;/span&gt;
+&lt;span class=&#34;n&#34;&gt;이&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;선언을&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;본다면&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;?&lt;/span&gt;
+&lt;span class=&#34;n&#34;&gt;인수&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;s가&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;출력인수라는&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;사실이&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;나온다&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;
+&lt;span class=&#34;n&#34;&gt;이&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;선언을&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;보는&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;행위&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;자체가&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;함수를&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;보고&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;주춤하는&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;것과&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;같은&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;급으로&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;취급한다&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;
+&lt;span class=&#34;n&#34;&gt;인지적으로&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;거슬린다는&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;뜻이므로&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;피해야한다&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;
+
+&lt;span class=&#34;n&#34;&gt;거슬리지&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;않게&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;바꾸면&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;?&lt;/span&gt;
+&lt;span class=&#34;n&#34;&gt;함수에서&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;상태를&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;변경하려고&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;한다면&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;함수가&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;속한&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;객체&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;상태를&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;변경하는&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;방식을&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;택해야한다&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;
+&lt;span class=&#34;n&#34;&gt;report&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;appendFooter&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;()&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;8-명령과-조회를-분리하라&#34;&gt;8. 명령과 조회를 분리하라&lt;/h3&gt;
+&lt;p&gt;함수는 1가지 기능만 해야해서&lt;/p&gt;
+&lt;p&gt;명령을 수행하거나&lt;/p&gt;
+&lt;p&gt;뭔가에 답하거나  둘중 한개만 해야함&lt;/p&gt;
+&lt;p&gt;객체 상태를 변경하거나, 아니면 객체 정보를 반환하거나 둘 중 하나다.&lt;/p&gt;
+&lt;p&gt;&amp;lt;예제&amp;gt;&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-java&#34; data-lang=&#34;java&#34;&gt;&lt;span class=&#34;kd&#34;&gt;public&lt;/span&gt; &lt;span class=&#34;kt&#34;&gt;boolean&lt;/span&gt; &lt;span class=&#34;nf&#34;&gt;set&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;String&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;attribute&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;String&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;value&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;);&lt;/span&gt;
+&lt;span class=&#34;n&#34;&gt;이&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;함수는&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;attribute인&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;속성을&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;찾아&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;값을&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;value로&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;설정한&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;후&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;성공하면&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;true를&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;반환하고&lt;/span&gt;
+&lt;span class=&#34;n&#34;&gt;실패하면&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;false를&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;반환한다&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;
+
+&lt;span class=&#34;nf&#34;&gt;if&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;set&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;username&amp;#34;&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;s&#34;&gt;&amp;#34;unclebob&amp;#34;&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;))...&lt;/span&gt;
+&lt;span class=&#34;n&#34;&gt;이와&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;같이&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;괴상한&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;코드가&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;나온다&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;
+
+&lt;span class=&#34;n&#34;&gt;위&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;set&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;함수는&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;의미가&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;모호하다&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;
+&lt;span class=&#34;n&#34;&gt;이&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;set이라는&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;단어가&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;동사인지&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;형용사인지&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;구분하기&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;어렵다&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;
+&lt;span class=&#34;n&#34;&gt;이&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;함수를&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;구현한&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;사람은&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;동사로&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;구현했지만&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;,&lt;/span&gt;
+&lt;span class=&#34;n&#34;&gt;if문에&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;넣고&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;보면&lt;/span&gt; &lt;span class=&#34;s&#34;&gt;&amp;#34;username&amp;#34;&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;속성이&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;unclebob으로&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;설정되어&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;있다면으로&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;읽히는지&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;?&lt;/span&gt;
+
+&lt;span class=&#34;n&#34;&gt;원래&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;의도한대로&lt;/span&gt; &lt;span class=&#34;s&#34;&gt;&amp;#34;username&amp;#34;&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;속성을&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;unclebob으로&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;설정하는데&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;성공했다면으로&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;읽히는지&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;?&lt;/span&gt;
+&lt;span class=&#34;n&#34;&gt;이럴&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;때&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;조회와&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;명령을&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;구분해&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;혼란을&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;해결하는게&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;중요하다&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;
+
+&lt;span class=&#34;nf&#34;&gt;if&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;(&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;attributeExists&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;username&amp;#34;&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;){&lt;/span&gt;
+	&lt;span class=&#34;n&#34;&gt;setAttribute&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;username&amp;#34;&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;s&#34;&gt;&amp;#34;unclebob&amp;#34;&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;);&lt;/span&gt;
+&lt;span class=&#34;o&#34;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;9-오류-코드보단-예외를-사용하라&#34;&gt;9. 오류 코드보단 예외를 사용하라.&lt;/h3&gt;
+&lt;p&gt;오류 코드 사용 방식은 명령/조회 분리 규칙을 미묘하게 위반한다.&lt;/p&gt;
+&lt;p&gt;why? :&lt;/p&gt;
+&lt;p&gt;자칫하면 if문에서 명령을 표현식으로 사용하기 쉬운 탓이다.&lt;/p&gt;
+&lt;p&gt;if (deletePage(page) == E_OK)&lt;/p&gt;
+&lt;p&gt;이런식으로 사용될때 위반된다.&lt;/p&gt;
+&lt;p&gt;따라서 이러한 오류 코드보단 예외를 사용하여 처리하는게 좋다.&lt;/p&gt;
+&lt;p&gt;자바에서는 try / catch문이다.&lt;/p&gt;
+&lt;p&gt;&amp;lt;오류코드 예제&amp;gt;&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-java&#34; data-lang=&#34;java&#34;&gt;&lt;span class=&#34;k&#34;&gt;if&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;deletePage&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;page&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;==&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;E_OK&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;{&lt;/span&gt;
+    &lt;span class=&#34;k&#34;&gt;if&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;(&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;registry&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;deleteReference&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;page&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;name&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;==&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;E_OK&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;){&lt;/span&gt;
+        &lt;span class=&#34;k&#34;&gt;if&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;configKeys&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;deleteKey&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;page&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;name&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;makeKey&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;()&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;==&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;E_OK&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;){&lt;/span&gt;
+            &lt;span class=&#34;n&#34;&gt;logger&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;log&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;page deleted&amp;#34;&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;);&lt;/span&gt;
+        &lt;span class=&#34;o&#34;&gt;}&lt;/span&gt;
+        &lt;span class=&#34;k&#34;&gt;else&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;{&lt;/span&gt;
+            &lt;span class=&#34;n&#34;&gt;logger&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;log&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;configKey not deleted&amp;#34;&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;);&lt;/span&gt;
+        &lt;span class=&#34;o&#34;&gt;}&lt;/span&gt;
+    &lt;span class=&#34;o&#34;&gt;}&lt;/span&gt;
+    &lt;span class=&#34;k&#34;&gt;else&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;{&lt;/span&gt;
+        &lt;span class=&#34;n&#34;&gt;logger&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;log&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;deleteReference from registry filed&amp;#34;&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;);&lt;/span&gt;
+    &lt;span class=&#34;o&#34;&gt;}&lt;/span&gt;
+&lt;span class=&#34;o&#34;&gt;}&lt;/span&gt;
+&lt;span class=&#34;k&#34;&gt;else&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;{&lt;/span&gt;
+    &lt;span class=&#34;n&#34;&gt;logger&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;log&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;delete filed&amp;#34;&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;);&lt;/span&gt;
+    &lt;span class=&#34;k&#34;&gt;return&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;E_ERROR&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;;&lt;/span&gt;
+&lt;span class=&#34;o&#34;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;&amp;lt;try catch로 변경&amp;gt;&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-java&#34; data-lang=&#34;java&#34;&gt;&lt;span class=&#34;k&#34;&gt;try&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;{&lt;/span&gt;
+	&lt;span class=&#34;n&#34;&gt;deletePage&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;page&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;);&lt;/span&gt;
+	&lt;span class=&#34;n&#34;&gt;registry&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;deleteReference&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;page&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;name&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;);&lt;/span&gt;
+	&lt;span class=&#34;n&#34;&gt;configKeys&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;deleteKey&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;page&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;name&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;,&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;makeKey&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;());&lt;/span&gt;
+&lt;span class=&#34;o&#34;&gt;}&lt;/span&gt;
+&lt;span class=&#34;k&#34;&gt;catch&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;Exception&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;e&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;){&lt;/span&gt;
+	&lt;span class=&#34;n&#34;&gt;logger&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;log&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;e&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;getMessage&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;());&lt;/span&gt;
+&lt;span class=&#34;o&#34;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;이런 try / catch문은 원래 추하다고 표현한다.&lt;/p&gt;
+&lt;p&gt;그래서 try구문자체를 하나의 함수로 묶어서 표현하는 방식이 제일 좋다.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-java&#34; data-lang=&#34;java&#34;&gt;&lt;span class=&#34;kd&#34;&gt;public&lt;/span&gt; &lt;span class=&#34;kt&#34;&gt;void&lt;/span&gt; &lt;span class=&#34;nf&#34;&gt;delete&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;Page&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;page&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;){&lt;/span&gt;
+	&lt;span class=&#34;k&#34;&gt;try&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;{&lt;/span&gt;
+		&lt;span class=&#34;n&#34;&gt;deletePageAndAllReferences&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;page&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;);&lt;/span&gt;
+	&lt;span class=&#34;o&#34;&gt;}&lt;/span&gt;
+	&lt;span class=&#34;k&#34;&gt;catch&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;Exception&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;e&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;){&lt;/span&gt;
+		&lt;span class=&#34;n&#34;&gt;logError&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;e&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;);&lt;/span&gt;
+	&lt;span class=&#34;o&#34;&gt;}&lt;/span&gt;
+&lt;span class=&#34;o&#34;&gt;}&lt;/span&gt;
+
+&lt;span class=&#34;kd&#34;&gt;private&lt;/span&gt; &lt;span class=&#34;kt&#34;&gt;void&lt;/span&gt; &lt;span class=&#34;nf&#34;&gt;deletePageAndAllReferences&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;Page&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;page&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;kd&#34;&gt;throws&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;Exception&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;{&lt;/span&gt;
+	&lt;span class=&#34;n&#34;&gt;deletePage&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;page&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;);&lt;/span&gt;
+	&lt;span class=&#34;n&#34;&gt;registry&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;deleteReference&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;page&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;name&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;);&lt;/span&gt;
+	&lt;span class=&#34;n&#34;&gt;configKeys&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;deleteKey&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;page&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;name&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;,&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;makeKey&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;());&lt;/span&gt;
+&lt;span class=&#34;o&#34;&gt;}&lt;/span&gt;
+
+&lt;span class=&#34;kd&#34;&gt;private&lt;/span&gt; &lt;span class=&#34;kt&#34;&gt;void&lt;/span&gt; &lt;span class=&#34;nf&#34;&gt;logError&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;Exception&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;e&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;){&lt;/span&gt;
+	&lt;span class=&#34;n&#34;&gt;logger&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;log&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;e&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;na&#34;&gt;getMessage&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;());&lt;/span&gt;
+&lt;span class=&#34;o&#34;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;오류 처리도 한가지 작업이다!!!!!&lt;/p&gt;
+&lt;p&gt;의존성 자석 : 1개의 클래스가 변한다면 그 클래스를 사용하는 다른 소스들에서도 컴파일이 진행되어야 하는 개념.&lt;/p&gt;
+&lt;p&gt;오류 코드를 반환한다는 말은 클래스든 열거형 변수든 어디선가 오류코드를 정의한다는 뜻이다.&lt;/p&gt;
+&lt;p&gt;오류 코드를 변환한다면?? 오류코드를 사용하는 모든 클래스를 전부 다시 컴파일 하고 재배치가 필요하다.&lt;/p&gt;
+&lt;p&gt;그래서 새로운 오류코드를 만들어내기 보단 기존에 사용하던 오류코드를 쓰는경우가 많아지고 그러면 명확한 오류코드 자체의 존재 이유가 흐려질 수 있다&lt;/p&gt;
+&lt;p&gt;Exception을 사용하자!&lt;/p&gt;
+&lt;h3 id=&#34;10-구조적-프로그래밍&#34;&gt;10. 구조적 프로그래밍&lt;/h3&gt;
+&lt;p&gt;에츠허르 데이크스트라의 구조적 프로그래밍 원칙을 따른다.&lt;/p&gt;
+&lt;p&gt;모든 함수와 함수 내 모든 블록에 입구와 출구가 하나만 존재해야한다.&lt;/p&gt;
+&lt;p&gt;루프 안에서 continue나 break문을 사용해서는 안되며 goto는 절대 금지한다.&lt;/p&gt;
+&lt;p&gt;저자는 목표와 규율은 공감하지만 우리가 원하는 것 처럼 함수가 작다면 이익이 없다.&lt;/p&gt;
+&lt;h3 id=&#34;12-함수를-어떻게-짜죠&#34;&gt;12. 함수를 어떻게 짜죠?&lt;/h3&gt;
+&lt;p&gt;처음에는 길고 복잡하게 짤수도 있지만 그런 서투른 코드들을 모두 단위 테스트 한 후 코들를 다듬고 함수를 만들고 이름을 바꾸고 중복을 제거한다. 메서드를 줄이고 순서를 바꾼다.  이런 와중에도 항상 단위 테스트는 성공해야한다.&lt;/p&gt;
+&lt;p&gt;처음부터 완벽하게 짜려고 하지말고 일단 짜놓고 리펙터링 하는 방향으로 발전해 나가는게 좋을 것 같다.&lt;/p&gt;
+&lt;h2 id=&#34;결론-&#34;&gt;결론 :&lt;/h2&gt;
+&lt;h3 id=&#34;함수의-길이가-짧고-이름이-좋고-체계가-잡힌-함수를-만들자&#34;&gt;함수의 길이가 짧고, 이름이 좋고, 체계가 잡힌 함수를 만들자.&lt;/h3&gt;
+&lt;h3 id=&#34;함수가-분명하고-정확한-언어로-깔끔하게-맞아떨어져야-전체-이야기를-풀어나가기가-쉬워진다&#34;&gt;함수가 분명하고 정확한 언어로 깔끔하게 맞아떨어져야 전체 이야기를 풀어나가기가 쉬워진다!&lt;/h3&gt;
+</description>
+        </item>
+        <item>
+        <title>3장 주석</title>
+        <link>https://sung-won95.github.io/p/3%EC%9E%A5-%EC%A3%BC%EC%84%9D/</link>
+        <pubDate>Wed, 19 Jan 2022 09:24:37 +0900</pubDate>
+        
+        <guid>https://sung-won95.github.io/p/3%EC%9E%A5-%EC%A3%BC%EC%84%9D/</guid>
+        <description>&lt;h3 id=&#34;주석의-개념&#34;&gt;주석의 개념&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;코드로 직접 실행되지 않지만 코드를 설명하는 문장이나 글&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;저자가-바라보는-주석이란&#34;&gt;저자가 바라보는 주석이란?&lt;/h3&gt;
+&lt;p&gt;잘달린 주석은 그 어떤 정보보다 유용하다&lt;/p&gt;
+&lt;p&gt;나쁜 주석은 코드를 이해하기 어렵게 만든다.&lt;/p&gt;
+&lt;p&gt;오래되고 조잡한 주석은 거짓과 잘못된 정보를 퍼뜨려 해악을 미친다.&lt;/p&gt;
+&lt;p&gt;저자의 표현으로는 사실상 주석은 기껏해야 필요악이라고 한다.&lt;/p&gt;
+&lt;p&gt;코드로 의도를 표현하지 못해 실패를 만회하기 위해 주석을 사용한다.&lt;/p&gt;
+&lt;p&gt;코드는 변화하고 진화한다.&lt;/p&gt;
+&lt;p&gt;하지만 주석은 그 코드를 언제나 따라가진 않는다.&lt;/p&gt;
+&lt;p&gt;그렇게 주석이 코드에서 분리되어 점점 더 부정확한 고아로 변하는 사례가 흔하다고 한다.&lt;/p&gt;
+&lt;p&gt;프로그래머들이 주석을 엄격하게 관리해야하고 복구성과 관련성, 정확성이 언제나 높아야한다고 주장하는 사람도 있지만 그 노력을 코드를 깔끔하게 하는데 사용해서 주석이 필요 없는 코드를 짜는게 더 낫다고 한다.&lt;/p&gt;
+&lt;h3 id=&#34;주석은-나쁜-코드를-보완하지못한다&#34;&gt;주석은 나쁜 코드를 보완하지못한다.&lt;/h3&gt;
+&lt;p&gt;코드에 주석을 추가하는 일반적인 이유는 코드의 품질이 나쁘기 때문이다.&lt;/p&gt;
+&lt;p&gt;코드의 품질이 나쁘다는 얘기는 복잡하고 어수선한 코드이다.&lt;/p&gt;
+&lt;p&gt;주석을 달아야겠다가 아니라 코드를 정리해야겠다로 생각을 바꿔야한다.&lt;/p&gt;
+&lt;h3 id=&#34;코드로-의도를-표현하라&#34;&gt;코드로 의도를 표현하라&lt;/h3&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;&lt;span class=&#34;o&#34;&gt;//&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;직원에게&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;복지&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;혜택을&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;받을&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;자격이&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;있는지&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;검사한다&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;
+&lt;span class=&#34;k&#34;&gt;if&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;((&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;employee&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;flags&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;amp;&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;HOURLY_FLAG&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;amp;&amp;amp;&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;employee&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;age&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;65&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+
+&lt;span class=&#34;n&#34;&gt;vs&lt;/span&gt;
+
+&lt;span class=&#34;k&#34;&gt;if&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;employee&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;isEligibleForFullBenefits&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;())&lt;/span&gt;
+&lt;span class=&#34;c1&#34;&gt;# Eligible : 가질수 있는&lt;/span&gt;
+&lt;span class=&#34;c1&#34;&gt;# FullBenefits : 완전한 혜택?&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;좋은-주석&#34;&gt;좋은 주석&lt;/h3&gt;
+&lt;ol&gt;
+&lt;li&gt;법적인 주석
+&lt;ul&gt;
+&lt;li&gt;각 소스파일 첫머리에 주석으로 들어가는 저작권 정보와 소유권 정보의 주석을 의미.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;정보를 제공하는 주석
+&lt;ul&gt;
+&lt;li&gt;기본적인 정보를 주석으로 제공하면 편리하다.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;&lt;span class=&#34;o&#34;&gt;//&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;테스트&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;중인&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;Responder&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;인스턴스를&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;반환한다&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;
+&lt;span class=&#34;n&#34;&gt;protected&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;abstract&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;Responder&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;responderInstance&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;();&lt;/span&gt;
+
+&lt;span class=&#34;c1&#34;&gt;# 때때로 위와 같은 주석이 유용할지라도 가능하다면 함수 이름에 정보를 담는 편이 더 좋음.&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;ul&gt;
+&lt;li&gt;결론 : 코드를 깔끔하게 한다면 정보를 제공하는 주석은 필요 없을 가능성이 높다.&lt;/li&gt;
+&lt;li&gt;하지만 때에 따라 특수한 경우가 있기 때문에 때때로 필요할 수도 있다.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;의도를 설명하는 주석&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;함수의 기능을 이해하게 도와주는 선을 넘어 결정에 깔린 의도까지 설명하는 주석.&lt;/li&gt;
+&lt;li&gt;코드 작성자의 의도가 분명하게 드러나기 때문에 간혹 필요한 경우가 생길 수 있다.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;의미를 명료하게 밝히는 주석&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;인수나 반환값의 의미를 읽기 좋게 표현하는 주석.&lt;/li&gt;
+&lt;li&gt;일반적으로는 인수나 반환값 자체를 명확하게 만들면 좋겠지만 표준 라이브러리나 변경하지 못하는 코드에 속한다면 의미를 명료하게 밝혀주는 것이 좋다.&lt;/li&gt;
+&lt;li&gt;잘못된 주석이나 검증되지 않은 주석을 검증하기란 쉽지 않기 때문에 주석은 위험하다.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;결과를 경고하는 주석&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;테스트 케이스에서 특정 테스트 케이스를 꺼야하는 이유를 설명하는 주석
+&lt;ul&gt;
+&lt;li&gt;//여유 시간이 충분하지 않다면 실행하지 마십시오.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;TO DO 주석&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;앞으로의 할일을 //TODO 주석으로 남겨두면 편하다.&lt;/li&gt;
+&lt;li&gt;필요하지만 당장 구현하기 어려운 업무를 기술함&lt;/li&gt;
+&lt;li&gt;하지만 어떤 용도든 시스템에 나쁜 코드를 남겨놓는 핑계가 되어서는 안된다.&lt;/li&gt;
+&lt;li&gt;TO DO 주석을 주기적으로 점검해 없애도 괜찮은 주석을 없애면서 관리해야한다.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;중요성을 강조하는 주석&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;사소하게 넘어갈 부분의 중요성을 강조하기 위해서도 주석을 사용함.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;&lt;span class=&#34;n&#34;&gt;String&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;listItemContent&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;match&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;group&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;3&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;trim&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;();&lt;/span&gt;
+&lt;span class=&#34;o&#34;&gt;//&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;여기서&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;trim은&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;정말&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;중요하다&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;trim&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;함수는&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;문자열에서&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;시작&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;공백을&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;제거한다&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;
+&lt;span class=&#34;o&#34;&gt;//&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;문자열에&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;시작&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;공백이&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;있으면&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;다른&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;문자열로&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;인식되기&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;때문이다&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;나쁜-주석&#34;&gt;나쁜 주석&lt;/h3&gt;
+&lt;p&gt;대다수의 주석이 이 범주에 속함 따라서 큰 특징이 아닌 자잘한 특징은 사소하게 집고 넘어감.&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;주절거리는 주석
+&lt;ul&gt;
+&lt;li&gt;어쩔 수 없이 비워두기 뭐해서 작성한 주석.&lt;/li&gt;
+&lt;li&gt;기왕 작성할 주석이라면 충분한 시간을 들여 최고의 주석을 달도록 노력하자.!!&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;같은 이야기를 반복하는 주석.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;&lt;span class=&#34;c1&#34;&gt;# 간략하게 적음&lt;/span&gt;
+&lt;span class=&#34;o&#34;&gt;//&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;이&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;컴포넌트의&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;프로세서&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;지연값&lt;/span&gt;
+&lt;span class=&#34;n&#34;&gt;protected&lt;/span&gt; &lt;span class=&#34;nb&#34;&gt;int&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;backgroundProcessorDelay&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;-&lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
+
+&lt;span class=&#34;o&#34;&gt;//&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;이&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;컴포넌트를&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;지원하기&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;위한&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;생명주기&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;이벤트&lt;/span&gt;
+&lt;span class=&#34;n&#34;&gt;protected&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;LifecycleSupport&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;lifecycle&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;new&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;LifecycleSupport&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;this&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;);&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;ol&gt;
+&lt;li&gt;오해의 여지가 있는 주석
+&lt;ul&gt;
+&lt;li&gt;주석에 담긴 살짝 잘못된 정보로 인해 다른 프로그래머들이 삽질할 수도 있다.!!&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;의무적으로 다는 주석 *(1),(2)과 비슷한 내용&lt;/li&gt;
+&lt;li&gt;이력을 기록하는 주석
+&lt;ul&gt;
+&lt;li&gt;현재는 소스 코드 관리 시스템 예를 들어 git의 커밋 내용을 통해 관리 할 수 있는데 굳이 주석으로 달지 않아도 된다!!!!!!!!&lt;/li&gt;
+&lt;li&gt;없는 예전이나 이렇게 했다&amp;hellip;!!&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;있으나 마나 한 주석 * (2)번과 비슷한 내용
+&lt;ul&gt;
+&lt;li&gt;코드만 봐도 당연히 아는 내용들을 설명한 주석&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;무서운 잡음&lt;/li&gt;
+&lt;/ol&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;&lt;span class=&#34;o&#34;&gt;//&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;The&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;name&lt;/span&gt;
+&lt;span class=&#34;n&#34;&gt;private&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;String&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;name&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
+
+&lt;span class=&#34;o&#34;&gt;//&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;The&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;version&lt;/span&gt;
+&lt;span class=&#34;n&#34;&gt;private&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;String&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;version&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
+
+&lt;span class=&#34;o&#34;&gt;//&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;The&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;name&lt;/span&gt;
+&lt;span class=&#34;n&#34;&gt;private&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;String&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;licenceName&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
+
+&lt;span class=&#34;o&#34;&gt;//&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;The&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;version&lt;/span&gt;
+&lt;span class=&#34;n&#34;&gt;private&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;String&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;info&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;ol&gt;
+&lt;li&gt;함수나 변수로 표현할 수 있다면 주석을 달지 마라&lt;/li&gt;
+&lt;/ol&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;&lt;span class=&#34;o&#34;&gt;//&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;전역&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;목록&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;smodule&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;&amp;gt;&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;에&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;속하는&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;모듈이&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;우리가&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;속한&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;하위&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;시스템에&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;의존하는가&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;?&lt;/span&gt;
+&lt;span class=&#34;k&#34;&gt;if&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;smodule&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;getDependSubsystems&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;()&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;contains&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;subSysMod&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;getSubSystem&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;()))&lt;/span&gt;
+
+&lt;span class=&#34;c1&#34;&gt;# 아래와 같이 짜면 의존성에 관하여 굳이 주석을 달 필요가 없다.&lt;/span&gt;
+
+&lt;span class=&#34;n&#34;&gt;ArrayList&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;moudleDependees&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;smodul&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;getDependSubsystems&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;();&lt;/span&gt;
+&lt;span class=&#34;n&#34;&gt;String&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;ourSubSystem&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;subSysMod&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;getSubSystem&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;();&lt;/span&gt;
+&lt;span class=&#34;k&#34;&gt;if&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;moduleDependees&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;contains&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;ourSubSystem&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;))&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;ol&gt;
+&lt;li&gt;위치를 표시하는 주석
+&lt;ul&gt;
+&lt;li&gt;// Actions /////////////////////////////////&lt;/li&gt;
+&lt;li&gt;모든 곳에 이런식으로 배너가 달려있는 경우 가독성을 낮추기 때문에 제거시키자!&lt;/li&gt;
+&lt;li&gt;어쩌다 한번씩 사용하는 배너는 눈에 띄기 때문에 아주 드물게 사용하는 것이 좋다.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;닫는 괄호에 다는 주석
+&lt;ul&gt;
+&lt;li&gt;함수의 내용이 길면 길수록 필요한 주석.&lt;/li&gt;
+&lt;li&gt;하지만 우리는 작고 캡슐화된 함수를 사용하기 때문에 이 주석은 잡음일 뿐이다!!&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;	&lt;span class=&#34;k&#34;&gt;if&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;i&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;==&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+	&lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;
+		&lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;
+		&lt;span class=&#34;o&#34;&gt;//.......&lt;/span&gt;
+		&lt;span class=&#34;o&#34;&gt;//.......&lt;/span&gt;
+		&lt;span class=&#34;o&#34;&gt;//.......&lt;/span&gt;
+		&lt;span class=&#34;o&#34;&gt;//.......&lt;/span&gt;
+		&lt;span class=&#34;o&#34;&gt;//.......&lt;/span&gt;
+		&lt;span class=&#34;p&#34;&gt;}&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;//&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;for문&lt;/span&gt;
+	&lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;//&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;if문&lt;/span&gt; 
+
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;ol&gt;
+&lt;li&gt;공로를 돌리거나 저자를 표시하는 주석
+&lt;ul&gt;
+&lt;li&gt;이것두 소스 코드 관리 시스템에서 잘 관리 되니 필요 없음.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;주석으로 처리한 코드
+&lt;ul&gt;
+&lt;li&gt;절대 주석으로 처리한 코드는 만들지 말자.&lt;/li&gt;
+&lt;li&gt;대안으로는 해당 코드에 대한 새로운 소스 파일이나 클래스를 테스트용으로 만들어 놓는 것.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;HTML 주석&lt;/li&gt;
+&lt;li&gt;전역 정보
+&lt;ul&gt;
+&lt;li&gt;코드의 일부에 주석을 달면서 시스템의 전반적인 정보를 기술하지 말자&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;
+&lt;span class=&#34;n&#34;&gt;public&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;void&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;setFitnessePort&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;nb&#34;&gt;int&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;fitnessePort&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+&lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;
+	&lt;span class=&#34;n&#34;&gt;this&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;fitnessePort&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;fitnessePort&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
+&lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;ol&gt;
+&lt;li&gt;너무 많은 정보
+&lt;ul&gt;
+&lt;li&gt;해당 기술의 역사나 관련 없는 정보를 장황하게 늘어놓는 주석&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;모호한 관계
+&lt;ul&gt;
+&lt;li&gt;주석과 주석이 설명하는 코드의 관계는 명확해야한다.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;&lt;span class=&#34;o&#34;&gt;//&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;모든&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;픽셀을&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;담을&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;만큼&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;충분한&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;배열로&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;시작한다&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;(&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;여기에&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;필터&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;바이트를&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;더한다&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+&lt;span class=&#34;o&#34;&gt;//&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;그리고&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;헤더&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;정보를&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;위해&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;200&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;바이트를&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;더한다&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;
+&lt;span class=&#34;n&#34;&gt;this&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;pngBytes&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;new&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;byte&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;[((&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;this&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;width&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;+&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;*&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;this&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;height&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;*&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;3&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;+&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;header&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;];&lt;/span&gt;
+
+&lt;span class=&#34;c1&#34;&gt;# 여기서 필터 바이트가 무엇인지 명확히 알 수 없기 때문에 위의 주석은 필요없다. &lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;ul&gt;
+&lt;li&gt;주석 자체가 코드에 대한 설명인데 주석에 대한 설명을 다시 요구해야하는 상황이 발생됨.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;ol&gt;
+&lt;li&gt;함수 헤더&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3 id=&#34;결론&#34;&gt;결론&lt;/h3&gt;
+&lt;h3 id=&#34;주석은-쓸데없다&#34;&gt;주석은 쓸데없다.&lt;/h3&gt;
+&lt;h3 id=&#34;주석을-달-시간에-코드를-더-간결하고-명확하게-작성해야한다&#34;&gt;주석을 달 시간에 코드를 더 간결하고 명확하게 작성해야한다.&lt;/h3&gt;
+&lt;h3 id=&#34;만약-어쩔-수-없이-주석을-달려면-코드에-대한-고민을-완료한-후에-달-주석-또한-최대한-고민을-하면서-작성해야만-한다&#34;&gt;만약 어쩔 수 없이 주석을 달려면 코드에 대한 고민을 완료한 후에 달 주석 또한 최대한 고민을 하면서 작성해야만 한다.&lt;/h3&gt;
+</description>
+        </item>
+        <item>
+        <title>뉴스 기사 크롤링을 통한 키워드 추출 및 실시간 트렌드 제공 서비스 [Trendak]</title>
+        <link>https://sung-won95.github.io/p/%EB%89%B4%EC%8A%A4-%EA%B8%B0%EC%82%AC-%ED%81%AC%EB%A1%A4%EB%A7%81%EC%9D%84-%ED%86%B5%ED%95%9C-%ED%82%A4%EC%9B%8C%EB%93%9C-%EC%B6%94%EC%B6%9C-%EB%B0%8F-%EC%8B%A4%EC%8B%9C%EA%B0%84-%ED%8A%B8%EB%A0%8C%EB%93%9C-%EC%A0%9C%EA%B3%B5-%EC%84%9C%EB%B9%84%EC%8A%A4-trendak/</link>
+        <pubDate>Mon, 04 Jan 2021 08:58:32 +0900</pubDate>
+        
+        <guid>https://sung-won95.github.io/p/%EB%89%B4%EC%8A%A4-%EA%B8%B0%EC%82%AC-%ED%81%AC%EB%A1%A4%EB%A7%81%EC%9D%84-%ED%86%B5%ED%95%9C-%ED%82%A4%EC%9B%8C%EB%93%9C-%EC%B6%94%EC%B6%9C-%EB%B0%8F-%EC%8B%A4%EC%8B%9C%EA%B0%84-%ED%8A%B8%EB%A0%8C%EB%93%9C-%EC%A0%9C%EA%B3%B5-%EC%84%9C%EB%B9%84%EC%8A%A4-trendak/</guid>
+        <description>&lt;p&gt;안녕하세요 오늘은 사업계획서를 공유해보려고 합니다. 이 글은 작년 10월 모 창업 경진대회에 제출한 문서를 거의 그대로 옮겼습니다. 해당 대회에서 본선에는 들었지만 발표평가에서 떨어진 문서입니다. 사업계획서를 쓰시는 분들께 도움이 되었으면 합니다. 더불어서 피드백은 언제나 환영입니다!&lt;/p&gt;
+&lt;h2 id=&#34;1-1-제품의-차별성&#34;&gt;1-1. 제품의 차별성&lt;/h2&gt;
+&lt;h3 id=&#34;실시간성&#34;&gt;실시간성&lt;/h3&gt;
+&lt;ol&gt;
+&lt;li&gt;1분단위의 실시간 모니터링을 통해 누구보다 빠른 정보전달 가능&lt;/li&gt;
+&lt;li&gt;기존 어플리케이션들의 서비스 제공 시간폭은 유료 기준 30분 - 1시간 소요&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3 id=&#34;능동적-정보제공&#34;&gt;능동적 정보제공&lt;/h3&gt;
+&lt;ol&gt;
+&lt;li&gt;굳이 찾아보지 않아도 알아서 방대한 양의 정보를 정리하여 제공해줌&lt;/li&gt;
+&lt;li&gt;바쁜 현대인들에게 스스로 시의성 있는 정보와 트렌드를 전달함&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3 id=&#34;제목-기반-키워드-제공&#34;&gt;제목 기반 키워드 제공&lt;/h3&gt;
+&lt;ol&gt;
+&lt;li&gt;자동 요약 시스템을 통해 부담 없이 손쉽게 트렌드 파악 가능&lt;/li&gt;
+&lt;li&gt;기사 전체가 아닌 이미 요약되어 있는 제목만을 크롤링 함으로써 더 빠르고 적은 데이터로 서비스 구축 가능&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3 id=&#34;접근성&#34;&gt;접근성&lt;/h3&gt;
+&lt;ol&gt;
+&lt;li&gt;별도의 앱 설치 없이 카카오톡 챗봇을 이용하여 누구나 쉽게 사용 가능
+&lt;ol&gt;
+&lt;li&gt;안드로이드&amp;amp;IOS 이용자 모두 이용가능&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;li&gt;앱 알람이 아닌 다수가 사용하는 카카오톡 메시지 알람으로 다른 앱 이용보다 번거로움이 적음&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3 id=&#34;확장성&#34;&gt;확장성&lt;/h3&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;내용을 집약하여 제목을 작성하는 다른 데이터에 동일한 메커니즘 적용 가능&lt;/p&gt;
+&lt;p&gt;ex) 논문, 사설, 영화 댓글 ···&lt;br&gt;
+논문 &amp;gt; 특허 &amp;gt; 기사 순으로 트렌드가 정해져 미래 트랜드 예측 가능 기술&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;해외 기사, 자료들도 동일한 방식으로 크롤링&amp;amp;번역 후 제공 가능&lt;/p&gt;
+&lt;hr&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2 id=&#34;1-2-개발-동기-및-필요성&#34;&gt;1-2. 개발 동기 및 필요성&lt;/h2&gt;
+&lt;h3 id=&#34;개발동기&#34;&gt;개발동기&lt;/h3&gt;
+&lt;ol&gt;
+&lt;li&gt;앞서 발생한 사건들을 몰라 대화가 원활히 이뤄지지 못하는 문제가 발생하며 잘못된 정보를 가지고 말하여 정보의 왜곡 가능성이 있음&lt;/li&gt;
+&lt;li&gt;기존에도 &amp;lsquo;유튜브 오늘의 소식 요약&amp;rsquo;, &amp;lsquo;10분 뉴스 추천앱&amp;rsquo; 같은 기능이 있지만, 이동이 많아 집중이 어려운 출퇴근 시간이나, 과제 혹은 업무 도중에 빠르게 정보를 얻을 수 있는 매체가 부족함&lt;/li&gt;
+&lt;li&gt;정보의 속도가 지속적으로 빨라지고 있기에 그에 맞는 능동적 정보를 제공받을 수 있는 매체가 필요함&lt;/li&gt;
+&lt;li&gt;흥미도가 떨어지는 기사들, 이해하기 어려운 내용의 기사들 처음 뉴스, 기사를 접하려 하는 젊은이들에게 접근성이 떨어짐&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3 id=&#34;필요성&#34;&gt;필요성&lt;/h3&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;뉴스가 거창하고 어렵다고 생각하는 이용자들에게 접근하기 쉬운 이미지를 심어줄 필요가 있음&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;트렌드에 민감한 젋은 세대들에게 필요한 정보를 빠르게 접할 수 있게 하여 대응력을 갖추도록 함&lt;/p&gt;
+&lt;p&gt;&lt;figure 
+	&gt;
+	&lt;a href=&#34;https://sung-won95.github.io/idea/newsBot/Untitled.png&#34; &gt;
+		&lt;img src=&#34;https://sung-won95.github.io/idea/newsBot/Untitled.png&#34;
+			
+			
+			
+			loading=&#34;lazy&#34;
+			alt=&#34;idea/newsBot/Untitled.png&#34;&gt;
+	&lt;/a&gt;
+	
+	&lt;figcaption&gt;idea/newsBot/Untitled.png&lt;/figcaption&gt;
+	
+&lt;/figure&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;10-20 대는 뉴스, 기사 확인 보다는 동영상 시청, SNS 이용률이 높아 디지털 텍스트(인터넷 뉴스, 기사 등등) 의 이용 시간 지속적 감소&lt;/p&gt;
+&lt;p&gt;&lt;figure 
+	&gt;
+	&lt;a href=&#34;https://sung-won95.github.io/idea/newsBot/Untitled1.png&#34; &gt;
+		&lt;img src=&#34;https://sung-won95.github.io/idea/newsBot/Untitled1.png&#34;
+			
+			
+			
+			loading=&#34;lazy&#34;
+			alt=&#34;idea/newsBot/Untitled1.png&#34;&gt;
+	&lt;/a&gt;
+	
+	&lt;figcaption&gt;idea/newsBot/Untitled1.png&lt;/figcaption&gt;
+	
+&lt;/figure&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;감소하는 디지털 텍스트 컨텐츠 이용시간의 변화에 맞게 짧고 간단하게 소식을 파악할 수 있는 장치가 필요&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;소식에 민감한 회사, 개인사업자, 주식투자자,  스포츠 애호가에게 더욱 빠른 정보 제공이 가능해짐&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;2-1-개발방안-시제품-제작-추진일정-등&#34;&gt;2-1. 개발방안 (시제품 제작 추진일정 등)&lt;/h2&gt;
+&lt;p&gt;&lt;figure 
+	&gt;
+	&lt;a href=&#34;https://sung-won95.github.io/idea/newsBot/Untitled2.png&#34; &gt;
+		&lt;img src=&#34;https://sung-won95.github.io/idea/newsBot/Untitled2.png&#34;
+			
+			
+			
+			loading=&#34;lazy&#34;
+			alt=&#34;idea/newsBot/Untitled2.png&#34;&gt;
+	&lt;/a&gt;
+	
+	&lt;figcaption&gt;idea/newsBot/Untitled2.png&lt;/figcaption&gt;
+	
+&lt;/figure&gt;&lt;/p&gt;
+&lt;h3 id=&#34;사용-기술&#34;&gt;사용 기술&lt;/h3&gt;
+&lt;h3 id=&#34;crawling&#34;&gt;Crawling&lt;/h3&gt;
+&lt;ol&gt;
+&lt;li&gt;python&lt;/li&gt;
+&lt;li&gt;Scrapy&lt;/li&gt;
+&lt;li&gt;NoSQL&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3 id=&#34;keyword-추출&#34;&gt;KeyWord 추출&lt;/h3&gt;
+&lt;ol&gt;
+&lt;li&gt;TextRank&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3 id=&#34;chatbot-server&#34;&gt;ChatBot Server&lt;/h3&gt;
+&lt;ol&gt;
+&lt;li&gt;Flask&lt;/li&gt;
+&lt;li&gt;kakao i open builder&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3 id=&#34;infra&#34;&gt;Infra&lt;/h3&gt;
+&lt;ol&gt;
+&lt;li&gt;Cloud&lt;/li&gt;
+&lt;li&gt;Docker&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;&lt;figure 
+	&gt;
+	&lt;a href=&#34;https://sung-won95.github.io/idea/newsBot/Untitled3.png&#34; &gt;
+		&lt;img src=&#34;https://sung-won95.github.io/idea/newsBot/Untitled3.png&#34;
+			
+			
+			
+			loading=&#34;lazy&#34;
+			alt=&#34;idea/newsBot/Untitled3.png&#34;&gt;
+	&lt;/a&gt;
+	
+	&lt;figcaption&gt;idea/newsBot/Untitled3.png&lt;/figcaption&gt;
+	
+&lt;/figure&gt;&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;3-1-자금-소요-및-조달-계획&#34;&gt;3-1. 자금 소요 및 조달 계획&lt;/h2&gt;
+&lt;h3 id=&#34;자금-소요&#34;&gt;자금 소요&lt;/h3&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;Server (AWS)&lt;/p&gt;
+&lt;p&gt;&lt;figure 
+	&gt;
+	&lt;a href=&#34;https://sung-won95.github.io/idea/newsBot/Untitled4.png&#34; &gt;
+		&lt;img src=&#34;https://sung-won95.github.io/idea/newsBot/Untitled4.png&#34;
+			
+			
+			
+			loading=&#34;lazy&#34;
+			alt=&#34;idea/newsBot/Untitled4.png&#34;&gt;
+	&lt;/a&gt;
+	
+	&lt;figcaption&gt;idea/newsBot/Untitled4.png&lt;/figcaption&gt;
+	
+&lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;&lt;figure 
+	&gt;
+	&lt;a href=&#34;https://sung-won95.github.io/idea/newsBot/Untitled5.png&#34; &gt;
+		&lt;img src=&#34;https://sung-won95.github.io/idea/newsBot/Untitled5.png&#34;
+			
+			
+			
+			loading=&#34;lazy&#34;
+			alt=&#34;idea/newsBot/Untitled5.png&#34;&gt;
+	&lt;/a&gt;
+	
+	&lt;figcaption&gt;idea/newsBot/Untitled5.png&lt;/figcaption&gt;
+	
+&lt;/figure&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3 id=&#34;조달계획&#34;&gt;조달계획&lt;/h3&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;투자&lt;/p&gt;
+&lt;p&gt;스타트업 투자
+(카카오벤처스, KB인베스트먼트, DSC인베스트먼트, 베이스인베스트먼트, 슈미 etc&amp;hellip;)&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;구독 서비스 이익 창출&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;APP 개발 시 APP 내 광고 수익&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2 id=&#34;3-2-시장-분석-및-성과-창출-전략&#34;&gt;3-2. 시장 분석 및 성과 창출 전략&lt;/h2&gt;
+&lt;h3 id=&#34;시장분석&#34;&gt;시장분석&lt;/h3&gt;
+&lt;h3 id=&#34;뉴스-시장-needs&#34;&gt;뉴스 시장 NEEDS&lt;/h3&gt;
+&lt;ol&gt;
+&lt;li&gt;기존에 AI, 빅데이터를 접목하지 않은 서비스가 1년안에 40만 사용자를 모음&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;&lt;figure 
+	&gt;
+	&lt;a href=&#34;https://sung-won95.github.io/idea/newsBot/Untitled6.png&#34; &gt;
+		&lt;img src=&#34;https://sung-won95.github.io/idea/newsBot/Untitled6.png&#34;
+			
+			
+			
+			loading=&#34;lazy&#34;
+			alt=&#34;idea/newsBot/Untitled6.png&#34;&gt;
+	&lt;/a&gt;
+	
+	&lt;figcaption&gt;idea/newsBot/Untitled6.png&lt;/figcaption&gt;
+	
+&lt;/figure&gt;&lt;/p&gt;
+&lt;ol start=&#34;2&#34;&gt;
+&lt;li&gt;네이버 뉴스 언론사 구독자수·구독건수 2000만 달성&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;&lt;figure 
+	&gt;
+	&lt;a href=&#34;https://sung-won95.github.io/idea/newsBot/Untitled7.png&#34; &gt;
+		&lt;img src=&#34;https://sung-won95.github.io/idea/newsBot/Untitled7.png&#34;
+			
+			
+			
+			loading=&#34;lazy&#34;
+			alt=&#34;idea/newsBot/Untitled7.png&#34;&gt;
+	&lt;/a&gt;
+	
+	&lt;figcaption&gt;idea/newsBot/Untitled7.png&lt;/figcaption&gt;
+	
+&lt;/figure&gt;&lt;/p&gt;
+&lt;h3 id=&#34;구독-시장-needs&#34;&gt;구독 시장 NEEDS&lt;/h3&gt;
+&lt;ol&gt;
+&lt;li&gt;구독 시장은 국내는 물론 해외에서도 지속적으로 성장중&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;&lt;figure 
+	&gt;
+	&lt;a href=&#34;https://sung-won95.github.io/idea/newsBot/Untitled8.png&#34; &gt;
+		&lt;img src=&#34;https://sung-won95.github.io/idea/newsBot/Untitled8.png&#34;
+			
+			
+			
+			loading=&#34;lazy&#34;
+			alt=&#34;idea/newsBot/Untitled8.png&#34;&gt;
+	&lt;/a&gt;
+	
+	&lt;figcaption&gt;idea/newsBot/Untitled8.png&lt;/figcaption&gt;
+	
+&lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;&lt;figure 
+	&gt;
+	&lt;a href=&#34;https://sung-won95.github.io/idea/newsBot/Untitled9.png&#34; &gt;
+		&lt;img src=&#34;https://sung-won95.github.io/idea/newsBot/Untitled9.png&#34;
+			
+			
+			
+			loading=&#34;lazy&#34;
+			alt=&#34;idea/newsBot/Untitled9.png&#34;&gt;
+	&lt;/a&gt;
+	
+	&lt;figcaption&gt;idea/newsBot/Untitled9.png&lt;/figcaption&gt;
+	
+&lt;/figure&gt;&lt;/p&gt;
+&lt;h3 id=&#34;구독경제or구독-경제를-이용한-국내-기사수-추이&#34;&gt;&amp;lsquo;구독경제&amp;rsquo;or&amp;rsquo;구독 경제&amp;rsquo;를 이용한 국내 기사수 추이&lt;/h3&gt;
+&lt;p&gt;&lt;figure 
+	&gt;
+	&lt;a href=&#34;https://sung-won95.github.io/idea/newsBot/amCharts.png&#34; &gt;
+		&lt;img src=&#34;https://sung-won95.github.io/idea/newsBot/amCharts.png&#34;
+			
+			
+			
+			loading=&#34;lazy&#34;
+			alt=&#34;idea/newsBot/amCharts.png&#34;&gt;
+	&lt;/a&gt;
+	
+	&lt;figcaption&gt;idea/newsBot/amCharts.png&lt;/figcaption&gt;
+	
+&lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;지역 신문사를 제외한 국내 신문사 4개년 구독 경제 기사수&lt;/p&gt;
+&lt;h3 id=&#34;결론&#34;&gt;결론&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;구독 경제, 구독 서비스에 대한 대중의 이해도, 관심도도 높아지고 있음&lt;/li&gt;
+&lt;li&gt;현재 이용 가능한 뉴스 컨텐츠를 사용하는 이용자도 적지않음&lt;/li&gt;
+&lt;li&gt;디지털 텍스트 컨텐츠 이용 비율이 적은 10-20대 젊은 세대를 고객으로 유입 시 더 큰 시장 형성 가능&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;성과창출-전략&#34;&gt;성과창출 전략&lt;/h2&gt;
+&lt;h3 id=&#34;구독-서비스&#34;&gt;구독 서비스&lt;/h3&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;1년안에 카카오톡 친구추가 50만, APP스토어(IOS)&amp;amp;PLAY스토어(ANDROID) 다운로드 10만 이상이 목표&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;다운로드 사용자 중 10% 구독 서비스 유치 목표&lt;/p&gt;
+&lt;h3 id=&#34;구독자-이용-가능-컨텐츠&#34;&gt;구독자 이용 가능 컨텐츠&lt;/h3&gt;
+&lt;ol&gt;
+&lt;li&gt;광고제거&lt;/li&gt;
+&lt;li&gt;맞춤 키워드 추가 제공&lt;/li&gt;
+&lt;li&gt;검색어 비율 설정가능&lt;/li&gt;
+&lt;li&gt;축적된 데이터 접근 가능 ex) 연령별 관심사, 키워드 채택 비율, 증가율 등&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://jmagazine.joins.com/economist/view/325682&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;구독경제관련 뉴스&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;http://www.koreanclick.com/insights/newsletter_view.html?code=topic&amp;amp;id=548&amp;amp;page=1&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;온라인 구독 서비스 이용 행태 분석&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;hr&gt;
+&lt;h3 id=&#34;출처&#34;&gt;출처&lt;/h3&gt;
+&lt;p&gt;박성원 : &lt;a class=&#34;link&#34; href=&#34;mailto:parksw1992@naver.com&#34; &gt;parksw1992@naver.com&lt;/a&gt;&lt;br&gt;
+이재상 : &lt;a class=&#34;link&#34; href=&#34;mailto:imjsl22@gmail.com&#34; &gt;imjsl22@gmail.com&lt;/a&gt;&lt;/p&gt;
+</description>
+        </item>
+        <item>
+        <title>Opencv를 이용하여 YOLOv4로 CCTV 영상 분석하기</title>
+        <link>https://sung-won95.github.io/p/opencv%EB%A5%BC-%EC%9D%B4%EC%9A%A9%ED%95%98%EC%97%AC-yolov4%EB%A1%9C-cctv-%EC%98%81%EC%83%81-%EB%B6%84%EC%84%9D%ED%95%98%EA%B8%B0/</link>
+        <pubDate>Tue, 24 Nov 2020 14:02:42 +0900</pubDate>
+        
+        <guid>https://sung-won95.github.io/p/opencv%EB%A5%BC-%EC%9D%B4%EC%9A%A9%ED%95%98%EC%97%AC-yolov4%EB%A1%9C-cctv-%EC%98%81%EC%83%81-%EB%B6%84%EC%84%9D%ED%95%98%EA%B8%B0/</guid>
+        <description>&lt;img src="https://sung-won95.github.io/tech/rtsp-opencv-yolov4/Untitled.png" alt="Featured image of post Opencv를 이용하여 YOLOv4로 CCTV 영상 분석하기" /&gt;&lt;h2 id=&#34;프롤로그&#34;&gt;프롤로그&lt;/h2&gt;
+&lt;p&gt;안녕하세요 오늘은 OpenCV를 사용하여 CCTV video stream(RTSP)에 YOLO를 돌린 프로젝트 후기를 남겨보려고 합니다. 이  프로젝트는 실시간으로 object detecting 하는 것을 최우선 목표로 진행했습니다. 2K CCTV에서 RTSP 서버를 열어주고 딥러닝(YOLO v4)을 통해 object detecting을 진행 한 뒤 모니터링 서버에서 보여줄때까지 지연시간이 2초 이하로 진행해야 했습니다.&lt;/p&gt;
+&lt;h2 id=&#34;환경--목표&#34;&gt;환경 &amp;amp; 목표&lt;/h2&gt;
+&lt;p&gt;w&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;CCTV : 2K RTSP Stream, 16EA&lt;/li&gt;
+&lt;li&gt;Network : 10G&lt;/li&gt;
+&lt;li&gt;GPU : Tesla T4, 8EA&lt;/li&gt;
+&lt;li&gt;AI Model : YOLO v4, 5개 object 구분&lt;/li&gt;
+&lt;li&gt;목표 : 모니터링 서버에서 &lt;strong&gt;2초&lt;/strong&gt; 이내 detecting object 확인&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;설계도&#34;&gt;설계도&lt;/h2&gt;
+&lt;p&gt;RTSP → YOLO v4(분석) | Tesla T4 이용 → View&lt;br&gt;
+p.s. YOLO v4(학습 class 5개, 총 용량 268M)모델 2개를 Tesla T4 16GB를 사용해 인퍼런스를 진행하면 10FPS 방어가 가능했습니다.&lt;/p&gt;
+&lt;p&gt;&lt;figure 
+	&gt;
+	&lt;a href=&#34;https://sung-won95.github.io/tech/rtsp-opencv-yolov4/Untitled.png&#34; &gt;
+		&lt;img src=&#34;https://sung-won95.github.io/tech/rtsp-opencv-yolov4/Untitled.png&#34;
+			
+			
+			
+			loading=&#34;lazy&#34;
+			alt=&#34;/tech/rtsp-opencv-yolov4/Untitled.png&#34;&gt;
+	&lt;/a&gt;
+	
+	&lt;figcaption&gt;/tech/rtsp-opencv-yolov4/Untitled.png&lt;/figcaption&gt;
+	
+&lt;/figure&gt;&lt;/p&gt;
+&lt;h2 id=&#34;docker-setting&#34;&gt;Docker Setting&lt;/h2&gt;
+&lt;p&gt;TensorFlow GPU버전을 사용해야 하기에 tensorflow 공식 이미지중 gpu 태그가 붙은 이미지를 사용했습니다. 또한 docker 내부에서 OpenCV도 사용해야 했기에 ffmpeg을 설치해줬습니다.&lt;br&gt;
+docker-compose에서 GPU세팅 및 OpenCV 사용 세팅은 (&lt;a class=&#34;link&#34; href=&#34;https://sung-won95.github.io/devops/docker-gpu-1&#34; &gt;여기&lt;/a&gt;)를 참고해 주세요&lt;/p&gt;
+&lt;h3 id=&#34;dockerfile&#34;&gt;Dockerfile&lt;/h3&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-docker&#34; data-lang=&#34;docker&#34;&gt;&lt;span class=&#34;k&#34;&gt;FROM&lt;/span&gt;&lt;span class=&#34;s&#34;&gt; tensorflow/tensorflow:2.3.0-gpu&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;
+&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;
+&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;&lt;/span&gt;&lt;span class=&#34;k&#34;&gt;RUN&lt;/span&gt; apt-get update&lt;span class=&#34;err&#34;&gt;
+&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;&lt;/span&gt;&lt;span class=&#34;k&#34;&gt;RUN&lt;/span&gt; apt-get install ffmpeg libsm6 libxext6 -y&lt;span class=&#34;err&#34;&gt;
+&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;
+&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;&lt;/span&gt;&lt;span class=&#34;k&#34;&gt;WORKDIR&lt;/span&gt;&lt;span class=&#34;s&#34;&gt; /src&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;
+&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;
+&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;&lt;/span&gt;&lt;span class=&#34;k&#34;&gt;ENV&lt;/span&gt; &lt;span class=&#34;nv&#34;&gt;PYTHONUNBUFFERED&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;m&#34;&gt;0&lt;/span&gt;
+
+&lt;span class=&#34;k&#34;&gt;COPY&lt;/span&gt; python/requirements.txt ./&lt;span class=&#34;err&#34;&gt;
+&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;&lt;/span&gt;&lt;span class=&#34;k&#34;&gt;RUN&lt;/span&gt; pip3 install --no-cache-dir -r requirements.txt  &lt;span class=&#34;err&#34;&gt;
+&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;
+&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;&lt;/span&gt;&lt;span class=&#34;k&#34;&gt;COPY&lt;/span&gt; . /module&lt;span class=&#34;err&#34;&gt;
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;requirementstxt&#34;&gt;requirements.txt&lt;/h3&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;nv&#34;&gt;amqp&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;==&lt;/span&gt;5.0.1
+&lt;span class=&#34;nv&#34;&gt;billiard&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;==&lt;/span&gt;3.6.3.0
+&lt;span class=&#34;nv&#34;&gt;celery&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;==&lt;/span&gt;5.0.0
+&lt;span class=&#34;nv&#34;&gt;click&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;==&lt;/span&gt;7.1.2
+click-didyoumean&lt;span class=&#34;o&#34;&gt;==&lt;/span&gt;0.0.3
+click-repl&lt;span class=&#34;o&#34;&gt;==&lt;/span&gt;0.1.6
+&lt;span class=&#34;nv&#34;&gt;kombu&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;==&lt;/span&gt;5.0.2
+prompt-toolkit&lt;span class=&#34;o&#34;&gt;==&lt;/span&gt;3.0.7
+&lt;span class=&#34;nv&#34;&gt;pytz&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;==&lt;/span&gt;2020.1
+&lt;span class=&#34;nv&#34;&gt;vine&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;==&lt;/span&gt;5.0.0
+&lt;span class=&#34;nv&#34;&gt;wcwidth&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;==&lt;/span&gt;0.2.5
+opencv-python
+lxml
+tqdm
+absl-py
+matplotlib
+easydict
+pillow
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;docker-compose&#34;&gt;docker-compose&lt;/h3&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-yaml&#34; data-lang=&#34;yaml&#34;&gt;&lt;span class=&#34;nt&#34;&gt;version&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;s1&#34;&gt;&amp;#39;3.1&amp;#39;&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;&lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;services&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;  &lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;AirForcePython1&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;    &lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;image&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;l&#34;&gt;tensor_ai&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;    &lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;deploy&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;      &lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;resources&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;        &lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;limits&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;          &lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;cpus&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;s1&#34;&gt;&amp;#39;1&amp;#39;&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;    &lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;build&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;      &lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;context&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;l&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;      &lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;dockerfile&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;l&#34;&gt;python/Dockerfile&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;    &lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;volumes&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;      &lt;/span&gt;- &lt;span class=&#34;l&#34;&gt;../src:/src&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;    &lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;environment&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;      &lt;/span&gt;- &lt;span class=&#34;l&#34;&gt;VideoPath=rtsp://admin:qazwsx123!@192.168.0.1:554/RTSPSTREAM&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;      &lt;/span&gt;- &lt;span class=&#34;l&#34;&gt;CameraId=camera1&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;      &lt;/span&gt;- &lt;span class=&#34;l&#34;&gt;DestIp=192.168.0.1&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;      &lt;/span&gt;- &lt;span class=&#34;l&#34;&gt;DISPLAY=unix$DISPLAY&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;      &lt;/span&gt;- &lt;span class=&#34;l&#34;&gt;NVIDIA_VISIBLE_DEVICES=0&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;      &lt;/span&gt;- &lt;span class=&#34;l&#34;&gt;model=yolov4_airforce&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;    &lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;command&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;l&#34;&gt;python detectvideo.py&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;    &lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;stdin_open&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;kc&#34;&gt;true&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;    &lt;/span&gt;&lt;span class=&#34;nt&#34;&gt;tty&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;kc&#34;&gt;true&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;삽질의-기록&#34;&gt;삽질의 기록&lt;/h2&gt;
+&lt;h3 id=&#34;gpu를-어떻게-나누지&#34;&gt;GPU를 어떻게 나누지&amp;hellip;.&lt;/h3&gt;
+&lt;p&gt;처음 시작하면서 부터 난관에 봉착했습니다. 일단 TensorFlow를 실행해서 YOLO를 돌린것까진 좋았는데&amp;hellip; 프레임당 100ms 이하로 나오는것도 좋았는데 YOLO를 실행하기만 하면 GPU RAM을 모두 다 차지해버립니다.  OTL&amp;hellip;
+열심히 구글링 해본 결과 config.gpu_options.allow_growth 옵션을 끄지 않으면 TensorFlow가 남은 GPU RAM을 모두 선점해버리는 현상이 있었습니다. 해결 방법으로는 옵션을 False로 바꾸고 초기 RAM을 얼만큼 차지할지 config.gpu_options.per_process_gpu_memory_fraction 옵션에 넣어주면 됩니다!!! 저는 테스트 결과 stream 3개까지도 아슬아슬하게 10 FPS 방어가 됐는데 GPU가 모자라는게 아니니  GPU 1개당 2개 Stream을 할당해줬습니다.&lt;br&gt;
+p.s. 각 GPU에 할당하는건 docker-compose 에서 세팅해줬습니다. NVIDIA_VISIBLE_DEVICES 옵션을 잘 세팅하시면 됩니다 ㅎㅅㅎ&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;&lt;span class=&#34;n&#34;&gt;config&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;ConfigProto&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;()&lt;/span&gt;
+&lt;span class=&#34;n&#34;&gt;config&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;gpu_options&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;allow_growth&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;kc&#34;&gt;False&lt;/span&gt;
+&lt;span class=&#34;n&#34;&gt;config&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;gpu_options&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;per_process_gpu_memory_fraction&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;mf&#34;&gt;0.4&lt;/span&gt;
+&lt;span class=&#34;n&#34;&gt;session&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;InteractiveSession&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;config&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;config&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;docker가-이유없이-계속-죽는다&#34;&gt;Docker가 이유없이 계속 죽는다&amp;hellip;.&lt;/h3&gt;
+&lt;p&gt;try catch로 감싸진게 전혀 없는데 log를 아무리 뒤져도 에러코드가 나오지 않고 죽는 현상이 있었습니다. 정말 docker stop 명령어를 쓴 듯 갑자기 docker가 죽어버렸습니다. 이것도 반나절동안 삽질한 결과 OOM(Out Of Memory)라는 결론을 얻었습니다. RTSP Stream에서 가지고 오는 속도에 비해 object detecting 속도가 느려 메모리에 계속 쌓였던게 원인이였습니다. 이 문제를 해결하기 위해 아래처럼 queue를 사용했습니다. queue size를 3으로 해놓으면 버퍼가 체감이 되었으며 그렇다고 사이즈를 1로 해놓으면 프레임 대기시간이 생기는건지 2보다 느린 관계로 queue size는 2로 설정했습니다&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;&lt;span class=&#34;kn&#34;&gt;import&lt;/span&gt; &lt;span class=&#34;nn&#34;&gt;queue&lt;/span&gt;
+&lt;span class=&#34;n&#34;&gt;q&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;queue&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;Queue&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;2&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+
+&lt;span class=&#34;k&#34;&gt;def&lt;/span&gt; &lt;span class=&#34;nf&#34;&gt;Receive&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;():&lt;/span&gt;
+    &lt;span class=&#34;n&#34;&gt;video_path&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;os&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;environ&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;[&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;VideoPath&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;]&lt;/span&gt;
+
+    &lt;span class=&#34;n&#34;&gt;vid&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;cv2&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;VideoCapture&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;video_path&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+    &lt;span class=&#34;k&#34;&gt;while&lt;/span&gt; &lt;span class=&#34;kc&#34;&gt;True&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;
+        &lt;span class=&#34;n&#34;&gt;return_value&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;frame&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;vid&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;read&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;()&lt;/span&gt;
+        &lt;span class=&#34;k&#34;&gt;if&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;return_value&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;
+            &lt;span class=&#34;n&#34;&gt;q&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;put&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;cv2&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;cvtColor&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;frame&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;cv2&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;COLOR_BGR2RGB&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;))&lt;/span&gt;
+
+&lt;span class=&#34;k&#34;&gt;def&lt;/span&gt; &lt;span class=&#34;nf&#34;&gt;main&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;_argv&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;):&lt;/span&gt;
+    &lt;span class=&#34;n&#34;&gt;p1&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;threading&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;Thread&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;target&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;Receive&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+    &lt;span class=&#34;n&#34;&gt;p1&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;start&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;()&lt;/span&gt;
+    &lt;span class=&#34;k&#34;&gt;while&lt;/span&gt; &lt;span class=&#34;kc&#34;&gt;True&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;
+        &lt;span class=&#34;k&#34;&gt;try&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;
+            &lt;span class=&#34;k&#34;&gt;if&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;q&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;empty&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;()&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;!=&lt;/span&gt; &lt;span class=&#34;kc&#34;&gt;True&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;
+                &lt;span class=&#34;n&#34;&gt;frame&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;q&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;get&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;()&lt;/span&gt;
+            &lt;span class=&#34;c1&#34;&gt;# next Code&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;rtsp-stream-재부팅시-자동-연결이-안된다&#34;&gt;RTSP Stream 재부팅시 자동 연결이 안된다&amp;hellip;.&lt;/h3&gt;
+&lt;p&gt;위와 비슷하지만 docker가 죽진 않았으나 더이상 detecting log가 쌓이지 않는 현상이 있었습니다. 바로 RTSP Stream이 죽어도 receive 함수가 죽지 않았던 것입니다. 단순하게 생각해서 RTSP Stream이 재부팅 되어도 URL이 바뀌지도 않고 기존에 Stream을 계속 read하려고 하면 재부팅 된 뒤 read가 될 줄 알았던 제 어리석은 생각때문이였습니다. vid.read()에서 왜 true, false를 반환하겠니&amp;hellip;&amp;hellip; 여튼 그래서 vid.read가 false를 반환할 때 제 쓰레드를 죽인 뒤 다시 쓰레드를 생성해 새로운 stream을 받아오는걸로 코딩을 했습니다. 쓰레드를 생성할 때  setDaemon(True) 설정 안하면 thread가 정상적으로 죽지 않아서  ram 누수가 발생합니다. 그러니 꼭 setDaemon(True) 설정을 해주시고 맨위에 객체 만들었다고 새로운 객체를 만들지 않고 다시 start 함수만 사용하면 에러가 발생합니다. 어차피 기존 쓰레드는 반납되었으니 새로운 쓰레드를 만들어 사용하는게 좋습니다.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;&lt;span class=&#34;k&#34;&gt;def&lt;/span&gt; &lt;span class=&#34;nf&#34;&gt;Receive&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;():&lt;/span&gt;
+    &lt;span class=&#34;nb&#34;&gt;print&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;start Reveive&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+    &lt;span class=&#34;n&#34;&gt;video_path&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;os&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;environ&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;[&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;VideoPath&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;]&lt;/span&gt;
+
+    &lt;span class=&#34;nb&#34;&gt;print&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;Video from: &amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;video_path&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+    &lt;span class=&#34;n&#34;&gt;vid&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;cv2&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;VideoCapture&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;video_path&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+    &lt;span class=&#34;k&#34;&gt;while&lt;/span&gt; &lt;span class=&#34;kc&#34;&gt;True&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;
+        &lt;span class=&#34;n&#34;&gt;return_value&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;frame&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;vid&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;read&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;()&lt;/span&gt;
+        &lt;span class=&#34;k&#34;&gt;if&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;return_value&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;
+            &lt;span class=&#34;n&#34;&gt;q&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;put&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;cv2&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;cvtColor&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;frame&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;cv2&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;COLOR_BGR2RGB&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;))&lt;/span&gt;
+        &lt;span class=&#34;k&#34;&gt;else&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;
+            &lt;span class=&#34;k&#34;&gt;break&lt;/span&gt;
+
+&lt;span class=&#34;k&#34;&gt;def&lt;/span&gt; &lt;span class=&#34;nf&#34;&gt;main&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;_argv&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;):&lt;/span&gt;
+    &lt;span class=&#34;n&#34;&gt;p1&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;threading&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;Thread&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;target&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;Receive&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+    &lt;span class=&#34;n&#34;&gt;p1&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;setDaemon&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;kc&#34;&gt;True&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+    &lt;span class=&#34;n&#34;&gt;p1&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;start&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;()&lt;/span&gt;
+    &lt;span class=&#34;k&#34;&gt;while&lt;/span&gt; &lt;span class=&#34;kc&#34;&gt;True&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;
+        &lt;span class=&#34;k&#34;&gt;if&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;q&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;empty&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;()&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;!=&lt;/span&gt; &lt;span class=&#34;kc&#34;&gt;True&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;
+            &lt;span class=&#34;n&#34;&gt;frame&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;q&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;get&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;()&lt;/span&gt;
+            &lt;span class=&#34;c1&#34;&gt;# next Code&lt;/span&gt;
+        &lt;span class=&#34;k&#34;&gt;elif&lt;/span&gt; &lt;span class=&#34;ow&#34;&gt;not&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;p1&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;isAlive&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;():&lt;/span&gt;
+            &lt;span class=&#34;n&#34;&gt;time&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;sleep&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;5&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+            &lt;span class=&#34;n&#34;&gt;p1&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;threading&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;Thread&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;target&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;Receive&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+            &lt;span class=&#34;n&#34;&gt;p1&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;setDaemon&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;kc&#34;&gt;True&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+            &lt;span class=&#34;n&#34;&gt;p1&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;start&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;()&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;이렇게 RTSP Stream으로부터 원하는 만큼의 GPU를 사용해 딥러닝을 돌려 확인하는 것 까지 내용을 마쳤습니다. 추후에 이슈사항이 있으면 이 페이지에 추가하겠습니다.&lt;/p&gt;
+&lt;h3 id=&#34;모든-서버에서-실시간성이-보장되지-않는다-2020-12-28&#34;&gt;모든 서버에서 실시간성이 보장되지 않는다. 2020-12-28&lt;/h3&gt;
+&lt;p&gt;여러개의 서버에서 동일한 실시간성이 보장되어야 하는 프로젝트였으나 사양이 더 좋은 서버에서 실시간성이 보장 안되는 이슈가 있었습니다. 이 이슈는 아래 pipe를 생성해서 사용하는것으로 해결했습니다.&lt;br&gt;
+제 생각이지만 cv2.videoCapture를 사용하면 ffmpeg에 버퍼를 먼저 채운 뒤 프레임을 읽어와 제공을 해주는 것 같습니다. 또한 cv2 자체에서도 특정 조건을 만족했을 때 딜레이가 발생하는데 정확한 원인을 모르겠습니다. 혹시 아시는분이 계시다면 댓글 남겨주세요&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;&lt;span class=&#34;kn&#34;&gt;import&lt;/span&gt; &lt;span class=&#34;nn&#34;&gt;cv2&lt;/span&gt;
+&lt;span class=&#34;kn&#34;&gt;import&lt;/span&gt; &lt;span class=&#34;nn&#34;&gt;subprocess&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;as&lt;/span&gt; &lt;span class=&#34;nn&#34;&gt;sp&lt;/span&gt;
+&lt;span class=&#34;kn&#34;&gt;import&lt;/span&gt; &lt;span class=&#34;nn&#34;&gt;numpy&lt;/span&gt;
+&lt;span class=&#34;n&#34;&gt;command&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;[&lt;/span&gt;&lt;span class=&#34;s1&#34;&gt;&amp;#39;ffmpeg&amp;#39;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;
+           &lt;span class=&#34;s1&#34;&gt;&amp;#39;-i&amp;#39;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;s1&#34;&gt;&amp;#39;rtsp://78.10.34.92/axis-media/media.amp&amp;#39;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;
+           &lt;span class=&#34;s1&#34;&gt;&amp;#39;-f&amp;#39;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;s1&#34;&gt;&amp;#39;image2pipe&amp;#39;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;
+           &lt;span class=&#34;s1&#34;&gt;&amp;#39;-pix_fmt&amp;#39;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;s1&#34;&gt;&amp;#39;bgr24&amp;#39;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;
+           &lt;span class=&#34;s1&#34;&gt;&amp;#39;-vcodec&amp;#39;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;s1&#34;&gt;&amp;#39;rawvideo&amp;#39;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;s1&#34;&gt;&amp;#39;-&amp;#39;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;]&lt;/span&gt;
+&lt;span class=&#34;n&#34;&gt;pipe&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;sp&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;Popen&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;command&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;stdout&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;sp&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;PIPE&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;bufsize&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;1280&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;*&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;800&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;*&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;3&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+&lt;span class=&#34;k&#34;&gt;while&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;pipe&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;poll&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;()&lt;/span&gt; &lt;span class=&#34;ow&#34;&gt;is&lt;/span&gt; &lt;span class=&#34;kc&#34;&gt;None&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;
+    &lt;span class=&#34;k&#34;&gt;if&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;cv2&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;waitKey&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;amp;&lt;/span&gt; &lt;span class=&#34;mh&#34;&gt;0xFF&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;==&lt;/span&gt; &lt;span class=&#34;nb&#34;&gt;ord&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s1&#34;&gt;&amp;#39;q&amp;#39;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;):&lt;/span&gt;
+        &lt;span class=&#34;k&#34;&gt;break&lt;/span&gt;
+    &lt;span class=&#34;n&#34;&gt;raw_image&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;pipe&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;stdout&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;read&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;1280&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;*&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;800&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;*&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;3&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+    &lt;span class=&#34;n&#34;&gt;image1&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;numpy&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;frombuffer&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;raw_image&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;dtype&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;s1&#34;&gt;&amp;#39;uint8&amp;#39;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+    &lt;span class=&#34;n&#34;&gt;image2&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;image1&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;reshape&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;((&lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;800&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;1280&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;3&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;))&lt;/span&gt;
+    &lt;span class=&#34;n&#34;&gt;cv2&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;imshow&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s1&#34;&gt;&amp;#39;Video&amp;#39;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;image2&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+    &lt;span class=&#34;n&#34;&gt;pipe&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;stdout&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;flush&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;()&lt;/span&gt;
+&lt;span class=&#34;n&#34;&gt;pipe&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;terminate&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;()&lt;/span&gt;
+&lt;span class=&#34;n&#34;&gt;cv2&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;destroyAllWindows&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;()&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;궁금한점이나 피드백은 환영합니다.
+감사합니다.&lt;/p&gt;
+</description>
+        </item>
+        <item>
+        <title>postgres replication 하는방법</title>
+        <link>https://sung-won95.github.io/p/postgres-replication-%ED%95%98%EB%8A%94%EB%B0%A9%EB%B2%95/</link>
+        <pubDate>Fri, 20 Nov 2020 16:54:37 +0900</pubDate>
+        
+        <guid>https://sung-won95.github.io/p/postgres-replication-%ED%95%98%EB%8A%94%EB%B0%A9%EB%B2%95/</guid>
+        <description>&lt;p&gt;master 서버와 slave 서버에 각각 설정하는 방법이 다릅니다&lt;/p&gt;
+&lt;h3 id=&#34;master-설정&#34;&gt;MASTER 설정&lt;/h3&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;user 생성&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;c1&#34;&gt;# psql을 Postgres 유저로 접속 후 유저 생성&lt;/span&gt;
+
+sudo -u postgres psql  
+CREATE ROLE replication WITH REPLICATION PASSWORD &lt;span class=&#34;s1&#34;&gt;&amp;#39;password&amp;#39;&lt;/span&gt; LOGIN&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;/etc/postgresql/9.5/main/postgresql.conf 파일 수정&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;nv&#34;&gt;wal_level&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; hot_standby
+&lt;span class=&#34;nv&#34;&gt;max_wal_senders&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;m&#34;&gt;2&lt;/span&gt;
+&lt;span class=&#34;nv&#34;&gt;max_replication_slots&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;m&#34;&gt;2&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;/etc/postgresql/9.5/main/hba.conf 파일 수정&lt;/p&gt;
+&lt;p&gt;아래 문구 추가&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;host  all   all   192.168.0.138/24  trust
+host  replication   replication   192.168.0.138/24  md5
+host  all   all   ::1/128    trust
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;postgresql 재시작&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3 id=&#34;standby-server-세팅&#34;&gt;STANDBY SERVER 세팅&lt;/h3&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;/etc/postgresql/9.5/main/pg_hba.conf 파일 수정
+아래문구 추가&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;host  all  all 192.168.0.0/24 trust
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;postgres 유저 추가&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;c1&#34;&gt;# psql을 Postgres 유저로 접속 후 유저 생성&lt;/span&gt;
+
+sudo -u postgres psql  
+CREATE ROLE replication WITH REPLICATION PASSWORD &lt;span class=&#34;s1&#34;&gt;&amp;#39;password&amp;#39;&lt;/span&gt; LOGIN&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;master server backup 진행&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;c1&#34;&gt;# 백업 진행하기 전 postgresql 종료&lt;/span&gt;
+systemctl stop postgresql
+
+&lt;span class=&#34;c1&#34;&gt;# 백업은 꼭 postgres 유저로 진행해야 됨 (중요)&lt;/span&gt;
+su postgres
+
+&lt;span class=&#34;c1&#34;&gt;# /var/lib/postgresql/9.5/main 아래의 데이터는 데이터 베이스가 동작하는 main 디렉토리&lt;/span&gt;
+&lt;span class=&#34;c1&#34;&gt;# 하위 데이터가 없어야 백업이 정상적으로 실행됨&lt;/span&gt;
+rm -rf /var/lib/postgresql/9.5/main/*
+pg_basebackup -h 192.168.0.123 -D /var/lib/postgresql/9.5/main/ -U replication -P -v -X stream
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;/var/lib/postgresql/9.5/main/recovery 파일 생성&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;nv&#34;&gt;standby_mode&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;s1&#34;&gt;&amp;#39;on&amp;#39;&lt;/span&gt;
+&lt;span class=&#34;nv&#34;&gt;primary_conninfo&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;s1&#34;&gt;&amp;#39;host=192.168.0.123 port=5432 user=replication password=password&amp;#39;&lt;/span&gt;
+&lt;span class=&#34;nv&#34;&gt;primary_slot_name&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;s1&#34;&gt;&amp;#39;repl_slot_01&amp;#39;&lt;/span&gt;
+&lt;span class=&#34;nv&#34;&gt;trigger_file&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;s1&#34;&gt;&amp;#39;/var/lib/postgresql/9.5/main/failover_trigger&amp;#39;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;postgresql 실행&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;systemctl start postgresql
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3 id=&#34;replication-실행-확인&#34;&gt;replication 실행 확인&lt;/h3&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;master 서버에서의 확인&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;&lt;span class=&#34;n&#34;&gt;select&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;*&lt;/span&gt; &lt;span class=&#34;kn&#34;&gt;from&lt;/span&gt; &lt;span class=&#34;nn&#34;&gt;pg_stat_replication&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;아래처럼 1 row 가 출력되면 1개의 replication이 돌고 있는 것
+&lt;figure 
+	&gt;
+	&lt;a href=&#34;https://sung-won95.github.io/database/postgres-replication-setting/Untitled.png&#34; &gt;
+		&lt;img src=&#34;https://sung-won95.github.io/database/postgres-replication-setting/Untitled.png&#34;
+			
+			
+			
+			loading=&#34;lazy&#34;
+			alt=&#34;/database/postgres-replication-setting/Untitled.png&#34;&gt;
+	&lt;/a&gt;
+	
+	&lt;figcaption&gt;/database/postgres-replication-setting/Untitled.png&lt;/figcaption&gt;
+	
+&lt;/figure&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;slave 에서의 확인&lt;/p&gt;
+&lt;p&gt;/var/log/postgresql/postgresql-9.5-main.log 로그에서 아래와 같이 recovery 로그가 있으면 성공&lt;/p&gt;
+&lt;p&gt;&lt;figure 
+	&gt;
+	&lt;a href=&#34;https://sung-won95.github.io/database/postgres-replication-setting/Untitled1.png&#34; &gt;
+		&lt;img src=&#34;https://sung-won95.github.io/database/postgres-replication-setting/Untitled1.png&#34;
+			
+			
+			
+			loading=&#34;lazy&#34;
+			alt=&#34;/database/postgres-replication-setting/Untitled1.png&#34;&gt;
+	&lt;/a&gt;
+	
+	&lt;figcaption&gt;/database/postgres-replication-setting/Untitled1.png&lt;/figcaption&gt;
+	
+&lt;/figure&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;master / slave 모두 확인&lt;/p&gt;
+&lt;p&gt;ps -ef | grep post 를 입력했을때 아래와 같이 recovering 이라는 프로세스가 돌고있으면 성공!&lt;/p&gt;
+&lt;p&gt;&lt;figure 
+	&gt;
+	&lt;a href=&#34;https://sung-won95.github.io/database/postgres-replication-setting/Untitled2.png&#34; &gt;
+		&lt;img src=&#34;https://sung-won95.github.io/database/postgres-replication-setting/Untitled2.png&#34;
+			
+			
+			
+			loading=&#34;lazy&#34;
+			alt=&#34;/database/postgres-replication-setting/Untitled2.png&#34;&gt;
+	&lt;/a&gt;
+	
+	&lt;figcaption&gt;/database/postgres-replication-setting/Untitled2.png&lt;/figcaption&gt;
+	
+&lt;/figure&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;혹시 틀린부분 있으면 피드백 부탁드립니다!&lt;/p&gt;
+</description>
+        </item>
+        
+    </channel>
 </rss>
