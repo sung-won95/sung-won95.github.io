@@ -37,6 +37,16 @@ C++ 창시자 나는 우아하고 효율적인 코드를 좋아한다. 논리가
     </item>
     
     <item>
+      <title>4장 형식 맞추기</title>
+      <link>https://sung-won95.github.io/p/4%EC%9E%A5-%ED%98%95%EC%8B%9D-%EB%A7%9E%EC%B6%94%EA%B8%B0/</link>
+      <pubDate>Wed, 19 Jan 2022 09:24:37 +0900</pubDate>
+      
+      <guid>https://sung-won95.github.io/p/4%EC%9E%A5-%ED%98%95%EC%8B%9D-%EB%A7%9E%EC%B6%94%EA%B8%B0/</guid>
+      <description>형식 맞추기 코드가 깔끔하고, 일관적이며, 꼼꼼하다고 감탄하면 좋겠다. 질서 정연하다고 탄복하면 좋겠다. 모듈을 읽으며 두눈이 휘둥그래 놀라면 좋겠다. 전문가가 짰다는 인상을 심어주면 좋겠다. 프로그래머라면 형식을 깔끔하게 맞춰 코드를 짜야한다. 규칙을 정하고 착실히 따라야한다. 팀으로 일한다면 팀이 합의해 규칙을 정하고 모두가 그 규칙을 따라야 한다.
+형식을 맞추는 목적 코드 형식은 중요하다! 너무 중요해서 무시하기 어렵다. 의사소통의 일환이며 전문 개발자의 일차적인 의무이다. &amp;lsquo;돌아가는 코드&amp;rsquo; 가 전문 개발자의 일차적인 의무라 여길지도 모르겠다. 오랜 시간이 지나 원래 코드의 흔적을 더 이상 찾아보기 힘들 정도로 코드가 바뀌어도 맨 처음 잡아놓은 규율은 사라지지 않는다.</description>
+    </item>
+    
+    <item>
       <title>뉴스 기사 크롤링을 통한 키워드 추출 및 실시간 트렌드 제공 서비스 [Trendak]</title>
       <link>https://sung-won95.github.io/p/%EB%89%B4%EC%8A%A4-%EA%B8%B0%EC%82%AC-%ED%81%AC%EB%A1%A4%EB%A7%81%EC%9D%84-%ED%86%B5%ED%95%9C-%ED%82%A4%EC%9B%8C%EB%93%9C-%EC%B6%94%EC%B6%9C-%EB%B0%8F-%EC%8B%A4%EC%8B%9C%EA%B0%84-%ED%8A%B8%EB%A0%8C%EB%93%9C-%EC%A0%9C%EA%B3%B5-%EC%84%9C%EB%B9%84%EC%8A%A4-trendak/</link>
       <pubDate>Mon, 04 Jan 2021 08:58:32 +0900</pubDate>

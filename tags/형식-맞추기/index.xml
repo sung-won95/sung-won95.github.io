@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>형식 맞추기 on 성원의 개발 블로그</title>
+    <link>https://sung-won95.github.io/tags/%ED%98%95%EC%8B%9D-%EB%A7%9E%EC%B6%94%EA%B8%B0/</link>
+    <description>Recent content in 형식 맞추기 on 성원의 개발 블로그</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>euc-kr</language>
+    <lastBuildDate>Wed, 19 Jan 2022 09:24:37 +0900</lastBuildDate><atom:link href="https://sung-won95.github.io/tags/%ED%98%95%EC%8B%9D-%EB%A7%9E%EC%B6%94%EA%B8%B0/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>4장 형식 맞추기</title>
+      <link>https://sung-won95.github.io/p/4%EC%9E%A5-%ED%98%95%EC%8B%9D-%EB%A7%9E%EC%B6%94%EA%B8%B0/</link>
+      <pubDate>Wed, 19 Jan 2022 09:24:37 +0900</pubDate>
+      
+      <guid>https://sung-won95.github.io/p/4%EC%9E%A5-%ED%98%95%EC%8B%9D-%EB%A7%9E%EC%B6%94%EA%B8%B0/</guid>
+      <description>형식 맞추기 코드가 깔끔하고, 일관적이며, 꼼꼼하다고 감탄하면 좋겠다. 질서 정연하다고 탄복하면 좋겠다. 모듈을 읽으며 두눈이 휘둥그래 놀라면 좋겠다. 전문가가 짰다는 인상을 심어주면 좋겠다. 프로그래머라면 형식을 깔끔하게 맞춰 코드를 짜야한다. 규칙을 정하고 착실히 따라야한다. 팀으로 일한다면 팀이 합의해 규칙을 정하고 모두가 그 규칙을 따라야 한다.
+형식을 맞추는 목적 코드 형식은 중요하다! 너무 중요해서 무시하기 어렵다. 의사소통의 일환이며 전문 개발자의 일차적인 의무이다. &amp;lsquo;돌아가는 코드&amp;rsquo; 가 전문 개발자의 일차적인 의무라 여길지도 모르겠다. 오랜 시간이 지나 원래 코드의 흔적을 더 이상 찾아보기 힘들 정도로 코드가 바뀌어도 맨 처음 잡아놓은 규율은 사라지지 않는다.</description>
+    </item>
+    
+  </channel>
+</rss>

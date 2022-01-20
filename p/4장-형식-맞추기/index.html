@@ -1,0 +1,629 @@
+<!DOCTYPE html>
+<html lang="euc-kr">
+    <head><meta charset='utf-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content='형식 맞추기 코드가 깔끔하고, 일관적이며, 꼼꼼하다고 감탄하면 좋겠다. 질서 정연하다고 탄복하면 좋겠다. 모듈을 읽으며 두눈이 휘둥그래 놀라면 좋겠다. 전문가가 짰다는 인상을 심어주면 좋겠다. 프로그래머라면 형식을 깔끔하게 맞춰 코드를 짜야한다. 규칙을 정하고 착실히 따라야한다. 팀으로 일한다면 팀이 합의해 규칙을 정하고 모두가 그 규칙을 따라야 한다.
+형식을 맞추는 목적 코드 형식은 중요하다! 너무 중요해서 무시하기 어렵다. 의사소통의 일환이며 전문 개발자의 일차적인 의무이다. &amp;lsquo;돌아가는 코드&amp;rsquo; 가 전문 개발자의 일차적인 의무라 여길지도 모르겠다. 오랜 시간이 지나 원래 코드의 흔적을 더 이상 찾아보기 힘들 정도로 코드가 바뀌어도 맨 처음 잡아놓은 규율은 사라지지 않는다.'><title>4장 형식 맞추기</title>
+
+<link rel='canonical' href='https://sung-won95.github.io/p/4%EC%9E%A5-%ED%98%95%EC%8B%9D-%EB%A7%9E%EC%B6%94%EA%B8%B0/'>
+
+<link rel="stylesheet" href="/scss/style.min.775dbd4fd34fda61c5273b4bc3415f7c9666414fb6c40aab164a7ded4397da98.css"><meta property='og:title' content='4장 형식 맞추기'>
+<meta property='og:description' content='형식 맞추기 코드가 깔끔하고, 일관적이며, 꼼꼼하다고 감탄하면 좋겠다. 질서 정연하다고 탄복하면 좋겠다. 모듈을 읽으며 두눈이 휘둥그래 놀라면 좋겠다. 전문가가 짰다는 인상을 심어주면 좋겠다. 프로그래머라면 형식을 깔끔하게 맞춰 코드를 짜야한다. 규칙을 정하고 착실히 따라야한다. 팀으로 일한다면 팀이 합의해 규칙을 정하고 모두가 그 규칙을 따라야 한다.
+형식을 맞추는 목적 코드 형식은 중요하다! 너무 중요해서 무시하기 어렵다. 의사소통의 일환이며 전문 개발자의 일차적인 의무이다. &amp;lsquo;돌아가는 코드&amp;rsquo; 가 전문 개발자의 일차적인 의무라 여길지도 모르겠다. 오랜 시간이 지나 원래 코드의 흔적을 더 이상 찾아보기 힘들 정도로 코드가 바뀌어도 맨 처음 잡아놓은 규율은 사라지지 않는다.'>
+<meta property='og:url' content='https://sung-won95.github.io/p/4%EC%9E%A5-%ED%98%95%EC%8B%9D-%EB%A7%9E%EC%B6%94%EA%B8%B0/'>
+<meta property='og:site_name' content='성원의 개발 블로그'>
+<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:tag' content='클린코드' /><meta property='article:tag' content='형식 맞추기' /><meta property='article:published_time' content='2022-01-19T09:24:37&#43;09:00'/><meta property='article:modified_time' content='2022-01-19T09:24:37&#43;09:00'/>
+<meta name="twitter:title" content="4장 형식 맞추기">
+<meta name="twitter:description" content="형식 맞추기 코드가 깔끔하고, 일관적이며, 꼼꼼하다고 감탄하면 좋겠다. 질서 정연하다고 탄복하면 좋겠다. 모듈을 읽으며 두눈이 휘둥그래 놀라면 좋겠다. 전문가가 짰다는 인상을 심어주면 좋겠다. 프로그래머라면 형식을 깔끔하게 맞춰 코드를 짜야한다. 규칙을 정하고 착실히 따라야한다. 팀으로 일한다면 팀이 합의해 규칙을 정하고 모두가 그 규칙을 따라야 한다.
+형식을 맞추는 목적 코드 형식은 중요하다! 너무 중요해서 무시하기 어렵다. 의사소통의 일환이며 전문 개발자의 일차적인 의무이다. &amp;lsquo;돌아가는 코드&amp;rsquo; 가 전문 개발자의 일차적인 의무라 여길지도 모르겠다. 오랜 시간이 지나 원래 코드의 흔적을 더 이상 찾아보기 힘들 정도로 코드가 바뀌어도 맨 처음 잡아놓은 규율은 사라지지 않는다.">
+    <link rel="shortcut icon" href="/profile.png" />
+
+    </head>
+    <body class="
+    article-page has-toc
+">
+    <script>
+        (function() {
+            const colorSchemeKey = 'StackColorScheme';
+            if(!localStorage.getItem(colorSchemeKey)){
+                localStorage.setItem(colorSchemeKey, "auto");
+            }
+        })();
+    </script><script>
+    (function() {
+        const colorSchemeKey = 'StackColorScheme';
+        const colorSchemeItem = localStorage.getItem(colorSchemeKey);
+        const supportDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches === true;
+
+        if (colorSchemeItem == 'dark' || colorSchemeItem === 'auto' && supportDarkMode) {
+            
+
+            document.documentElement.dataset.scheme = 'dark';
+        } else {
+            document.documentElement.dataset.scheme = 'light';
+        }
+    })();
+</script>
+<div class="container main-container flex 
+    
+        extended
+    
+">
+    
+        <div id="article-toolbar">
+            <a href="/" class="back-home">
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-chevron-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <polyline points="15 6 9 12 15 18" />
+</svg>
+
+
+
+                <span>뒤로가기</span>
+            </a>
+        </div>
+    
+<main class="main full-width">
+    <article class="main-article">
+    <header class="article-header">
+
+    <div class="article-details">
+    
+    <header class="article-category">
+        
+            <a href="/categories/%ED%81%B4%EB%A6%B0%EC%BD%94%EB%93%9C/" >
+                클린코드
+            </a>
+        
+    </header>
+    
+
+    <h2 class="article-title">
+        <a href="/p/4%EC%9E%A5-%ED%98%95%EC%8B%9D-%EB%A7%9E%EC%B6%94%EA%B8%B0/">4장 형식 맞추기</a>
+    </h2>
+
+    
+
+    
+    <footer class="article-time">
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-calendar-time" width="56" height="56" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M11.795 21h-6.795a2 2 0 0 1 -2 -2v-12a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v4" />
+  <circle cx="18" cy="18" r="4" />
+  <path d="M15 3v4" />
+  <path d="M7 3v4" />
+  <path d="M3 11h16" />
+  <path d="M18 16.496v1.504l1 1" />
+</svg>
+                <time class="article-time--published">Jan 19, 2022</time>
+            </div>
+        
+
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <polyline points="12 7 12 12 15 15" />
+</svg>
+
+
+
+                <time class="article-time--reading">
+                    7 분 정도
+                </time>
+            </div>
+        
+    </footer>
+    
+</div>
+</header>
+
+    <section class="article-content">
+    <h2 id="형식-맞추기">형식 맞추기</h2>
+<p>코드가 깔끔하고, 일관적이며, 꼼꼼하다고 감탄하면 좋겠다. 질서 정연하다고 탄복하면 좋겠다. 모듈을 읽으며 두눈이 휘둥그래 놀라면 좋겠다. 전문가가 짰다는 인상을 심어주면 좋겠다.
+프로그래머라면 형식을 깔끔하게 맞춰 코드를 짜야한다. 규칙을 정하고 착실히 따라야한다. 팀으로 일한다면 팀이 합의해 규칙을 정하고 모두가 그 규칙을 따라야 한다.</p>
+<h3 id="형식을-맞추는-목적">형식을 맞추는 목적</h3>
+<p>코드 형식은 중요하다! 너무 중요해서 무시하기 어렵다. 의사소통의 일환이며 전문 개발자의 일차적인 의무이다.
+&lsquo;돌아가는 코드&rsquo; 가 전문 개발자의 일차적인 의무라 여길지도 모르겠다. 오랜 시간이 지나 원래 코드의 흔적을 더 이상 찾아보기 힘들 정도로 코드가 바뀌어도 맨 처음 잡아놓은 규율은 사라지지 않는다.</p>
+<h3 id="신문-기사처럼-작성하라">신문 기사처럼 작성하라</h3>
+<p>독자는 위에서 아래로 기사를 읽는다. 최상단에는 함축적인 표제 내려가다보면 세세한 사실이 조금씩 드러난다.
+대부분의 기사는 매우 짧다. 한면을 모두 채우는 기사는 거의 없다. 사실, 날짜, 이름 등 무작위로 뒤섞은 긴 기사 하나만 신문에 실려있다면 아무도 읽지 않을 것이다.</p>
+<p>소스코드도 마찬가지이다. 이름은 간단하고 설명이 용이해야하며 이름만 봐도 독자가 올바른 모듈을 살펴보고 있는지 아닌지를 판단할 정도로 신경써서 지어야한다. 소스파일의 첫 부분은 고차원 개념과 알고리즘을 설명하고 내려갈수록 세세하게 묘사한다.</p>
+<h3 id="개념은-빈-행으로-분리하라">개념은 빈 행으로 분리하라</h3>
+<p>거의 모든 코드는 왼쪽에서 오른쪽 위에서 아래로 읽힌다. 각 행은 수식이나 절을 나타내고, 일련의 행 묵음은 완결된 생각 하나를 표현한다.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="kn">package</span> <span class="nn">fitnesse.wikitext.widgets</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">java.util.regex.*</span><span class="o">;</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">BoldWidget</span> <span class="kd">extends</span> <span class="n">ParentWidget</span> <span class="o">{</span>
+	<span class="kd">public</span> <span class="kd">static</span> <span class="kd">final</span> <span class="n">String</span> <span class="n">REGEXP</span> <span class="o">=</span> <span class="s">&#34;&#39;&#39;&#39;.+?&#39;&#39;&#34;</span><span class="o">;</span>
+	<span class="kd">private</span> <span class="kd">static</span> <span class="kd">final</span> <span class="n">Pattern</span> <span class="n">pattern</span> <span class="o">=</span> <span class="n">Pattern</span><span class="o">.</span><span class="na">compile</span><span class="o">(</span><span class="s">&#34;&#39;&#39;&#39;(.+?)&#39;&#39;&#39;&#34;</span><span class="o">,</span>
+		<span class="n">Pattern</span><span class="o">.</span><span class="na">MULTILINE</span> <span class="o">+</span> <span class="n">Pattern</span><span class="o">.</span><span class="na">DOTALL</span><span class="o">);</span>
+<span class="kd">public</span> <span class="nf">BoldWidget</span><span class="o">(</span><span class="n">ParentWidget</span> <span class="n">parent</span><span class="o">,</span> <span class="n">String</span> <span class="n">text</span><span class="o">)</span> <span class="kd">throws</span> <span class="n">Exception</span> <span class="o">{</span>
+	<span class="kd">super</span><span class="o">(</span><span class="n">parent</span><span class="o">);</span>
+	<span class="n">Matcher</span> <span class="n">match</span> <span class="o">=</span> <span class="n">pattern</span><span class="o">.</span><span class="na">matcher</span><span class="o">(</span><span class="n">text</span><span class="o">);</span>
+	<span class="n">match</span><span class="o">.</span><span class="na">find</span><span class="o">();</span>
+	<span class="n">addChildWidgets</span><span class="o">(</span><span class="n">match</span><span class="o">.</span><span class="na">group</span><span class="o">(</span><span class="n">1</span><span class="o">));}</span>
+<span class="kd">public</span> <span class="n">String</span> <span class="nf">render</span><span class="o">()</span> <span class="kd">throws</span> <span class="n">Exception</span> <span class="o">{</span>
+	<span class="n">StringBuffer</span> <span class="n">html</span> <span class="o">=</span> <span class="k">new</span> <span class="n">StringBuffer</span><span class="o">(</span><span class="s">&#34;&lt;b&gt;&#34;</span><span class="o">);</span>
+	<span class="n">html</span><span class="o">.</span><span class="na">append</span><span class="o">(</span><span class="n">childHtml</span><span class="o">()).</span><span class="na">append</span><span class="o">(</span><span class="s">&#34;&lt;b&gt;&#34;</span><span class="o">);</span>
+	<span class="k">return</span> <span class="n">html</span><span class="o">.</span><span class="na">toString</span><span class="o">();</span>
+	<span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div><p>위 코드를 읽어 본 경험은 어떤가? 정말 읽기 힘들고 가독성은 저 멀리 개가 씹어먹은 거 같다.
+위 코드를 우리가 보기 쉬운 형식에 맞춰서 다시 작성해 보면 아래와 같다.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="kn">package</span> <span class="nn">fitnesse.wikitext.widgets</span><span class="o">;</span>
+
+<span class="kn">import</span> <span class="nn">java.util.regex.*</span><span class="o">;</span>
+
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">BoldWidget</span> <span class="kd">extends</span> <span class="n">ParentWidget</span> <span class="o">{</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kd">final</span> <span class="n">String</span> <span class="n">REGEXP</span> <span class="o">=</span> <span class="s">&#34;&#39;&#39;&#39;.+?&#39;&#39;&#34;</span><span class="o">;</span>
+    <span class="kd">private</span> <span class="kd">static</span> <span class="kd">final</span> <span class="n">Pattern</span> <span class="n">pattern</span> <span class="o">=</span> <span class="n">Pattern</span><span class="o">.</span><span class="na">compile</span><span class="o">(</span><span class="s">&#34;&#39;&#39;&#39;(.+?)&#39;&#39;&#39;&#34;</span><span class="o">,</span>
+		<span class="n">Pattern</span><span class="o">.</span><span class="na">MULTILINE</span> <span class="o">+</span> <span class="n">Pattern</span><span class="o">.</span><span class="na">DOTALL</span><span class="o">);</span>
+
+    <span class="kd">public</span> <span class="nf">BoldWidget</span><span class="o">(</span><span class="n">ParentWidget</span> <span class="n">parent</span><span class="o">,</span> <span class="n">String</span> <span class="n">text</span><span class="o">)</span> <span class="kd">throws</span> <span class="n">Exception</span> <span class="o">{</span>
+        <span class="kd">super</span><span class="o">(</span><span class="n">parent</span><span class="o">);</span>
+        <span class="n">Matcher</span> <span class="n">match</span> <span class="o">=</span> <span class="n">pattern</span><span class="o">.</span><span class="na">matcher</span><span class="o">(</span><span class="n">text</span><span class="o">);</span>
+        <span class="n">match</span><span class="o">.</span><span class="na">find</span><span class="o">();</span>
+        <span class="n">addChildWidgets</span><span class="o">(</span><span class="n">match</span><span class="o">.</span><span class="na">group</span><span class="o">(</span><span class="n">1</span><span class="o">));</span>
+    <span class="o">}</span>
+    
+    <span class="kd">public</span> <span class="n">String</span> <span class="nf">render</span><span class="o">()</span> <span class="kd">throws</span> <span class="n">Exception</span> <span class="o">{</span>
+        <span class="n">StringBuffer</span> <span class="n">html</span> <span class="o">=</span> <span class="k">new</span> <span class="n">StringBuffer</span><span class="o">(</span><span class="s">&#34;&lt;b&gt;&#34;</span><span class="o">);</span>
+        <span class="n">html</span><span class="o">.</span><span class="na">append</span><span class="o">(</span><span class="n">childHtml</span><span class="o">()).</span><span class="na">append</span><span class="o">(</span><span class="s">&#34;&lt;b&gt;&#34;</span><span class="o">);</span>
+        <span class="k">return</span> <span class="n">html</span><span class="o">.</span><span class="na">toString</span><span class="o">();</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div><h3 id="세로-밀집도">세로 밀집도</h3>
+<p>줄바꿈이 개념을 분리한다면 세로 밀집도는 연관성을 의미한다.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="kd">public</span> <span class="kd">class</span> <span class="nc">ReporterConfig</span><span class="o">{</span>
+    <span class="cm">/**
+</span><span class="cm">    * 리포터 리스너의 클래스 이름	
+</span><span class="cm">    */</span>
+    <span class="kd">private</span> <span class="n">String</span> <span class="n">m_className</span><span class="o">;</span>
+
+    <span class="cm">/** 
+</span><span class="cm">    * 리포터 리스너의 속성	
+</span><span class="cm">    */</span>
+    <span class="kd">private</span> <span class="n">List</span><span class="o">&lt;</span><span class="n">Property</span><span class="o">&gt;</span> <span class="n">m_properties</span> <span class="o">=</span> <span class="k">new</span> <span class="n">ArrayList</span><span class="o">&lt;</span><span class="n">Property</span><span class="o">&gt;();</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">addProperty</span><span class="o">(</span><span class="n">Property</span> <span class="n">property</span><span class="o">)</span> <span class="o">{</span>
+        <span class="n">m_properties</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="n">property</span><span class="o">);</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div><p>위 코드는 주석으로 인해 한눈에 잘 안들어온다 세로 밀집도를 조금 높여보면 아래 코드와 같다.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="kd">public</span> <span class="kd">class</span> <span class="nc">ReporterConfig</span><span class="o">{</span>
+    <span class="kd">private</span> <span class="n">String</span> <span class="n">m_className</span><span class="o">;</span>
+    <span class="kd">private</span> <span class="n">List</span><span class="o">&lt;</span><span class="n">Property</span><span class="o">&gt;</span> <span class="n">m_properties</span> <span class="o">=</span> <span class="k">new</span> <span class="n">ArrayList</span><span class="o">&lt;</span><span class="n">Property</span><span class="o">&gt;();</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">addProperty</span><span class="o">(</span><span class="n">Property</span> <span class="n">property</span><span class="o">)</span> <span class="o">{</span>
+        <span class="n">m_properties</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="n">property</span><span class="o">);</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div><h3 id="수직거리">수직거리</h3>
+<p>함수 연관 관계와 동작 방식을 이해하려고 이 함수에서 저 함수로 오가며 소스 파일을 위아래로 뒤지는 등 뺑뺑이를 돌았으나 결국은 미로같은 코드 때문에 혼란만 가중된 경험 등은 매우 달갑지 않다.
+이 조각 저 조각이 어디에 있는지 찾고 기억하느라 시간과 노력을 소모한다.
+서로 밀집한 개념은 세로로 가까이 둬야한다. 물론 두 개념이 서로 다른 파일에 속한다면 규칙이 통하지 않는다. 서로 밀접한 개념은 한 파일에 속해야 마땅하다. 이게 바로 protected 변수를 피해야하는 이유 중 하나다.</p>
+<h3 id="인스턴스-변수">인스턴스 변수.</h3>
+<p>인스턴스 변수는 클래스 맨 처음에 선언한다. 변수간에 세로로 거리르 두지않는다. 잘 설계한 클래스는 많은 클래스 메서드가 인스턴스 변수를 사용하기 때문이다.
+인스턴스 변수를 선언하는 위치는 아직도 논쟁이 분분하다. 일반적으로 C++에서는 모든 인스턴스 변수를 클래스 마지막에 선언한다는 가위규칙을 사용한다.
+하지만 잘 알려진 인스턴스를 모은다는 사실이 중요하다. 변수 선언을 어디서 찾을지 모두가 알고 있어야 한다.</p>
+<h3 id="종속함수">종속함수.</h3>
+<p>한 함수가 다른 함수를 호출한다면 두 함수는 세로로 가까이 배치한다. 또한 가능하다면 호출하는 함수를 호출되는 함수보다 먼저 배치한다. 그러면 프로그램이 자연스럽게 읽힌다. 규칙을 일관적으로 적용한다면 독자는 방금 호출한 함수가 잠시 후에 정의되리라는 사실을 예측한다.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="kd">public</span> <span class="n">Response</span> <span class="nf">makeResponse</span><span class="o">(</span><span class="n">FitNesseContext</span> <span class="n">context</span><span class="o">,</span> <span class="n">Request</span> <span class="n">request</span><span class="o">)</span>
+    <span class="kd">throws</span> <span class="n">Exception</span> <span class="o">{</span>
+    <span class="n">String</span> <span class="n">pageName</span> <span class="o">=</span> <span class="n">getPageNameOrDefault</span><span class="o">(</span><span class="n">request</span><span class="o">,</span> <span class="s">&#34;FrontPage&#34;</span><span class="o">);</span>
+    <span class="n">loadPage</span><span class="o">(</span><span class="n">pageName</span><span class="o">,</span> <span class="n">context</span><span class="o">);</span>
+    
+    <span class="k">if</span> <span class="o">(</span><span class="n">page</span> <span class="o">==</span> <span class="kc">null</span><span class="o">){</span>
+        <span class="k">return</span> <span class="n">notFoundResponse</span><span class="o">(</span><span class="n">context</span><span class="o">,</span> <span class="n">request</span><span class="o">);</span>
+    <span class="k">else</span>
+        <span class="k">return</span> <span class="n">makePageResponse</span><span class="o">(</span><span class="n">context</span><span class="o">);</span>
+<span class="o">}</span>
+
+<span class="kd">private</span> <span class="n">String</span> <span class="nf">getPageNameOrDefault</span><span class="o">(</span><span class="n">Request</span> <span class="n">request</span><span class="o">,</span> <span class="n">String</span> <span class="n">defaultPageName</span><span class="o">)</span>
+<span class="o">{</span>
+    <span class="n">String</span> <span class="n">pageName</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="na">getResponse</span><span class="o">();</span>
+    
+    <span class="k">if</span> <span class="o">(</span><span class="n">StirngUtil</span><span class="o">.</span><span class="na">isBlank</span><span class="o">(</span><span class="n">pageName</span><span class="o">))</span>
+        <span class="n">pageName</span> <span class="o">=</span> <span class="n">defaultPageName</span><span class="o">;</span>
+<span class="o">}</span>
+
+<span class="kd">protected</span> <span class="kt">void</span> <span class="nf">loadPage</span><span class="o">(</span><span class="n">Stirng</span> <span class="n">resource</span><span class="o">,</span> <span class="n">FitNesseContext</span><span class="o">,</span> <span class="n">context</span><span class="o">)</span>
+    <span class="kd">throws</span> <span class="n">Exception</span> <span class="o">{</span>
+    <span class="n">WikiPagePath</span> <span class="n">path</span> <span class="o">=</span> <span class="n">PateParser</span><span class="o">.</span><span class="na">parse</span><span class="o">(</span><span class="n">resource</span><span class="o">);</span>
+    <span class="n">crawler</span> <span class="o">=</span> <span class="n">context</span><span class="o">.</span><span class="na">root</span><span class="o">.</span><span class="na">getPageCrawler</span><span class="o">();</span>
+    <span class="n">crawler</span><span class="o">.</span><span class="na">setDeadEndStrategy</span><span class="o">(</span><span class="k">new</span> <span class="n">VirtualEnabledPageCrawler</span><span class="o">());</span>
+    <span class="n">page</span> <span class="o">=</span> <span class="n">crawler</span><span class="o">.</span><span class="na">getPage</span><span class="o">(</span><span class="n">context</span><span class="o">,</span><span class="n">root</span><span class="o">,</span> <span class="n">path</span><span class="o">);</span>
+    
+    <span class="k">if</span> <span class="o">(</span><span class="n">page</span><span class="o">!=</span><span class="kc">null</span><span class="o">)</span>
+        <span class="n">PageData</span> <span class="o">=</span> <span class="n">Page</span><span class="o">.</span><span class="na">getData</span><span class="o">():</span>
+<span class="o">}</span>
+
+<span class="kd">private</span> <span class="n">Response</span> <span class="nf">notFoundResponse</span><span class="o">(</span><span class="n">FitNesseContext</span> <span class="n">context</span><span class="o">,</span> <span class="n">Request</span> <span class="n">request</span><span class="o">)</span>
+    <span class="kd">throws</span> <span class="n">Exception</span> <span class="o">{</span>
+    <span class="k">return</span> <span class="k">new</span> <span class="n">NotFoundResponder</span><span class="o">().</span><span class="na">makeResponse</span><span class="o">(</span><span class="n">context</span><span class="o">,</span> <span class="n">request</span><span class="o">);</span>
+<span class="o">}</span>
+
+<span class="kd">private</span> <span class="n">SimpleResponse</span> <span class="nf">makePageResponse</span><span class="o">(</span><span class="n">FitNesseContext</span> <span class="n">context</span><span class="o">)</span>
+    <span class="kd">throws</span> <span class="n">Exception</span> <span class="o">{</span>
+    <span class="n">pageTitle</span> <span class="o">=</span> <span class="n">PathParser</span><span class="o">.</span><span class="na">render</span><span class="o">(</span><span class="n">crawler</span><span class="o">.</span><span class="na">getFullPath</span><span class="o">(</span><span class="n">page</span><span class="o">));</span>
+    <span class="n">Stirng</span> <span class="n">html</span> <span class="o">=</span> <span class="n">makeHtml</span><span class="o">(</span><span class="n">Context</span><span class="o">);</span>
+	
+    <span class="n">SimpleResponse</span> <span class="n">response</span> <span class="o">=</span> <span class="k">new</span> <span class="n">SimpleResponse</span><span class="o">();</span>
+    <span class="n">response</span><span class="o">.</span><span class="na">setMaxAge</span><span class="o">(</span><span class="n">0</span><span class="o">);</span>
+    <span class="n">response</span><span class="o">.</span><span class="na">setCountent</span><span class="o">(</span><span class="n">html</span><span class="o">);</span>
+    <span class="k">return</span> <span class="n">response</span><span class="o">;</span>
+<span class="o">}</span>
+</code></pre></div><p>위 코드는 상수를 적절한 수준에 두는 좋은 예제이다.</p>
+<p>getPageNameOrDefault 함수 안에서 &ldquo;FrontPage&rdquo; 상수를 사용하는 방법도 있다. 하지만 그러면 잘 알려진 상수가 적절하지 않은 저차원 함수에 묻히게 된다. 상수를 알아야 마땅한 함수에서 실제로 사용하는 함수로 상수를 넘겨주는 방법이 더 좋다.</p>
+<h3 id="개념적-유사성">개념적 유사성</h3>
+<p>어떤 코드는 서로 끌어당긴다. 개념적으로 비슷하기 때문</p>
+<p>친화도가 높은 요인은 여러가지다. 앞서 말한 종속성이 한 예다. 변수와 그 변수를 사용하는 함수도 하예다. 비슷한 동작을 수행하는 일군의 함수가 좋은 예다.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="kd">public</span> <span class="kd">class</span> <span class="nc">Assert</span><span class="o">{</span>
+    <span class="kd">static</span> <span class="kd">public</span> <span class="kt">void</span> <span class="nf">assertTrue</span><span class="o">(</span><span class="n">Stirng</span> <span class="n">message</span><span class="o">,</span> <span class="kt">boolean</span> <span class="n">condition</span><span class="o">)</span> <span class="o">{</span>
+        <span class="k">if</span> <span class="o">(!</span><span class="n">condition</span><span class="o">)</span>
+            <span class="n">fail</span><span class="o">(</span><span class="n">message</span><span class="o">);</span>
+<span class="o">}</span>
+
+<span class="kd">static</span> <span class="kd">public</span> <span class="kt">void</span> <span class="n">assertTrue</span> <span class="nf">assertTrue</span><span class="o">(</span><span class="kt">boolean</span> <span class="n">condition</span><span class="o">){</span>
+    <span class="n">assertTrue</span><span class="o">(</span><span class="kc">null</span><span class="o">,</span> <span class="n">condition</span><span class="o">)</span>
+<span class="o">}</span>
+
+<span class="kd">static</span> <span class="kd">public</span> <span class="kt">void</span> <span class="nf">assertFalse</span><span class="o">(</span><span class="n">String</span> <span class="n">message</span><span class="o">,</span> <span class="kt">boolean</span> <span class="n">condition</span><span class="o">){</span>
+    <span class="n">assertTrue</span><span class="o">(</span><span class="n">message</span><span class="o">,</span> <span class="o">!</span><span class="n">conditon</span><span class="o">)</span><span class="err">&#39;</span>
+<span class="o">}</span>
+
+<span class="kd">static</span> <span class="n">pulbic</span> <span class="kt">void</span> <span class="nf">assertFalse</span><span class="o">(</span><span class="kt">boolean</span> <span class="n">condition</span><span class="o">)</span> <span class="o">{</span>
+    <span class="n">assertFalse</span><span class="o">(</span><span class="kc">null</span><span class="o">,</span> <span class="n">condition</span><span class="o">);</span>
+<span class="o">}</span>
+</code></pre></div><p>위 함수들은 개념적인 친화도가 매우 높다. 명명법이 똑같고 기본 기능이 유사하고 간단하다. 서로가 서로를 호출하는 관계는 부차적이다.</p>
+<h3 id="세로-순서">세로 순서</h3>
+<p>일반적으로 함수 호출 종속성은 아래 방향으로 유지한다. 호출되는 함수는 호출하는 함수보다 나중에 배치한다.</p>
+<h3 id="가로-형식-맞추기">가로 형식 맞추기</h3>
+<p>한 행은 가로로 얼마나 길어야 적당할까? 프로그래머는 짧은 행을 선호한다. 특히 20자에서 60자 사이가 가장 많고 45자 근처가 가장 많다.
+그러므로 짧은 행이 바람직하다. 100자나 120자에 달해도 상관없으나 그 이상은 솔직히 주의 부족이다.예전에는 오른쪽으로 스크롤할 필요가 절대로 없게 코드를 짰다. 하지만 요즘은 모니터가 아주크다. 개인적으로는 120자 정도로 행 길이를 제한하는 것을 추천한다.</p>
+<h3 id="가로-공백과-밀집도">가로 공백과 밀집도</h3>
+<p>가로로는 공백을 사용해 밀접한 개념과 느슨한 개념을 표현한다.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-jsx" data-lang="jsx"><span class="kr">private</span> <span class="k">void</span> <span class="nx">measureLine</span><span class="p">(</span><span class="nb">String</span> <span class="nx">line</span><span class="p">){</span>
+    <span class="nx">lineCount</span><span class="o">++</span><span class="p">;</span>
+    <span class="kr">int</span> <span class="nx">lineSize</span> <span class="o">=</span> <span class="nx">line</span><span class="p">.</span><span class="nx">length</span><span class="p">();</span>
+    <span class="nx">totalChars</span> <span class="o">+=</span> <span class="nx">lineSize</span><span class="p">;</span>
+    <span class="nx">lineWidthHistogram</span><span class="p">.</span><span class="nx">addLine</span><span class="p">(</span> <span class="nx">lineSize</span><span class="p">,</span> <span class="nx">lineCount</span> <span class="p">);</span>
+    <span class="nx">recordWidestLine</span><span class="p">(</span> <span class="nx">lineSize</span> <span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div><p>할당 연산자를 강조하려고 앞뒤에 공백을 줬다. 할당문은 왼쪽 요소와 오른쪽 요소가 분명히 나뉜다. 공백을 넣으면 두 가지 주요 요소가 확실히 나뉜다는 사실이다. 함수이름과 이어지는 괄호 사이에는 공백을 넣지 않았다. 두 조요 요소가 밀접하기 때문, 공백을 넣으면 한 개념이 아니라 별개로 보인다. 함수가 호출하는 코드에서 괄호 안 인수는 공백으로 분리했다. 쉼표를 강조해 인수가 별개라는 사실을 보여주기 위해서다.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-jsx" data-lang="jsx"><span class="kr">public</span> <span class="kr">class</span> <span class="nx">Quadratic</span><span class="p">{</span>
+    <span class="kr">public</span> <span class="kr">static</span> <span class="kr">double</span> <span class="nx">root1</span><span class="p">(</span><span class="kr">double</span> <span class="nx">a</span><span class="p">,</span> <span class="kr">double</span> <span class="nx">b</span><span class="p">,</span> <span class="kr">double</span> <span class="nx">c</span><span class="p">)</span> <span class="p">{</span>
+        <span class="kr">double</span> <span class="nx">determinant</span> <span class="o">=</span> <span class="nx">determinant</span><span class="p">(</span><span class="nx">a</span><span class="p">,</span> <span class="nx">b</span><span class="p">,</span> <span class="nx">c</span><span class="p">);</span>
+        <span class="k">return</span> <span class="p">(</span> <span class="o">-</span><span class="nx">b</span> <span class="o">+</span> <span class="nb">Math</span><span class="p">.</span><span class="nx">sqrt</span><span class="p">(</span><span class="nx">determinant</span><span class="p">))</span> <span class="o">/</span> <span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="nx">a</span><span class="p">)</span> <span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div><p>위 코드는 연산자 우선순위를 강조하기 위해서 공백을 사용했다. 수식을 읽기가 아주 편하다. 승수 사이는 공백이 없다. 곱셈은 우선순위가 가장 높기 때문이다. 항 사이에는 공백이 들어간다. 덧셈과 뺄셈은 우선순위가 곱셈 보다 낮기 때문이다. 불행한 점은 자동 코드 정리기가 위와같은 코드를 없에버린다는 것.</p>
+<h3 id="가로-정렬">가로 정렬</h3>
+<p>어셈블리어 프로그래머였던 시절 저자는 특정 구조를 강조하기 위해 가로 정렬을 사용했다.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-jsx" data-lang="jsx"><span class="kr">public</span> <span class="kr">class</span> <span class="nx">FitNesseExpediter</span> <span class="kr">implements</span> <span class="nx">ResponseSender</span>
+<span class="p">{</span>
+	<span class="kr">private</span>     <span class="nx">Socket</span>          <span class="nx">socket</span>
+	<span class="kr">private</span>     <span class="nx">InputStream</span>     <span class="nx">input</span><span class="p">;</span>
+	<span class="kr">private</span>     <span class="nx">OutputStream</span>    <span class="nx">output</span><span class="p">;</span>
+	<span class="kr">private</span>     <span class="nx">Request</span>         <span class="nx">request</span><span class="p">;</span>
+	<span class="kr">private</span>     <span class="nx">Reponse</span>         <span class="nx">response</span><span class="p">;</span>
+	<span class="kr">private</span>     <span class="nx">FitNesseContext</span> <span class="nx">context</span><span class="p">;</span>
+	<span class="kr">protected</span>   <span class="kr">long</span>            <span class="nx">requestParsingTimeLimit</span><span class="p">;</span>
+	<span class="kr">private</span>     <span class="kr">long</span>            <span class="nx">requestProgress</span><span class="p">;</span>
+</code></pre></div><p>위와같은 정렬은 별로 유용하지 못하다. 코드가 엉뚱한 부분을 강조하기 때문이다.</p>
+<p>변수 유형은 무시하고 변수 이름부터 읽게된다. 정렬하지 않으면 오히려 중대한 결함을 찾기가 쉽다. 정렬이 필요할 정도로 목록이 길다면 문제는 목록 길이지 정렬 부족이 아니다.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-jsx" data-lang="jsx"><span class="kr">public</span> <span class="kr">class</span> <span class="nx">FitNesseExpediter</span> <span class="kr">implements</span> <span class="nx">ResponseSender</span>
+<span class="p">{</span>
+	<span class="kr">private</span> <span class="nx">Socket</span> <span class="nx">socket</span>
+	<span class="kr">private</span> <span class="nx">InputStream</span> <span class="nx">input</span><span class="p">;</span>
+	<span class="kr">private</span> <span class="nx">OutputStream</span> <span class="nx">output</span><span class="p">;</span>
+	<span class="kr">private</span> <span class="nx">Request</span> <span class="nx">request</span><span class="p">;</span>
+	<span class="kr">private</span> <span class="nx">Reponse</span> <span class="nx">response</span><span class="p">;</span>
+	<span class="kr">private</span> <span class="nx">FitNesseContext</span> <span class="nx">context</span><span class="p">;</span>
+	<span class="kr">protected</span> <span class="kr">long</span> <span class="nx">requestParsingTimeLimit</span><span class="p">;</span>
+	<span class="kr">private</span> <span class="kr">long</span> <span class="nx">requestProgress</span><span class="p">;</span>
+</code></pre></div><h3 id="들여쓰기">들여쓰기</h3>
+<p>소스 파일은 윤곽도와 계층이 비슷하다. 파일 전체에 적용되는 정보가 있고 , 파일 내 개별 클래스에 적용되는 정보가 있고, 클래스 내 각 매서드에 적용되는 정보가 있고, 블록 내 블록에 재귀적으로 적용되는 정보가 있다. 계층에서 각 수준은 이름을 선언하는 범위이자 선언문과 실행문을 해석하는 범위다들여쓰기한 파일은 구조가 한눈에 들어온다.</p>
+<h3 id="들여쓰기-무시하기">들여쓰기 무시하기.</h3>
+<p>무시하지 마라. 절대!</p>
+<h3 id="가짜-범위">가짜 범위</h3>
+<p>때로는 빈 while 문이나 for 문을 접한다. 가능한 피하려고 애쓰지만 피하지 못할 때는 빈 블록을 올바로 들여쓰고 괄호로 감싼다. 지금까지 나는 while 문 끝에 ; 하나를 살짝 덧붙인 코드로 수업이 골탕을 먹었다. ;은 새 행에다 제대로 들여써서 넣어준다. 그렇게 하지 않으면 눈에 띄지 않는다.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-jsx" data-lang="jsx"><span class="k">while</span><span class="p">(</span><span class="nx">dis</span><span class="p">.</span><span class="nx">read</span><span class="p">(</span><span class="nx">buf</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="nx">readBufferSize</span><span class="p">)</span> <span class="o">!=</span> <span class="o">-</span><span class="mi">1</span><span class="p">);</span>
+</code></pre></div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-jsx" data-lang="jsx">
+<span class="k">if</span><span class="p">(</span><span class="k">while</span><span class="p">(</span><span class="nx">dis</span><span class="p">.</span><span class="nx">read</span><span class="p">(</span><span class="nx">buf</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="nx">readBufferSize</span><span class="p">)</span> <span class="o">!=</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+<span class="p">;)</span>
+
+</code></pre></div><h3 id="팀-규칙">팀 규칙</h3>
+<p>팀은 한가지 규칙에 합의하여야한다. 그래야 소프트웨어가 스타일을 보인다. 개개인이 따로국밥으로 노는 코드는 피해야한다.</p>
+<p>좋은 소프트웨어 시스템은 읽기 쉬운 문서로 이뤄진다는 사실을 기억하기 바란다. 스타일은 일관적이고 매끄러워야 한다. 한 소스 파일에서 봤던 형식이 다른 소스파일에도 쓰이리라는 신뢰감을 독자에게 줘야한다.</p>
+
+</section>
+
+
+    <footer class="article-footer">
+    
+    <section class="article-tags">
+        
+            <a href="/tags/%ED%81%B4%EB%A6%B0%EC%BD%94%EB%93%9C/">클린코드</a>
+        
+            <a href="/tags/%ED%98%95%EC%8B%9D-%EB%A7%9E%EC%B6%94%EA%B8%B0/">형식 맞추기</a>
+        
+    </section>
+
+
+    
+    <section class="article-copyright">
+        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-copyright" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <path d="M14.5 9a3.5 4 0 1 0 0 6" />
+</svg>
+
+
+
+        <span>Licensed under CC BY-NC-SA 4.0</span>
+    </section>
+    </footer>
+
+
+    
+</article>
+
+    
+
+    <aside class="related-contents--wrapper">
+    
+    
+        <h2 class="section-title">관련 글</h2>
+        <div class="related-contents">
+            <div class="flex article-list--tile">
+                
+                    
+<article class="">
+    <a href="/p/1%EC%9E%A5-%ED%81%B4%EB%A6%B0%EC%BD%94%EB%93%9C/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">1장 클린코드</h2>
+        </div>
+    </a>
+</article>
+                
+                    
+<article class="">
+    <a href="/p/2%EC%9E%A5-%ED%95%A8%EC%88%98/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">2장 함수</h2>
+        </div>
+    </a>
+</article>
+                
+                    
+<article class="">
+    <a href="/p/3%EC%9E%A5-%EC%A3%BC%EC%84%9D/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">3장 주석</h2>
+        </div>
+    </a>
+</article>
+                
+            </div>
+        </div>
+    
+</aside>
+
+     
+    
+        
+    <div class="disqus-container">
+    <div id="disqus_thread"></div>
+<script type="application/javascript">
+    var disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "잊어버리는 하찮은 내 뇌를 위한 블로그" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+</div>
+
+<style>
+    .disqus-container {
+        background-color: var(--card-background);
+        border-radius: var(--card-border-radius);
+        box-shadow: var(--shadow-l1);
+        padding: var(--card-padding);
+    }
+</style>
+
+<script>
+    window.addEventListener('onColorSchemeChange', (e) => {
+        if (DISQUS) {
+            DISQUS.reset({
+                reload: true
+            });
+        }
+    })
+</script>
+
+    
+
+    <footer class="site-footer">
+    <section class="copyright">
+        &copy; 
+        
+            2020 - 
+        
+        2022 성원의 개발 블로그
+    </section>
+    
+    <section class="powerby">
+        <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a>로 만듦 <br />
+        <a href="https://jimmycai.com" target="_blank" rel="noopener">Jimmy</a>의 <b><a href="https://github.com/CaiJimmy/hugo-theme-stack" target="_blank" rel="noopener" data-version="3.6.0">Stack</a></b> 테마 사용 중
+    </section>
+</footer>
+
+
+    
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    
+    <div class="pswp__bg"></div>
+
+    
+    <div class="pswp__scroll-wrap">
+
+        
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                
+                
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js"integrity="sha256-ePwmChbbvXbsO02lbM3HoHbSHTHFAeChekF1xKJdleo="crossorigin="anonymous"
+                defer="true"
+                >
+            </script><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js"integrity="sha256-UKkzOn/w1mBxRmLLGrSeyB4e1xbrp4xylgAWb3M42pU="crossorigin="anonymous"
+                defer="true"
+                >
+            </script><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.css"integrity="sha256-c0uckgykQ9v5k&#43;IqViZOZKc47Jn7KQil4/MP3ySA3F8="crossorigin="anonymous"
+            ><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.css"integrity="sha256-SBLU4vv6CA6lHsZ1XyTdhyjJxCjPif/TRkjnsyGAGnE="crossorigin="anonymous"
+            >
+
+            </main>
+    
+        <aside class="sidebar right-sidebar sticky">
+            <section class="widget archives">
+                <div class="widget-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-hash" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <line x1="5" y1="9" x2="19" y2="9" />
+  <line x1="5" y1="15" x2="19" y2="15" />
+  <line x1="11" y1="4" x2="7" y2="20" />
+  <line x1="17" y1="4" x2="13" y2="20" />
+</svg>
+
+
+
+                </div>
+                <h2 class="widget-title section-title">목차</h2>
+                
+                <div class="widget--toc">
+                    <nav id="TableOfContents">
+  <ol>
+    <li><a href="#형식-맞추기">형식 맞추기</a>
+      <ol>
+        <li><a href="#형식을-맞추는-목적">형식을 맞추는 목적</a></li>
+        <li><a href="#신문-기사처럼-작성하라">신문 기사처럼 작성하라</a></li>
+        <li><a href="#개념은-빈-행으로-분리하라">개념은 빈 행으로 분리하라</a></li>
+        <li><a href="#세로-밀집도">세로 밀집도</a></li>
+        <li><a href="#수직거리">수직거리</a></li>
+        <li><a href="#인스턴스-변수">인스턴스 변수.</a></li>
+        <li><a href="#종속함수">종속함수.</a></li>
+        <li><a href="#개념적-유사성">개념적 유사성</a></li>
+        <li><a href="#세로-순서">세로 순서</a></li>
+        <li><a href="#가로-형식-맞추기">가로 형식 맞추기</a></li>
+        <li><a href="#가로-공백과-밀집도">가로 공백과 밀집도</a></li>
+        <li><a href="#가로-정렬">가로 정렬</a></li>
+        <li><a href="#들여쓰기">들여쓰기</a></li>
+        <li><a href="#들여쓰기-무시하기">들여쓰기 무시하기.</a></li>
+        <li><a href="#가짜-범위">가짜 범위</a></li>
+        <li><a href="#팀-규칙">팀 규칙</a></li>
+      </ol>
+    </li>
+  </ol>
+</nav>
+                </div>
+            </section>
+        </aside>
+    
+
+        </div>
+        <script 
+                src="https://cdn.jsdelivr.net/npm/node-vibrant@3.1.5/dist/vibrant.min.js"integrity="sha256-5NovOZc4iwiAWTYIFiIM7DxKUXKWvpVEuMEPLzcm5/g="crossorigin="anonymous"
+                defer="false"
+                >
+            </script><script type="text/javascript" src="/ts/main.js" defer></script>
+<script>
+    (function () {
+        const customFont = document.createElement('link');
+        customFont.href = "https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap";
+
+        customFont.type = "text/css";
+        customFont.rel = "stylesheet";
+
+        document.head.appendChild(customFont);
+    }());
+</script>
+
+    </body>
+</html>
