@@ -1,0 +1,571 @@
+<!DOCTYPE html>
+<html lang="euc-kr">
+    <head><meta charset='utf-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content='객체 변수를 비공개로 정의하는 이유가 있다. 남들이 변수에 의존하지 않게 만들고 싶어서다. 충동이든 변덕이든 변수 타입이나 구현을 맘대로 바꾸고 싶어서다. 그렇다면 어째서 수많은 프로그래머가 조회 함수와 설정 함수를 당연하게 공개 해 비공개 변수를 외부에 노출할까?
+자료 추상화 아래 두가지 코드가 있다. 두 클래스 모두 2차원 점을 표현한다. 그런데 한 클래스는 구현을 외부로 노출하고 다른 클래스는 구현을 완전히 숨긴다.
+public class Point{ public double x; public double y; } public class Point { private double x; private double y; public double getX(); public double getY(); public void setCartesian(double x, double y); } 아래 목록은 직교좌표계를 사용하는지 극좌표계를 사용하는 지 알 길이 없다.'><title>5장 객체와 자료구조</title>
+
+<link rel='canonical' href='https://sung-won95.github.io/p/5%EC%9E%A5-%EA%B0%9D%EC%B2%B4%EC%99%80-%EC%9E%90%EB%A3%8C%EA%B5%AC%EC%A1%B0/'>
+
+<link rel="stylesheet" href="/scss/style.min.775dbd4fd34fda61c5273b4bc3415f7c9666414fb6c40aab164a7ded4397da98.css"><meta property='og:title' content='5장 객체와 자료구조'>
+<meta property='og:description' content='객체 변수를 비공개로 정의하는 이유가 있다. 남들이 변수에 의존하지 않게 만들고 싶어서다. 충동이든 변덕이든 변수 타입이나 구현을 맘대로 바꾸고 싶어서다. 그렇다면 어째서 수많은 프로그래머가 조회 함수와 설정 함수를 당연하게 공개 해 비공개 변수를 외부에 노출할까?
+자료 추상화 아래 두가지 코드가 있다. 두 클래스 모두 2차원 점을 표현한다. 그런데 한 클래스는 구현을 외부로 노출하고 다른 클래스는 구현을 완전히 숨긴다.
+public class Point{ public double x; public double y; } public class Point { private double x; private double y; public double getX(); public double getY(); public void setCartesian(double x, double y); } 아래 목록은 직교좌표계를 사용하는지 극좌표계를 사용하는 지 알 길이 없다.'>
+<meta property='og:url' content='https://sung-won95.github.io/p/5%EC%9E%A5-%EA%B0%9D%EC%B2%B4%EC%99%80-%EC%9E%90%EB%A3%8C%EA%B5%AC%EC%A1%B0/'>
+<meta property='og:site_name' content='성원의 개발 블로그'>
+<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:tag' content='클린코드' /><meta property='article:tag' content='객체' /><meta property='article:published_time' content='2022-01-25T10:24:37&#43;09:00'/><meta property='article:modified_time' content='2022-01-25T10:24:37&#43;09:00'/>
+<meta name="twitter:title" content="5장 객체와 자료구조">
+<meta name="twitter:description" content="객체 변수를 비공개로 정의하는 이유가 있다. 남들이 변수에 의존하지 않게 만들고 싶어서다. 충동이든 변덕이든 변수 타입이나 구현을 맘대로 바꾸고 싶어서다. 그렇다면 어째서 수많은 프로그래머가 조회 함수와 설정 함수를 당연하게 공개 해 비공개 변수를 외부에 노출할까?
+자료 추상화 아래 두가지 코드가 있다. 두 클래스 모두 2차원 점을 표현한다. 그런데 한 클래스는 구현을 외부로 노출하고 다른 클래스는 구현을 완전히 숨긴다.
+public class Point{ public double x; public double y; } public class Point { private double x; private double y; public double getX(); public double getY(); public void setCartesian(double x, double y); } 아래 목록은 직교좌표계를 사용하는지 극좌표계를 사용하는 지 알 길이 없다.">
+    <link rel="shortcut icon" href="/profile.png" />
+
+    </head>
+    <body class="
+    article-page has-toc
+">
+    <script>
+        (function() {
+            const colorSchemeKey = 'StackColorScheme';
+            if(!localStorage.getItem(colorSchemeKey)){
+                localStorage.setItem(colorSchemeKey, "auto");
+            }
+        })();
+    </script><script>
+    (function() {
+        const colorSchemeKey = 'StackColorScheme';
+        const colorSchemeItem = localStorage.getItem(colorSchemeKey);
+        const supportDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches === true;
+
+        if (colorSchemeItem == 'dark' || colorSchemeItem === 'auto' && supportDarkMode) {
+            
+
+            document.documentElement.dataset.scheme = 'dark';
+        } else {
+            document.documentElement.dataset.scheme = 'light';
+        }
+    })();
+</script>
+<div class="container main-container flex 
+    
+        extended
+    
+">
+    
+        <div id="article-toolbar">
+            <a href="/" class="back-home">
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-chevron-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <polyline points="15 6 9 12 15 18" />
+</svg>
+
+
+
+                <span>뒤로가기</span>
+            </a>
+        </div>
+    
+<main class="main full-width">
+    <article class="main-article">
+    <header class="article-header">
+
+    <div class="article-details">
+    
+    <header class="article-category">
+        
+            <a href="/categories/%ED%81%B4%EB%A6%B0%EC%BD%94%EB%93%9C/" >
+                클린코드
+            </a>
+        
+    </header>
+    
+
+    <h2 class="article-title">
+        <a href="/p/5%EC%9E%A5-%EA%B0%9D%EC%B2%B4%EC%99%80-%EC%9E%90%EB%A3%8C%EA%B5%AC%EC%A1%B0/">5장 객체와 자료구조</a>
+    </h2>
+
+    
+
+    
+    <footer class="article-time">
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-calendar-time" width="56" height="56" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M11.795 21h-6.795a2 2 0 0 1 -2 -2v-12a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v4" />
+  <circle cx="18" cy="18" r="4" />
+  <path d="M15 3v4" />
+  <path d="M7 3v4" />
+  <path d="M3 11h16" />
+  <path d="M18 16.496v1.504l1 1" />
+</svg>
+                <time class="article-time--published">Jan 25, 2022</time>
+            </div>
+        
+
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <polyline points="12 7 12 12 15 15" />
+</svg>
+
+
+
+                <time class="article-time--reading">
+                    5 분 정도
+                </time>
+            </div>
+        
+    </footer>
+    
+</div>
+</header>
+
+    <section class="article-content">
+    <h2 id="객체">객체</h2>
+<p>변수를 비공개로 정의하는 이유가 있다. 남들이 변수에 의존하지 않게 만들고 싶어서다. 충동이든 변덕이든 변수 타입이나 구현을 맘대로 바꾸고 싶어서다. 그렇다면 어째서 수많은 프로그래머가 조회 함수와 설정 함수를 당연하게 공개 해 비공개 변수를 외부에 노출할까?</p>
+<h3 id="자료-추상화">자료 추상화</h3>
+<p>아래 두가지 코드가 있다. 두 클래스 모두 2차원 점을 표현한다. 그런데 한 클래스는 구현을 외부로 노출하고 다른 클래스는 구현을 완전히 숨긴다.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-jsx" data-lang="jsx"><span class="kr">public</span> <span class="kr">class</span> <span class="nx">Point</span><span class="p">{</span>
+	<span class="kr">public</span> <span class="kr">double</span> <span class="nx">x</span><span class="p">;</span>
+	<span class="kr">public</span> <span class="kr">double</span> <span class="nx">y</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-jsx" data-lang="jsx"><span class="kr">public</span> <span class="kr">class</span> <span class="nx">Point</span> <span class="p">{</span>
+    <span class="kr">private</span> <span class="kr">double</span> <span class="nx">x</span><span class="p">;</span>
+    <span class="kr">private</span> <span class="kr">double</span> <span class="nx">y</span><span class="p">;</span>
+    
+    <span class="kr">public</span> <span class="kr">double</span> <span class="nx">getX</span><span class="p">();</span>
+    <span class="kr">public</span> <span class="kr">double</span> <span class="nx">getY</span><span class="p">();</span>
+    <span class="kr">public</span> <span class="k">void</span> <span class="nx">setCartesian</span><span class="p">(</span><span class="kr">double</span> <span class="nx">x</span><span class="p">,</span> <span class="kr">double</span> <span class="nx">y</span><span class="p">);</span>
+    
+<span class="p">}</span>
+</code></pre></div><p>아래 목록은 직교좌표계를 사용하는지 극좌표계를 사용하는 지 알 길이 없다. 둘 다 아닐지도 모른다. 그럼에도 인터페이스는 자료구조를 명백하게 표현한다.</p>
+<p>사실 아래의 목록은 자료구조 이상을 표현한다. 클래스 메서드가 접근 정책을 강제한다. 좌표를 읽을땐 각 값을 개별적으로 읽어야 한다. 하지만 좌표를 설정할 땐 두 값을 한꺼번에 설정해야 한다.</p>
+<p>위의 목록은 직교좌표계를 사용한다. 개별적으로 좌표값을 읽고 설정해야한다. 또한 구현을 노출한다. 변수를 private 로 표현하더라도 각 값 마다 조회 함수와 설정함수를 제공한다면 구현을 외부로 노출하는 셈이다.</p>
+<p>사용자가 구현을 모른 채 자료의 핵심을 조작할 수 있어야 진정한 클래스이다.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-jsx" data-lang="jsx"><span class="kr">public</span> <span class="kr">interface</span> <span class="nx">Vehicle</span><span class="p">{</span>
+	<span class="kr">double</span> <span class="nx">getFuelTankCapacityInGallons</span><span class="p">();</span>
+	<span class="kr">double</span> <span class="nx">getGallonsOfGasoline</span><span class="p">();</span>
+<span class="p">}</span>
+</code></pre></div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-jsx" data-lang="jsx"><span class="kr">public</span> <span class="kr">interface</span> <span class="nx">Vehicle</span><span class="p">{</span>
+	<span class="kr">double</span> <span class="nx">getPercentFuelRemaining</span><span class="p">();</span>
+<span class="p">}</span>
+</code></pre></div><p>자료를 세세하게 표현하는 것 보다 추상적인 개념으로 표현하는 편이 좋다. 인터페이스나 조회/설정 함수만으로는 추상화가 이뤄지지 않는다. 개발자는 객체가 포함하는 자료를 표현할 가장 좋은 방법을 심각하게 고민해야한다.
+앞서 소개한 두 가지 예제는 객체와 자료 구조 사이에 벌어진 차이를 보여준다. 객체는 추상화 뒤로 자료를 숨긴 채 자료를 다루는 함수만 공개한다. 자료구조는 자료를 그대로 공개하며 별다른 함수는 제공하지 않는다.</p>
+<h3 id="자료객체-비대칭">자료/객체 비대칭</h3>
+<p>프로그램을 설계할 때 절차적으로 설계 할 것인가 객체 지향으로 설계할 것인가는 그때 그때 맞춰서 적용해야 한다. 도형의 넓이를 구하는 프로그램을 개발한다고 가정했을때 두가지 설계는 아래와 같다.</p>
+<p>절차지향 설계</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="kd">public</span> <span class="kd">class</span> <span class="nf">Square</span><span class="o">(){</span>
+    <span class="kd">public</span> <span class="n">Point</span> <span class="n">topLeft</span><span class="o">;</span>
+    <span class="kd">public</span> <span class="kt">double</span> <span class="n">side</span><span class="o">;</span>
+<span class="o">}</span>
+
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">Rectangle</span> <span class="o">{</span>
+    <span class="kd">public</span> <span class="n">Point</span> <span class="n">topLeft</span><span class="o">;</span>
+    <span class="kd">public</span> <span class="kt">double</span> <span class="n">height</span><span class="o">;</span>
+    <span class="kd">public</span> <span class="kt">double</span> <span class="n">width</span><span class="o">;</span>
+<span class="o">}</span>
+
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">Geometry</span><span class="o">{</span>
+    <span class="kd">public</span> <span class="kd">final</span> <span class="kt">double</span> <span class="n">PI</span> <span class="o">=</span> <span class="n">3</span><span class="o">.</span><span class="na">14159265</span><span class="o">;</span>
+    
+    <span class="kd">public</span> <span class="kt">double</span> <span class="nf">area</span><span class="o">(</span><span class="n">Object</span> <span class="n">shape</span><span class="o">)</span> <span class="kd">throws</span> <span class="n">NoSuchShapeException</span><span class="o">{</span>
+        <span class="k">if</span> <span class="o">(</span><span class="n">shape</span> <span class="k">instanceof</span> <span class="n">Square</span><span class="o">)</span> <span class="o">{</span>
+            <span class="n">Square</span> <span class="n">s</span> <span class="o">=</span> <span class="o">(</span><span class="n">Square</span><span class="o">)</span><span class="n">shape</span><span class="o">;</span>
+            <span class="k">return</span> <span class="n">s</span><span class="o">.</span><span class="na">side</span> <span class="o">*</span> <span class="n">s</span><span class="o">.</span><span class="na">side</span><span class="o">;</span>
+        <span class="o">}</span>
+        <span class="k">else</span> <span class="k">if</span> <span class="o">(</span><span class="n">shape</span> <span class="k">instanceof</span> <span class="n">Rectangle</span><span class="o">){</span>
+            <span class="n">Rectangle</span> <span class="n">r</span> <span class="o">=</span> <span class="o">(</span><span class="n">Rectangle</span><span class="o">)</span> <span class="n">shape</span><span class="o">;</span>
+            <span class="k">return</span> <span class="n">r</span><span class="o">.</span><span class="na">height</span> <span class="o">*</span> <span class="n">r</span><span class="o">.</span><span class="na">width</span><span class="o">;</span>
+        <span class="o">}</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div><p>Geometry 클래스에 perimeter() 함수를 추가하고 싶다면 도형 클래스는 아무런 영향도 받지 않는다.</p>
+<p>그러나 새 도형을 추가하려면 클래스에 속한 함수를 모두 고쳐야한다.</p>
+<p>객체지향 설계</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="kd">public</span> <span class="kd">interface</span> <span class="nc">Shape</span> <span class="o">{</span>
+    <span class="kd">public</span> <span class="kt">double</span> <span class="nf">area</span><span class="o">();</span>
+<span class="o">}</span>
+
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">Square</span> <span class="kd">implements</span> <span class="n">Shape</span> <span class="o">{</span>
+    <span class="kd">public</span> <span class="n">Point</span> <span class="n">topLeft</span><span class="o">;</span>
+    <span class="kd">public</span> <span class="kt">double</span> <span class="n">side</span><span class="o">;</span>
+
+    <span class="nd">@Override</span>
+    <span class="kd">public</span> <span class="kt">double</span> <span class="nf">area</span><span class="o">()</span> <span class="o">{</span>
+        <span class="k">return</span> <span class="k">this</span><span class="o">.</span><span class="na">side</span> <span class="o">*</span> <span class="k">this</span><span class="o">.</span><span class="na">side</span><span class="o">;</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">Rectangle</span> <span class="kd">implements</span> <span class="n">Shape</span> <span class="o">{</span>
+    <span class="kd">public</span> <span class="n">Point</span> <span class="n">topLeft</span><span class="o">;</span>
+    <span class="kd">public</span> <span class="kt">double</span> <span class="n">height</span><span class="o">;</span>
+    <span class="kd">public</span> <span class="kt">double</span> <span class="n">width</span><span class="o">;</span>
+
+    <span class="nd">@Override</span>
+    <span class="kd">public</span> <span class="kt">double</span> <span class="nf">area</span><span class="o">()</span> <span class="o">{</span>
+        <span class="k">return</span> <span class="k">this</span><span class="o">.</span><span class="na">height</span> <span class="o">*</span> <span class="k">this</span><span class="o">.</span><span class="na">width</span><span class="o">;</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div><p>객체 지향적인 설계다. 새 도형을 추가해도 아무런 영향을 미치지 않는다. 반면 새 함수를 추가하고 싶다면 도형 클래스를 전부 고쳐야한다.</p>
+<p>두 방법은 서로 상호 보완적인 특성이 있다. 사실상 반대이고 객체와 자료구조는 근본적으로 양분된다.</p>
+<p>객체 지향 코드에서 어려운 변경은 절차적인 코드에서 쉬우며, 절차적인 코드에서 어려운 변경은 객체 지향 코드에서 쉽다.</p>
+<p>복잡한 시스템은 짜다보면 새로운 함수가 아니라 새로운 자료 타입이 필요한 경우가 생긴다. 이럴경우 클래스와 객체 지향 기법이 가장 적합하다. 반면 새로운 함수가 필요할 경우 절차적인 코드와 자료구조가 좀 더 적합하다.</p>
+<p>모든 것이 객체라는 생각은 미신이다. 때로는 단순한 자료구조와 절차적인 코드가 적합한 상황도 있다.</p>
+<h3 id="디미터-법칙">디미터 법칙</h3>
+<p>디미터 법칙은 잘 알려진 휴리스틱으로 모듈은 자신이 조작하는 객체의 속사정을 몰라야 한다는 법칙이다. 앞 절에서 봤듯이, 객체는 자료를 숨기고 함수를 공개한다. 즉, 객체는 조회 함수로 내부 구조를 공개하면 안된다는 의미이다.</p>
+<p>&ldquo;클래스 C 의 메서드 f 는 다음과 같은 객체의 메서드만 호출해야 한다.&quot;-</p>
+<ul>
+<li>클래스 C</li>
+<li>f가 생성한 객체</li>
+<li>f 인수로 넘어온 객체</li>
+<li>C 인스턴스 변수에 저장된 객체</li>
+</ul>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-jsx" data-lang="jsx"><span class="kr">final</span> <span class="nb">String</span> <span class="nx">outputDir</span> <span class="o">=</span> <span class="nx">ctxt</span><span class="p">.</span><span class="nx">getOptions</span><span class="p">().</span><span class="nx">getScratchDir</span><span class="p">().</span><span class="nx">getAbsolutePath</span><span class="p">();</span>
+</code></pre></div><p>이 코드는 디미터 법칙을 어겼다.</p>
+<h3 id="기차-충돌">기차 충돌</h3>
+<p>위 코드를 우리는 기차충돌이라고 부른다. 여러 객차가 한 줄로 이어진 기차처럼 보이기 때문이며 조잡하다 여겨지는 방식이다.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-jsx" data-lang="jsx"><span class="nx">Options</span> <span class="nx">opts</span> <span class="o">=</span> <span class="nx">ctxt</span><span class="p">.</span><span class="nx">getOptions</span><span class="p">();</span>
+<span class="nx">File</span> <span class="nx">scratchDir</span> <span class="o">=</span> <span class="nx">opts</span><span class="p">.</span><span class="nx">getScratchDir</span><span class="p">();</span>
+<span class="kr">final</span> <span class="nb">String</span> <span class="nx">outputDir</span> <span class="o">=</span> <span class="nx">scratchDir</span><span class="p">.</span><span class="nx">getAbsolutePath</span><span class="p">();</span>
+</code></pre></div><p>방금 살펴본 코드는 위와같이 나누는 편이 좋다.</p>
+<p>위 코드는 디미터 법칙을 위반할까?</p>
+<p>이럴 경우 코드를 다음과 같이 구현했다면 전혀 문제가 되지 않는다.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-jsx" data-lang="jsx"><span class="kr">final</span> <span class="nb">String</span> <span class="nx">outputDir</span> <span class="o">=</span> <span class="nx">ctxt</span><span class="p">.</span><span class="nx">options</span><span class="p">.</span><span class="nx">scratchDir</span><span class="p">.</span><span class="nx">absolutePath</span><span class="p">;</span>
+</code></pre></div><p>자료구조는 무조건 함수 없이 공개 변수만 포함하고 객체는 비공개 변수와 공개 함수를 포함한다면, 문제는 훨씬 간단하다. 하지만 단순 자료구조에도 조회함수와 설정함수를 정의하라 요구하는 프레임워크와 표준(예, &lsquo;빈&rsquo;) 이 존재한다.</p>
+<h3 id="잡종구조">잡종구조</h3>
+<p>이런 혼란으로 말미암아 때때로 절반은 객체, 절반은 자료구조 인 잡종 구조가 나온다. 잡종 구조는 중요한 기능을 수행하는 함수도 있고, 공개 변수나 공개 조회/설정 함수도 있다.</p>
+<p>이런 잡종구조는 새로운 함수는 물론이고 새로운 자료 구조도 추가하기 어렵다. 양쪽 세상에서 단점만 모아놓은 구조다. 그러므로 잡종 구조는 되도록 피하는 편이 좋다. 프로그래머가 함수나 타입을 보호할지 공개할지 확신하지 못해 (무지해) 어중간하게 내놓은 설계에 불과하다.</p>
+<h3 id="구조체-감추기">구조체 감추기</h3>
+<p>만약 ctxt, options, scratchDir이 객체라면? 그렇다면 앞서 코드 예제처럼 줄줄이 사탕으로 엮으면 안된다.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-jsx" data-lang="jsx"><span class="nx">ctxt</span><span class="p">.</span><span class="nx">getAbsolutePathOfScratchDirectoryOption</span><span class="p">();</span>
+</code></pre></div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-jsx" data-lang="jsx"><span class="nx">ctxt</span><span class="p">.</span><span class="nx">getScratchDirectoryOption</span><span class="p">().</span><span class="nx">getAbsolutePath</span><span class="p">();</span>
+</code></pre></div><p>첫번째 방법은 ctxt 객체에 공개해야하는 메서드가 너무 많아진다. 두번째 방법은 getScratchDirectoryOption() 이 객체가 아니라 자료구조를 반환한다고 가정한다.</p>
+<p>ctxt 가 객체라면 뭔가를 하라고 말해야지 속을 드려내라고 말하면 안된다.</p>
+<p>왜 임시 디렉터리의 절대경로가 필요하지? 라는 의문을 가지게 한다.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-jsx" data-lang="jsx"><span class="nb">String</span> <span class="nx">outFile</span> <span class="o">=</span> <span class="nx">outputDir</span> <span class="o">+</span> <span class="s2">&#34;/&#34;</span> <span class="o">+</span> <span class="nx">className</span><span class="p">.</span><span class="nx">replace</span><span class="p">(</span><span class="s1">&#39;.&#39;</span><span class="p">,</span> <span class="s1">&#39;/&#39;</span><span class="p">)</span> <span class="o">+</span> <span class="s2">&#34;.class&#34;</span><span class="p">;</span>
+<span class="nx">FileOutputStream</span> <span class="nx">fout</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">FileOutputStream</span><span class="p">(</span><span class="nx">outFile</span><span class="p">);</span>
+<span class="nx">BufferedOutputStream</span> <span class="nx">bos</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">BufferedOutputStream</span><span class="p">(</span><span class="nx">fout</span><span class="p">);</span>
+</code></pre></div><p>추상화 수준을 뒤섞어 놓아 불편하다.</p>
+<p>임시 디렉터리의 절대 경로를 얻으려는 이유가 임시 파일을 생성하기 위함이라면 ctxt에게 임시파일을 만들라고 하면 된다.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-jsx" data-lang="jsx"><span class="nx">BufferedOutputStream</span> <span class="nx">bos</span> <span class="o">=</span> <span class="nx">ctxt</span><span class="p">.</span><span class="nx">createScratchFileStream</span><span class="p">(</span><span class="nx">classFileName</span><span class="p">);</span>
+</code></pre></div><h3 id="자료-전달-구조체">자료 전달 구조체</h3>
+<p>자료 구조체의 전형적인 형태는 공개 변수만 있고 함수가 없는 클래스다. 이런 자료 구조체를 때로는 자료 전달 객체라 한다. DTO는 굉장히 유용한 구조체다. 특히 데이터 베이스와 통신하거나 소켘에서 받은 메세지의 구문을 분석할 때 유용하다.</p>
+<p>흔히 DTO 는 데이터 베이스에 저장된 가공되지 않은 정보를 에플리케이션 코드에서 사용할 객체로 변환하는 일련의 단계에서 가장 처음으로 사용하는 구조체다.</p>
+<p>예로는 아래와 같다.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-dart" data-lang="dart"><span class="err">@</span><span class="n">data</span>
+<span class="n">public</span> <span class="kd">class</span> <span class="nc">Address</span> <span class="p">{</span>
+	<span class="n">private</span> <span class="kt">String</span> <span class="n">street</span><span class="p">;</span>
+	<span class="n">private</span> <span class="kt">String</span> <span class="n">streetExtra</span><span class="p">;</span>
+	<span class="n">private</span> <span class="kt">String</span> <span class="n">city</span><span class="p">;</span>
+	<span class="n">private</span> <span class="kt">String</span> <span class="n">state</span><span class="p">;</span>
+	<span class="n">private</span> <span class="kt">String</span> <span class="n">zip</span><span class="p">;</span>
+<span class="p">}</span>
+
+</code></pre></div><h3 id="활성-구조체">활성 구조체</h3>
+<p>활성 레코드는 DTO의 특수한 형태다. 공개 변수가 있거나 비공개 변수에 조회/설정 함수가 있는 자료 구조지만 대개 save 나 find 같은 탐색함수를 제공한다.활성 레코드는 데이터베이스 테이블이나 다른 소스에서 자료를 직접 변환한 결과다.</p>
+<p>불행히도 이런 자료구로를 객체로 취급하는 개발자가 흔하다. 하지만 이는 바람직 하지 않다. 그려면 자료구조도 아니고 객체도 아닌 잡종 구조가 나오기 때문이다.</p>
+<p>해결책은 당연하다. 활성 레코드는 자료구조로 취급한다.</p>
+<p>객체로 활용하기 위해선 내부자료로 활성 레코드를 사용하는 객체를 따로 만들어 관리하라.</p>
+<h3 id="결론">결론</h3>
+<p>객체는 동작을 공개하고 자료를 숨긴다. 그래서 기존 동작을 변경하지 않으면서 새 객체 타입을 추가하기는 쉬운 반면, 기존 객체에 새 동작을 추가하기는 어렵다. 자료 구조는 별다른 동작없이 자료를 노출한다. 그래서 기존 자료 구조에 새 동작을 추가하기는 쉬우나, 기존 함수에 새 자료 구조를 추가하기는 어렵다.</p>
+<p>시스템을 구현할때, 새로운 자료 타입을 추가하는 유연성이 필요햐면 객체 다른경우는 자료구조와 절차적인 코드가 더 적합하다. 우수한 개발자는 편견없이 이 사실을 이해해 최적의 해결책을 선택한다.</p>
+
+</section>
+
+
+    <footer class="article-footer">
+    
+    <section class="article-tags">
+        
+            <a href="/tags/%ED%81%B4%EB%A6%B0%EC%BD%94%EB%93%9C/">클린코드</a>
+        
+            <a href="/tags/%EA%B0%9D%EC%B2%B4/">객체</a>
+        
+    </section>
+
+
+    
+    <section class="article-copyright">
+        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-copyright" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <path d="M14.5 9a3.5 4 0 1 0 0 6" />
+</svg>
+
+
+
+        <span>Licensed under CC BY-NC-SA 4.0</span>
+    </section>
+    </footer>
+
+
+    
+</article>
+
+    
+
+    <aside class="related-contents--wrapper">
+    
+    
+        <h2 class="section-title">관련 글</h2>
+        <div class="related-contents">
+            <div class="flex article-list--tile">
+                
+                    
+<article class="">
+    <a href="/p/1%EC%9E%A5-%ED%81%B4%EB%A6%B0%EC%BD%94%EB%93%9C/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">1장 클린코드</h2>
+        </div>
+    </a>
+</article>
+                
+                    
+<article class="">
+    <a href="/p/2%EC%9E%A5-%ED%95%A8%EC%88%98/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">2장 함수</h2>
+        </div>
+    </a>
+</article>
+                
+                    
+<article class="">
+    <a href="/p/3%EC%9E%A5-%EC%A3%BC%EC%84%9D/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">3장 주석</h2>
+        </div>
+    </a>
+</article>
+                
+                    
+<article class="">
+    <a href="/p/4%EC%9E%A5-%ED%98%95%EC%8B%9D-%EB%A7%9E%EC%B6%94%EA%B8%B0/">
+        
+        
+
+        <div class="article-details">
+            <h2 class="article-title">4장 형식 맞추기</h2>
+        </div>
+    </a>
+</article>
+                
+            </div>
+        </div>
+    
+</aside>
+
+     
+    
+        
+    <div class="disqus-container">
+    <div id="disqus_thread"></div>
+<script type="application/javascript">
+    var disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "잊어버리는 하찮은 내 뇌를 위한 블로그" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+</div>
+
+<style>
+    .disqus-container {
+        background-color: var(--card-background);
+        border-radius: var(--card-border-radius);
+        box-shadow: var(--shadow-l1);
+        padding: var(--card-padding);
+    }
+</style>
+
+<script>
+    window.addEventListener('onColorSchemeChange', (e) => {
+        if (DISQUS) {
+            DISQUS.reset({
+                reload: true
+            });
+        }
+    })
+</script>
+
+    
+
+    <footer class="site-footer">
+    <section class="copyright">
+        &copy; 
+        
+            2020 - 
+        
+        2022 성원의 개발 블로그
+    </section>
+    
+    <section class="powerby">
+        <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a>로 만듦 <br />
+        <a href="https://jimmycai.com" target="_blank" rel="noopener">Jimmy</a>의 <b><a href="https://github.com/CaiJimmy/hugo-theme-stack" target="_blank" rel="noopener" data-version="3.6.0">Stack</a></b> 테마 사용 중
+    </section>
+</footer>
+
+
+    
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    
+    <div class="pswp__bg"></div>
+
+    
+    <div class="pswp__scroll-wrap">
+
+        
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                
+                
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js"integrity="sha256-ePwmChbbvXbsO02lbM3HoHbSHTHFAeChekF1xKJdleo="crossorigin="anonymous"
+                defer="true"
+                >
+            </script><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js"integrity="sha256-UKkzOn/w1mBxRmLLGrSeyB4e1xbrp4xylgAWb3M42pU="crossorigin="anonymous"
+                defer="true"
+                >
+            </script><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.css"integrity="sha256-c0uckgykQ9v5k&#43;IqViZOZKc47Jn7KQil4/MP3ySA3F8="crossorigin="anonymous"
+            ><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.css"integrity="sha256-SBLU4vv6CA6lHsZ1XyTdhyjJxCjPif/TRkjnsyGAGnE="crossorigin="anonymous"
+            >
+
+            </main>
+    
+        <aside class="sidebar right-sidebar sticky">
+            <section class="widget archives">
+                <div class="widget-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-hash" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <line x1="5" y1="9" x2="19" y2="9" />
+  <line x1="5" y1="15" x2="19" y2="15" />
+  <line x1="11" y1="4" x2="7" y2="20" />
+  <line x1="17" y1="4" x2="13" y2="20" />
+</svg>
+
+
+
+                </div>
+                <h2 class="widget-title section-title">목차</h2>
+                
+                <div class="widget--toc">
+                    <nav id="TableOfContents">
+  <ol>
+    <li><a href="#객체">객체</a>
+      <ol>
+        <li><a href="#자료-추상화">자료 추상화</a></li>
+        <li><a href="#자료객체-비대칭">자료/객체 비대칭</a></li>
+        <li><a href="#디미터-법칙">디미터 법칙</a></li>
+        <li><a href="#기차-충돌">기차 충돌</a></li>
+        <li><a href="#잡종구조">잡종구조</a></li>
+        <li><a href="#구조체-감추기">구조체 감추기</a></li>
+        <li><a href="#자료-전달-구조체">자료 전달 구조체</a></li>
+        <li><a href="#활성-구조체">활성 구조체</a></li>
+        <li><a href="#결론">결론</a></li>
+      </ol>
+    </li>
+  </ol>
+</nav>
+                </div>
+            </section>
+        </aside>
+    
+
+        </div>
+        <script 
+                src="https://cdn.jsdelivr.net/npm/node-vibrant@3.1.5/dist/vibrant.min.js"integrity="sha256-5NovOZc4iwiAWTYIFiIM7DxKUXKWvpVEuMEPLzcm5/g="crossorigin="anonymous"
+                defer="false"
+                >
+            </script><script type="text/javascript" src="/ts/main.js" defer></script>
+<script>
+    (function () {
+        const customFont = document.createElement('link');
+        customFont.href = "https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap";
+
+        customFont.type = "text/css";
+        customFont.rel = "stylesheet";
+
+        document.head.appendChild(customFont);
+    }());
+</script>
+
+    </body>
+</html>
