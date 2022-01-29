@@ -6,16 +6,15 @@
     <description>Recent content in 클린코드 on 성원의 개발 블로그</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>euc-kr</language>
-    <lastBuildDate>Tue, 25 Jan 2022 10:24:37 +0900</lastBuildDate><atom:link href="https://sung-won95.github.io/tags/%ED%81%B4%EB%A6%B0%EC%BD%94%EB%93%9C/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 29 Jan 2022 09:24:37 +0900</lastBuildDate><atom:link href="https://sung-won95.github.io/tags/%ED%81%B4%EB%A6%B0%EC%BD%94%EB%93%9C/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>5장 객체와 자료구조</title>
-      <link>https://sung-won95.github.io/p/5%EC%9E%A5-%EA%B0%9D%EC%B2%B4%EC%99%80-%EC%9E%90%EB%A3%8C%EA%B5%AC%EC%A1%B0/</link>
-      <pubDate>Tue, 25 Jan 2022 10:24:37 +0900</pubDate>
+      <title>6장 주석</title>
+      <link>https://sung-won95.github.io/p/6%EC%9E%A5-%EC%A3%BC%EC%84%9D/</link>
+      <pubDate>Sat, 29 Jan 2022 09:24:37 +0900</pubDate>
       
-      <guid>https://sung-won95.github.io/p/5%EC%9E%A5-%EA%B0%9D%EC%B2%B4%EC%99%80-%EC%9E%90%EB%A3%8C%EA%B5%AC%EC%A1%B0/</guid>
-      <description>객체 변수를 비공개로 정의하는 이유가 있다. 남들이 변수에 의존하지 않게 만들고 싶어서다. 충동이든 변덕이든 변수 타입이나 구현을 맘대로 바꾸고 싶어서다. 그렇다면 어째서 수많은 프로그래머가 조회 함수와 설정 함수를 당연하게 공개 해 비공개 변수를 외부에 노출할까?
-자료 추상화 아래 두가지 코드가 있다. 두 클래스 모두 2차원 점을 표현한다. 그런데 한 클래스는 구현을 외부로 노출하고 다른 클래스는 구현을 완전히 숨긴다.
-public class Point{ public double x; public double y; } public class Point { private double x; private double y; public double getX(); public double getY(); public void setCartesian(double x, double y); } 아래 목록은 직교좌표계를 사용하는지 극좌표계를 사용하는 지 알 길이 없다.</description>
+      <guid>https://sung-won95.github.io/p/6%EC%9E%A5-%EC%A3%BC%EC%84%9D/</guid>
+      <description>오류처리 오류처리는 코드를 작성함에 있어서 무조건 작성해야하는 기능이다. 모든 프로그램은 잘못될 가능성이 있기 때문이다. 이 오류코드들을 그때그때 처리하게되면 프로그램을 한눈에 파악하기 힘들어지기 때문에 우아하고 고상하게 오류를 처리하는 기법과 고려사항 몇가지를 소개한다.
+오류코드보다 예외를 사용해라 public void sendShutDown(){ DeviceHandle handle = getHandle(DEV1); if(handle != DeviceHandle.INVALID){ retrieveDeviceRecord(handle); if(record.getStatus() != DeviceHandle.SUSPENDED){ //record.set 어쩌구  //이서비스 저서비스 	} else{ // device suspended 오류 발생 예외코드 	} } else { //Invalid handle 오류 발생 예외코드 	} } 이렇게 오류코드를 사용하면 호출자 코드도 보기 불편하고 복잡해진다</description>
     </item>
     
     <item>

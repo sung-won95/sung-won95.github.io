@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>오류처리 on 성원의 개발 블로그</title>
+    <link>https://sung-won95.github.io/tags/%EC%98%A4%EB%A5%98%EC%B2%98%EB%A6%AC/</link>
+    <description>Recent content in 오류처리 on 성원의 개발 블로그</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>euc-kr</language>
+    <lastBuildDate>Sat, 29 Jan 2022 09:24:37 +0900</lastBuildDate><atom:link href="https://sung-won95.github.io/tags/%EC%98%A4%EB%A5%98%EC%B2%98%EB%A6%AC/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>6장 주석</title>
+      <link>https://sung-won95.github.io/p/6%EC%9E%A5-%EC%A3%BC%EC%84%9D/</link>
+      <pubDate>Sat, 29 Jan 2022 09:24:37 +0900</pubDate>
+      
+      <guid>https://sung-won95.github.io/p/6%EC%9E%A5-%EC%A3%BC%EC%84%9D/</guid>
+      <description>오류처리 오류처리는 코드를 작성함에 있어서 무조건 작성해야하는 기능이다. 모든 프로그램은 잘못될 가능성이 있기 때문이다. 이 오류코드들을 그때그때 처리하게되면 프로그램을 한눈에 파악하기 힘들어지기 때문에 우아하고 고상하게 오류를 처리하는 기법과 고려사항 몇가지를 소개한다.
+오류코드보다 예외를 사용해라 public void sendShutDown(){ DeviceHandle handle = getHandle(DEV1); if(handle != DeviceHandle.INVALID){ retrieveDeviceRecord(handle); if(record.getStatus() != DeviceHandle.SUSPENDED){ //record.set 어쩌구  //이서비스 저서비스 	} else{ // device suspended 오류 발생 예외코드 	} } else { //Invalid handle 오류 발생 예외코드 	} } 이렇게 오류코드를 사용하면 호출자 코드도 보기 불편하고 복잡해진다</description>
+    </item>
+    
+  </channel>
+</rss>
